@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3658B74F6004F9C095D83820 /* Pods_Impoort_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B402A1EBB0D5E3D36435322A /* Pods_Impoort_IOS.framework */; };
 		4893007423428A91004B37AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4893007323428A91004B37AD /* AppDelegate.swift */; };
 		4893007623428A91004B37AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4893007523428A91004B37AD /* ViewController.swift */; };
 		4893007923428A91004B37AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4893007723428A91004B37AD /* Main.storyboard */; };
@@ -22,6 +23,9 @@
 		4893007A23428A92004B37AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4893007D23428A92004B37AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4893007F23428A92004B37AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8594E1A827AAA942A1D16F0B /* Pods-Impoort-IOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impoort-IOS.release.xcconfig"; path = "Target Support Files/Pods-Impoort-IOS/Pods-Impoort-IOS.release.xcconfig"; sourceTree = "<group>"; };
+		9BB33F7F4F06B3993D6E468E /* Pods-Impoort-IOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impoort-IOS.debug.xcconfig"; path = "Target Support Files/Pods-Impoort-IOS/Pods-Impoort-IOS.debug.xcconfig"; sourceTree = "<group>"; };
+		B402A1EBB0D5E3D36435322A /* Pods_Impoort_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Impoort_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3658B74F6004F9C095D83820 /* Pods_Impoort_IOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				4893007223428A91004B37AD /* Impoort-IOS */,
 				4893007123428A91004B37AD /* Products */,
+				CE0218619D37F65979260290 /* Pods */,
+				613A134B5A5EC3778AFC21B5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,24 @@
 			path = "Impoort-IOS";
 			sourceTree = "<group>";
 		};
+		613A134B5A5EC3778AFC21B5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B402A1EBB0D5E3D36435322A /* Pods_Impoort_IOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE0218619D37F65979260290 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9BB33F7F4F06B3993D6E468E /* Pods-Impoort-IOS.debug.xcconfig */,
+				8594E1A827AAA942A1D16F0B /* Pods-Impoort-IOS.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +96,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4893008223428A92004B37AD /* Build configuration list for PBXNativeTarget "Impoort-IOS" */;
 			buildPhases = (
+				E344BD7436B3BEC0DDB1E2E5 /* [CP] Check Pods Manifest.lock */,
 				4893006C23428A91004B37AD /* Sources */,
 				4893006D23428A91004B37AD /* Frameworks */,
 				4893006E23428A91004B37AD /* Resources */,
+				D0F567C9ED25E91DDBAD3A0E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D0F567C9ED25E91DDBAD3A0E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Impoort-IOS/Pods-Impoort-IOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Impoort-IOS/Pods-Impoort-IOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Impoort-IOS/Pods-Impoort-IOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E344BD7436B3BEC0DDB1E2E5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Impoort-IOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4893006C23428A91004B37AD /* Sources */ = {
@@ -280,6 +349,7 @@
 		};
 		4893008323428A92004B37AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BB33F7F4F06B3993D6E468E /* Pods-Impoort-IOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +368,7 @@
 		};
 		4893008423428A92004B37AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8594E1A827AAA942A1D16F0B /* Pods-Impoort-IOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

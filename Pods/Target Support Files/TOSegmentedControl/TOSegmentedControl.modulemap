@@ -1,0 +1,6 @@
+framework module TOSegmentedControl {
+  umbrella header "TOSegmentedControl-umbrella.h"
+
+  export *
+  module * { export * }
+}

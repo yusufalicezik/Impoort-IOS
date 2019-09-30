@@ -1,0 +1,6 @@
+framework module Pods_Impoort_IOS {
+  umbrella header "Pods-Impoort-IOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

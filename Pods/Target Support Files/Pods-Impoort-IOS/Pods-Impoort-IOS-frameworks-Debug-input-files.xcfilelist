@@ -1,0 +1,25 @@
+${PODS_ROOT}/Target Support Files/Pods-Impoort-IOS/Pods-Impoort-IOS-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework
+${BUILT_PRODUCTS_DIR}/Connectivity/Connectivity.framework
+${BUILT_PRODUCTS_DIR}/DGElasticPullToRefresh/DGElasticPullToRefresh.framework
+${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework
+${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework
+${BUILT_PRODUCTS_DIR}/Letters/Letters.framework
+${BUILT_PRODUCTS_DIR}/ListPlaceholder/ListPlaceholder.framework
+${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework
+${BUILT_PRODUCTS_DIR}/PanModal/PanModal.framework
+${BUILT_PRODUCTS_DIR}/Pastel/Pastel.framework
+${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework
+${BUILT_PRODUCTS_DIR}/QuickLayout/QuickLayout.framework
+${BUILT_PRODUCTS_DIR}/Repeat/Repeat.framework
+${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework
+${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework
+${BUILT_PRODUCTS_DIR}/SwiftWebSocket/SwiftWebSocket.framework
+${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover/SwiftyPickerPopover.framework
+${BUILT_PRODUCTS_DIR}/SwiftyShadow/SwiftyShadow.framework
+${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework
+${BUILT_PRODUCTS_DIR}/TOSegmentedControl/TOSegmentedControl.framework
+${BUILT_PRODUCTS_DIR}/ViewAnimator/ViewAnimator.framework
+${BUILT_PRODUCTS_DIR}/netfox/netfox.framework

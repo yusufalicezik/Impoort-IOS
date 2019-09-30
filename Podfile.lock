@@ -1,0 +1,113 @@
+PODS:
+  - Alamofire (4.8.2)
+  - Cloudinary (2.7.0):
+    - Alamofire (~> 4.8.2)
+  - Connectivity (3.1.1)
+  - DGElasticPullToRefresh (1.1)
+  - DynamicBlurView (3.0.1)
+  - IQKeyboardManagerSwift (6.5.1)
+  - Letters (2.1.1)
+  - ListPlaceholder (1.4)
+  - netfox (1.16.0)
+  - NVActivityIndicatorView (4.8.0):
+    - NVActivityIndicatorView/Presenter (= 4.8.0)
+  - NVActivityIndicatorView/Presenter (4.8.0)
+  - PanModal (1.2.4)
+  - Pastel (0.6.0)
+  - PopupDialog (1.1.0):
+    - DynamicBlurView (~> 3.0.1)
+  - QuickLayout (3.0.0)
+  - Repeat (0.6.0)
+  - SDWebImage (5.2.0):
+    - SDWebImage/Core (= 5.2.0)
+  - SDWebImage/Core (5.2.0)
+  - SwiftDate (6.1.0)
+  - SwiftEntryKit (1.1.3):
+    - QuickLayout (= 3.0.0)
+  - SwiftWebSocket (2.7.0)
+  - SwiftyPickerPopover (6.6.5)
+  - SwiftyShadow (1.7.0)
+  - SwipeCellKit (2.7.1)
+  - TOSegmentedControl (1.0.1)
+  - ViewAnimator (2.5.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - Cloudinary (~> 2.0)
+  - Connectivity
+  - DGElasticPullToRefresh
+  - IQKeyboardManagerSwift
+  - Letters
+  - ListPlaceholder
+  - netfox
+  - NVActivityIndicatorView
+  - PanModal
+  - Pastel
+  - PopupDialog
+  - Repeat
+  - SDWebImage
+  - SwiftDate
+  - SwiftEntryKit (= 1.1.3)
+  - SwiftWebSocket
+  - SwiftyPickerPopover
+  - SwiftyShadow (~> 1.7.0)
+  - SwipeCellKit
+  - TOSegmentedControl
+  - ViewAnimator
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Cloudinary
+    - Connectivity
+    - DGElasticPullToRefresh
+    - DynamicBlurView
+    - IQKeyboardManagerSwift
+    - Letters
+    - ListPlaceholder
+    - netfox
+    - NVActivityIndicatorView
+    - PanModal
+    - Pastel
+    - PopupDialog
+    - QuickLayout
+    - Repeat
+    - SDWebImage
+    - SwiftDate
+    - SwiftEntryKit
+    - SwiftWebSocket
+    - SwiftyPickerPopover
+    - SwiftyShadow
+    - SwipeCellKit
+    - TOSegmentedControl
+    - ViewAnimator
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Cloudinary: d9b2d7d7692a6deb51227fa9f4e7cf8f49d6c375
+  Connectivity: ba066ca8d135f0c94adf2179afbf135a9de47cfa
+  DGElasticPullToRefresh: 28f11a6026302a90f8ffebbc6e24748e584dddd3
+  DynamicBlurView: b1df5415f9bd31897549e5d7077e5ec120a4d636
+  IQKeyboardManagerSwift: 9ac7524fad9f9fe9a3b98c927e7772471ca546d2
+  Letters: 34476b0d413813bcf9273b2760be7ff4cd75f5c7
+  ListPlaceholder: 08ddaddf67520a20fc52cf37160fb56aa64d071d
+  netfox: 4590811e5b02e392c72a924c73e000a60ee1f0c7
+  NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
+  PanModal: 275f6d4d07565ddf4ed16d7be5d9cd275682d80d
+  Pastel: 814f081efbe2859c37e65ee44f396e6e5be88619
+  PopupDialog: 42fb7a0bc4fafdf89fef8b5b2b127a6023f3e1cc
+  QuickLayout: 07b45a72b10083fee3f095990cfed1c1e7b27f0a
+  Repeat: fd80848f4b3d6f133b18fdee04fd193aff6b31ff
+  SDWebImage: 609192dcf3898c910a2848032372ead951e66364
+  SwiftDate: fa2bb3962056bb44047b4b85a30044e5eae30b03
+  SwiftEntryKit: be00509cf6e1e88b57bb96cf2114b09cf20ee84a
+  SwiftWebSocket: 612c9729fd503cb6b0b8b45390c788686dac306f
+  SwiftyPickerPopover: f2975fd0233d04c0a8f8d52d09b6f24b882de6fb
+  SwiftyShadow: d2697c62eb83759b7806466e3ea29de24c772c29
+  SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
+  TOSegmentedControl: d875428148b1d319a3455548fcccb2918a178bf7
+  ViewAnimator: 173932c659a43c5a15c665878750d92801ae2cf1
+
+PODFILE CHECKSUM: 1f1c77b4266b3c7b5c89b293fb7fed635d34ce16
+
+COCOAPODS: 1.7.3
