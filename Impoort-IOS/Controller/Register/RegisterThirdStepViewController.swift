@@ -9,6 +9,7 @@
 import UIKit
 import ViewAnimator
 
+
 class RegisterThirdStepViewController: BaseViewController {
 
     @IBOutlet weak var userTypeTableView: UITableView!
@@ -42,11 +43,12 @@ class RegisterThirdStepViewController: BaseViewController {
             UIView.animate(views: self.userTypeTableView.visibleCells,
                            animations: [self.fromAnimation!], delay: 0.55)
         })
-        
         TxtFieldConfig.shared.givePadding(to: sectorTxtField)
     }
     
     @IBAction func finisButtonClicked(_ sender: Any) {
+        //if everything is ok;
+        AlertController.shared.showBasicAlert(viewCont: self, title: "Success", message: "Please verify your account with e mail that we sent", buttonTitle: "Ok")
 
     }
     

@@ -82,6 +82,9 @@ class RegisterSecondStepViewController: BaseViewController {
         }
         datePicker.setCancelButton(color: #colorLiteral(red: 0.4375773668, green: 0.8031894565, blue: 0.7201564908, alpha: 1)) { (_, _) in
         }
+        //let loc = Locale.init(identifier: "tur")
+        //datePicker.setLocale(loc)
+
         datePicker.appear(originView: self.dateOfBirthOrEstablishedTxtField, baseViewController: self)
         
        

@@ -39,8 +39,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="-6" translatesAutoresizingMaskIntoConstraints="NO" id="nkB-n1-WLn">
                                 <rect key="frame" x="20" y="576" width="335" height="51"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Henüz bir hesabın yok mu?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7a0-GS-hmy">
-                                        <rect key="frame" x="77.5" y="0.0" width="180.5" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account yet?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7a0-GS-hmy">
+                                        <rect key="frame" x="76.5" y="0.0" width="182.5" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="s4E-On-GiX"/>
                                         </constraints>
@@ -48,8 +48,8 @@
                                         <color key="textColor" red="0.37647058820000001" green="0.76862745099999996" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Veya" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNS-bc-uRU">
-                                        <rect key="frame" x="151.5" y="15" width="32" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNS-bc-uRU">
+                                        <rect key="frame" x="159" y="15" width="17.5" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="UTv-ur-wBL"/>
                                         </constraints>
@@ -57,8 +57,8 @@
                                         <color key="textColor" red="0.37647058820000001" green="0.76862745099999996" blue="0.66274509800000003" alpha="0.47300406680000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Şifreni mi unuttun?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qan-Bw-31M">
-                                        <rect key="frame" x="105" y="30" width="125" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot password?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qan-Bw-31M">
+                                        <rect key="frame" x="107.5" y="30" width="120" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="e6J-u3-QW0"/>
                                         </constraints>
@@ -243,7 +243,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="adg-ut-Bi3">
                                                 <rect key="frame" x="10" y="186" width="315" height="52"/>
@@ -263,7 +263,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -406,7 +406,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" textContentType="tel"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vBD-zK-o0n">
                                                 <rect key="frame" x="10" y="62" width="315" height="52"/>
@@ -564,7 +564,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Investor" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEg-XL-o6G">
-                                                            <rect key="frame" x="0.0" y="5" width="315" height="52"/>
+                                                            <rect key="frame" x="0.0" y="3" width="315" height="52"/>
                                                             <color key="backgroundColor" red="0.3952077329158783" green="0.72444349527359009" blue="0.64772164821624756" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="52" id="LI8-7v-BKB"/>
@@ -578,8 +578,8 @@
                                                     <constraints>
                                                         <constraint firstItem="ZEg-XL-o6G" firstAttribute="leading" secondItem="lLO-3s-piG" secondAttribute="leading" id="53B-ny-dGD"/>
                                                         <constraint firstAttribute="trailing" secondItem="ZEg-XL-o6G" secondAttribute="trailing" id="m1U-bp-brT"/>
-                                                        <constraint firstAttribute="bottom" secondItem="ZEg-XL-o6G" secondAttribute="bottom" constant="5" id="mgQ-Ou-foo"/>
-                                                        <constraint firstItem="ZEg-XL-o6G" firstAttribute="top" secondItem="lLO-3s-piG" secondAttribute="top" constant="5" id="z1E-LQ-AFG"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ZEg-XL-o6G" secondAttribute="bottom" constant="3" id="mgQ-Ou-foo"/>
+                                                        <constraint firstItem="ZEg-XL-o6G" firstAttribute="top" secondItem="lLO-3s-piG" secondAttribute="top" constant="3" id="z1E-LQ-AFG"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

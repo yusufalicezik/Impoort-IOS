@@ -15,6 +15,7 @@
 		483DD9B92348051400DCA3A1 /* RegisterThirdStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9B82348051400DCA3A1 /* RegisterThirdStepViewController.swift */; };
 		483DD9BB23480C5900DCA3A1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9BA23480C5900DCA3A1 /* User.swift */; };
 		483DD9BE234814B900DCA3A1 /* SectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9BD234814B900DCA3A1 /* SectorCell.swift */; };
+		483DD9C023482AF900DCA3A1 /* AlertConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9BF23482AF900DCA3A1 /* AlertConroller.swift */; };
 		4893007423428A91004B37AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4893007323428A91004B37AD /* AppDelegate.swift */; };
 		4893007623428A91004B37AD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4893007523428A91004B37AD /* LoginViewController.swift */; };
 		4893007923428A91004B37AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4893007723428A91004B37AD /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 		483DD9B82348051400DCA3A1 /* RegisterThirdStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterThirdStepViewController.swift; sourceTree = "<group>"; };
 		483DD9BA23480C5900DCA3A1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		483DD9BD234814B900DCA3A1 /* SectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectorCell.swift; sourceTree = "<group>"; };
+		483DD9BF23482AF900DCA3A1 /* AlertConroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertConroller.swift; sourceTree = "<group>"; };
 		4893007023428A91004B37AD /* Impoort-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Impoort-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4893007323428A91004B37AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4893007523428A91004B37AD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		483DD9AB2347F4C600DCA3A1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				483DD9BF23482AF900DCA3A1 /* AlertConroller.swift */,
 				483DD9AD2347F99F00DCA3A1 /* TxtFieldConfig.swift */,
 			);
 			path = Utils;
@@ -305,6 +308,7 @@
 				4893007423428A91004B37AD /* AppDelegate.swift in Sources */,
 				483DD9B72348050A00DCA3A1 /* RegisterSecondStepViewController.swift in Sources */,
 				483DD9B92348051400DCA3A1 /* RegisterThirdStepViewController.swift in Sources */,
+				483DD9C023482AF900DCA3A1 /* AlertConroller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
