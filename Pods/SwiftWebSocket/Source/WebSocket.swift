@@ -967,8 +967,8 @@ private class InnerWebSocket: Hashable {
     }
 
     func closeConn() {
-        rd.remove(from: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
-        wr.remove(from: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
+        rd.remove(from: RunLoop.main, forMode: RunLoop.Mode.default)
+        wr.remove(from: RunLoop.main, forMode: RunLoop.Mode.default)
         rd.delegate = nil
         wr.delegate = nil
         rd.close()
@@ -1024,7 +1024,7 @@ private class InnerWebSocket: Hashable {
 			security = .none
 		}
 
-		var path = CFURLCopyPath(req.url! as CFURL!) as String
+        var path = CFURLCopyPath(req.url! as CFURL?) as String
         if path == "" {
             path = "/"
         }
@@ -1058,7 +1058,7 @@ private class InnerWebSocket: Hashable {
         var (rdo, wro) : (InputStream?, OutputStream?)
         var readStream:  Unmanaged<CFReadStream>?
         var writeStream: Unmanaged<CFWriteStream>?
-        CFStreamCreatePairWithSocketToHost(nil, addr[0] as CFString!, UInt32(Int(addr[1])!), &readStream, &writeStream);
+        CFStreamCreatePairWithSocketToHost(nil, addr[0] as CFString?, UInt32(Int(addr[1])!), &readStream, &writeStream);
         rdo = readStream!.takeRetainedValue()
         wro = writeStream!.takeRetainedValue()
         (rd, wr) = (rdo!, wro!)
@@ -1087,8 +1087,8 @@ private class InnerWebSocket: Hashable {
         }
         rd.delegate = delegate
         wr.delegate = delegate
-        rd.schedule(in: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
-        wr.schedule(in: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
+        rd.schedule(in: RunLoop.main, forMode: RunLoop.Mode.default)
+        wr.schedule(in: RunLoop.main, forMode: RunLoop.Mode.default)
         rd.open()
         wr.open()
         try write(header, length: header.count)
@@ -1650,7 +1650,7 @@ open class WebSocket: NSObject {
     fileprivate var ws: InnerWebSocket
     fileprivate var id = manager.nextId()
     fileprivate var opened: Bool
-    open override var hashValue: Int { return id }
+    open override var hash: Int { return id }
     /// Create a WebSocket connection to a URL; this should be the URL to which the WebSocket server will respond.
     public convenience init(_ url: String){
         self.init(request: URLRequest(url: URL(string: url)!), subProtocols: [])
