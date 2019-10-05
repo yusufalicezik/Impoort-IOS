@@ -36,4 +36,32 @@ class TxtFieldConfig{
         textfield.rightView = UIView(frame:
             CGRect(x: -10, y: 0, width: 30, height: 30))
     }
+    
+    func giveTickToRight(to textField:UITextField){
+        let image = UIImage(named: "icontick")
+        let iconView = UIImageView(frame:
+            CGRect(x: 10, y: 5, width: 20, height: 20))
+        iconView.image = image
+        let iconContainerView: UIView = UIView(frame:
+            CGRect(x: 30, y: 0, width: 35, height: 30))
+        iconContainerView.addSubview(iconView)
+        textField.rightViewMode = UITextField.ViewMode.always
+        textField.rightView = iconContainerView
+    }
+    
+    func giveErrorToRight(to textField:UITextField){
+        let image = UIImage(named: "iconclose")
+        let iconView = UIImageView(frame:
+            CGRect(x: 10, y: 5, width: 20, height: 20))
+        iconView.image = image
+        let iconContainerView: UIView = UIView(frame:
+            CGRect(x: 30, y: 0, width: 35, height: 30))
+        iconContainerView.addSubview(iconView)
+        textField.rightViewMode = UITextField.ViewMode.always
+        textField.rightView = iconContainerView
+    }
+    func giveEmptyToRight(to textField:UITextField){
+        textField.rightView = nil
+    }
+    
 }

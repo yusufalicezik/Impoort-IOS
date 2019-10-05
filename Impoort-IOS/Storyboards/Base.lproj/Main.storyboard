@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Impoort_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Impoort_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -398,7 +398,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hTa-bm-nEj">
                                         <rect key="frame" x="0.0" y="107.5" width="335" height="238"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pdo-xn-oqI">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pdo-xn-oqI" customClass="PhoneNumberTextField" customModule="PhoneNumberKit">
                                                 <rect key="frame" x="10" y="0.0" width="315" height="52"/>
                                                 <color key="backgroundColor" red="1" green="0.99607843139999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -490,7 +490,7 @@
                         <outlet property="dateOfBirthOrEstablishedTxtField" destination="sOD-Ce-SgG" id="gMH-yU-WzJ"/>
                         <outlet property="genderTxtField" destination="1qK-x1-Fe5" id="uUl-i1-GQg"/>
                         <outlet property="nextButton" destination="8Nr-PK-Jed" id="T2M-rv-pjZ"/>
-                        <outlet property="phoneNumberTxtField" destination="Pdo-xn-oqI" id="xbH-c7-Rlj"/>
+                        <outlet property="phoneNumberTxtField" destination="Pdo-xn-oqI" id="Ops-bu-vyx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kZM-xs-pbO" userLabel="First Responder" sceneMemberID="firstResponder"/>

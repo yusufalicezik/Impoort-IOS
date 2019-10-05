@@ -8,14 +8,16 @@
 
 import UIKit
 import SwiftyPickerPopover
+import PhoneNumberKit
 
 class RegisterSecondStepViewController: BaseViewController {
-
-    @IBOutlet weak var phoneNumberTxtField: UITextField!
+    
+    @IBOutlet weak var phoneNumberTxtField: PhoneNumberTextField!
     @IBOutlet weak var cityTxtField: UITextField!
     @IBOutlet weak var dateOfBirthOrEstablishedTxtField: UITextField!
     @IBOutlet weak var genderTxtField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
+    let phoneNumberKit = PhoneNumberKit()
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -36,19 +38,23 @@ class RegisterSecondStepViewController: BaseViewController {
             i?.isUserInteractionEnabled = true
             i?.delegate = self
         }
-
-        
         
         let genderRecognizer = UITapGestureRecognizer(target: self, action: #selector(openGenderPopup))
         genderTxtField.addGestureRecognizer(genderRecognizer)
-        
         let dateOfBirthRecognizer = UITapGestureRecognizer(target: self, action: #selector(openDatePopup))
         dateOfBirthOrEstablishedTxtField.addGestureRecognizer(dateOfBirthRecognizer)
+        
+        phoneNumberTxtField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
 
     }
     
     @IBAction func nextButtonClicked(_ sender: Any) {
-        self.goToRegisterThirdStep()
+        if validate(){
+            giveRegisteredUserInfo()
+            self.goToRegisterThirdStep()
+        }else{
+            AlertController.shared.showBasicAlert(viewCont: self, title: "Error", message: "Please check your information", buttonTitle: "Ok")
+        }
     }
     @IBAction func backButtonClicked(_ sender: Any) {
         self.goToBack()
@@ -76,7 +82,7 @@ class RegisterSecondStepViewController: BaseViewController {
         let datePicker = DatePickerPopover(title: "Select Date")
         datePicker.setDoneButton(color: #colorLiteral(red: 0.4375773668, green: 0.8031894565, blue: 0.7201564908, alpha: 1)) { popover, selectedDate in
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
+            dateFormatter.dateFormat = "dd-MM-yyyy"
             let dateString = dateFormatter.string(from: selectedDate)
             self.dateOfBirthOrEstablishedTxtField.text = dateString
         }
@@ -84,15 +90,52 @@ class RegisterSecondStepViewController: BaseViewController {
         }
         //let loc = Locale.init(identifier: "tur")
         //datePicker.setLocale(loc)
-
         datePicker.appear(originView: self.dateOfBirthOrEstablishedTxtField, baseViewController: self)
-        
-       
     }
+    func validate()->Bool{
+        var result = true
+        if phoneNumberTxtField.text!.isEmpty || phoneNumberTxtField.text == " "{
+            result = false
+            AlertController.shared.showBasicAlert(viewCont: self, title: "Error", message: "Please check your phone, it can not be empty", buttonTitle: "Ok")
+        }else if cityTxtField.text!.isEmpty || cityTxtField.text == " "{
+            result = false
+            AlertController.shared.showBasicAlert(viewCont: self, title: "Error", message: "Please check your city, it can not be empty", buttonTitle: "Ok")
+        }else if dateOfBirthOrEstablishedTxtField.text!.isEmpty || dateOfBirthOrEstablishedTxtField.text == ""{
+            result = false
+            AlertController.shared.showBasicAlert(viewCont: self, title: "Error", message: "Please check your Birth/Established date, it can not be empty", buttonTitle: "Ok")
+        }else if !phoneNumberTxtField.text!.isValidPhone(){
+            result = false
+            AlertController.shared.showBasicAlert(viewCont: self, title: "Error", message: "Please check your phone, it must be phone format", buttonTitle: "Ok")
+        }else if genderTxtField.text!.isEmpty || genderTxtField.text == " "{
+            result = false
+            AlertController.shared.showBasicAlert(viewCont: self, title: "Error", message: "Please check your gender, it can not be empty", buttonTitle: "Ok")
+        }
+        return result
+    }
+    func giveRegisteredUserInfo(){
+        RegisteredUser.shared.user.phoneNumber = self.phoneNumberTxtField.text!
+        RegisteredUser.shared.user.gender = self.genderTxtField.text!
+        RegisteredUser.shared.user.city = self.cityTxtField.text!
+        RegisteredUser.shared.user.birthDate = self.dateOfBirthOrEstablishedTxtField.text!
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+
+    }
+    
 
 }
 extension RegisterSecondStepViewController : UITextFieldDelegate{
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         return false
+    }
+}
+extension String {
+    func isValidPhone() -> Bool {
+        if self.count > 11{
+            return true
+        }else{
+            return false
+        }
     }
 }

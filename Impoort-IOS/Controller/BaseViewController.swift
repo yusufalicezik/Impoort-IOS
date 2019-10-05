@@ -13,8 +13,6 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-
-        
     }
     
     func goToRegisterFirstStep(){
@@ -52,8 +50,24 @@ class BaseViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
+    
+    func goToLogin(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginViewController
+        if let navBar = self.navigationController{
+            navBar.pushViewController(vc!, animated: true)
+        }else{
+            self.present(vc!, animated: true, completion: nil)
+        }
+    }
 
 }
+
+class RegisteredUser{
+    static let shared = RegisteredUser()
+    var user = User()
+}
+
 extension UIApplication {
     var statusBarView: UIView? {
         if responds(to: Selector("statusBar")) {

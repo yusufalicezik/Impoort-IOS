@@ -8,13 +8,14 @@
 
 import UIKit
 import ViewAnimator
-
+import Alamofire
 
 class RegisterThirdStepViewController: BaseViewController {
 
     @IBOutlet weak var userTypeTableView: UITableView!
     @IBOutlet weak var finishButton: UIButton!
     @IBOutlet weak var sectorTxtField: UITextField!
+    var selectedProfileType:Int = -1
     var fromAnimation : AnimationType?
     var sectorTypeStrings = ["Investor", "Developer", "Startup", "Just User"]
     override func viewDidLoad() {
@@ -48,16 +49,64 @@ class RegisterThirdStepViewController: BaseViewController {
     
     @IBAction func finisButtonClicked(_ sender: Any) {
         //if everything is ok;
-        AlertController.shared.showBasicAlert(viewCont: self, title: "Success", message: "Please verify your account with e mail that we sent", buttonTitle: "Ok")
+        if validate(){
+            self.giveRegisteredUserInfo()
+            //post atılacak
+//             let parameters = [
+//                    "firstName": RegisteredUser.shared.user.firstName!,
+//                    "lastName": RegisteredUser.shared.user.lastName!,
+//                    "birthDate":RegisteredUser.shared.user.birthDate!,
+//                    "city":RegisteredUser.shared.user.city!,
+//                    "email":RegisteredUser.shared.user.email!,
+//                    "gender":RegisteredUser.shared.user.gender!,
+//                    "phoneNumber":RegisteredUser.shared.user.phoneNumber!,
+//                    "password":RegisteredUser.shared.user.password!,
+//                    "sector":RegisteredUser.shared.user.sector!,
+//                    "userType":RegisteredUser.shared.user.userType!
+//                ] as [String : Any]
+//
+//            Alamofire.request("http://192.168.43.156:8080/auth/signUp", method:.post,
+//                    parameters:parameters,  encoding: JSONEncoding.default).responseJSON { response in
+//                    switch response.result {
+//                    case .success:
+//                        print(response)
+//                    case .failure(let error):
+//                        print(error)
+//                    default :
+//                        print("default")
+//                    }
+//
+//                }
+
+            AlertController.shared.showBasicAlert(viewCont: self, title: "Success", message: "Please verify your account with e mail that we sent", buttonTitle: "Ok") {
+                self.goToLogin()
+            }
+        }
 
     }
     
+    
+    func validate()->Bool{
+        var result = true
+        if sectorTxtField.text!.isEmpty || sectorTxtField.text == " "{
+            result = false
+            AlertController.shared.showBasicAlert(viewCont: self, title: "Error", message: "Please check your sector, it can not be empty", buttonTitle: "Ok")
+        }
+        if self.selectedProfileType == -1{
+            result = false
+             AlertController.shared.showBasicAlert(viewCont: self, title: "Error", message: "Please select a profile type, it can not be empty", buttonTitle: "Ok")
+        }
+        return result
+    }
     
     @IBAction func backButtonClicked(_ sender: Any) {
         self.goToBack()
     }
     
- 
+    func giveRegisteredUserInfo(){
+        RegisteredUser.shared.user.userType = self.selectedProfileType
+        RegisteredUser.shared.user.sector = self.sectorTxtField.text
+    }
 
 }
 extension RegisterThirdStepViewController : UITableViewDelegate, UITableViewDataSource {
@@ -80,6 +129,7 @@ extension RegisterThirdStepViewController : UITableViewDelegate, UITableViewData
         }
         let cell = tableView.cellForRow(at: indexPath) as? SectorCell
         cell?.sectorNameTxtField.backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
+        selectedProfileType = indexPath.row
         //self.userTypeTableView.deselectRow(at: indexPath, animated: false)
 
     }

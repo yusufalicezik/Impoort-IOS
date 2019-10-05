@@ -81,96 +81,103 @@
 			<key>orderHint</key>
 			<integer>11</integer>
 		</dict>
-		<key>Pods-Impoort-IOS.xcscheme</key>
+		<key>PhoneNumberKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>12</integer>
 		</dict>
-		<key>PopupDialog.xcscheme</key>
+		<key>Pods-Impoort-IOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>13</integer>
 		</dict>
-		<key>QuickLayout.xcscheme</key>
+		<key>PopupDialog.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>14</integer>
 		</dict>
-		<key>Repeat.xcscheme</key>
+		<key>QuickLayout.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>15</integer>
 		</dict>
-		<key>SDWebImage.xcscheme</key>
+		<key>Repeat.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>16</integer>
 		</dict>
-		<key>SwiftDate.xcscheme</key>
+		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>17</integer>
 		</dict>
-		<key>SwiftEntryKit.xcscheme</key>
+		<key>SwiftDate.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>18</integer>
 		</dict>
-		<key>SwiftWebSocket.xcscheme</key>
+		<key>SwiftEntryKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>19</integer>
 		</dict>
-		<key>SwiftyPickerPopover.xcscheme</key>
+		<key>SwiftWebSocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>20</integer>
 		</dict>
-		<key>SwiftyShadow.xcscheme</key>
+		<key>SwiftyPickerPopover.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>21</integer>
 		</dict>
-		<key>SwipeCellKit.xcscheme</key>
+		<key>SwiftyShadow.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>22</integer>
 		</dict>
-		<key>TOSegmentedControl.xcscheme</key>
+		<key>SwipeCellKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>23</integer>
 		</dict>
-		<key>ViewAnimator.xcscheme</key>
+		<key>TOSegmentedControl.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>24</integer>
+		</dict>
+		<key>ViewAnimator.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>25</integer>
 		</dict>
 		<key>netfox.xcscheme</key>
 		<dict>
