@@ -22,6 +22,12 @@
 		48491706234A77E90093091D /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48491704234A77E90093091D /* PostCell.xib */; };
 		48491709234A93180093091D /* PostCellWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48491707234A93180093091D /* PostCellWithImage.swift */; };
 		4849170A234A93180093091D /* PostCellWithImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48491708234A93180093091D /* PostCellWithImage.xib */; };
+		485AD836234AC0FE008E8E52 /* External.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 485AD835234AC0FE008E8E52 /* External.storyboard */; };
+		485AD839234AC46D008E8E52 /* MessagesGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AD838234AC46D008E8E52 /* MessagesGeneralViewController.swift */; };
+		485AD83B234AC485008E8E52 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AD83A234AC485008E8E52 /* ChatViewController.swift */; };
+		485AD83E234AC861008E8E52 /* MessagesGeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AD83D234AC861008E8E52 /* MessagesGeneralCell.swift */; };
+		485AD840234AD306008E8E52 /* ChatLeftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AD83F234AD306008E8E52 /* ChatLeftCell.swift */; };
+		485AD842234AD313008E8E52 /* ChatRightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AD841234AD313008E8E52 /* ChatRightCell.swift */; };
 		4893007423428A91004B37AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4893007323428A91004B37AD /* AppDelegate.swift */; };
 		4893007623428A91004B37AD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4893007523428A91004B37AD /* LoginViewController.swift */; };
 		4893007923428A91004B37AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4893007723428A91004B37AD /* Main.storyboard */; };
@@ -44,6 +50,12 @@
 		48491704234A77E90093091D /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		48491707234A93180093091D /* PostCellWithImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellWithImage.swift; sourceTree = "<group>"; };
 		48491708234A93180093091D /* PostCellWithImage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCellWithImage.xib; sourceTree = "<group>"; };
+		485AD835234AC0FE008E8E52 /* External.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = External.storyboard; sourceTree = "<group>"; };
+		485AD838234AC46D008E8E52 /* MessagesGeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesGeneralViewController.swift; sourceTree = "<group>"; };
+		485AD83A234AC485008E8E52 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		485AD83D234AC861008E8E52 /* MessagesGeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesGeneralCell.swift; sourceTree = "<group>"; };
+		485AD83F234AD306008E8E52 /* ChatLeftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLeftCell.swift; sourceTree = "<group>"; };
+		485AD841234AD313008E8E52 /* ChatRightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRightCell.swift; sourceTree = "<group>"; };
 		4893007023428A91004B37AD /* Impoort-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Impoort-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4893007323428A91004B37AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4893007523428A91004B37AD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -71,8 +83,9 @@
 		483DD9A62347F48100DCA3A1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				484916FF234A71CC0093091D /* Home */,
+				485AD837234AC454008E8E52 /* Messages */,
 				483DD9B22348042E00DCA3A1 /* BaseViewController.swift */,
+				484916FF234A71CC0093091D /* Home */,
 				483DD9AC2347F8B200DCA3A1 /* Login */,
 				483DD9AF2348032B00DCA3A1 /* Register */,
 			);
@@ -108,6 +121,7 @@
 			children = (
 				4893007723428A91004B37AD /* Main.storyboard */,
 				484916FD234A5EA10093091D /* Home.storyboard */,
+				485AD835234AC0FE008E8E52 /* External.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -142,6 +156,7 @@
 		483DD9BC2348149E00DCA3A1 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				485AD83C234AC83F008E8E52 /* MessageCell */,
 				48491702234A77C80093091D /* PostCell */,
 				483DD9BD234814B900DCA3A1 /* SectorCell.swift */,
 			);
@@ -165,6 +180,25 @@
 				48491708234A93180093091D /* PostCellWithImage.xib */,
 			);
 			path = PostCell;
+			sourceTree = "<group>";
+		};
+		485AD837234AC454008E8E52 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				485AD838234AC46D008E8E52 /* MessagesGeneralViewController.swift */,
+				485AD83A234AC485008E8E52 /* ChatViewController.swift */,
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
+		485AD83C234AC83F008E8E52 /* MessageCell */ = {
+			isa = PBXGroup;
+			children = (
+				485AD83D234AC861008E8E52 /* MessagesGeneralCell.swift */,
+				485AD83F234AD306008E8E52 /* ChatLeftCell.swift */,
+				485AD841234AD313008E8E52 /* ChatRightCell.swift */,
+			);
+			path = MessageCell;
 			sourceTree = "<group>";
 		};
 		4893006723428A91004B37AD = {
@@ -283,6 +317,7 @@
 				4893007B23428A92004B37AD /* Assets.xcassets in Resources */,
 				48491706234A77E90093091D /* PostCell.xib in Resources */,
 				4893007923428A91004B37AD /* Main.storyboard in Resources */,
+				485AD836234AC0FE008E8E52 /* External.storyboard in Resources */,
 				484916FE234A5EA10093091D /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,12 +378,17 @@
 				48491709234A93180093091D /* PostCellWithImage.swift in Sources */,
 				483DD9AE2347F99F00DCA3A1 /* TxtFieldConfig.swift in Sources */,
 				483DD9BB23480C5900DCA3A1 /* User.swift in Sources */,
+				485AD840234AD306008E8E52 /* ChatLeftCell.swift in Sources */,
 				4893007423428A91004B37AD /* AppDelegate.swift in Sources */,
 				48491701234A71DC0093091D /* HomeViewController.swift in Sources */,
+				485AD842234AD313008E8E52 /* ChatRightCell.swift in Sources */,
 				483DD9B72348050A00DCA3A1 /* RegisterSecondStepViewController.swift in Sources */,
+				485AD83E234AC861008E8E52 /* MessagesGeneralCell.swift in Sources */,
 				483DD9B92348051400DCA3A1 /* RegisterThirdStepViewController.swift in Sources */,
 				483DD9C023482AF900DCA3A1 /* AlertConroller.swift in Sources */,
 				48491705234A77E90093091D /* PostCell.swift in Sources */,
+				485AD83B234AC485008E8E52 /* ChatViewController.swift in Sources */,
+				485AD839234AC46D008E8E52 /* MessagesGeneralViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

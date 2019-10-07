@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     let refreshControl = UIRefreshControl()
@@ -36,7 +36,10 @@ class HomeViewController: UIViewController {
         }
     }
 
-
+    @IBAction func messagesButtonClicked(_ sender: Any) {
+        self.goToMessagesGeneral()
+    }
+    
 }
 extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

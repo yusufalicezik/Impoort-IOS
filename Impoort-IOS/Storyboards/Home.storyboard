@@ -28,10 +28,10 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXF-7K-9Ah">
-                                        <rect key="frame" x="369" y="14.5" width="30" height="25"/>
+                                        <rect key="frame" x="372" y="16" width="27" height="22"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="QNs-Mw-STf"/>
-                                            <constraint firstAttribute="width" constant="30" id="WGr-7C-ZkN"/>
+                                            <constraint firstAttribute="height" constant="22" id="QNs-Mw-STf"/>
+                                            <constraint firstAttribute="width" constant="27" id="WGr-7C-ZkN"/>
                                         </constraints>
                                         <state key="normal" image="messageicon"/>
                                     </button>
@@ -79,10 +79,10 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npu-9J-xoz">
-                                        <rect key="frame" x="369" y="14.5" width="30" height="25"/>
+                                        <rect key="frame" x="372" y="16" width="27" height="22"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="6iV-mq-ctt"/>
-                                            <constraint firstAttribute="height" constant="25" id="CJe-vl-D54"/>
+                                            <constraint firstAttribute="width" constant="27" id="6iV-mq-ctt"/>
+                                            <constraint firstAttribute="height" constant="22" id="CJe-vl-D54"/>
                                         </constraints>
                                         <state key="normal" image="messageicon"/>
                                     </button>
@@ -113,6 +113,21 @@
             <point key="canvasLocation" x="1662" y="711"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="Wi7-eW-Vld">
+            <objects>
+                <viewController id="TGR-UO-0bx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yCt-Mr-VuD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="WiF-SP-FGd"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bbo-ps-6Bh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3129" y="-1281"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="SnU-DZ-j7J">
             <objects>
                 <viewController id="cxe-MX-W5f" sceneMemberID="viewController">
@@ -124,10 +139,10 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="95y-Sq-plc">
-                                        <rect key="frame" x="369" y="14.5" width="30" height="25"/>
+                                        <rect key="frame" x="372" y="16" width="27" height="22"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="a2I-rA-sJ2"/>
-                                            <constraint firstAttribute="width" constant="30" id="g8J-7t-d0O"/>
+                                            <constraint firstAttribute="height" constant="22" id="a2I-rA-sJ2"/>
+                                            <constraint firstAttribute="width" constant="27" id="g8J-7t-d0O"/>
                                         </constraints>
                                         <state key="normal" image="messageicon"/>
                                     </button>
@@ -181,12 +196,15 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yTu-no-ayF">
-                                        <rect key="frame" x="369" y="14.5" width="30" height="25"/>
+                                        <rect key="frame" x="372" y="16" width="27" height="22"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="PUY-N8-dSQ"/>
-                                            <constraint firstAttribute="width" constant="30" id="tph-ak-fFO"/>
+                                            <constraint firstAttribute="height" constant="22" id="PUY-N8-dSQ"/>
+                                            <constraint firstAttribute="width" constant="27" id="tph-ak-fFO"/>
                                         </constraints>
                                         <state key="normal" image="messageicon"/>
+                                        <connections>
+                                            <action selector="messagesButtonClicked:" destination="a6d-5e-Tfp" eventType="touchUpInside" id="Uaa-7o-z8V"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -247,19 +265,29 @@
                                             <constraint firstAttribute="height" constant="33" id="5Fz-RP-CdB"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYF-SW-LXQ">
-                                        <rect key="frame" x="369" y="14.5" width="30" height="25"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Dq-OQ-niQ">
+                                        <rect key="frame" x="15" y="12.5" width="25" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="cHq-aG-4wv"/>
-                                            <constraint firstAttribute="height" constant="25" id="s19-bF-1Yu"/>
+                                            <constraint firstAttribute="width" constant="25" id="Zlc-tb-uHh"/>
+                                            <constraint firstAttribute="height" constant="25" id="gdA-95-lGR"/>
+                                        </constraints>
+                                        <state key="normal" image="settingsicon"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYF-SW-LXQ">
+                                        <rect key="frame" x="372" y="16" width="27" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="27" id="cHq-aG-4wv"/>
+                                            <constraint firstAttribute="height" constant="22" id="s19-bF-1Yu"/>
                                         </constraints>
                                         <state key="normal" image="messageicon"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="4Dq-OQ-niQ" firstAttribute="leading" secondItem="cB8-z6-wmi" secondAttribute="leading" constant="15" id="91V-lQ-Ola"/>
                                     <constraint firstAttribute="bottom" secondItem="OZK-13-h4R" secondAttribute="bottom" constant="10" id="NXh-Dc-mUc"/>
                                     <constraint firstAttribute="height" constant="50" id="Yca-PQ-03l"/>
+                                    <constraint firstItem="4Dq-OQ-niQ" firstAttribute="centerY" secondItem="cB8-z6-wmi" secondAttribute="centerY" id="aag-fL-a51"/>
                                     <constraint firstAttribute="trailing" secondItem="OZK-13-h4R" secondAttribute="trailing" constant="20" id="bJd-Qd-laX"/>
                                     <constraint firstItem="NYF-SW-LXQ" firstAttribute="centerY" secondItem="cB8-z6-wmi" secondAttribute="centerY" constant="2" id="bWZ-Iw-RHA"/>
                                     <constraint firstAttribute="trailing" secondItem="NYF-SW-LXQ" secondAttribute="trailing" constant="15" id="lAp-hm-MNW"/>
@@ -402,6 +430,7 @@
         <image name="messageicon" width="60" height="51"/>
         <image name="person" width="16" height="16.5"/>
         <image name="search" width="22" height="22"/>
+        <image name="settingsicon" width="60" height="60"/>
         <image name="share" width="23" height="23"/>
         <image name="watch" width="23" height="17"/>
     </resources>

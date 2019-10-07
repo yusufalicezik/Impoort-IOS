@@ -71,6 +71,19 @@ class BaseViewController: UIViewController {
             self.present(vc!, animated: true, completion: nil)
         }
     }
+    
+    func goToMessagesGeneral(){
+        let storyboard = UIStoryboard(name: "External", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MessagesGeneralVC") as? MessagesGeneralViewController
+            self.present(vc!, animated: true, completion: nil)
+    }
+    
+    func goToChatVC(){ //id de gönderilecek. mesajlasılan kisinin.
+        let storyboard = UIStoryboard(name: "External", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ChatVC") as? ChatViewController
+        self.present(vc!, animated: true, completion: nil)
+        
+    }
 
 }
 
