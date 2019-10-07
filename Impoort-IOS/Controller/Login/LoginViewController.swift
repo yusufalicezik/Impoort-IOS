@@ -39,6 +39,7 @@ class LoginViewController: BaseViewController {
     }
     
     @IBAction func loginButtonClicked(_ sender: Any) {
+        self.goToHome()
     }
     
 }

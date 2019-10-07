@@ -66,7 +66,7 @@ class RegisterThirdStepViewController: BaseViewController {
 //                ] as [String : Any]
 //
 //            Alamofire.request("http://192.168.43.156:8080/auth/signUp", method:.post,
-//                    parameters:parameters,  encoding: JSONEncoding.default).responseJSON { response in
+//                    parameters:parameters).responseJSON { response in
 //                    switch response.result {
 //                    case .success:
 //                        print(response)

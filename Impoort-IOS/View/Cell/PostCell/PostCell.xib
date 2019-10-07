@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="323" id="KGk-i7-Jjw" customClass="PostCell" customModule="Impoort_IOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="405" height="323"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="405" height="322.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yNo-i1-nme">
+                        <rect key="frame" x="15" y="5" width="375" height="312.5"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JqE-M4-CkZ">
+                                <rect key="frame" x="10" y="10" width="335" height="50"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img" translatesAutoresizingMaskIntoConstraints="NO" id="gmg-z1-Ogl">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="PVF-0N-Z6N"/>
+                                            <constraint firstAttribute="width" constant="50" id="qZ8-au-Zl9"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-22" translatesAutoresizingMaskIntoConstraints="NO" id="qqd-Wm-ZYc">
+                                        <rect key="frame" x="60" y="0.0" width="275" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yusuf Ali Çezik" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qy5-oE-sfi">
+                                                <rect key="frame" x="0.0" y="0.0" width="275" height="36"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
+                                                <color key="textColor" red="0.49803921568627452" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IOS Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCM-AK-f0h">
+                                                <rect key="frame" x="0.0" y="14" width="275" height="36"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
+                                                <color key="textColor" red="0.43137254901960786" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJt-bM-Tym">
+                                <rect key="frame" x="10" y="70" width="355" height="205.5"/>
+                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum est ultricies integer quis auctor elit. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo. Adipiscing bibendum est Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.42635842011296909" green="0.43057979060913709" blue="0.43057979060913709" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMR-lX-74o">
+                                <rect key="frame" x="35" y="285.5" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="JQI-72-N6M"/>
+                                    <constraint firstAttribute="height" constant="22" id="rav-jx-6lQ"/>
+                                </constraints>
+                                <state key="normal" image="likeicon"/>
+                                <connections>
+                                    <action selector="likeButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Lbr-F6-aQC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSw-ZJ-6d4">
+                                <rect key="frame" x="318" y="285.5" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="pCX-tw-cyK"/>
+                                    <constraint firstAttribute="height" constant="22" id="zyN-tR-Pvr"/>
+                                </constraints>
+                                <state key="normal" image="watchicon"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9S-3Q-2En">
+                                <rect key="frame" x="176.5" y="285.5" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="VxY-O2-xBs"/>
+                                    <constraint firstAttribute="width" constant="22" id="itL-7C-2Zt"/>
+                                </constraints>
+                                <state key="normal" image="commenticon"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="b9S-3Q-2En" firstAttribute="centerX" secondItem="yNo-i1-nme" secondAttribute="centerX" id="2s9-1f-yjW"/>
+                            <constraint firstAttribute="trailing" secondItem="dSw-ZJ-6d4" secondAttribute="trailing" constant="35" id="36G-00-0MZ"/>
+                            <constraint firstItem="QMR-lX-74o" firstAttribute="leading" secondItem="yNo-i1-nme" secondAttribute="leading" constant="35" id="4lh-Dh-g0h"/>
+                            <constraint firstAttribute="bottom" secondItem="b9S-3Q-2En" secondAttribute="bottom" constant="5" id="6sA-E9-G1i"/>
+                            <constraint firstAttribute="bottom" secondItem="dSw-ZJ-6d4" secondAttribute="bottom" constant="5" id="Nev-zE-AR1"/>
+                            <constraint firstItem="JqE-M4-CkZ" firstAttribute="leading" secondItem="yNo-i1-nme" secondAttribute="leading" constant="10" id="T0j-CI-8o1"/>
+                            <constraint firstItem="QMR-lX-74o" firstAttribute="top" secondItem="IJt-bM-Tym" secondAttribute="bottom" constant="10" id="UMJ-00-o4W"/>
+                            <constraint firstAttribute="bottom" secondItem="QMR-lX-74o" secondAttribute="bottom" constant="5" id="bPn-Us-ZtK"/>
+                            <constraint firstItem="IJt-bM-Tym" firstAttribute="top" secondItem="JqE-M4-CkZ" secondAttribute="bottom" constant="10" id="f2Y-sH-owH"/>
+                            <constraint firstItem="JqE-M4-CkZ" firstAttribute="top" secondItem="yNo-i1-nme" secondAttribute="top" constant="10" id="gK0-OP-Rsg"/>
+                            <constraint firstAttribute="trailing" secondItem="JqE-M4-CkZ" secondAttribute="trailing" constant="30" id="tW6-Rl-pxb"/>
+                            <constraint firstItem="IJt-bM-Tym" firstAttribute="leading" secondItem="yNo-i1-nme" secondAttribute="leading" constant="10" id="tWY-Bd-hTq"/>
+                            <constraint firstAttribute="trailing" secondItem="IJt-bM-Tym" secondAttribute="trailing" constant="10" id="x0g-AP-xaP"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="yNo-i1-nme" secondAttribute="bottom" constant="5" id="RDb-lw-g1E"/>
+                    <constraint firstItem="yNo-i1-nme" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="dex-WP-N8S"/>
+                    <constraint firstAttribute="trailing" secondItem="yNo-i1-nme" secondAttribute="trailing" constant="15" id="e4d-EA-XGS"/>
+                    <constraint firstItem="yNo-i1-nme" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="kFe-5t-7WF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="likeButton" destination="QMR-lX-74o" id="v6R-ao-9ZI"/>
+                <outlet property="nameSurnameTxtField" destination="Qy5-oE-sfi" id="TYA-Hq-FoQ"/>
+                <outlet property="postContainerView" destination="yNo-i1-nme" id="lkr-KW-9H5"/>
+                <outlet property="profileImgage" destination="gmg-z1-Ogl" id="TmH-La-EBX"/>
+                <outlet property="sectorTxtLabel" destination="xCM-AK-f0h" id="4sj-5N-ovV"/>
+            </connections>
+            <point key="canvasLocation" x="129.71014492753625" y="143.63839285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="commenticon" width="25" height="22"/>
+        <image name="img" width="960" height="670"/>
+        <image name="likeicon" width="19" height="20"/>
+        <image name="watchicon" width="23" height="17"/>
+    </resources>
+</document>

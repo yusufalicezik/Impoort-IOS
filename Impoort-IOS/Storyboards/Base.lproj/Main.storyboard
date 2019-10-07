@@ -190,7 +190,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="aiz-P5-Oib" firstAttribute="leading" secondItem="E4S-T4-dCg" secondAttribute="leading" constant="20" id="HPi-gF-EXa"/>
                                     <constraint firstItem="qDj-RH-b8c" firstAttribute="leading" secondItem="E4S-T4-dCg" secondAttribute="leading" constant="15" id="J89-XM-4aA"/>

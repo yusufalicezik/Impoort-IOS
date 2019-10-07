@@ -16,6 +16,12 @@
 		483DD9BB23480C5900DCA3A1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9BA23480C5900DCA3A1 /* User.swift */; };
 		483DD9BE234814B900DCA3A1 /* SectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9BD234814B900DCA3A1 /* SectorCell.swift */; };
 		483DD9C023482AF900DCA3A1 /* AlertConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9BF23482AF900DCA3A1 /* AlertConroller.swift */; };
+		484916FE234A5EA10093091D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 484916FD234A5EA10093091D /* Home.storyboard */; };
+		48491701234A71DC0093091D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48491700234A71DC0093091D /* HomeViewController.swift */; };
+		48491705234A77E90093091D /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48491703234A77E90093091D /* PostCell.swift */; };
+		48491706234A77E90093091D /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48491704234A77E90093091D /* PostCell.xib */; };
+		48491709234A93180093091D /* PostCellWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48491707234A93180093091D /* PostCellWithImage.swift */; };
+		4849170A234A93180093091D /* PostCellWithImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48491708234A93180093091D /* PostCellWithImage.xib */; };
 		4893007423428A91004B37AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4893007323428A91004B37AD /* AppDelegate.swift */; };
 		4893007623428A91004B37AD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4893007523428A91004B37AD /* LoginViewController.swift */; };
 		4893007923428A91004B37AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4893007723428A91004B37AD /* Main.storyboard */; };
@@ -32,6 +38,12 @@
 		483DD9BA23480C5900DCA3A1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		483DD9BD234814B900DCA3A1 /* SectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectorCell.swift; sourceTree = "<group>"; };
 		483DD9BF23482AF900DCA3A1 /* AlertConroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertConroller.swift; sourceTree = "<group>"; };
+		484916FD234A5EA10093091D /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		48491700234A71DC0093091D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		48491703234A77E90093091D /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		48491704234A77E90093091D /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		48491707234A93180093091D /* PostCellWithImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellWithImage.swift; sourceTree = "<group>"; };
+		48491708234A93180093091D /* PostCellWithImage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCellWithImage.xib; sourceTree = "<group>"; };
 		4893007023428A91004B37AD /* Impoort-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Impoort-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4893007323428A91004B37AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4893007523428A91004B37AD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +71,7 @@
 		483DD9A62347F48100DCA3A1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				484916FF234A71CC0093091D /* Home */,
 				483DD9B22348042E00DCA3A1 /* BaseViewController.swift */,
 				483DD9AC2347F8B200DCA3A1 /* Login */,
 				483DD9AF2348032B00DCA3A1 /* Register */,
@@ -94,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				4893007723428A91004B37AD /* Main.storyboard */,
+				484916FD234A5EA10093091D /* Home.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -128,9 +142,29 @@
 		483DD9BC2348149E00DCA3A1 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				48491702234A77C80093091D /* PostCell */,
 				483DD9BD234814B900DCA3A1 /* SectorCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		484916FF234A71CC0093091D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				48491700234A71DC0093091D /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		48491702234A77C80093091D /* PostCell */ = {
+			isa = PBXGroup;
+			children = (
+				48491703234A77E90093091D /* PostCell.swift */,
+				48491704234A77E90093091D /* PostCell.xib */,
+				48491707234A93180093091D /* PostCellWithImage.swift */,
+				48491708234A93180093091D /* PostCellWithImage.xib */,
+			);
+			path = PostCell;
 			sourceTree = "<group>";
 		};
 		4893006723428A91004B37AD = {
@@ -245,8 +279,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4893007E23428A92004B37AD /* LaunchScreen.storyboard in Resources */,
+				4849170A234A93180093091D /* PostCellWithImage.xib in Resources */,
 				4893007B23428A92004B37AD /* Assets.xcassets in Resources */,
+				48491706234A77E90093091D /* PostCell.xib in Resources */,
 				4893007923428A91004B37AD /* Main.storyboard in Resources */,
+				484916FE234A5EA10093091D /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,12 +340,15 @@
 				483DD9B32348042E00DCA3A1 /* BaseViewController.swift in Sources */,
 				483DD9B12348035800DCA3A1 /* RegisterFirstStepViewController.swift in Sources */,
 				4893007623428A91004B37AD /* LoginViewController.swift in Sources */,
+				48491709234A93180093091D /* PostCellWithImage.swift in Sources */,
 				483DD9AE2347F99F00DCA3A1 /* TxtFieldConfig.swift in Sources */,
 				483DD9BB23480C5900DCA3A1 /* User.swift in Sources */,
 				4893007423428A91004B37AD /* AppDelegate.swift in Sources */,
+				48491701234A71DC0093091D /* HomeViewController.swift in Sources */,
 				483DD9B72348050A00DCA3A1 /* RegisterSecondStepViewController.swift in Sources */,
 				483DD9B92348051400DCA3A1 /* RegisterThirdStepViewController.swift in Sources */,
 				483DD9C023482AF900DCA3A1 /* AlertConroller.swift in Sources */,
+				48491705234A77E90093091D /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

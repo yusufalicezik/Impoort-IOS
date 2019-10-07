@@ -60,6 +60,17 @@ class BaseViewController: UIViewController {
             self.present(vc!, animated: true, completion: nil)
         }
     }
+    
+    func goToHome(){
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController() as? UITabBarController
+        vc?.selectedIndex = 0
+        if let navBar = self.navigationController{
+            navBar.pushViewController(vc!, animated: true)
+        }else{
+            self.present(vc!, animated: true, completion: nil)
+        }
+    }
 
 }
 
