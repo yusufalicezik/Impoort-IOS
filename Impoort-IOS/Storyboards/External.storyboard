@@ -45,9 +45,9 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="dpt-Yq-tqV"/>
                                         </constraints>
-                                        <color key="textColor" red="0.4479249119758606" green="0.80126023292541504" blue="0.71446627378463745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -78,27 +78,27 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANn-iH-6F2">
-                                                            <rect key="frame" x="15" y="3" width="384" height="60"/>
+                                                            <rect key="frame" x="15" y="3" width="384" height="55"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stonks" translatesAutoresizingMaskIntoConstraints="NO" id="6ar-V4-FEV">
-                                                                    <rect key="frame" x="20" y="5" width="50" height="50"/>
+                                                                    <rect key="frame" x="20" y="5" width="45" height="45"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="50" id="EfJ-Vv-K7G"/>
-                                                                        <constraint firstAttribute="width" constant="50" id="uhf-hi-8JW"/>
+                                                                        <constraint firstAttribute="height" constant="45" id="EfJ-Vv-K7G"/>
+                                                                        <constraint firstAttribute="width" constant="45" id="uhf-hi-8JW"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tbG-NL-U6d">
-                                                                    <rect key="frame" x="80" y="14" width="284" height="32"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="tbG-NL-U6d">
+                                                                    <rect key="frame" x="75" y="14" width="289" height="27"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yusuf Ali Çezik" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DG-ca-pBX">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="284" height="11"/>
-                                                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="289" height="11"/>
+                                                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
                                                                             <color key="textColor" red="0.29198139839999998" green="0.29487230330000003" blue="0.29487230330000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rp3-Ho-Udy">
-                                                                            <rect key="frame" x="0.0" y="21" width="284" height="11"/>
-                                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selam" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rp3-Ho-Udy">
+                                                                            <rect key="frame" x="0.0" y="16" width="289" height="11"/>
+                                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
                                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -166,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJR-Wr-TeT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1071.0144927536232" y="139.95535714285714"/>
+            <point key="canvasLocation" x="1090" y="140"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="mCO-94-dBF">
@@ -252,9 +252,9 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="37" id="jm4-R7-1Ir"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dpj-tM-gQD">
                                                 <rect key="frame" x="377" y="11.5" width="27" height="27"/>
@@ -398,7 +398,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lpf-my-hFe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1800.0000000000002" y="139.95535714285714"/>
+            <point key="canvasLocation" x="1783" y="140"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9b9-lu-Gal">

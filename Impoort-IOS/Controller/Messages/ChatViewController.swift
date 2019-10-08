@@ -33,6 +33,7 @@ class ChatViewController: BaseViewController {
         TxtFieldConfig.shared.givePadding(to: self.sendMessageTxtField)
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.allowsSelection = false
     }
     
     @IBAction func closeButtonClicked(_ sender: Any) {
@@ -62,6 +63,8 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
             return cell!
         }
     }
+    
+    
     
     
 }

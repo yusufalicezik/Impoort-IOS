@@ -565,7 +565,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Investor" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEg-XL-o6G">
                                                             <rect key="frame" x="0.0" y="3" width="315" height="52"/>
-                                                            <color key="backgroundColor" red="0.3952077329158783" green="0.72444349527359009" blue="0.64772164821624756" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" red="0.396078431372549" green="0.72549019607843135" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="52" id="LI8-7v-BKB"/>
                                                             </constraints>

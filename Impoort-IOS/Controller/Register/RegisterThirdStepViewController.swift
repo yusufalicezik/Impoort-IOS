@@ -125,7 +125,7 @@ extension RegisterThirdStepViewController : UITableViewDelegate, UITableViewData
         for i in 0..<self.sectorTypeStrings.count{
             let mIndexPath = IndexPath(row: i, section: 0)
             let cell = tableView.cellForRow(at: mIndexPath) as? SectorCell
-            cell?.sectorNameTxtField.backgroundColor = #colorLiteral(red: 0.4375773668, green: 0.8031894565, blue: 0.7201564908, alpha: 1)
+            cell?.sectorNameTxtField.backgroundColor = #colorLiteral(red: 0.3960784314, green: 0.7254901961, blue: 0.6470588235, alpha: 1)
         }
         let cell = tableView.cellForRow(at: indexPath) as? SectorCell
         cell?.sectorNameTxtField.backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)

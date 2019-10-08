@@ -68,6 +68,9 @@ class RegisterFirstStepViewController: BaseViewController {
         }else if passwordTxtField.text != passwordAgainTxtField.text{
             result = false
             AlertController.shared.showBasicAlert(viewCont: self, title: "Error", message: "Password and Password again not equals", buttonTitle: "Ok")
+        }else if passwordTxtField.text!.count < 6 || passwordAgainTxtField.text!.count < 6 {
+            result = false
+            AlertController.shared.showBasicAlert(viewCont: self, title: "Error", message: "Your password must be at least 6 character", buttonTitle: "Ok")
         }
         return result
     }
