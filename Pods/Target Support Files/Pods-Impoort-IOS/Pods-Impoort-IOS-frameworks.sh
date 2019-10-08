@@ -183,7 +183,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover/SwiftyPickerPopover.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyShadow/SwiftyShadow.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/TOSegmentedControl/TOSegmentedControl.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TwicketSegmentedControl/TwicketSegmentedControl.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ViewAnimator/ViewAnimator.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/netfox/netfox.framework"
 fi
@@ -210,7 +210,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover/SwiftyPickerPopover.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyShadow/SwiftyShadow.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/TOSegmentedControl/TOSegmentedControl.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TwicketSegmentedControl/TwicketSegmentedControl.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ViewAnimator/ViewAnimator.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/netfox/netfox.framework"
 fi

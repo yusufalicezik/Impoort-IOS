@@ -165,7 +165,7 @@
 			<key>orderHint</key>
 			<integer>23</integer>
 		</dict>
-		<key>TOSegmentedControl.xcscheme</key>
+		<key>TwicketSegmentedControl.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

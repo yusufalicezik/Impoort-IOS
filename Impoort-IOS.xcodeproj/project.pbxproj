@@ -10,6 +10,7 @@
 		3658B74F6004F9C095D83820 /* Pods_Impoort_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B402A1EBB0D5E3D36435322A /* Pods_Impoort_IOS.framework */; };
 		480E6A10234D195D006A4DA0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480E6A0F234D195D006A4DA0 /* SearchViewController.swift */; };
 		480E6A12234D1CAA006A4DA0 /* FilterSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480E6A11234D1CAA006A4DA0 /* FilterSearchCollectionViewCell.swift */; };
+		480E6A15234D3E81006A4DA0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480E6A14234D3E81006A4DA0 /* ProfileViewController.swift */; };
 		483DD9AE2347F99F00DCA3A1 /* TxtFieldConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9AD2347F99F00DCA3A1 /* TxtFieldConfig.swift */; };
 		483DD9B12348035800DCA3A1 /* RegisterFirstStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9B02348035800DCA3A1 /* RegisterFirstStepViewController.swift */; };
 		483DD9B32348042E00DCA3A1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9B22348042E00DCA3A1 /* BaseViewController.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		480E6A0F234D195D006A4DA0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		480E6A11234D1CAA006A4DA0 /* FilterSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		480E6A14234D3E81006A4DA0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		483DD9AD2347F99F00DCA3A1 /* TxtFieldConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxtFieldConfig.swift; sourceTree = "<group>"; };
 		483DD9B02348035800DCA3A1 /* RegisterFirstStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFirstStepViewController.swift; sourceTree = "<group>"; };
 		483DD9B22348042E00DCA3A1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -92,10 +94,19 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		480E6A13234D3E6E006A4DA0 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				480E6A14234D3E81006A4DA0 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		483DD9A62347F48100DCA3A1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				483DD9B22348042E00DCA3A1 /* BaseViewController.swift */,
+				480E6A13234D3E6E006A4DA0 /* Profile */,
 				480E6A0E234D192C006A4DA0 /* Search */,
 				485AD837234AC454008E8E52 /* Messages */,
 				484916FF234A71CC0093091D /* Home */,
@@ -133,8 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				4893007723428A91004B37AD /* Main.storyboard */,
-				484916FD234A5EA10093091D /* Home.storyboard */,
 				485AD835234AC0FE008E8E52 /* External.storyboard */,
+				484916FD234A5EA10093091D /* Home.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -403,6 +414,7 @@
 				483DD9C023482AF900DCA3A1 /* AlertConroller.swift in Sources */,
 				48491705234A77E90093091D /* PostCell.swift in Sources */,
 				485AD83B234AC485008E8E52 /* ChatViewController.swift in Sources */,
+				480E6A15234D3E81006A4DA0 /* ProfileViewController.swift in Sources */,
 				480E6A12234D1CAA006A4DA0 /* FilterSearchCollectionViewCell.swift in Sources */,
 				485AD839234AC46D008E8E52 /* MessagesGeneralViewController.swift in Sources */,
 			);

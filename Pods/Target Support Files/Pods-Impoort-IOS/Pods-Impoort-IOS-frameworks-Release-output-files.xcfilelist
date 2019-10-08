@@ -20,6 +20,6 @@ ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftWebSocket.framework
 ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyPickerPopover.framework
 ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyShadow.framework
 ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework
-${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TOSegmentedControl.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwicketSegmentedControl.framework
 ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViewAnimator.framework
 ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/netfox.framework

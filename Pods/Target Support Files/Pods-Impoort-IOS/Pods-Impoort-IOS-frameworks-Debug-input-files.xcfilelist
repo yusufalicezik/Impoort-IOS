@@ -21,6 +21,6 @@ ${BUILT_PRODUCTS_DIR}/SwiftWebSocket/SwiftWebSocket.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover/SwiftyPickerPopover.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyShadow/SwiftyShadow.framework
 ${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework
-${BUILT_PRODUCTS_DIR}/TOSegmentedControl/TOSegmentedControl.framework
+${BUILT_PRODUCTS_DIR}/TwicketSegmentedControl/TwicketSegmentedControl.framework
 ${BUILT_PRODUCTS_DIR}/ViewAnimator/ViewAnimator.framework
 ${BUILT_PRODUCTS_DIR}/netfox/netfox.framework

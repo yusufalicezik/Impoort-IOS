@@ -34,7 +34,7 @@ PODS:
   - SwiftyPickerPopover (6.6.5)
   - SwiftyShadow (1.7.0)
   - SwipeCellKit (2.7.1)
-  - TOSegmentedControl (1.0.1)
+  - TwicketSegmentedControl (0.1.2)
   - ViewAnimator (2.5.1)
 
 DEPENDENCIES:
@@ -59,7 +59,7 @@ DEPENDENCIES:
   - SwiftyPickerPopover
   - SwiftyShadow (~> 1.7.0)
   - SwipeCellKit
-  - TOSegmentedControl
+  - TwicketSegmentedControl
   - ViewAnimator
 
 SPEC REPOS:
@@ -87,7 +87,7 @@ SPEC REPOS:
     - SwiftyPickerPopover
     - SwiftyShadow
     - SwipeCellKit
-    - TOSegmentedControl
+    - TwicketSegmentedControl
     - ViewAnimator
 
 SPEC CHECKSUMS:
@@ -114,9 +114,9 @@ SPEC CHECKSUMS:
   SwiftyPickerPopover: f2975fd0233d04c0a8f8d52d09b6f24b882de6fb
   SwiftyShadow: d2697c62eb83759b7806466e3ea29de24c772c29
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
-  TOSegmentedControl: d875428148b1d319a3455548fcccb2918a178bf7
+  TwicketSegmentedControl: 6d7a4cf243657e0ac3f00d06d873a25334c04042
   ViewAnimator: 173932c659a43c5a15c665878750d92801ae2cf1
 
-PODFILE CHECKSUM: c65899d0175b24a8be7a0b19e61ed93e66e1623c
+PODFILE CHECKSUM: 9b047cb1dddec44729169715af7d76944e76da9d
 
 COCOAPODS: 1.7.3

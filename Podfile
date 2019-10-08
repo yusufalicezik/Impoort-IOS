@@ -7,7 +7,7 @@ target 'Impoort-IOS' do
 
   # Pods for Impoort-IOS
 
-pod 'TOSegmentedControl'
+pod 'TwicketSegmentedControl'
 pod 'SwiftWebSocket'
 pod 'PanModal'
 pod 'SwiftDate'
