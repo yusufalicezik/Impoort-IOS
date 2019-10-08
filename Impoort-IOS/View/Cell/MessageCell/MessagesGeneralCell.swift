@@ -17,7 +17,7 @@ class MessagesGeneralCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.profileImage.layer.cornerRadius = self.profileImage.frame.width / 2
-        self.messageContainerView.layer.cornerRadius = 10
+        self.messageContainerView.layer.cornerRadius = 15
         // Initialization code
     }
 
