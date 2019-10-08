@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3658B74F6004F9C095D83820 /* Pods_Impoort_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B402A1EBB0D5E3D36435322A /* Pods_Impoort_IOS.framework */; };
+		480E6A10234D195D006A4DA0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480E6A0F234D195D006A4DA0 /* SearchViewController.swift */; };
+		480E6A12234D1CAA006A4DA0 /* FilterSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480E6A11234D1CAA006A4DA0 /* FilterSearchCollectionViewCell.swift */; };
 		483DD9AE2347F99F00DCA3A1 /* TxtFieldConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9AD2347F99F00DCA3A1 /* TxtFieldConfig.swift */; };
 		483DD9B12348035800DCA3A1 /* RegisterFirstStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9B02348035800DCA3A1 /* RegisterFirstStepViewController.swift */; };
 		483DD9B32348042E00DCA3A1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9B22348042E00DCA3A1 /* BaseViewController.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		480E6A0F234D195D006A4DA0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		480E6A11234D1CAA006A4DA0 /* FilterSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		483DD9AD2347F99F00DCA3A1 /* TxtFieldConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxtFieldConfig.swift; sourceTree = "<group>"; };
 		483DD9B02348035800DCA3A1 /* RegisterFirstStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFirstStepViewController.swift; sourceTree = "<group>"; };
 		483DD9B22348042E00DCA3A1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -80,11 +84,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		480E6A0E234D192C006A4DA0 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				480E6A0F234D195D006A4DA0 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		483DD9A62347F48100DCA3A1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				485AD837234AC454008E8E52 /* Messages */,
 				483DD9B22348042E00DCA3A1 /* BaseViewController.swift */,
+				480E6A0E234D192C006A4DA0 /* Search */,
+				485AD837234AC454008E8E52 /* Messages */,
 				484916FF234A71CC0093091D /* Home */,
 				483DD9AC2347F8B200DCA3A1 /* Login */,
 				483DD9AF2348032B00DCA3A1 /* Register */,
@@ -159,6 +172,7 @@
 				485AD83C234AC83F008E8E52 /* MessageCell */,
 				48491702234A77C80093091D /* PostCell */,
 				483DD9BD234814B900DCA3A1 /* SectorCell.swift */,
+				480E6A11234D1CAA006A4DA0 /* FilterSearchCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -375,6 +389,7 @@
 				483DD9B32348042E00DCA3A1 /* BaseViewController.swift in Sources */,
 				483DD9B12348035800DCA3A1 /* RegisterFirstStepViewController.swift in Sources */,
 				4893007623428A91004B37AD /* LoginViewController.swift in Sources */,
+				480E6A10234D195D006A4DA0 /* SearchViewController.swift in Sources */,
 				48491709234A93180093091D /* PostCellWithImage.swift in Sources */,
 				483DD9AE2347F99F00DCA3A1 /* TxtFieldConfig.swift in Sources */,
 				483DD9BB23480C5900DCA3A1 /* User.swift in Sources */,
@@ -388,6 +403,7 @@
 				483DD9C023482AF900DCA3A1 /* AlertConroller.swift in Sources */,
 				48491705234A77E90093091D /* PostCell.swift in Sources */,
 				485AD83B234AC485008E8E52 /* ChatViewController.swift in Sources */,
+				480E6A12234D1CAA006A4DA0 /* FilterSearchCollectionViewCell.swift in Sources */,
 				485AD839234AC46D008E8E52 /* MessagesGeneralViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

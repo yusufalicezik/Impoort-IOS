@@ -78,7 +78,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANn-iH-6F2">
-                                                            <rect key="frame" x="15" y="3" width="384" height="55"/>
+                                                            <rect key="frame" x="15" y="3" width="384" height="49"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stonks" translatesAutoresizingMaskIntoConstraints="NO" id="6ar-V4-FEV">
                                                                     <rect key="frame" x="20" y="5" width="45" height="45"/>
@@ -87,17 +87,17 @@
                                                                         <constraint firstAttribute="width" constant="45" id="uhf-hi-8JW"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="tbG-NL-U6d">
-                                                                    <rect key="frame" x="75" y="14" width="289" height="27"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="tbG-NL-U6d">
+                                                                    <rect key="frame" x="75" y="5" width="289" height="39"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yusuf Ali Çezik" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DG-ca-pBX">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="289" height="11"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="289" height="20.5"/>
                                                                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
                                                                             <color key="textColor" red="0.29198139839999998" green="0.29487230330000003" blue="0.29487230330000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selam" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rp3-Ho-Udy">
-                                                                            <rect key="frame" x="0.0" y="16" width="289" height="11"/>
+                                                                            <rect key="frame" x="0.0" y="22.5" width="289" height="16.5"/>
                                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
                                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
@@ -109,12 +109,11 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="6ar-V4-FEV" secondAttribute="bottom" constant="5" id="44q-mw-vRy"/>
                                                                 <constraint firstItem="6ar-V4-FEV" firstAttribute="top" secondItem="ANn-iH-6F2" secondAttribute="top" constant="5" id="7uP-tx-3Fr"/>
-                                                                <constraint firstItem="tbG-NL-U6d" firstAttribute="centerY" secondItem="6ar-V4-FEV" secondAttribute="centerY" id="JjK-Zi-fdQ"/>
                                                                 <constraint firstAttribute="trailing" secondItem="tbG-NL-U6d" secondAttribute="trailing" constant="20" id="Mew-2a-dkP"/>
                                                                 <constraint firstItem="6ar-V4-FEV" firstAttribute="leading" secondItem="ANn-iH-6F2" secondAttribute="leading" constant="20" id="RiA-YE-ZCX"/>
+                                                                <constraint firstItem="tbG-NL-U6d" firstAttribute="top" secondItem="ANn-iH-6F2" secondAttribute="top" constant="5" id="TWk-gn-PCo"/>
                                                                 <constraint firstItem="tbG-NL-U6d" firstAttribute="leading" secondItem="6ar-V4-FEV" secondAttribute="trailing" constant="10" id="acH-HC-mj5"/>
-                                                                <constraint firstAttribute="bottom" secondItem="tbG-NL-U6d" secondAttribute="bottom" constant="14" id="av2-eK-4tT"/>
-                                                                <constraint firstItem="tbG-NL-U6d" firstAttribute="top" secondItem="ANn-iH-6F2" secondAttribute="top" constant="14" id="bc8-PN-5Af"/>
+                                                                <constraint firstAttribute="bottom" secondItem="tbG-NL-U6d" secondAttribute="bottom" constant="5" id="sey-dW-Rjy"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>

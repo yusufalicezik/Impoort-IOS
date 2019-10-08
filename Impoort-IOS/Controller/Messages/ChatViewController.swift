@@ -85,6 +85,9 @@ class ChatViewController: BaseViewController {
     @IBAction func sendButtonClicked(_ sender: Any) {
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.timer.fire(andPause: true)
+    }
  
 
 }
