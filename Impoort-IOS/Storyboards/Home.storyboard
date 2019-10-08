@@ -312,6 +312,8 @@
                     <navigationItem key="navigationItem" id="N9U-s1-tJX"/>
                     <connections>
                         <outlet property="filterCollectionView" destination="NaF-4a-uF5" id="RFK-S2-FyF"/>
+                        <outlet property="filterHeightConstraint" destination="62N-Lh-kik" id="OyQ-yS-Nh3"/>
+                        <outlet property="filterView" destination="gJv-wA-rhj" id="xiE-Sp-imQ"/>
                         <outlet property="searchTxtField" destination="Whw-PP-QTW" id="waP-m2-77c"/>
                         <outlet property="tableView" destination="i2o-Lj-BW5" id="Av6-C6-2pg"/>
                     </connections>
