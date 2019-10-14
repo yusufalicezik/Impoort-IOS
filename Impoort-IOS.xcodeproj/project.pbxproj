@@ -31,6 +31,7 @@
 		485AD83E234AC861008E8E52 /* MessagesGeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AD83D234AC861008E8E52 /* MessagesGeneralCell.swift */; };
 		485AD840234AD306008E8E52 /* ChatLeftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AD83F234AD306008E8E52 /* ChatLeftCell.swift */; };
 		485AD842234AD313008E8E52 /* ChatRightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AD841234AD313008E8E52 /* ChatRightCell.swift */; };
+		4890BD3D2355142E0083AEAF /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890BD3C2355142E0083AEAF /* ShareViewController.swift */; };
 		4893007423428A91004B37AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4893007323428A91004B37AD /* AppDelegate.swift */; };
 		4893007623428A91004B37AD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4893007523428A91004B37AD /* LoginViewController.swift */; };
 		4893007923428A91004B37AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4893007723428A91004B37AD /* Main.storyboard */; };
@@ -62,6 +63,7 @@
 		485AD83D234AC861008E8E52 /* MessagesGeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesGeneralCell.swift; sourceTree = "<group>"; };
 		485AD83F234AD306008E8E52 /* ChatLeftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLeftCell.swift; sourceTree = "<group>"; };
 		485AD841234AD313008E8E52 /* ChatRightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRightCell.swift; sourceTree = "<group>"; };
+		4890BD3C2355142E0083AEAF /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		4893007023428A91004B37AD /* Impoort-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Impoort-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4893007323428A91004B37AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4893007523428A91004B37AD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				483DD9B22348042E00DCA3A1 /* BaseViewController.swift */,
+				4890BD3B235514180083AEAF /* Share */,
 				480E6A13234D3E6E006A4DA0 /* Profile */,
 				480E6A0E234D192C006A4DA0 /* Search */,
 				485AD837234AC454008E8E52 /* Messages */,
@@ -224,6 +227,14 @@
 				485AD841234AD313008E8E52 /* ChatRightCell.swift */,
 			);
 			path = MessageCell;
+			sourceTree = "<group>";
+		};
+		4890BD3B235514180083AEAF /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				4890BD3C2355142E0083AEAF /* ShareViewController.swift */,
+			);
+			path = Share;
 			sourceTree = "<group>";
 		};
 		4893006723428A91004B37AD = {
@@ -408,6 +419,7 @@
 				4893007423428A91004B37AD /* AppDelegate.swift in Sources */,
 				48491701234A71DC0093091D /* HomeViewController.swift in Sources */,
 				485AD842234AD313008E8E52 /* ChatRightCell.swift in Sources */,
+				4890BD3D2355142E0083AEAF /* ShareViewController.swift in Sources */,
 				483DD9B72348050A00DCA3A1 /* RegisterSecondStepViewController.swift in Sources */,
 				485AD83E234AC861008E8E52 /* MessagesGeneralCell.swift in Sources */,
 				483DD9B92348051400DCA3A1 /* RegisterThirdStepViewController.swift in Sources */,

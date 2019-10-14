@@ -35,7 +35,7 @@ class ProfileViewController: BaseViewController {
         self.tableView.dataSource = self
         
         //let frame = CGRect(x: 5, y:  200, width: view.frame.width - 10, height: 40)
-        let frame = CGRect(x: self.segmentContainerView.frame.minX, y: self.segmentContainerView.frame.minY, width: self.segmentContainerView.frame.width-30, height: self.segmentContainerView.frame.height)
+        let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         let segmentedControl = TwicketSegmentedControl(frame: frame)
         segmentedControl.setSegmentItems(titles)
         segmentedControl.segmentsBackgroundColor = #colorLiteral(red: 0.3960784314, green: 0.7254901961, blue: 0.6470588235, alpha: 1)
@@ -47,6 +47,7 @@ class ProfileViewController: BaseViewController {
         segmentContainerView.addSubview(segmentedControl)
         self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width / 2
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        segmentedControl.backgroundColor = .clear
         segmentedControl.topAnchor.constraint(equalTo: self.segmentContainerView.topAnchor, constant: 0.0).isActive = true
         segmentedControl.rightAnchor.constraint(equalTo: self.segmentContainerView.rightAnchor, constant: 0.0).isActive = true
         segmentedControl.leftAnchor.constraint(equalTo: self.segmentContainerView.leftAnchor, constant: 0.0).isActive = true
@@ -74,7 +75,6 @@ extension ProfileViewController : UITableViewDelegate, UITableViewDataSource{
         }else{
             cell = Bundle.main.loadNibNamed("PostCellWithImage", owner: self, options: nil)?.first as! PostCellWithImage
         }
-        
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
