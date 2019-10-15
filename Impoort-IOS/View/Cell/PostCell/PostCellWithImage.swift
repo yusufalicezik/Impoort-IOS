@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SwiftyShadow
 class PostCellWithImage: UITableViewCell {
 
     @IBOutlet weak var profileImage: UIImageView!
@@ -20,7 +20,11 @@ class PostCellWithImage: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.postContainerView.layer.cornerRadius = 10
-        
+        self.postContainerView.layer.shadowRadius = 10
+        self.postContainerView.layer.shadowOpacity = 0.11
+        self.postContainerView.layer.shadowColor = UIColor.black.cgColor
+        self.postContainerView.layer.shadowOffset = CGSize.zero
+        self.postContainerView.generateOuterShadow()
         self.profileImage.layer.cornerRadius = self.profileImage.frame.width / 2
         self.postImage.layer.cornerRadius = 4
         // Initialization code

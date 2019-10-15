@@ -8,7 +8,7 @@
 
 import UIKit
 import TwicketSegmentedControl
-
+import SwiftyShadow
 class ProfileViewController: BaseViewController {
 
     @IBOutlet weak var profileImageView: UIImageView!
@@ -53,6 +53,8 @@ class ProfileViewController: BaseViewController {
         segmentedControl.leftAnchor.constraint(equalTo: self.segmentContainerView.leftAnchor, constant: 0.0).isActive = true
         segmentedControl.bottomAnchor.constraint(equalTo: self.segmentContainerView.bottomAnchor, constant: 0.0).isActive = true
         segmentedControl.heightAnchor.constraint(equalToConstant: 45.0).isActive = true
+        
+
     }
 
   
@@ -95,7 +97,6 @@ extension ProfileViewController : UIScrollViewDelegate{
             self.profileImageWidth?.constant = 160.0
             self.barWidthConstraint?.constant = 0.0
             self.barHeightConstraint?.constant = 0.0
-            addToTop()
         }else if (scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y < (scrollView.contentSize.height - scrollView.frame.size.height)){
            self.profileImageHeight?.constant = 0
            self.profileImageWidth?.constant = 0
@@ -105,17 +106,11 @@ extension ProfileViewController : UIScrollViewDelegate{
            self.barImageView.layer.cornerRadius = self.barImageView.frame.width / 2
 //            self.profileImageView.heightAnchor.constraint(equalToConstant: 45.0).isActive = true
 //            self.profileImageView.widthAnchor.constraint(equalToConstant: 45.0).isActive = true
-
-            
         }
-        UIView.animate(withDuration: 0.5){
-            //self.parentVC?.view.layoutIfNeeded()
-            self.view.layoutIfNeeded()
-        }
+            UIView.animate(withDuration: 0.5){
+                //self.parentVC?.view.layoutIfNeeded()
+                self.view.layoutIfNeeded()
+            }
     }
     
-    
-    func addToTop(){
-        
-    }
 }

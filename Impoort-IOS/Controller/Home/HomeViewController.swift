@@ -7,10 +7,17 @@
 //
 
 import UIKit
+import SwiftyShadow
 
 class HomeViewController: BaseViewController {
 
+    @IBOutlet weak var quickShareViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var quickShareView: UIView!
+    @IBOutlet weak var quickShareGreenView: UIView!
+    @IBOutlet weak var quickShareLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var topRightButton:UIButton!
+    var prevOffset:CGFloat = 0.0
     let refreshControl = UIRefreshControl()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +35,19 @@ class HomeViewController: BaseViewController {
         tableView.refreshControl = self.refreshControl
         refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
 
+        let shareRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.goToShareQuickly))
+        self.quickShareView.isUserInteractionEnabled = true
+        self.quickShareView.addGestureRecognizer(shareRecognizer)
+        
+        self.quickShareGreenView.layer.cornerRadius = 10
+        self.quickShareGreenView.layer.shadowRadius = 10
+        self.quickShareGreenView.layer.shadowOpacity = 0.14
+        self.quickShareGreenView.layer.shadowColor = UIColor.black.cgColor
+        self.quickShareGreenView.layer.shadowOffset = CGSize.zero
+        self.quickShareGreenView.generateOuterShadow()
+        
+        self.tabBarController?.delegate = self
+
         
     }
     @objc func refreshWeatherData(_ sender: Any){
@@ -38,6 +58,12 @@ class HomeViewController: BaseViewController {
 
     @IBAction func messagesButtonClicked(_ sender: Any) {
         self.goToMessagesGeneral()
+    }
+    
+    @objc func goToShareQuickly(){
+        let shareVc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ShareVC") as? ShareViewController
+        shareVc?.openedFromTab = false
+        self.present(shareVc!, animated: true, completion: nil)
     }
     
 }
@@ -61,4 +87,47 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
     }
     
     
+}
+extension HomeViewController : UIScrollViewDelegate{
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y < (scrollView.contentSize.height - scrollView.frame.size.height)){
+            //not top and not bottom
+            let offsetY = scrollView.contentOffset.y
+            if offsetY < 0 {
+                scrollView.contentOffset.y = CGFloat(0.0)
+                UIView.animate(withDuration: 0.2){
+                    //self.view.layoutIfNeeded()
+                }
+            }
+            else if offsetY > prevOffset && offsetY > 0.0{
+                self.quickShareViewHeightConstraint.constant = 0.0
+                quickShareLabel.isHidden = true
+            }else{
+                self.quickShareViewHeightConstraint.constant = 55.0
+                quickShareLabel.isHidden = false
+                
+            }
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.25){
+                    self.view.layoutIfNeeded()
+                }
+            }
+            self.prevOffset = offsetY
+        }else if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) {
+            //reach bottom
+            DispatchQueue.main.asyncAfter(deadline: .now()+1.5){
+                //self.tableView.reloadData() paging.
+            }
+        }else if (scrollView.contentOffset.y < 0){
+            //reach top
+        }
+        
+    }
+}
+extension HomeViewController:UITabBarControllerDelegate{
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if tabBarController.selectedIndex == 0{
+            self.tableView.setContentOffset(CGPoint.zero, animated: true)
+        }
+    }
 }

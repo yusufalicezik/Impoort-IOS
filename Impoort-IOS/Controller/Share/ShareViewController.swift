@@ -21,12 +21,14 @@ class ShareViewController: BaseViewController,UITextViewDelegate{
     @IBOutlet weak var imgViewParent: UIView!
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postDescriptionTxtView: UITextView!
+    @IBOutlet weak var topRightButton: UIButton!
     @IBOutlet weak var postTxtHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var imgParentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var imgParentCloseButtonHEightConst: NSLayoutConstraint!
     var postType:PostType = .normalPost //post modeline postTyle.rawValue gönderilecek. 0 sa normal post, 1 ise fotoğraflı post.
-    
-     var imagePicker = UIImagePickerController()
+    var openedFromTab = true
+    var topRightButtonAction:(()->Void)!
+    var imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,19 @@ class ShareViewController: BaseViewController,UITextViewDelegate{
     }
     
     func setup(){
+        if self.openedFromTab{
+            let topRightIcon = UIImage(named: "messageicon")
+            topRightButton.setImage(topRightIcon, for: .normal)
+            topRightButtonAction = {
+                self.goToMessagesGeneral()
+            }
+        }else{
+            let topRightIcon = UIImage(named: "close")
+            topRightButton.setImage(topRightIcon, for: .normal)
+            topRightButtonAction = {
+                self.goToBack()
+            }
+        }
         self.postDescriptionTxtView.delegate = self
         self.postDescriptionTxtView.layer.cornerRadius = 12
         self.shareButton.layer.cornerRadius = 11
@@ -91,7 +106,7 @@ class ShareViewController: BaseViewController,UITextViewDelegate{
     }
 
     @IBAction func messagesButtonClicked(){
-        self.goToMessagesGeneral()
+        self.topRightButtonAction()
     }
     @IBAction func deleteImageButtonClicked(_ sender: Any) {
         self.postType = .normalPost

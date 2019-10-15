@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyShadow
 
 class PostCell: UITableViewCell {
 
@@ -19,7 +20,11 @@ class PostCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.postContainerView.layer.cornerRadius = 10
-
+        self.postContainerView.layer.shadowRadius = 10
+        self.postContainerView.layer.shadowOpacity = 0.11
+        self.postContainerView.layer.shadowColor = UIColor.black.cgColor
+        self.postContainerView.layer.shadowOffset = CGSize.zero
+        self.postContainerView.generateOuterShadow()
         self.profileImgage.layer.cornerRadius = self.profileImgage.frame.width / 2
         // Initialization code
     }
@@ -33,4 +38,18 @@ class PostCell: UITableViewCell {
         self.likeButton.setImage(UIImage(named: "iconlikeyes"), for: .normal)
     }
     
+}
+extension UIView {
+    
+    func dropShadow() {
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowOffset = CGSize(width: -1, height: 1)
+        self.layer.shadowRadius = 1
+        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+        self.layer.shouldRasterize = true
+        self.layer.rasterizationScale = UIScreen.main.scale
+        
+    }
 }
