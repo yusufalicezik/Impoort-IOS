@@ -60,6 +60,7 @@ class ProfileViewController: BaseViewController {
         self.goToMessagesGeneral()
     }
     @IBAction func settingsButtonClicked(_ sender: Any) {
+        self.goToSettingsVC()
     }
     
 }

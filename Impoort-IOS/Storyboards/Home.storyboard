@@ -85,6 +85,9 @@
                                             <constraint firstAttribute="height" constant="22" id="CJe-vl-D54"/>
                                         </constraints>
                                         <state key="normal" image="messageicon"/>
+                                        <connections>
+                                            <action selector="messagesButtonClicked" destination="Bw8-a9-A8n" eventType="touchUpInside" id="Q4u-4M-hiM"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -152,7 +155,7 @@
                                                     <constraint firstAttribute="height" priority="999" constant="70" id="faw-DX-roq"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.41239845749999998" green="0.48374867440000002" blue="0.54169982670000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v91-pX-kIr">

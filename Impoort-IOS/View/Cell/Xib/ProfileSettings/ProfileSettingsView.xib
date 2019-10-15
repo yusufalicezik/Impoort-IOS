@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ProfileSettingsView" customModule="Impoort_IOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="415" height="445"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Dzh-To-hKs">
+                    <rect key="frame" x="10" y="90" width="395" height="55"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Deneme" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mly-dA-yCF">
+                            <rect key="frame" x="0.0" y="0.0" width="395" height="55"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="55" id="rZj-nv-Ux0"/>
+                            </constraints>
+                            <color key="textColor" red="0.41176470588235292" green="0.4823529411764706" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdI-ED-TIN">
+                    <rect key="frame" x="370" y="5" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="4t4-Ox-U6g"/>
+                        <constraint firstAttribute="width" constant="40" id="LoJ-B0-8oZ"/>
+                    </constraints>
+                    <state key="normal" image="popupclose"/>
+                    <connections>
+                        <action selector="closeButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="cu0-RF-SJ6"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoa-yT-ZnB">
+                    <rect key="frame" x="5" y="5" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="EEZ-Sg-KaG"/>
+                        <constraint firstAttribute="height" constant="40" id="K0e-kL-ewT"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="M0R-8v-IF7"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="ORl-Dr-i55"/>
+                    </constraints>
+                    <state key="normal" image="popupokey"/>
+                    <connections>
+                        <action selector="okButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="uG5-37-As7"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.44705882352941173" green="0.75294117647058822" blue="0.68235294117647061" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="qoa-yT-ZnB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="0vC-Cq-qcd"/>
+                <constraint firstItem="Dzh-To-hKs" firstAttribute="top" secondItem="rdI-ED-TIN" secondAttribute="bottom" constant="45" id="L1x-Q8-KJT"/>
+                <constraint firstItem="Dzh-To-hKs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="baJ-KC-mrA"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Dzh-To-hKs" secondAttribute="trailing" constant="10" id="ljN-hh-tD1"/>
+                <constraint firstItem="rdI-ED-TIN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="nBC-zb-TJe"/>
+                <constraint firstItem="qoa-yT-ZnB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="snm-Ko-JPB"/>
+                <constraint firstAttribute="trailing" secondItem="rdI-ED-TIN" secondAttribute="trailing" constant="5" id="xWo-Dc-w2e"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="GeneralTxtField" destination="mly-dA-yCF" id="Rhe-aH-Vz8"/>
+            </connections>
+            <point key="canvasLocation" x="116.66666666666667" y="278.90625"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="popupclose" width="48" height="48"/>
+        <image name="popupokey" width="50" height="50"/>
+    </resources>
+</document>

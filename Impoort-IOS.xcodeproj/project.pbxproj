@@ -32,6 +32,12 @@
 		485AD840234AD306008E8E52 /* ChatLeftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AD83F234AD306008E8E52 /* ChatLeftCell.swift */; };
 		485AD842234AD313008E8E52 /* ChatRightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AD841234AD313008E8E52 /* ChatRightCell.swift */; };
 		4890BD3D2355142E0083AEAF /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890BD3C2355142E0083AEAF /* ShareViewController.swift */; };
+		4890BD3F23554A800083AEAF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890BD3E23554A800083AEAF /* SettingsViewController.swift */; };
+		4890BD41235552CC0083AEAF /* ProfilePropertiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890BD40235552CC0083AEAF /* ProfilePropertiesCell.swift */; };
+		4890BD44235555A50083AEAF /* CustomHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4890BD43235555A50083AEAF /* CustomHeader.xib */; };
+		4890BD46235555BF0083AEAF /* CustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890BD45235555BF0083AEAF /* CustomHeader.swift */; };
+		4890BD492355605B0083AEAF /* ProfileSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4890BD482355605B0083AEAF /* ProfileSettingsView.xib */; };
+		4890BD4B235560670083AEAF /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890BD4A235560670083AEAF /* ProfileSettingsView.swift */; };
 		4893007423428A91004B37AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4893007323428A91004B37AD /* AppDelegate.swift */; };
 		4893007623428A91004B37AD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4893007523428A91004B37AD /* LoginViewController.swift */; };
 		4893007923428A91004B37AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4893007723428A91004B37AD /* Main.storyboard */; };
@@ -64,6 +70,12 @@
 		485AD83F234AD306008E8E52 /* ChatLeftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLeftCell.swift; sourceTree = "<group>"; };
 		485AD841234AD313008E8E52 /* ChatRightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRightCell.swift; sourceTree = "<group>"; };
 		4890BD3C2355142E0083AEAF /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		4890BD3E23554A800083AEAF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4890BD40235552CC0083AEAF /* ProfilePropertiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePropertiesCell.swift; sourceTree = "<group>"; };
+		4890BD43235555A50083AEAF /* CustomHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomHeader.xib; sourceTree = "<group>"; };
+		4890BD45235555BF0083AEAF /* CustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeader.swift; sourceTree = "<group>"; };
+		4890BD482355605B0083AEAF /* ProfileSettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileSettingsView.xib; sourceTree = "<group>"; };
+		4890BD4A235560670083AEAF /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
 		4893007023428A91004B37AD /* Impoort-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Impoort-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4893007323428A91004B37AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4893007523428A91004B37AD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				480E6A14234D3E81006A4DA0 /* ProfileViewController.swift */,
+				4890BD3E23554A800083AEAF /* SettingsViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -183,10 +196,12 @@
 		483DD9BC2348149E00DCA3A1 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				4890BD42235555930083AEAF /* Xib */,
 				485AD83C234AC83F008E8E52 /* MessageCell */,
 				48491702234A77C80093091D /* PostCell */,
 				483DD9BD234814B900DCA3A1 /* SectorCell.swift */,
 				480E6A11234D1CAA006A4DA0 /* FilterSearchCollectionViewCell.swift */,
+				4890BD40235552CC0083AEAF /* ProfilePropertiesCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -235,6 +250,25 @@
 				4890BD3C2355142E0083AEAF /* ShareViewController.swift */,
 			);
 			path = Share;
+			sourceTree = "<group>";
+		};
+		4890BD42235555930083AEAF /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				4890BD4723555F820083AEAF /* ProfileSettings */,
+				4890BD43235555A50083AEAF /* CustomHeader.xib */,
+				4890BD45235555BF0083AEAF /* CustomHeader.swift */,
+			);
+			path = Xib;
+			sourceTree = "<group>";
+		};
+		4890BD4723555F820083AEAF /* ProfileSettings */ = {
+			isa = PBXGroup;
+			children = (
+				4890BD482355605B0083AEAF /* ProfileSettingsView.xib */,
+				4890BD4A235560670083AEAF /* ProfileSettingsView.swift */,
+			);
+			path = ProfileSettings;
 			sourceTree = "<group>";
 		};
 		4893006723428A91004B37AD = {
@@ -350,9 +384,11 @@
 			files = (
 				4893007E23428A92004B37AD /* LaunchScreen.storyboard in Resources */,
 				4849170A234A93180093091D /* PostCellWithImage.xib in Resources */,
+				4890BD492355605B0083AEAF /* ProfileSettingsView.xib in Resources */,
 				4893007B23428A92004B37AD /* Assets.xcassets in Resources */,
 				48491706234A77E90093091D /* PostCell.xib in Resources */,
 				4893007923428A91004B37AD /* Main.storyboard in Resources */,
+				4890BD44235555A50083AEAF /* CustomHeader.xib in Resources */,
 				485AD836234AC0FE008E8E52 /* External.storyboard in Resources */,
 				484916FE234A5EA10093091D /* Home.storyboard in Resources */,
 			);
@@ -411,10 +447,12 @@
 				483DD9B32348042E00DCA3A1 /* BaseViewController.swift in Sources */,
 				483DD9B12348035800DCA3A1 /* RegisterFirstStepViewController.swift in Sources */,
 				4893007623428A91004B37AD /* LoginViewController.swift in Sources */,
+				4890BD46235555BF0083AEAF /* CustomHeader.swift in Sources */,
 				480E6A10234D195D006A4DA0 /* SearchViewController.swift in Sources */,
 				48491709234A93180093091D /* PostCellWithImage.swift in Sources */,
 				483DD9AE2347F99F00DCA3A1 /* TxtFieldConfig.swift in Sources */,
 				483DD9BB23480C5900DCA3A1 /* User.swift in Sources */,
+				4890BD4B235560670083AEAF /* ProfileSettingsView.swift in Sources */,
 				485AD840234AD306008E8E52 /* ChatLeftCell.swift in Sources */,
 				4893007423428A91004B37AD /* AppDelegate.swift in Sources */,
 				48491701234A71DC0093091D /* HomeViewController.swift in Sources */,
@@ -422,10 +460,12 @@
 				4890BD3D2355142E0083AEAF /* ShareViewController.swift in Sources */,
 				483DD9B72348050A00DCA3A1 /* RegisterSecondStepViewController.swift in Sources */,
 				485AD83E234AC861008E8E52 /* MessagesGeneralCell.swift in Sources */,
+				4890BD3F23554A800083AEAF /* SettingsViewController.swift in Sources */,
 				483DD9B92348051400DCA3A1 /* RegisterThirdStepViewController.swift in Sources */,
 				483DD9C023482AF900DCA3A1 /* AlertConroller.swift in Sources */,
 				48491705234A77E90093091D /* PostCell.swift in Sources */,
 				485AD83B234AC485008E8E52 /* ChatViewController.swift in Sources */,
+				4890BD41235552CC0083AEAF /* ProfilePropertiesCell.swift in Sources */,
 				480E6A15234D3E81006A4DA0 /* ProfileViewController.swift in Sources */,
 				480E6A12234D1CAA006A4DA0 /* FilterSearchCollectionViewCell.swift in Sources */,
 				485AD839234AC46D008E8E52 /* MessagesGeneralViewController.swift in Sources */,

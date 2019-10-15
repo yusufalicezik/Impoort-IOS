@@ -84,6 +84,12 @@ class BaseViewController: UIViewController {
         self.present(vc!, animated: true, completion: nil)
         
     }
+    func goToSettingsVC(){  //id gönderilebilir. me or other
+        let storyboard = UIStoryboard(name: "External", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SettingsVC") as? SettingsViewController
+        self.present(vc!, animated: true, completion: nil)
+        
+    }
 
 }
 
