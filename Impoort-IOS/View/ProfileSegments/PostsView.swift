@@ -51,10 +51,8 @@ class PostsView: UIView {
     }
     
     @objc func refreshWeatherData(_ sender: Any){
-        self.tableView.isScrollEnabled = false
         DispatchQueue.main.asyncAfter(deadline: .now()+2){
             self.refreshControl.endRefreshing()
-            self.tableView.isScrollEnabled = true
         }
     }
     

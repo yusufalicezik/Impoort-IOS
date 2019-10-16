@@ -26,6 +26,7 @@ class ProfileViewController: BaseViewController {
     
     let titles = ["Posts", "Watcher", "Watching"]
     var postsView:PostsView?
+    var profileBiggestView:ProfileBiggest?
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -52,6 +53,10 @@ class ProfileViewController: BaseViewController {
         segmentedControl.bottomAnchor.constraint(equalTo: self.segmentContainerView.bottomAnchor, constant: 0.0).isActive = true
         segmentedControl.heightAnchor.constraint(equalToConstant: 45.0).isActive = true
         
+        
+        let profileRecognizer = UITapGestureRecognizer(target: self, action: #selector(openProfilePictureBig))
+        self.profileImageView.addGestureRecognizer(profileRecognizer)
+        self.profileImageView.isUserInteractionEnabled = true
         loadPostsView(senderType: .posts)
         
 
@@ -76,8 +81,24 @@ class ProfileViewController: BaseViewController {
         if let _ = self.postsView?.superview {
             self.postsView?.removeFromSuperview()
         }
+//        let rc = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeft))
+//        self.view.isUserInteractionEnabled = true
+//        rc.direction = .left
+//        self.view.addGestureRecognizer(rc)
         self.postsView?.senderProfileType = senderType
         self.postsView!.load()
+    }
+    @objc func swipeLeft(){
+        print("swipped")
+    }
+    @objc func openProfilePictureBig(){
+        if let mView = profileBiggestView{
+            mView.removeFromSuperview()
+        }
+        self.profileBiggestView = Bundle.main.loadNibNamed("ProfileBiggest", owner: self, options: nil)?.first as? ProfileBiggest
+        self.profileBiggestView?.profileImg.layer.cornerRadius = self.view.frame.width/2
+        self.profileBiggestView?.configView(self, self.profileBiggestView!)
+            self.view.layoutIfNeeded()
     }
     
 }

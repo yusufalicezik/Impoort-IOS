@@ -635,7 +635,7 @@
                                             <action selector="messageButtonClicked:" destination="FyD-DZ-H5u" eventType="touchUpInside" id="gLb-Sm-8wC"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stonks" translatesAutoresizingMaskIntoConstraints="NO" id="Qm5-lZ-s13">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img" translatesAutoresizingMaskIntoConstraints="NO" id="Qm5-lZ-s13">
                                         <rect key="frame" x="50" y="25" width="0.0" height="0.0"/>
                                         <constraints>
                                             <constraint firstAttribute="height" id="M5j-zB-FZx"/>
