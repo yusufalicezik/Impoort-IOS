@@ -15,7 +15,7 @@ class ProfileViewController: BaseViewController {
     @IBOutlet weak var segmentContainerView: UIView!
     @IBOutlet weak var profileImageHeight:NSLayoutConstraint!
     @IBOutlet weak var profileImageWidth:NSLayoutConstraint!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var containerView: UIView!
     
     
     @IBOutlet weak var barImageView: UIImageView!
@@ -25,15 +25,13 @@ class ProfileViewController: BaseViewController {
     @IBOutlet weak var barWidthConstraint: NSLayoutConstraint!
     
     let titles = ["Posts", "Watcher", "Watching"]
+    var postsView:PostsView?
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
     }
     
     func setup(){
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        
         //let frame = CGRect(x: 5, y:  200, width: view.frame.width - 10, height: 40)
         let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         let segmentedControl = TwicketSegmentedControl(frame: frame)
@@ -54,6 +52,8 @@ class ProfileViewController: BaseViewController {
         segmentedControl.bottomAnchor.constraint(equalTo: self.segmentContainerView.bottomAnchor, constant: 0.0).isActive = true
         segmentedControl.heightAnchor.constraint(equalToConstant: 45.0).isActive = true
         
+        loadPostsView(senderType: .posts)
+        
 
     }
 
@@ -65,28 +65,32 @@ class ProfileViewController: BaseViewController {
         self.goToSettingsVC()
     }
     
-}
-extension ProfileViewController : UITableViewDelegate, UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+    func loadPostsView(senderType:SenderProfileTyle){
+        self.postsView?.removeFromSuperview()
+        self.postsView = Bundle.main.loadNibNamed("PostsView", owner: self, options: nil)?.first as? PostsView
+        postsView?.parentVC = self
+        self.postsView?.senderProfileType = senderType
+        self.postsView!.load()
+    }
+    func loadWatcherView(senderType:SenderProfileTyle){
+        if let _ = self.postsView?.superview {
+            self.postsView?.removeFromSuperview()
+        }
+        self.postsView?.senderProfileType = senderType
+        self.postsView!.load()
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = UITableViewCell()
-        if indexPath.row % 3 == 0{
-            cell = Bundle.main.loadNibNamed("PostCell", owner: self, options: nil)?.first as! PostCell
-        }else{
-            cell = Bundle.main.loadNibNamed("PostCellWithImage", owner: self, options: nil)?.first as! PostCellWithImage
-        }
-        return cell
-    }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
-    }
 }
 extension ProfileViewController:TwicketSegmentedControlDelegate{
     func didSelect(_ segmentIndex: Int) {
-        print("asd")
+        switch segmentIndex {
+        case 0:
+            loadPostsView(senderType: .posts)
+        case 1:
+            loadPostsView(senderType: .watcher)
+        default:
+            loadPostsView(senderType: .watching)
+        }
     }
 }
 //tableview ve scroll kısımları nib olarak farklı viewlarda olacak, post, takip, takipci

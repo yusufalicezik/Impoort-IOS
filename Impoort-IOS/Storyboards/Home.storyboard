@@ -527,7 +527,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.3529411764705882" green="0.62745098039215685" blue="0.51764705882352935" alpha="0.72503745719178081" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.3529411764705882" green="0.62745098039215685" blue="0.51764705882352935" alpha="0.79441352739726023" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="x92-zl-Ytd" firstAttribute="centerY" secondItem="34P-P0-WwK" secondAttribute="centerY" id="Ocr-Xn-BfZ"/>
                                                     <constraint firstItem="vHs-Qb-U9i" firstAttribute="centerY" secondItem="34P-P0-WwK" secondAttribute="centerY" id="S7I-E0-C09"/>
@@ -559,7 +559,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.97254901960784312" green="0.94509803921568625" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="rDt-eA-3cg" firstAttribute="bottom" secondItem="W3U-ly-sf0" secondAttribute="bottom" id="0BG-CM-bfA"/>
                             <constraint firstItem="PEA-Pk-hNs" firstAttribute="top" secondItem="W3U-ly-sf0" secondAttribute="top" id="BNl-Sk-gff"/>
@@ -663,16 +663,17 @@
                                             <constraint firstAttribute="height" constant="45" id="DRm-df-Bue"/>
                                         </constraints>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HwH-wy-0DQ">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vir-jt-eca">
                                         <rect key="frame" x="0.0" y="211" width="414" height="498"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableView>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="HwH-wy-0DQ" firstAttribute="leading" secondItem="YRe-wa-tDV" secondAttribute="leading" id="Fax-dy-ZMN"/>
-                                    <constraint firstAttribute="trailing" secondItem="HwH-wy-0DQ" secondAttribute="trailing" id="JBf-jb-UbE"/>
+                                    <constraint firstAttribute="trailing" secondItem="vir-jt-eca" secondAttribute="trailing" id="gdF-Cm-WL7"/>
                                     <constraint firstItem="4J8-37-Lxi" firstAttribute="leading" secondItem="YRe-wa-tDV" secondAttribute="leading" constant="25" id="vQF-nv-fGl"/>
+                                    <constraint firstItem="vir-jt-eca" firstAttribute="leading" secondItem="YRe-wa-tDV" secondAttribute="leading" id="vsf-4R-PAI"/>
                                     <constraint firstAttribute="trailing" secondItem="4J8-37-Lxi" secondAttribute="trailing" constant="25" id="vtk-vC-Vao"/>
+                                    <constraint firstAttribute="bottom" secondItem="vir-jt-eca" secondAttribute="bottom" id="zCD-yw-zhc"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -693,13 +694,13 @@
                         <outlet property="barHeightConstraint" destination="M5j-zB-FZx" id="eJ5-VI-O8A"/>
                         <outlet property="barImageView" destination="Qm5-lZ-s13" id="HIX-u5-OEc"/>
                         <outlet property="barWidthConstraint" destination="hcO-PR-dLx" id="hEQ-Hd-zWQ"/>
+                        <outlet property="containerView" destination="vir-jt-eca" id="oRt-PU-1rQ"/>
                         <outlet property="headerBarView" destination="cB8-z6-wmi" id="htL-0V-ijF"/>
                         <outlet property="profileImageHeight" destination="ATc-t5-tiS" id="EV6-sj-DLC"/>
                         <outlet property="profileImageView" destination="R5H-8g-DeE" id="ziR-xa-52B"/>
                         <outlet property="profileImageWidth" destination="Das-8w-lEl" id="FUu-ro-0ph"/>
                         <outlet property="segmentContainerView" destination="4J8-37-Lxi" id="WAF-vp-Tnt"/>
                         <outlet property="settingsButton" destination="4Dq-OQ-niQ" id="6e5-gv-SAI"/>
-                        <outlet property="tableView" destination="HwH-wy-0DQ" id="dxd-iz-ASp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O83-8g-0Yb" userLabel="First Responder" sceneMemberID="firstResponder"/>

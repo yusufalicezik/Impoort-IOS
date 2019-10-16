@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyShadow
+import ListPlaceholder
 
 class HomeViewController: BaseViewController {
 
@@ -19,11 +20,20 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var topRightButton:UIButton!
     var prevOffset:CGFloat = 0.0
     let refreshControl = UIRefreshControl()
+    var isScrollingTopEnable = true
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        isScrollingTopEnable = true
+        super.viewWillAppear(animated)
+        self.tableView.showLoader()
+        DispatchQueue.main.asyncAfter(deadline: .now()+2){
+            self.tableView.hideLoader()
+        }
+    }
     func setup(){
         self.tabBarController!.tabBar.layer.borderWidth = 0.25
         self.tabBarController?.tabBar.clipsToBounds = true
@@ -126,8 +136,10 @@ extension HomeViewController : UIScrollViewDelegate{
 }
 extension HomeViewController:UITabBarControllerDelegate{
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        if tabBarController.selectedIndex == 0{
+        if tabBarController.selectedIndex == 0 && isScrollingTopEnable {
             self.tableView.setContentOffset(CGPoint.zero, animated: true)
+        }else{
+            isScrollingTopEnable = false
         }
     }
 }

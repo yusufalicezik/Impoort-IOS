@@ -31,6 +31,12 @@
 		485AD83E234AC861008E8E52 /* MessagesGeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AD83D234AC861008E8E52 /* MessagesGeneralCell.swift */; };
 		485AD840234AD306008E8E52 /* ChatLeftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AD83F234AD306008E8E52 /* ChatLeftCell.swift */; };
 		485AD842234AD313008E8E52 /* ChatRightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AD841234AD313008E8E52 /* ChatRightCell.swift */; };
+		486A0D4A235693A30019329D /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A0D49235693A30019329D /* PostsView.swift */; };
+		486A0D4C235693AB0019329D /* PostsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486A0D4B235693AB0019329D /* PostsView.xib */; };
+		486A0D4E23569B220019329D /* WatcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A0D4D23569B220019329D /* WatcherView.swift */; };
+		486A0D5023569B3E0019329D /* WatcherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486A0D4F23569B3E0019329D /* WatcherView.xib */; };
+		486A0D5223569C490019329D /* WatcherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A0D5123569C490019329D /* WatcherCell.swift */; };
+		486A0D5523569C620019329D /* WatcherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486A0D5423569C620019329D /* WatcherCell.xib */; };
 		4890BD3D2355142E0083AEAF /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890BD3C2355142E0083AEAF /* ShareViewController.swift */; };
 		4890BD3F23554A800083AEAF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890BD3E23554A800083AEAF /* SettingsViewController.swift */; };
 		4890BD41235552CC0083AEAF /* ProfilePropertiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890BD40235552CC0083AEAF /* ProfilePropertiesCell.swift */; };
@@ -69,6 +75,12 @@
 		485AD83D234AC861008E8E52 /* MessagesGeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesGeneralCell.swift; sourceTree = "<group>"; };
 		485AD83F234AD306008E8E52 /* ChatLeftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLeftCell.swift; sourceTree = "<group>"; };
 		485AD841234AD313008E8E52 /* ChatRightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRightCell.swift; sourceTree = "<group>"; };
+		486A0D49235693A30019329D /* PostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsView.swift; sourceTree = "<group>"; };
+		486A0D4B235693AB0019329D /* PostsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostsView.xib; sourceTree = "<group>"; };
+		486A0D4D23569B220019329D /* WatcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatcherView.swift; sourceTree = "<group>"; };
+		486A0D4F23569B3E0019329D /* WatcherView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatcherView.xib; sourceTree = "<group>"; };
+		486A0D5123569C490019329D /* WatcherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WatcherCell.swift; path = ../WatcherCell.swift; sourceTree = "<group>"; };
+		486A0D5423569C620019329D /* WatcherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatcherCell.xib; sourceTree = "<group>"; };
 		4890BD3C2355142E0083AEAF /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		4890BD3E23554A800083AEAF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4890BD40235552CC0083AEAF /* ProfilePropertiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePropertiesCell.swift; sourceTree = "<group>"; };
@@ -143,6 +155,8 @@
 		483DD9A82347F4A000DCA3A1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				486A0D48235691F80019329D /* New Group */,
+				4890BD42235555930083AEAF /* Xib */,
 				483DD9BC2348149E00DCA3A1 /* Cell */,
 			);
 			path = View;
@@ -196,7 +210,7 @@
 		483DD9BC2348149E00DCA3A1 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				4890BD42235555930083AEAF /* Xib */,
+				486A0D5323569C4E0019329D /* New Group */,
 				485AD83C234AC83F008E8E52 /* MessageCell */,
 				48491702234A77C80093091D /* PostCell */,
 				483DD9BD234814B900DCA3A1 /* SectorCell.swift */,
@@ -244,6 +258,26 @@
 			path = MessageCell;
 			sourceTree = "<group>";
 		};
+		486A0D48235691F80019329D /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				486A0D49235693A30019329D /* PostsView.swift */,
+				486A0D4B235693AB0019329D /* PostsView.xib */,
+				486A0D4D23569B220019329D /* WatcherView.swift */,
+				486A0D4F23569B3E0019329D /* WatcherView.xib */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		486A0D5323569C4E0019329D /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				486A0D5123569C490019329D /* WatcherCell.swift */,
+				486A0D5423569C620019329D /* WatcherCell.xib */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		4890BD3B235514180083AEAF /* Share */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,7 +293,8 @@
 				4890BD43235555A50083AEAF /* CustomHeader.xib */,
 				4890BD45235555BF0083AEAF /* CustomHeader.swift */,
 			);
-			path = Xib;
+			name = Xib;
+			path = Cell/Xib;
 			sourceTree = "<group>";
 		};
 		4890BD4723555F820083AEAF /* ProfileSettings */ = {
@@ -383,9 +418,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4893007E23428A92004B37AD /* LaunchScreen.storyboard in Resources */,
+				486A0D5023569B3E0019329D /* WatcherView.xib in Resources */,
 				4849170A234A93180093091D /* PostCellWithImage.xib in Resources */,
+				486A0D4C235693AB0019329D /* PostsView.xib in Resources */,
 				4890BD492355605B0083AEAF /* ProfileSettingsView.xib in Resources */,
 				4893007B23428A92004B37AD /* Assets.xcassets in Resources */,
+				486A0D5523569C620019329D /* WatcherCell.xib in Resources */,
 				48491706234A77E90093091D /* PostCell.xib in Resources */,
 				4893007923428A91004B37AD /* Main.storyboard in Resources */,
 				4890BD44235555A50083AEAF /* CustomHeader.xib in Resources */,
@@ -444,6 +482,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				483DD9BE234814B900DCA3A1 /* SectorCell.swift in Sources */,
+				486A0D4E23569B220019329D /* WatcherView.swift in Sources */,
 				483DD9B32348042E00DCA3A1 /* BaseViewController.swift in Sources */,
 				483DD9B12348035800DCA3A1 /* RegisterFirstStepViewController.swift in Sources */,
 				4893007623428A91004B37AD /* LoginViewController.swift in Sources */,
@@ -469,6 +508,8 @@
 				480E6A15234D3E81006A4DA0 /* ProfileViewController.swift in Sources */,
 				480E6A12234D1CAA006A4DA0 /* FilterSearchCollectionViewCell.swift in Sources */,
 				485AD839234AC46D008E8E52 /* MessagesGeneralViewController.swift in Sources */,
+				486A0D5223569C490019329D /* WatcherCell.swift in Sources */,
+				486A0D4A235693A30019329D /* PostsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
