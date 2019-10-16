@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="66" id="KGk-i7-Jjw" customClass="WatcherCell" customModule="Impoort_IOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="380" height="66"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="380" height="65.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4aZ-Ia-iE3">
+                        <rect key="frame" x="10" y="2" width="360" height="55"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img" translatesAutoresizingMaskIntoConstraints="NO" id="5wR-L0-kpv">
+                                <rect key="frame" x="10" y="5" width="45" height="45"/>
+                                <color key="backgroundColor" red="0.15686274510000001" green="0.24313725489999999" blue="0.2901960784" alpha="0.72773972600000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.97254901959999995" green="0.94509803920000002" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="4N3-ts-w5E"/>
+                                    <constraint firstAttribute="height" constant="45" id="jB2-Fe-bK9"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jhs-tF-FHi">
+                                <rect key="frame" x="63" y="11.5" width="84.5" height="32"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yusuf Ali Çezik" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxI-ZO-3Ng">
+                                        <rect key="frame" x="0.0" y="0.0" width="84.5" height="18"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                                        <color key="textColor" red="0.15686274510000001" green="0.24313725489999999" blue="0.2901960784" alpha="0.72773972600000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IOS Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSB-gQ-f6C">
+                                        <rect key="frame" x="0.0" y="18" width="84.5" height="14"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="10"/>
+                                        <color key="textColor" red="0.15686274510000001" green="0.24313725489999999" blue="0.2901960784" alpha="0.72773972600000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s5g-ay-eNp">
+                                <rect key="frame" x="292" y="16" width="60" height="23"/>
+                                <color key="backgroundColor" red="0.14117647058823529" green="0.396078431372549" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="7gl-E3-ZnG"/>
+                                    <constraint firstAttribute="height" constant="23" id="pj4-wa-HzR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
+                                <color key="tintColor" red="0.97254901959999995" green="0.94509803920000002" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Watching">
+                                    <color key="titleColor" red="0.97254901959999995" green="0.94509803920000002" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="watchingWatcherButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="91I-Wm-WWK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Jhs-tF-FHi" firstAttribute="centerY" secondItem="5wR-L0-kpv" secondAttribute="centerY" id="9WX-aD-j6K"/>
+                            <constraint firstItem="5wR-L0-kpv" firstAttribute="top" secondItem="4aZ-Ia-iE3" secondAttribute="top" constant="5" id="THL-rK-y5y"/>
+                            <constraint firstItem="Jhs-tF-FHi" firstAttribute="leading" secondItem="5wR-L0-kpv" secondAttribute="trailing" constant="8" id="UZo-Es-nIZ"/>
+                            <constraint firstAttribute="trailing" secondItem="s5g-ay-eNp" secondAttribute="trailing" constant="8" id="Vh1-PW-knN"/>
+                            <constraint firstItem="s5g-ay-eNp" firstAttribute="centerY" secondItem="5wR-L0-kpv" secondAttribute="centerY" id="d2G-yV-kvw"/>
+                            <constraint firstAttribute="bottom" secondItem="5wR-L0-kpv" secondAttribute="bottom" constant="5" id="jdL-Y2-ceW"/>
+                            <constraint firstItem="5wR-L0-kpv" firstAttribute="leading" secondItem="4aZ-Ia-iE3" secondAttribute="leading" constant="10" id="u9L-7R-A9o"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="4aZ-Ia-iE3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="98U-66-KKi"/>
+                    <constraint firstAttribute="bottom" secondItem="4aZ-Ia-iE3" secondAttribute="bottom" constant="2" id="j2a-vg-3k4"/>
+                    <constraint firstItem="4aZ-Ia-iE3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="kAN-Od-njH"/>
+                    <constraint firstAttribute="trailing" secondItem="4aZ-Ia-iE3" secondAttribute="trailing" constant="10" id="q31-tb-abt"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cellContainerView" destination="4aZ-Ia-iE3" id="f0D-oy-kum"/>
+                <outlet property="profileImg" destination="5wR-L0-kpv" id="3tr-hQ-CCt"/>
+                <outlet property="profileNAmeSurnameLabel" destination="lxI-ZO-3Ng" id="Ai9-13-AL4"/>
+                <outlet property="profileSectorLabel" destination="WSB-gQ-f6C" id="mEE-s3-wli"/>
+                <outlet property="watchingWatcherButton" destination="s5g-ay-eNp" id="TF6-ao-bSW"/>
+            </connections>
+            <point key="canvasLocation" x="175.36231884057972" y="133.25892857142856"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="img" width="960" height="670"/>
+    </resources>
+</document>

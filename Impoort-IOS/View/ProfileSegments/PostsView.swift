@@ -23,7 +23,18 @@ class PostsView: UIView {
     }
     
     func load(){
+        if senderProfileType! == .posts{
+            tableView.allowsSelection = false
+        }
         if let parentVC = parentVC as? ProfileViewController{
+            parentVC.containerView.addSubview(self)
+            self.frame = parentVC.containerView.frame
+            self.translatesAutoresizingMaskIntoConstraints = false
+            self.topAnchor.constraint(equalTo: parentVC.containerView.topAnchor, constant: 0.0).isActive = true
+            self.bottomAnchor.constraint(equalTo: parentVC.containerView.bottomAnchor, constant: 0.0).isActive = true
+            self.leftAnchor.constraint(equalTo: parentVC.containerView.leftAnchor, constant: 0.0).isActive = true
+            self.rightAnchor.constraint(equalTo: parentVC.containerView.rightAnchor, constant: 0.0).isActive = true
+        }else if let parentVC = parentVC as? WatchingViewController{
             parentVC.containerView.addSubview(self)
             self.frame = parentVC.containerView.frame
             self.translatesAutoresizingMaskIntoConstraints = false
@@ -49,10 +60,20 @@ extension PostsView:UITableViewDelegate, UITableViewDataSource{
             //cell. config işlemleri posta göre
         case .watcher:
             cell = Bundle.main.loadNibNamed("WatcherCell", owner: self, options: nil)?.first as! WatcherCell
+            if indexPath.row % 3 == 0{
+                if let mCell = cell as? WatcherCell{
+                    mCell.watchingWatcherButton.setTitle("Watch", for: .normal)
+                    mCell.watchingWatcherButton.backgroundColor = #colorLiteral(red: 0.3960784314, green: 0.7254901961, blue: 0.6470588235, alpha: 1)
+                }
+            }
+            
         default:
             cell = Bundle.main.loadNibNamed("WatcherCell", owner: self, options: nil)?.first as! WatcherCell
         }
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     
@@ -75,10 +96,12 @@ extension PostsView : UIScrollViewDelegate{
             //            self.profileImageView.heightAnchor.constraint(equalToConstant: 45.0).isActive = true
             //            self.profileImageView.widthAnchor.constraint(equalToConstant: 45.0).isActive = true
         }
-        UIView.animate(withDuration: 0.5){
-            //self.parentVC?.view.layoutIfNeeded()
+       
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: .allowUserInteraction, animations: {
             parentVC.view.layoutIfNeeded()
-        }
+
+        }, completion: nil)
+       
     }
     
 }

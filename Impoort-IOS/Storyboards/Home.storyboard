@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Watching View Controller-->
         <scene sceneID="6uZ-oY-Kdh">
             <objects>
-                <viewController id="5Wg-pJ-j7K" sceneMemberID="viewController">
+                <viewController id="5Wg-pJ-j7K" customClass="WatchingViewController" customModule="Impoort_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wex-qC-fYc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,16 +46,27 @@
                                     <constraint firstAttribute="trailing" secondItem="Ur6-e7-KwG" secondAttribute="trailing" constant="20" id="tPS-d9-Lr7"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKU-0U-ozk">
+                                <rect key="frame" x="0.0" y="94" width="414" height="719"/>
+                                <color key="backgroundColor" red="0.97254901959999995" green="0.94509803920000002" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yJu-4Z-AG4" firstAttribute="leading" secondItem="Cey-As-XEO" secondAttribute="leading" id="3aa-xE-MbV"/>
+                            <constraint firstItem="Cey-As-XEO" firstAttribute="trailing" secondItem="LKU-0U-ozk" secondAttribute="trailing" id="M74-Hp-RYL"/>
+                            <constraint firstItem="LKU-0U-ozk" firstAttribute="top" secondItem="yJu-4Z-AG4" secondAttribute="bottom" id="Oqw-fj-ac2"/>
+                            <constraint firstItem="Cey-As-XEO" firstAttribute="bottom" secondItem="LKU-0U-ozk" secondAttribute="bottom" id="UFW-0x-yae"/>
+                            <constraint firstItem="LKU-0U-ozk" firstAttribute="leading" secondItem="Cey-As-XEO" secondAttribute="leading" id="aS0-z3-A2i"/>
                             <constraint firstItem="yJu-4Z-AG4" firstAttribute="top" secondItem="Cey-As-XEO" secondAttribute="top" id="dbq-Eo-BKx"/>
                             <constraint firstAttribute="trailing" secondItem="yJu-4Z-AG4" secondAttribute="trailing" id="hYp-1O-2Rc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cey-As-XEO"/>
                     </view>
                     <navigationItem key="navigationItem" id="p4U-y6-mIN"/>
+                    <connections>
+                        <outlet property="containerView" destination="LKU-0U-ozk" id="3BP-2u-rEE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D3X-pn-xqc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

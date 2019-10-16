@@ -11,6 +11,7 @@
 		480E6A10234D195D006A4DA0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480E6A0F234D195D006A4DA0 /* SearchViewController.swift */; };
 		480E6A12234D1CAA006A4DA0 /* FilterSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480E6A11234D1CAA006A4DA0 /* FilterSearchCollectionViewCell.swift */; };
 		480E6A15234D3E81006A4DA0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480E6A14234D3E81006A4DA0 /* ProfileViewController.swift */; };
+		481FF4572356D121000836D0 /* WatchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FF4562356D121000836D0 /* WatchingViewController.swift */; };
 		483DD9AE2347F99F00DCA3A1 /* TxtFieldConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9AD2347F99F00DCA3A1 /* TxtFieldConfig.swift */; };
 		483DD9B12348035800DCA3A1 /* RegisterFirstStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9B02348035800DCA3A1 /* RegisterFirstStepViewController.swift */; };
 		483DD9B32348042E00DCA3A1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9B22348042E00DCA3A1 /* BaseViewController.swift */; };
@@ -35,8 +36,8 @@
 		486A0D4C235693AB0019329D /* PostsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486A0D4B235693AB0019329D /* PostsView.xib */; };
 		486A0D4E23569B220019329D /* WatcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A0D4D23569B220019329D /* WatcherView.swift */; };
 		486A0D5023569B3E0019329D /* WatcherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486A0D4F23569B3E0019329D /* WatcherView.xib */; };
-		486A0D5223569C490019329D /* WatcherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A0D5123569C490019329D /* WatcherCell.swift */; };
-		486A0D5523569C620019329D /* WatcherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486A0D5423569C620019329D /* WatcherCell.xib */; };
+		486A0D5B2356AF9E0019329D /* WatcherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A0D592356AF9E0019329D /* WatcherCell.swift */; };
+		486A0D5C2356AF9E0019329D /* WatcherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486A0D5A2356AF9E0019329D /* WatcherCell.xib */; };
 		4890BD3D2355142E0083AEAF /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890BD3C2355142E0083AEAF /* ShareViewController.swift */; };
 		4890BD3F23554A800083AEAF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890BD3E23554A800083AEAF /* SettingsViewController.swift */; };
 		4890BD41235552CC0083AEAF /* ProfilePropertiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890BD40235552CC0083AEAF /* ProfilePropertiesCell.swift */; };
@@ -55,6 +56,7 @@
 		480E6A0F234D195D006A4DA0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		480E6A11234D1CAA006A4DA0 /* FilterSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		480E6A14234D3E81006A4DA0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		481FF4562356D121000836D0 /* WatchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingViewController.swift; sourceTree = "<group>"; };
 		483DD9AD2347F99F00DCA3A1 /* TxtFieldConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxtFieldConfig.swift; sourceTree = "<group>"; };
 		483DD9B02348035800DCA3A1 /* RegisterFirstStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFirstStepViewController.swift; sourceTree = "<group>"; };
 		483DD9B22348042E00DCA3A1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -79,8 +81,8 @@
 		486A0D4B235693AB0019329D /* PostsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostsView.xib; sourceTree = "<group>"; };
 		486A0D4D23569B220019329D /* WatcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatcherView.swift; sourceTree = "<group>"; };
 		486A0D4F23569B3E0019329D /* WatcherView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatcherView.xib; sourceTree = "<group>"; };
-		486A0D5123569C490019329D /* WatcherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WatcherCell.swift; path = ../WatcherCell.swift; sourceTree = "<group>"; };
-		486A0D5423569C620019329D /* WatcherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatcherCell.xib; sourceTree = "<group>"; };
+		486A0D592356AF9E0019329D /* WatcherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatcherCell.swift; sourceTree = "<group>"; };
+		486A0D5A2356AF9E0019329D /* WatcherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatcherCell.xib; sourceTree = "<group>"; };
 		4890BD3C2355142E0083AEAF /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		4890BD3E23554A800083AEAF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4890BD40235552CC0083AEAF /* ProfilePropertiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePropertiesCell.swift; sourceTree = "<group>"; };
@@ -155,7 +157,7 @@
 		483DD9A82347F4A000DCA3A1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				486A0D48235691F80019329D /* New Group */,
+				486A0D48235691F80019329D /* ProfileSegments */,
 				4890BD42235555930083AEAF /* Xib */,
 				483DD9BC2348149E00DCA3A1 /* Cell */,
 			);
@@ -210,7 +212,7 @@
 		483DD9BC2348149E00DCA3A1 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				486A0D5323569C4E0019329D /* New Group */,
+				486A0D5323569C4E0019329D /* WatcherCell */,
 				485AD83C234AC83F008E8E52 /* MessageCell */,
 				48491702234A77C80093091D /* PostCell */,
 				483DD9BD234814B900DCA3A1 /* SectorCell.swift */,
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				48491700234A71DC0093091D /* HomeViewController.swift */,
+				481FF4562356D121000836D0 /* WatchingViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -258,7 +261,7 @@
 			path = MessageCell;
 			sourceTree = "<group>";
 		};
-		486A0D48235691F80019329D /* New Group */ = {
+		486A0D48235691F80019329D /* ProfileSegments */ = {
 			isa = PBXGroup;
 			children = (
 				486A0D49235693A30019329D /* PostsView.swift */,
@@ -266,16 +269,16 @@
 				486A0D4D23569B220019329D /* WatcherView.swift */,
 				486A0D4F23569B3E0019329D /* WatcherView.xib */,
 			);
-			path = "New Group";
+			path = ProfileSegments;
 			sourceTree = "<group>";
 		};
-		486A0D5323569C4E0019329D /* New Group */ = {
+		486A0D5323569C4E0019329D /* WatcherCell */ = {
 			isa = PBXGroup;
 			children = (
-				486A0D5123569C490019329D /* WatcherCell.swift */,
-				486A0D5423569C620019329D /* WatcherCell.xib */,
+				486A0D592356AF9E0019329D /* WatcherCell.swift */,
+				486A0D5A2356AF9E0019329D /* WatcherCell.xib */,
 			);
-			path = "New Group";
+			path = WatcherCell;
 			sourceTree = "<group>";
 		};
 		4890BD3B235514180083AEAF /* Share */ = {
@@ -423,7 +426,7 @@
 				486A0D4C235693AB0019329D /* PostsView.xib in Resources */,
 				4890BD492355605B0083AEAF /* ProfileSettingsView.xib in Resources */,
 				4893007B23428A92004B37AD /* Assets.xcassets in Resources */,
-				486A0D5523569C620019329D /* WatcherCell.xib in Resources */,
+				486A0D5C2356AF9E0019329D /* WatcherCell.xib in Resources */,
 				48491706234A77E90093091D /* PostCell.xib in Resources */,
 				4893007923428A91004B37AD /* Main.storyboard in Resources */,
 				4890BD44235555A50083AEAF /* CustomHeader.xib in Resources */,
@@ -504,11 +507,12 @@
 				483DD9C023482AF900DCA3A1 /* AlertConroller.swift in Sources */,
 				48491705234A77E90093091D /* PostCell.swift in Sources */,
 				485AD83B234AC485008E8E52 /* ChatViewController.swift in Sources */,
+				481FF4572356D121000836D0 /* WatchingViewController.swift in Sources */,
 				4890BD41235552CC0083AEAF /* ProfilePropertiesCell.swift in Sources */,
 				480E6A15234D3E81006A4DA0 /* ProfileViewController.swift in Sources */,
 				480E6A12234D1CAA006A4DA0 /* FilterSearchCollectionViewCell.swift in Sources */,
 				485AD839234AC46D008E8E52 /* MessagesGeneralViewController.swift in Sources */,
-				486A0D5223569C490019329D /* WatcherCell.swift in Sources */,
+				486A0D5B2356AF9E0019329D /* WatcherCell.swift in Sources */,
 				486A0D4A235693A30019329D /* PostsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -117,11 +117,10 @@ extension HomeViewController : UIScrollViewDelegate{
                 quickShareLabel.isHidden = false
                 
             }
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: 0.25){
-                    self.view.layoutIfNeeded()
-                }
-            }
+            UIView.animate(withDuration: 0.35, delay: 0.0, options: .allowUserInteraction, animations: {
+                self.view.layoutIfNeeded()
+                
+            }, completion: nil)
             self.prevOffset = offsetY
         }else if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) {
             //reach bottom
