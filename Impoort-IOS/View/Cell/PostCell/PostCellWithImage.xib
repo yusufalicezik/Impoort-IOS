@@ -81,7 +81,7 @@
                                 <color key="textColor" red="0.49803921568627452" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stonks" translatesAutoresizingMaskIntoConstraints="NO" id="0T4-gf-pOa">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ex-img" translatesAutoresizingMaskIntoConstraints="NO" id="0T4-gf-pOa">
                                 <rect key="frame" x="10" y="281.5" width="397" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="4G6-Af-vGP"/>
@@ -134,9 +134,9 @@
     </objects>
     <resources>
         <image name="commenticon" width="25" height="22"/>
+        <image name="ex-img" width="1280" height="600"/>
         <image name="img" width="960" height="670"/>
         <image name="likeicon" width="19" height="20"/>
-        <image name="stonks" width="680" height="510"/>
         <image name="watchicon" width="23" height="17"/>
     </resources>
 </document>

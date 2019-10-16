@@ -16,10 +16,14 @@ class PostsView: UIView {
     @IBOutlet weak var tableView: UITableView!
     var parentVC:UIViewController?
     var senderProfileType:SenderProfileTyle?
+    let refreshControl = UIRefreshControl()
     override func awakeFromNib() {
         super.awakeFromNib()
         tableView.delegate = self
         tableView.dataSource = self
+        self.refreshControl.tintColor = #colorLiteral(red: 0.4375773668, green: 0.8031894565, blue: 0.7201564908, alpha: 1)
+        tableView.refreshControl = self.refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
     }
     
     func load(){
@@ -44,6 +48,14 @@ class PostsView: UIView {
             self.rightAnchor.constraint(equalTo: parentVC.containerView.rightAnchor, constant: 0.0).isActive = true
         }
         
+    }
+    
+    @objc func refreshWeatherData(_ sender: Any){
+        self.tableView.isScrollEnabled = false
+        DispatchQueue.main.asyncAfter(deadline: .now()+2){
+            self.refreshControl.endRefreshing()
+            self.tableView.isScrollEnabled = true
+        }
     }
     
 }

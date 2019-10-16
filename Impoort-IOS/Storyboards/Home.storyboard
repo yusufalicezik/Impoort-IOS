@@ -660,7 +660,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="YRe-wa-tDV">
                                 <rect key="frame" x="0.0" y="104" width="414" height="709"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stonks" translatesAutoresizingMaskIntoConstraints="NO" id="R5H-8g-DeE">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img" translatesAutoresizingMaskIntoConstraints="NO" id="R5H-8g-DeE">
                                         <rect key="frame" x="127" y="0.0" width="160" height="160"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="160" id="ATc-t5-tiS"/>
@@ -838,6 +838,7 @@
         <image name="closeimgicon" width="50" height="50"/>
         <image name="home" width="20" height="20.5"/>
         <image name="homecircles" width="7" height="12"/>
+        <image name="img" width="960" height="670"/>
         <image name="logo" width="289" height="95"/>
         <image name="messageicon" width="60" height="51"/>
         <image name="person" width="16" height="16.5"/>
