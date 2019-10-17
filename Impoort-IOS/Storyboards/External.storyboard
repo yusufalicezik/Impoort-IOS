@@ -491,10 +491,10 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="346" height="70.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name/Surname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJq-rx-xtV">
-                                                            <rect key="frame" x="16" y="5" width="320" height="58.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Name/Surname" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJq-rx-xtV">
+                                                            <rect key="frame" x="5" y="5" width="160.5" height="58.5"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
                                                             <color key="textColor" red="0.078431372550000003" green="0.25098039220000001" blue="0.38823529410000002" alpha="0.53031357020000003" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -505,13 +505,22 @@
                                                                 <constraint firstAttribute="height" constant="1" id="OnH-E5-Tf7"/>
                                                             </constraints>
                                                         </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name/Surnameasdasdsf" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74J-Wg-qTd">
+                                                            <rect key="frame" x="175.5" y="25" width="165.5" height="20.5"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
+                                                            <color key="textColor" red="0.078431372550000003" green="0.25098039220000001" blue="0.38823529410000002" alpha="0.53031357020000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="OJq-rx-xtV" firstAttribute="top" secondItem="aj3-5e-FGo" secondAttribute="top" constant="5" id="Ndg-fH-u6Y"/>
-                                                        <constraint firstItem="OJq-rx-xtV" firstAttribute="leading" secondItem="aj3-5e-FGo" secondAttribute="leading" constant="16" id="Qb1-s0-pRN"/>
+                                                        <constraint firstAttribute="trailing" secondItem="74J-Wg-qTd" secondAttribute="trailing" constant="5" id="OVc-17-M1P"/>
+                                                        <constraint firstItem="OJq-rx-xtV" firstAttribute="leading" secondItem="aj3-5e-FGo" secondAttribute="leading" constant="5" id="Qb1-s0-pRN"/>
                                                         <constraint firstItem="a9Q-bN-kJt" firstAttribute="leading" secondItem="aj3-5e-FGo" secondAttribute="leading" constant="25" id="UjX-Og-XAE"/>
-                                                        <constraint firstAttribute="trailing" secondItem="OJq-rx-xtV" secondAttribute="trailing" constant="10" id="iXC-S4-cDN"/>
+                                                        <constraint firstItem="74J-Wg-qTd" firstAttribute="centerY" secondItem="aj3-5e-FGo" secondAttribute="centerY" id="rKp-Lc-bfM"/>
+                                                        <constraint firstItem="74J-Wg-qTd" firstAttribute="leading" secondItem="OJq-rx-xtV" secondAttribute="trailing" constant="10" id="sqb-gG-7Iq"/>
                                                         <constraint firstAttribute="bottom" secondItem="a9Q-bN-kJt" secondAttribute="bottom" constant="3" id="uU1-Gi-wHU"/>
                                                         <constraint firstItem="a9Q-bN-kJt" firstAttribute="top" secondItem="OJq-rx-xtV" secondAttribute="bottom" constant="3" id="uVb-iA-0Kd"/>
                                                         <constraint firstAttribute="trailing" secondItem="a9Q-bN-kJt" secondAttribute="trailing" constant="25" id="yan-9G-jIY"/>
@@ -519,6 +528,7 @@
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
+                                                    <outlet property="profileNameLabel" destination="74J-Wg-qTd" id="xC5-jn-CLl"/>
                                                     <outlet property="propertyNameLabel" destination="OJq-rx-xtV" id="UV4-fh-AEq"/>
                                                 </connections>
                                             </tableViewCell>

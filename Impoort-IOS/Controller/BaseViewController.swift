@@ -90,6 +90,15 @@ class BaseViewController: UIViewController {
         self.present(vc!, animated: true, completion: nil)
         
     }
+    func addSwipeDismiss(vc:UIViewController){
+        let swipeGesture = UISwipeGestureRecognizer(target: vc, action: #selector(dismissView))
+        vc.view.isUserInteractionEnabled = true
+        swipeGesture.direction = .right
+        vc.view.addGestureRecognizer(swipeGesture)
+    }
+    @objc private func dismissView(){
+        self.goToBack()
+    }
 
 }
 

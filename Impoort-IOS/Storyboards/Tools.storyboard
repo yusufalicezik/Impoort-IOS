@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xtb-mm-Yqq">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,26 +10,65 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Bigger Picture Edit View Controller-->
         <scene sceneID="6dq-Ne-vdU">
             <objects>
-                <viewController id="xtb-mm-Yqq" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BiggerPictureEditVC" id="xtb-mm-Yqq" customClass="BiggerPictureEditViewController" customModule="Impoort_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0AJ-lD-3P5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h93-cw-i8s">
-                                <rect key="frame" x="87" y="328" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img" translatesAutoresizingMaskIntoConstraints="NO" id="h93-cw-i8s">
+                                <rect key="frame" x="2" y="113" width="410" height="670"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRT-uE-96F">
+                                <rect key="frame" x="167" y="798" width="80" height="50"/>
+                                <color key="backgroundColor" red="0.35238897800000002" green="0.62907201049999995" blue="0.51960390810000001" alpha="0.54433326199999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="WFa-qf-YaI"/>
+                                    <constraint firstAttribute="width" constant="80" id="YSU-sz-G7G"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" red="0.97254901959999995" green="0.94509803920000002" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ny6-ai-GLG">
+                                <rect key="frame" x="369" y="54" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="eqk-XL-S8B"/>
+                                    <constraint firstAttribute="width" constant="35" id="hQC-AU-8ME"/>
+                                </constraints>
+                                <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="closeClicked:" destination="xtb-mm-Yqq" eventType="touchUpInside" id="3k4-Wb-IYq"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.75082940924657537" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Qji-4A-RDO" firstAttribute="trailing" secondItem="h93-cw-i8s" secondAttribute="trailing" constant="2" id="2uz-1A-EVI"/>
+                            <constraint firstItem="zRT-uE-96F" firstAttribute="centerX" secondItem="0AJ-lD-3P5" secondAttribute="centerX" id="9Ee-Fj-V25"/>
+                            <constraint firstItem="Qji-4A-RDO" firstAttribute="trailing" secondItem="Ny6-ai-GLG" secondAttribute="trailing" constant="10" id="9N8-oN-b6d"/>
+                            <constraint firstItem="Ny6-ai-GLG" firstAttribute="top" secondItem="Qji-4A-RDO" secondAttribute="top" constant="10" id="JWo-8D-CtR"/>
+                            <constraint firstItem="zRT-uE-96F" firstAttribute="top" secondItem="h93-cw-i8s" secondAttribute="bottom" constant="15" id="Nyn-ER-Uw2"/>
+                            <constraint firstItem="h93-cw-i8s" firstAttribute="leading" secondItem="Qji-4A-RDO" secondAttribute="leading" constant="2" id="hIM-Fy-O4j"/>
+                            <constraint firstItem="h93-cw-i8s" firstAttribute="centerY" secondItem="0AJ-lD-3P5" secondAttribute="centerY" id="yut-8w-1A8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Qji-4A-RDO"/>
                     </view>
+                    <connections>
+                        <outlet property="editButton" destination="zRT-uE-96F" id="kZY-U4-1AT"/>
+                        <outlet property="profileImg" destination="h93-cw-i8s" id="wz7-dw-Pm4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1z-Zr-cYr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-442" y="147"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="close" width="24" height="24"/>
+        <image name="img" width="960" height="670"/>
+    </resources>
 </document>

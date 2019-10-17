@@ -36,6 +36,7 @@ class MessagesGeneralViewController: BaseViewController {
         }else{
             self.errorLabel.isHidden = true
         }
+        self.addSwipeDismiss(vc: self)
     }
     
     @IBAction func closeButtonClicked(_ sender: Any) {

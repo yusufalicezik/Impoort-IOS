@@ -11,12 +11,16 @@ import UIKit
 class CustomHeader: UIView {
 
     @IBOutlet weak var headerTitleLabel: UILabel!
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    var settingsAction:(()->())!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(setttingsAction))
+        self.headerTitleLabel.isUserInteractionEnabled = true
+        self.headerTitleLabel.addGestureRecognizer(recognizer)
     }
-    */
+    @objc func setttingsAction(){
+        self.settingsAction()
+    }
 
 }

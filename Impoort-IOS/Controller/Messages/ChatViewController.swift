@@ -50,6 +50,7 @@ class ChatViewController: BaseViewController {
         //Keyboard Change
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardChanged(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        self.addSwipeDismiss(vc: self)
     }
     
     func getDataFromService(){

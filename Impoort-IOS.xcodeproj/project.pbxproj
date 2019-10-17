@@ -53,6 +53,7 @@
 		48A830F82357CEE300451E38 /* Tools.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A830F72357CEE300451E38 /* Tools.storyboard */; };
 		48A830FB2357CFEA00451E38 /* ProfileBiggest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48A830FA2357CFEA00451E38 /* ProfileBiggest.xib */; };
 		48A830FD2357CFFB00451E38 /* ProfileBiggest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A830FC2357CFFB00451E38 /* ProfileBiggest.swift */; };
+		48A830FF2357DDBC00451E38 /* BiggerPictureEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A830FE2357DDBC00451E38 /* BiggerPictureEditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +104,7 @@
 		48A830F72357CEE300451E38 /* Tools.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tools.storyboard; sourceTree = "<group>"; };
 		48A830FA2357CFEA00451E38 /* ProfileBiggest.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileBiggest.xib; sourceTree = "<group>"; };
 		48A830FC2357CFFB00451E38 /* ProfileBiggest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBiggest.swift; sourceTree = "<group>"; };
+		48A830FE2357DDBC00451E38 /* BiggerPictureEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiggerPictureEditViewController.swift; sourceTree = "<group>"; };
 		8594E1A827AAA942A1D16F0B /* Pods-Impoort-IOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impoort-IOS.release.xcconfig"; path = "Target Support Files/Pods-Impoort-IOS/Pods-Impoort-IOS.release.xcconfig"; sourceTree = "<group>"; };
 		9BB33F7F4F06B3993D6E468E /* Pods-Impoort-IOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impoort-IOS.debug.xcconfig"; path = "Target Support Files/Pods-Impoort-IOS/Pods-Impoort-IOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B402A1EBB0D5E3D36435322A /* Pods_Impoort_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Impoort_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -356,6 +358,7 @@
 			children = (
 				48A830FA2357CFEA00451E38 /* ProfileBiggest.xib */,
 				48A830FC2357CFFB00451E38 /* ProfileBiggest.swift */,
+				48A830FE2357DDBC00451E38 /* BiggerPictureEditViewController.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				48491701234A71DC0093091D /* HomeViewController.swift in Sources */,
 				485AD842234AD313008E8E52 /* ChatRightCell.swift in Sources */,
 				4890BD3D2355142E0083AEAF /* ShareViewController.swift in Sources */,
+				48A830FF2357DDBC00451E38 /* BiggerPictureEditViewController.swift in Sources */,
 				483DD9B72348050A00DCA3A1 /* RegisterSecondStepViewController.swift in Sources */,
 				485AD83E234AC861008E8E52 /* MessagesGeneralCell.swift in Sources */,
 				4890BD3F23554A800083AEAF /* SettingsViewController.swift in Sources */,

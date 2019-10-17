@@ -11,6 +11,7 @@ import UIKit
 class ProfilePropertiesCell: UITableViewCell {
 
     @IBOutlet weak var propertyNameLabel: UILabel!
+    @IBOutlet weak var profileNameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

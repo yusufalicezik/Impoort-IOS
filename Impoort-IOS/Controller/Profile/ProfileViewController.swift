@@ -9,6 +9,7 @@
 import UIKit
 import TwicketSegmentedControl
 import SwiftyShadow
+import SDWebImage
 class ProfileViewController: BaseViewController {
 
     @IBOutlet weak var profileImageView: UIImageView!
@@ -25,8 +26,8 @@ class ProfileViewController: BaseViewController {
     @IBOutlet weak var barWidthConstraint: NSLayoutConstraint!
     
     let titles = ["Posts", "Watcher", "Watching"]
-    var postsView:PostsView?
-    var profileBiggestView:ProfileBiggest?
+    lazy var postsView:PostsView = PostsView()
+    lazy var profileBiggestView:ProfileBiggest = ProfileBiggest()
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -61,7 +62,14 @@ class ProfileViewController: BaseViewController {
         
 
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        URLCache.shared.removeAllCachedResponses()
+        URLCache.shared.diskCapacity = 0
+        URLCache.shared.memoryCapacity = 0
+        SDImageCache.shared.clearMemory()
+        SDImageCache.shared.clearDisk(onCompletion: nil)
+    }
   
     @IBAction func messageButtonClicked(_ sender: Any) {
         self.goToMessagesGeneral()
@@ -71,34 +79,31 @@ class ProfileViewController: BaseViewController {
     }
     
     func loadPostsView(senderType:SenderProfileTyle){
-        self.postsView?.removeFromSuperview()
-        self.postsView = Bundle.main.loadNibNamed("PostsView", owner: self, options: nil)?.first as? PostsView
-        postsView?.parentVC = self
-        self.postsView?.senderProfileType = senderType
-        self.postsView!.load()
+        self.postsView.removeFromSuperview()
+        self.postsView = (Bundle.main.loadNibNamed("PostsView", owner: self, options: nil)?.first as? PostsView)!
+        postsView.parentVC = self
+        self.postsView.senderProfileType = senderType
+        self.postsView.load()
     }
     func loadWatcherView(senderType:SenderProfileTyle){
-        if let _ = self.postsView?.superview {
-            self.postsView?.removeFromSuperview()
+        if let _ = self.postsView.superview {
+            self.postsView.removeFromSuperview()
         }
 //        let rc = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeft))
 //        self.view.isUserInteractionEnabled = true
 //        rc.direction = .left
 //        self.view.addGestureRecognizer(rc)
-        self.postsView?.senderProfileType = senderType
-        self.postsView!.load()
+        self.postsView.senderProfileType = senderType
+        self.postsView.load()
     }
     @objc func swipeLeft(){
         print("swipped")
     }
     @objc func openProfilePictureBig(){
-        if let mView = profileBiggestView{
-            mView.removeFromSuperview()
-        }
-        self.profileBiggestView = Bundle.main.loadNibNamed("ProfileBiggest", owner: self, options: nil)?.first as? ProfileBiggest
-        self.profileBiggestView?.profileImg.layer.cornerRadius = self.view.frame.width/2
-        self.profileBiggestView?.configView(self, self.profileBiggestView!)
-            self.view.layoutIfNeeded()
+
+        let bgVC = UIStoryboard(name: "Tools", bundle: nil).instantiateViewController(withIdentifier: "BiggerPictureEditVC") as? BiggerPictureEditViewController
+        bgVC?.modalPresentationStyle = .overCurrentContext
+        self.present(bgVC!, animated: true, completion: nil)
     }
     
 }

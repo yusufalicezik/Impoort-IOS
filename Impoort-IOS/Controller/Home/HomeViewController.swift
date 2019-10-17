@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyShadow
 import ListPlaceholder
-
+import SDWebImage
 class HomeViewController: BaseViewController {
 
     @IBOutlet weak var quickShareViewHeightConstraint: NSLayoutConstraint!
@@ -20,19 +20,19 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var topRightButton:UIButton!
     var prevOffset:CGFloat = 0.0
     let refreshControl = UIRefreshControl()
-    var isScrollingTopEnable = true
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         
     }
+    
     override func viewWillAppear(_ animated: Bool) {
-        isScrollingTopEnable = true
         super.viewWillAppear(animated)
-        self.tableView.showLoader()
-        DispatchQueue.main.asyncAfter(deadline: .now()+2){
-            self.tableView.hideLoader()
-        }
+        URLCache.shared.removeAllCachedResponses()
+        URLCache.shared.diskCapacity = 0
+        URLCache.shared.memoryCapacity = 0
+        SDImageCache.shared.clearMemory()
+        SDImageCache.shared.clearDisk(onCompletion: nil)
     }
     func setup(){
         self.tabBarController!.tabBar.layer.borderWidth = 0.25
@@ -79,7 +79,7 @@ class HomeViewController: BaseViewController {
 }
 extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return 12
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -135,10 +135,8 @@ extension HomeViewController : UIScrollViewDelegate{
 }
 extension HomeViewController:UITabBarControllerDelegate{
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        if tabBarController.selectedIndex == 0 && isScrollingTopEnable {
+        if tabBarController.selectedIndex == 0 {
             self.tableView.setContentOffset(CGPoint.zero, animated: true)
-        }else{
-            isScrollingTopEnable = false
         }
     }
 }
