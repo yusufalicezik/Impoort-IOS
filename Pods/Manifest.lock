@@ -12,6 +12,7 @@ PODS:
   - NVActivityIndicatorView (4.8.0):
     - NVActivityIndicatorView/Presenter (= 4.8.0)
   - NVActivityIndicatorView/Presenter (4.8.0)
+  - PagingTableView (0.1.0)
   - PanModal (1.2.4)
   - Pastel (0.6.0)
   - PhoneNumberKit (3.0.0):
@@ -47,6 +48,7 @@ DEPENDENCIES:
   - ListPlaceholder
   - netfox
   - NVActivityIndicatorView
+  - PagingTableView
   - PanModal
   - Pastel
   - PhoneNumberKit (~> 3.0)
@@ -74,6 +76,7 @@ SPEC REPOS:
     - ListPlaceholder
     - netfox
     - NVActivityIndicatorView
+    - PagingTableView
     - PanModal
     - Pastel
     - PhoneNumberKit
@@ -101,6 +104,7 @@ SPEC CHECKSUMS:
   ListPlaceholder: 08ddaddf67520a20fc52cf37160fb56aa64d071d
   netfox: 4590811e5b02e392c72a924c73e000a60ee1f0c7
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
+  PagingTableView: ba7869ff22f7cf3f8b2190b0314688d2cb0e46c4
   PanModal: 275f6d4d07565ddf4ed16d7be5d9cd275682d80d
   Pastel: 814f081efbe2859c37e65ee44f396e6e5be88619
   PhoneNumberKit: 86019c972ef6904bcad11b46a6b8a91184d51117
@@ -117,6 +121,6 @@ SPEC CHECKSUMS:
   TwicketSegmentedControl: 6d7a4cf243657e0ac3f00d06d873a25334c04042
   ViewAnimator: 173932c659a43c5a15c665878750d92801ae2cf1
 
-PODFILE CHECKSUM: 9b047cb1dddec44729169715af7d76944e76da9d
+PODFILE CHECKSUM: 2c8fd8b96b661d66a2985ab720229ab7e0087e67
 
 COCOAPODS: 1.7.3

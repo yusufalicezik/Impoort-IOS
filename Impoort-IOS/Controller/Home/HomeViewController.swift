@@ -12,6 +12,7 @@ import ListPlaceholder
 import SDWebImage
 class HomeViewController: BaseViewController {
 
+    @IBOutlet weak var loadingMorePostsActivityView: UIView!
     @IBOutlet weak var quickShareViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var quickShareView: UIView!
     @IBOutlet weak var quickShareGreenView: UIView!
@@ -20,20 +21,23 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var topRightButton:UIButton!
     var prevOffset:CGFloat = 0.0
     let refreshControl = UIRefreshControl()
+    var data = [4,4,4,4,4,4,4,4,4,4]
+    var firstLoad = true
+    var firstTime = true
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        URLCache.shared.removeAllCachedResponses()
-        URLCache.shared.diskCapacity = 0
-        URLCache.shared.memoryCapacity = 0
-        SDImageCache.shared.clearMemory()
-        SDImageCache.shared.clearDisk(onCompletion: nil)
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        URLCache.shared.removeAllCachedResponses()
+//        URLCache.shared.diskCapacity = 0
+//        URLCache.shared.memoryCapacity = 0
+//        SDImageCache.shared.clearMemory()
+//        SDImageCache.shared.clearDisk(onCompletion: nil)
+//    }
     func setup(){
         self.tabBarController!.tabBar.layer.borderWidth = 0.25
         self.tabBarController?.tabBar.clipsToBounds = true
@@ -57,6 +61,9 @@ class HomeViewController: BaseViewController {
         self.quickShareGreenView.generateOuterShadow()
         
         self.tabBarController?.delegate = self
+        DispatchQueue.main.asyncAfter(deadline: .now()+2){
+            self.firstTime = false
+        }
 
         
     }
@@ -79,15 +86,23 @@ class HomeViewController: BaseViewController {
 }
 extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 12
+        return self.data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = UITableViewCell()
         if indexPath.row % 3 == 0{
             cell = Bundle.main.loadNibNamed("PostCell", owner: self, options: nil)?.first as! PostCell
+            (cell as? PostCell)?.nameSurnameTxtField.text = String(indexPath.row)
         }else{
             cell = Bundle.main.loadNibNamed("PostCellWithImage", owner: self, options: nil)?.first as! PostCellWithImage
+            (cell as? PostCellWithImage)?.nameSurnameTxtFied.text = String(indexPath.row)
+
+        }
+        if (indexPath.row == self.data.count-1)  && !firstTime{
+            print("yüklenecek")
+            self.loadingMorePostsActivityView.isHidden = false
+            getData()
         }
        
         return cell
@@ -96,43 +111,58 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
         tableView.deselectRow(at: indexPath, animated: false)
     }
     
-    
-}
-extension HomeViewController : UIScrollViewDelegate{
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if (scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y < (scrollView.contentSize.height - scrollView.frame.size.height)){
-            //not top and not bottom
-            let offsetY = scrollView.contentOffset.y
-            if offsetY < 0 {
-                scrollView.contentOffset.y = CGFloat(0.0)
-                UIView.animate(withDuration: 0.2){
-                    //self.view.layoutIfNeeded()
-                }
-            }
-            else if offsetY > prevOffset && offsetY > 0.0{
-                self.quickShareViewHeightConstraint.constant = 0.0
-                quickShareLabel.isHidden = true
-            }else{
-                self.quickShareViewHeightConstraint.constant = 55.0
-                quickShareLabel.isHidden = false
-                
-            }
-            UIView.animate(withDuration: 0.35, delay: 0.0, options: .allowUserInteraction, animations: {
-                self.view.layoutIfNeeded()
-                
-            }, completion: nil)
-            self.prevOffset = offsetY
-        }else if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) {
-            //reach bottom
-            DispatchQueue.main.asyncAfter(deadline: .now()+1.5){
-                //self.tableView.reloadData() paging.
-            }
-        }else if (scrollView.contentOffset.y < 0){
-            //reach top
+    func getData(){
+        DispatchQueue.main.asyncAfter(deadline: .now()+2){
+            var indexes = [IndexPath]()
+            var startIndex = self.data.count
+        for i in 0..<10{
+            self.data.append(i)
+            indexes.append(IndexPath(row: startIndex+i, section: 0))
         }
-        
+            self.loadingMorePostsActivityView.isHidden = true
+            self.tableView.reloadData()
+
+        print(self.data.count)
+        self.firstLoad = false
+
+        }
     }
 }
+//extension HomeViewController : UIScrollViewDelegate{
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        if (scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y < (scrollView.contentSize.height - scrollView.frame.size.height)){
+//            //not top and not bottom
+//            let offsetY = scrollView.contentOffset.y
+//            if offsetY < 0 {
+//                scrollView.contentOffset.y = CGFloat(0.0)
+//                UIView.animate(withDuration: 0.2){
+//                    //self.view.layoutIfNeeded()
+//                }
+//            }
+//            else if offsetY > prevOffset && offsetY > 0.0{
+//                self.quickShareViewHeightConstraint.constant = 0.0
+//                quickShareLabel.isHidden = true
+//            }else{
+//                self.quickShareViewHeightConstraint.constant = 55.0
+//                quickShareLabel.isHidden = false
+//
+//            }
+//            UIView.animate(withDuration: 0.35, delay: 0.0, options: .allowUserInteraction, animations: {
+//                self.view.layoutIfNeeded()
+//
+//            }, completion: nil)
+//            self.prevOffset = offsetY
+//        }else if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) {
+//            //reach bottom
+//            DispatchQueue.main.asyncAfter(deadline: .now()+1.5){
+//                //self.tableView.reloadData() paging.
+//            }
+//        }else if (scrollView.contentOffset.y < 0){
+//            //reach top
+//        }
+//
+//    }
+//}
 extension HomeViewController:UITabBarControllerDelegate{
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if tabBarController.selectedIndex == 0 {

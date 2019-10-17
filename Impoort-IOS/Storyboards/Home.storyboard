@@ -518,13 +518,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homecircles" translatesAutoresizingMaskIntoConstraints="NO" id="Mvz-Sl-JxH">
-                                                <rect key="frame" x="203.5" y="0.0" width="7" height="12"/>
+                                                <rect key="frame" x="199" y="0.0" width="16" height="16"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="34P-P0-WwK">
-                                                <rect key="frame" x="25" y="13" width="364" height="37"/>
+                                                <rect key="frame" x="25" y="17" width="364" height="33"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sharewhite" translatesAutoresizingMaskIntoConstraints="NO" id="vHs-Qb-U9i">
-                                                        <rect key="frame" x="8" y="12" width="13" height="13"/>
+                                                        <rect key="frame" x="8" y="10" width="13" height="13"/>
                                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="13" id="1R1-qk-8Rp"/>
@@ -532,7 +532,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you want to share about?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x92-zl-Ytd">
-                                                        <rect key="frame" x="31" y="9.5" width="200" height="18"/>
+                                                        <rect key="frame" x="31" y="7.5" width="200" height="18"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                                         <color key="textColor" white="1" alpha="0.76385916095890416" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -562,6 +562,24 @@
                                         <rect key="frame" x="0.0" y="55" width="414" height="664"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAt-m1-eXA">
+                                        <rect key="frame" x="0.0" y="719" width="414" height="35"/>
+                                        <subviews>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="xMJ-JT-L1Y">
+                                                <rect key="frame" x="197" y="7.5" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="RZs-uR-Vlv"/>
+                                                    <constraint firstAttribute="width" constant="20" id="jzx-ae-GzV"/>
+                                                </constraints>
+                                            </activityIndicatorView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="xMJ-JT-L1Y" firstAttribute="centerX" secondItem="WAt-m1-eXA" secondAttribute="centerX" id="008-H2-cLg"/>
+                                            <constraint firstItem="xMJ-JT-L1Y" firstAttribute="centerY" secondItem="WAt-m1-eXA" secondAttribute="centerY" id="FUg-LZ-s9i"/>
+                                            <constraint firstAttribute="height" constant="35" id="azR-9s-foL"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="k7J-vi-dhs" secondAttribute="trailing" id="8H6-4B-8l5"/>
@@ -584,6 +602,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="3fU-Jz-s6h"/>
                     <connections>
+                        <outlet property="loadingMorePostsActivityView" destination="WAt-m1-eXA" id="7GY-dI-aMV"/>
                         <outlet property="quickShareGreenView" destination="34P-P0-WwK" id="VZr-DW-CM2"/>
                         <outlet property="quickShareLabel" destination="x92-zl-Ytd" id="jEG-Fe-SMK"/>
                         <outlet property="quickShareView" destination="k7J-vi-dhs" id="eqD-Qt-nHW"/>

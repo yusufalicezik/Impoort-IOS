@@ -20,11 +20,11 @@ class PostCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.postContainerView.layer.cornerRadius = 10
-        self.postContainerView.layer.shadowRadius = 10
-        self.postContainerView.layer.shadowOpacity = 0.11
-        self.postContainerView.layer.shadowColor = UIColor.black.cgColor
-        self.postContainerView.layer.shadowOffset = CGSize.zero
-        self.postContainerView.generateOuterShadow()
+//        self.postContainerView.layer.shadowRadius = 10
+//        self.postContainerView.layer.shadowOpacity = 0.11
+//        self.postContainerView.layer.shadowColor = UIColor.black.cgColor
+//        self.postContainerView.layer.shadowOffset = CGSize.zero
+//        self.postContainerView.generateOuterShadow()
         self.profileImgage.layer.cornerRadius = self.profileImgage.frame.width / 2
         // Initialization code
     }
