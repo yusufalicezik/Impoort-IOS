@@ -62,14 +62,14 @@ class ProfileViewController: BaseViewController {
         
 
     }
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        URLCache.shared.removeAllCachedResponses()
-//        URLCache.shared.diskCapacity = 0
-//        URLCache.shared.memoryCapacity = 0
-//        SDImageCache.shared.clearMemory()
-//        SDImageCache.shared.clearDisk(onCompletion: nil)
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        URLCache.shared.removeAllCachedResponses()
+        URLCache.shared.diskCapacity = 0
+        URLCache.shared.memoryCapacity = 0
+        SDImageCache.shared.clearMemory()
+        SDImageCache.shared.clearDisk(onCompletion: nil)
+    }
   
     @IBAction func messageButtonClicked(_ sender: Any) {
         self.goToMessagesGeneral()

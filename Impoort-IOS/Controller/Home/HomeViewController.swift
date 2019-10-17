@@ -22,22 +22,24 @@ class HomeViewController: BaseViewController {
     var prevOffset:CGFloat = 0.0
     let refreshControl = UIRefreshControl()
     var data = [4,4,4,4,4,4,4,4,4,4]
-    var firstLoad = true
+    var isLoading = false
     var firstTime = true
+    //var currentRow = IndexPath(row: 0, section: 0)
+    var currentOffset = CGPoint(x: 0, y: 0)
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        URLCache.shared.removeAllCachedResponses()
-//        URLCache.shared.diskCapacity = 0
-//        URLCache.shared.memoryCapacity = 0
-//        SDImageCache.shared.clearMemory()
-//        SDImageCache.shared.clearDisk(onCompletion: nil)
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        URLCache.shared.removeAllCachedResponses()
+        URLCache.shared.diskCapacity = 0
+        URLCache.shared.memoryCapacity = 0
+        SDImageCache.shared.clearMemory()
+        SDImageCache.shared.clearDisk(onCompletion: nil)
+    }
     func setup(){
         self.tabBarController!.tabBar.layer.borderWidth = 0.25
         self.tabBarController?.tabBar.clipsToBounds = true
@@ -61,7 +63,7 @@ class HomeViewController: BaseViewController {
         self.quickShareGreenView.generateOuterShadow()
         
         self.tabBarController?.delegate = self
-        DispatchQueue.main.asyncAfter(deadline: .now()+2){
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.3){
             self.firstTime = false
         }
 
@@ -72,6 +74,7 @@ class HomeViewController: BaseViewController {
             self.refreshControl.endRefreshing()
         }
     }
+    
 
     @IBAction func messagesButtonClicked(_ sender: Any) {
         self.goToMessagesGeneral()
@@ -90,6 +93,7 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //self.currentRow = indexPath
         var cell = UITableViewCell()
         if indexPath.row % 3 == 0{
             cell = Bundle.main.loadNibNamed("PostCell", owner: self, options: nil)?.first as! PostCell
@@ -99,9 +103,11 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
             (cell as? PostCellWithImage)?.nameSurnameTxtFied.text = String(indexPath.row)
 
         }
-        if (indexPath.row == self.data.count-1)  && !firstTime{
+        if (indexPath.row == self.data.count-1)  && !firstTime && !isLoading{
             print("yüklenecek")
             self.loadingMorePostsActivityView.isHidden = false
+            //self.tableView.isScrollEnabled = false
+            self.isLoading = true
             getData()
         }
        
@@ -114,22 +120,27 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
     func getData(){
         DispatchQueue.main.asyncAfter(deadline: .now()+2){
             var indexes = [IndexPath]()
-            var startIndex = self.data.count
+            let startIndex = self.data.count
         for i in 0..<10{
             self.data.append(i)
             indexes.append(IndexPath(row: startIndex+i, section: 0))
         }
+            self.tableView.beginUpdates()
+            self.tableView.insertRows(at: indexes, with: .none)
+            //self.tableView.scrollToRow(at: self.currentRow, at: .none, animated: false)
+            self.tableView.setContentOffset(self.currentOffset, animated: false)
+            self.tableView.endUpdates()
             self.loadingMorePostsActivityView.isHidden = true
-            self.tableView.reloadData()
-
-        print(self.data.count)
-        self.firstLoad = false
-
+            print(self.data.count)
+            self.isLoading = false
+            self.tableView.isScrollEnabled = true
+            
         }
     }
 }
-//extension HomeViewController : UIScrollViewDelegate{
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+extension HomeViewController : UIScrollViewDelegate{
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.currentOffset = scrollView.contentOffset
 //        if (scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y < (scrollView.contentSize.height - scrollView.frame.size.height)){
 //            //not top and not bottom
 //            let offsetY = scrollView.contentOffset.y
@@ -161,12 +172,15 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
 //            //reach top
 //        }
 //
-//    }
-//}
+   }
+}
 extension HomeViewController:UITabBarControllerDelegate{
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if tabBarController.selectedIndex == 0 {
-            self.tableView.setContentOffset(CGPoint.zero, animated: true)
+            if self.data.count > 0{
+            self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+            print(self.tableView.contentOffset)
+            }
         }
     }
 }
