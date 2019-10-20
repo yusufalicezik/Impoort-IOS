@@ -22,6 +22,9 @@ class BiggerPictureEditViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.profileImg.layer.cornerRadius = self.view.frame.width/2
+        let recognizer = UISwipeGestureRecognizer(target: self, action: #selector(dismissVC))
+        recognizer.direction = .down
+        self.view.addGestureRecognizer(recognizer)
     }
 
     /*
@@ -34,7 +37,10 @@ class BiggerPictureEditViewController: UIViewController {
     }
     */
     @IBAction func closeClicked(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismissVC()
     }
     
+    @objc func dismissVC(){
+        self.dismiss(animated: true, completion: nil)
+    }
 }

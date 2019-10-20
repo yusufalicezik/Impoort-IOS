@@ -21,11 +21,20 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var topRightButton:UIButton!
     var prevOffset:CGFloat = 0.0
     let refreshControl = UIRefreshControl()
-    var data = [4,4,4,4,4,4,4,4,4,4]
+    var data = [4,4,4,4,4,4,4,4,4,4,4,4,4,4]
     var isLoading = false
     var firstTime = true
+    lazy var quickQhareView = ProfileSettingsView()
+    var shareRecognizer:UITapGestureRecognizer?
+
     //var currentRow = IndexPath(row: 0, section: 0)
     var currentOffset = CGPoint(x: 0, y: 0)
+    var prevOffsetx = CGPoint(x: 0, y: 0)
+    var currentIndx = IndexPath(row: 0, section: 0)
+    
+    var fState = false
+    var sState = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -49,11 +58,14 @@ class HomeViewController: BaseViewController {
         self.tableView.allowsSelection = false
         self.refreshControl.tintColor = #colorLiteral(red: 0.4375773668, green: 0.8031894565, blue: 0.7201564908, alpha: 1)
         tableView.refreshControl = self.refreshControl
-        refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
+        //tableView.isDragging = false
 
-        let shareRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.goToShareQuickly))
-        self.quickShareView.isUserInteractionEnabled = true
-        self.quickShareView.addGestureRecognizer(shareRecognizer)
+        refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
+        shareRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.goToShareQuickly))
+        let postDetailRecog = UITapGestureRecognizer(target: self, action: #selector(goToDetails))
+        self.tableView.isUserInteractionEnabled = true
+        self.tableView.addGestureRecognizer(postDetailRecog)
+        
         
         self.quickShareGreenView.layer.cornerRadius = 10
         self.quickShareGreenView.layer.shadowRadius = 10
@@ -69,12 +81,24 @@ class HomeViewController: BaseViewController {
 
         
     }
+    @objc func goToDetails(){
+        self.goToPostDetailVC()
+    }
     @objc func refreshWeatherData(_ sender: Any){
         DispatchQueue.main.asyncAfter(deadline: .now()+4){
             self.refreshControl.endRefreshing()
+            UIView.animate(withDuration: 0.5){
+                self.tableView.backgroundColor = #colorLiteral(red: 0.978782475, green: 0.9576403499, blue: 0.9845044017, alpha: 1)
+            }
         }
     }
     
+    @objc func longPress(){
+        //print("asdasd")
+        if isLoading{
+            self.tableView.isScrollEnabled = false
+        }
+    }
 
     @IBAction func messagesButtonClicked(_ sender: Any) {
         self.goToMessagesGeneral()
@@ -89,13 +113,18 @@ class HomeViewController: BaseViewController {
 }
 extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.data.count
+        return self.data.count+1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //self.currentRow = indexPath
         var cell = UITableViewCell()
-        if indexPath.row % 3 == 0{
+        if indexPath.row == 0{
+            cell = Bundle.main.loadNibNamed("QuickShareCell", owner: self, options: nil)?.first as! QuickShareCell
+            cell.isUserInteractionEnabled = true
+            cell.addGestureRecognizer(shareRecognizer!)
+        }
+        else if indexPath.row % 3 == 0{
             cell = Bundle.main.loadNibNamed("PostCell", owner: self, options: nil)?.first as! PostCell
             (cell as? PostCell)?.nameSurnameTxtField.text = String(indexPath.row)
         }else{
@@ -103,7 +132,7 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
             (cell as? PostCellWithImage)?.nameSurnameTxtFied.text = String(indexPath.row)
 
         }
-        if (indexPath.row == self.data.count-1)  && !firstTime && !isLoading{
+        if (indexPath.row == self.data.count)  && !firstTime && !isLoading{
             print("yüklenecek")
             self.loadingMorePostsActivityView.isHidden = false
             //self.tableView.isScrollEnabled = false
@@ -116,31 +145,51 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
     }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        self.currentIndx = indexPath
+    }
+    
     
     func getData(){
         DispatchQueue.main.asyncAfter(deadline: .now()+2){
+            if self.fState{
             var indexes = [IndexPath]()
             let startIndex = self.data.count
-        for i in 0..<10{
+
+        for i in 1..<11{
             self.data.append(i)
             indexes.append(IndexPath(row: startIndex+i, section: 0))
         }
             self.tableView.beginUpdates()
-            self.tableView.insertRows(at: indexes, with: .none)
+            self.tableView.insertRows(at: indexes, with: .fade)
             //self.tableView.scrollToRow(at: self.currentRow, at: .none, animated: false)
-            self.tableView.setContentOffset(self.currentOffset, animated: false)
             self.tableView.endUpdates()
-            self.loadingMorePostsActivityView.isHidden = true
+            ///self.tableView.reloadData()
             print(self.data.count)
             self.isLoading = false
-            self.tableView.isScrollEnabled = true
+            //self.tableView.scrollToRow(at: self.currentIndx, at: .bottom, animated: true)
+            self.tableView.setContentOffset(self.currentOffset, animated: true)
+            self.loadingMorePostsActivityView.isHidden = true
+
+            //self.tableView.isScrollEnabled = true
+            }else{
+                self.getData()
+                //self.isLoading = false
+                //self.loadingMorePostsActivityView.isHidden = true
+
+
+            }
             
         }
     }
 }
 extension HomeViewController : UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
         self.currentOffset = scrollView.contentOffset
+        
+        
+
 //        if (scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y < (scrollView.contentSize.height - scrollView.frame.size.height)){
 //            //not top and not bottom
 //            let offsetY = scrollView.contentOffset.y
@@ -172,7 +221,41 @@ extension HomeViewController : UIScrollViewDelegate{
 //            //reach top
 //        }
 //
+//        if (scrollView.contentOffset.y <= 0){
+//            self.quickQhareView.dsms()
+//            self.quickQhareView = (Bundle.main.loadNibNamed("ProfileSettingsView", owner: self, options: nil)?.first as? ProfileSettingsView)!
+//            self.view.addSubview(quickQhareView)
+//            self.tableView.setContentOffset(CGPoint(x: self.tableView.contentOffset.x, y: 0), animated: false)
+//            quickQhareView.configEx(self, mView: quickQhareView)
+//
+//        }else {
+//           self.quickQhareView.dsms()
+//            self.view.layoutIfNeeded()
+//
+//        }
+        if scrollView.contentOffset.y < 0{
+            self.tableView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        }else{
+            self.tableView.backgroundColor = #colorLiteral(red: 0.978782475, green: 0.9576403499, blue: 0.9845044017, alpha: 1)
+        }
    }
+
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        print("Drag begin")
+        if isLoading{
+            self.fState = false
+        }
+        
+  
+
+   }
+
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.fState = true
+       
+   }
+    
 }
 extension HomeViewController:UITabBarControllerDelegate{
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {

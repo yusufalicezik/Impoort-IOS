@@ -75,7 +75,7 @@
                                     <constraint firstAttribute="width" constant="22" id="pCX-tw-cyK"/>
                                     <constraint firstAttribute="height" constant="22" id="zyN-tR-Pvr"/>
                                 </constraints>
-                                <state key="normal" image="watchicon"/>
+                                <state key="normal" image="watch"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9S-3Q-2En">
                                 <rect key="frame" x="181.5" y="285.5" width="22" height="22"/>
@@ -128,6 +128,6 @@
         <image name="commenticon" width="25" height="22"/>
         <image name="img" width="960" height="670"/>
         <image name="likeicon" width="19" height="20"/>
-        <image name="watchicon" width="23" height="17"/>
+        <image name="watch" width="23" height="17"/>
     </resources>
 </document>

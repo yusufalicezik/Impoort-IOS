@@ -75,6 +75,20 @@ class ProfileSettingsView: UIView {
         }
     }
     
+    func configEx(_ vc:HomeViewController, mView:ProfileSettingsView){
+        //let mView = Bundle.main.loadNibNamed("ProfileSettingsView", owner: vc, options: nil)?.first as? ProfileSettingsView
+        //vc.view.addSubview(mView!)
+        mView.translatesAutoresizingMaskIntoConstraints = false
+        mView.topAnchor.constraint(equalTo: vc.quickShareView.topAnchor, constant: 0).isActive = true
+        mView.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        mView.leftAnchor.constraint(equalTo: vc.view.leftAnchor, constant: 10).isActive = true
+        mView.rightAnchor.constraint(equalTo: vc.view.rightAnchor, constant: -10).isActive = true
+
+    }
+    func dsms(){
+        self.removeFromSuperview()
+    }
+    
     private func closeTxtFieldEditing(){
         //self.GeneralTxtField.isEnabled = false
         self.GeneralTxtField.isUserInteractionEnabled = true

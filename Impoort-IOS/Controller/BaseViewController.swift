@@ -99,6 +99,20 @@ class BaseViewController: UIViewController {
     @objc private func dismissView(){
         self.goToBack()
     }
+    func goToPostDetailVC(){
+        let storyboard = UIStoryboard(name: "Tools", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PostDetailVC") as? PostDetailViewController
+        if let navBar = self.navigationController{
+            navBar.pushViewController(vc!, animated: true)
+        }else{
+            self.present(vc!, animated: true, completion: nil)
+        }
+    }
+    func goToCommentViewController(){
+        let storyboard = UIStoryboard(name: "Tools", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "CommentVC") as? CommentViewController
+        self.present(vc!, animated: true, completion: nil)
+    }
 
 }
 

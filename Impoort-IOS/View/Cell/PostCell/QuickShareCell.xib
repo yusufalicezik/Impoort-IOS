@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="105" id="KGk-i7-Jjw" customClass="QuickShareCell" customModule="Impoort_IOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="329" height="105"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="329" height="104.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G9B-Kk-Atf">
+                        <rect key="frame" x="15" y="24" width="299" height="40"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sharewhite" translatesAutoresizingMaskIntoConstraints="NO" id="tzb-72-HV7">
+                                <rect key="frame" x="8" y="13.5" width="13" height="13"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="BUc-c5-eJK"/>
+                                    <constraint firstAttribute="width" constant="13" id="Udu-WM-vXd"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you want to share about?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ry2-h6-ZhP">
+                                <rect key="frame" x="31" y="11" width="200" height="18"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="0.76385916099999995" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.35294117650000001" green="0.62745098040000002" blue="0.51764705879999995" alpha="0.79441352740000004" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tzb-72-HV7" firstAttribute="centerY" secondItem="G9B-Kk-Atf" secondAttribute="centerY" id="NV3-TP-TZj"/>
+                            <constraint firstItem="tzb-72-HV7" firstAttribute="leading" secondItem="G9B-Kk-Atf" secondAttribute="leading" constant="8" id="NoS-kq-ngU"/>
+                            <constraint firstItem="Ry2-h6-ZhP" firstAttribute="centerY" secondItem="G9B-Kk-Atf" secondAttribute="centerY" id="fkC-Pn-by1"/>
+                            <constraint firstAttribute="height" constant="40" id="snZ-X3-Lmf"/>
+                            <constraint firstItem="Ry2-h6-ZhP" firstAttribute="leading" secondItem="tzb-72-HV7" secondAttribute="trailing" constant="10" id="xvx-Mm-j04"/>
+                        </constraints>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homecircles" translatesAutoresizingMaskIntoConstraints="NO" id="46e-4L-4Iu">
+                        <rect key="frame" x="154.5" y="2" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="OjZ-Fa-rqq"/>
+                            <constraint firstAttribute="height" constant="20" id="n3w-mR-ZZJ"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="G9B-Kk-Atf" firstAttribute="top" secondItem="46e-4L-4Iu" secondAttribute="bottom" constant="2" id="3ef-jL-5yl"/>
+                    <constraint firstItem="46e-4L-4Iu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="4vp-eK-1Il"/>
+                    <constraint firstAttribute="trailing" secondItem="G9B-Kk-Atf" secondAttribute="trailing" constant="15" id="MPm-q5-i8l"/>
+                    <constraint firstItem="46e-4L-4Iu" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="dh3-GY-Hsg"/>
+                    <constraint firstItem="G9B-Kk-Atf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="sfD-M5-y5f"/>
+                    <constraint firstItem="46e-4L-4Iu" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="v8l-kJ-dyg"/>
+                    <constraint firstAttribute="bottom" secondItem="G9B-Kk-Atf" secondAttribute="bottom" constant="5" id="zUF-HI-zvh"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="asd" destination="G9B-Kk-Atf" id="RvS-2M-cIe"/>
+            </connections>
+            <point key="canvasLocation" x="44.20289855072464" y="14.397321428571427"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="homecircles" width="7" height="12"/>
+        <image name="sharewhite" width="142" height="142"/>
+    </resources>
+</document>

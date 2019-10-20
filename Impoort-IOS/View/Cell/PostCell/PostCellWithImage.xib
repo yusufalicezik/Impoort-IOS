@@ -65,7 +65,7 @@
                                     <constraint firstAttribute="height" constant="22" id="bDc-oZ-aPf"/>
                                     <constraint firstAttribute="width" constant="22" id="d1T-SN-Snx"/>
                                 </constraints>
-                                <state key="normal" image="watchicon"/>
+                                <state key="normal" image="watch"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ctu-JP-vLi">
                                 <rect key="frame" x="197.5" y="486.5" width="22" height="22"/>
@@ -137,6 +137,6 @@
         <image name="ex-img" width="1280" height="600"/>
         <image name="img" width="960" height="670"/>
         <image name="likeicon" width="19" height="20"/>
-        <image name="watchicon" width="23" height="17"/>
+        <image name="watch" width="23" height="17"/>
     </resources>
 </document>
