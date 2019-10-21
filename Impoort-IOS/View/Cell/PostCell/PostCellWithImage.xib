@@ -75,8 +75,9 @@
                                 </constraints>
                                 <state key="normal" image="commenticon"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5j-Ld-i57">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5j-Ld-i57">
                                 <rect key="frame" x="10" y="65" width="397" height="211.5"/>
+                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum est ultricies integer quis auctor elit. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo. Adipiscing bibendum est Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.49803921568627452" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -126,6 +127,7 @@
                 <outlet property="postContainerView" destination="hVE-ef-ghD" id="21f-SH-YMc"/>
                 <outlet property="postDescription" destination="u5j-Ld-i57" id="2f9-Y0-OUp"/>
                 <outlet property="postImage" destination="0T4-gf-pOa" id="DKW-D2-192"/>
+                <outlet property="postImageHeightConstraint" destination="4G6-Af-vGP" id="22d-nv-wNz"/>
                 <outlet property="profileImage" destination="T2c-Gy-IFg" id="BWq-Z2-ezf"/>
                 <outlet property="sectorTxtField" destination="c1M-To-K4r" id="cp8-gN-G8A"/>
             </connections>

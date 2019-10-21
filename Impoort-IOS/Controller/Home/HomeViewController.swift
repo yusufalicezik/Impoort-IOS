@@ -92,13 +92,7 @@ class HomeViewController: BaseViewController {
             }
         }
     }
-    
-    @objc func longPress(){
-        //print("asdasd")
-        if isLoading{
-            self.tableView.isScrollEnabled = false
-        }
-    }
+
 
     @IBAction func messagesButtonClicked(_ sender: Any) {
         self.goToMessagesGeneral()
@@ -125,8 +119,9 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
             cell.addGestureRecognizer(shareRecognizer!)
         }
         else if indexPath.row % 3 == 0{
-            cell = Bundle.main.loadNibNamed("PostCell", owner: self, options: nil)?.first as! PostCell
-            (cell as? PostCell)?.nameSurnameTxtField.text = String(indexPath.row)
+            cell = Bundle.main.loadNibNamed("PostCellWithImage", owner: self, options: nil)?.first as! PostCellWithImage
+            (cell as? PostCellWithImage)?.nameSurnameTxtFied.text = String(indexPath.row)
+            (cell as? PostCellWithImage)?.postImageHeightConstraint.constant = 0.0
         }else{
             cell = Bundle.main.loadNibNamed("PostCellWithImage", owner: self, options: nil)?.first as! PostCellWithImage
             (cell as? PostCellWithImage)?.nameSurnameTxtFied.text = String(indexPath.row)
