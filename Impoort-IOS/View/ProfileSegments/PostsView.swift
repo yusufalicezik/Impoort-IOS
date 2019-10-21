@@ -23,7 +23,8 @@ class PostsView: UIView {
     var sState = false
     @IBOutlet weak var loadingMorePostsActivityView:UIActivityIndicatorView!
     var currentOffset = CGPoint(x: 0, y: 0)
-    var data = [1,2,2,2,2,2,22,2,2,2,2] //parentVC den gönderilebilri.
+    var data = [1,1,1,1,1,1,1,1,1]
+    var isPagingMaking = false
     override func awakeFromNib() {
         super.awakeFromNib()
         tableView.delegate = self
@@ -116,6 +117,15 @@ extension PostsView : UIScrollViewDelegate{
             parentVC.profileImageWidth?.constant = 160.0
             parentVC.barWidthConstraint?.constant = 0.0
             parentVC.barHeightConstraint?.constant = 0.0
+            
+            if !isPagingMaking{
+                UIView.animate(withDuration: 0.5, delay: 0.0, options: .allowUserInteraction, animations: {
+                    parentVC.view.layoutIfNeeded()
+
+                }, completion: nil)
+            }else{
+                isPagingMaking = false
+            }
         }else if (scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y < (scrollView.contentSize.height - scrollView.frame.size.height)){
             parentVC.profileImageHeight?.constant = 0
             parentVC.profileImageWidth?.constant = 0
@@ -125,12 +135,19 @@ extension PostsView : UIScrollViewDelegate{
             parentVC.barImageView.layer.cornerRadius = parentVC.barImageView.frame.width / 2
             //            self.profileImageView.heightAnchor.constraint(equalToConstant: 45.0).isActive = true
             //            self.profileImageView.widthAnchor.constraint(equalToConstant: 45.0).isActive = true
+            
+            if !isPagingMaking{
+                UIView.animate(withDuration: 0.5, delay: 0.0, options: .allowUserInteraction, animations: {
+                    parentVC.headerBarView.layoutIfNeeded()
+                    parentVC.view.layoutSubviews()
+                    
+                }, completion: nil)
+            }else{
+                isPagingMaking = false
+
+            }
         }
        
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: .allowUserInteraction, animations: {
-            parentVC.view.layoutIfNeeded()
-
-        }, completion: nil)
        
     }
     
@@ -138,7 +155,6 @@ extension PostsView : UIScrollViewDelegate{
     
     //Pagination:
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        print("Drag begin")
         if isLoading{
             self.fState = false
         }
@@ -149,6 +165,7 @@ extension PostsView : UIScrollViewDelegate{
     func getData(){
         DispatchQueue.main.asyncAfter(deadline: .now()+2){
             if self.fState{
+                self.isPagingMaking = true
                 var indexes = [IndexPath]()
                 let startIndex = self.data.count
                 
