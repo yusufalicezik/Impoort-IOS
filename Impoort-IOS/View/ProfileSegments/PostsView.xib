@@ -16,22 +16,34 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xFJ-Yz-V7F">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xFJ-Yz-V7F">
                     <rect key="frame" x="0.0" y="49" width="414" height="808"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="e5T-6Q-txw">
+                    <rect key="frame" x="0.0" y="837" width="414" height="25"/>
+                    <color key="backgroundColor" red="0.97254901959999995" green="0.94509803920000002" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="rpu-mJ-7B1"/>
+                    </constraints>
+                    <color key="color" red="0.44823353929999998" green="0.75235503859999997" blue="0.68120964839999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="e5T-6Q-txw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="1w1-lf-GxZ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="xFJ-Yz-V7F" secondAttribute="trailing" id="2vZ-Dh-TN1"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="e5T-6Q-txw" secondAttribute="bottom" id="4TQ-Kk-RU3"/>
                 <constraint firstItem="xFJ-Yz-V7F" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="CVz-cv-VSy"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="xFJ-Yz-V7F" secondAttribute="bottom" constant="5" id="IF0-0C-ADd"/>
                 <constraint firstItem="xFJ-Yz-V7F" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="jtJ-w9-6sE"/>
+                <constraint firstItem="e5T-6Q-txw" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="l9S-vz-Qqz"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="loadingMorePostsActivityView" destination="e5T-6Q-txw" id="v6i-b0-TnJ"/>
                 <outlet property="tableView" destination="xFJ-Yz-V7F" id="jYS-iH-EWG"/>
             </connections>
         </view>

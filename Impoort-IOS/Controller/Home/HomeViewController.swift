@@ -115,11 +115,13 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
             (cell as? PostCellWithImage)?.nameSurnameTxtFied.text = String(indexPath.row)
             (cell as? PostCellWithImage)?.postImageHeightConstraint.constant = 0.0
             (cell as? PostCellWithImage)?.perDelegate = self
+            (cell as? PostCellWithImage)?.configCell()
             (cell as? PostCellWithImage)?.postID = indexPath.row
         }else{
             cell = Bundle.main.loadNibNamed("PostCellWithImage", owner: self, options: nil)?.first as! PostCellWithImage
             (cell as? PostCellWithImage)?.nameSurnameTxtFied.text = String(indexPath.row)
             (cell as? PostCellWithImage)?.perDelegate = self
+            (cell as? PostCellWithImage)?.configCell()
             (cell as? PostCellWithImage)?.postID = indexPath.row
         }
         if (indexPath.row == self.data.count)  && !firstTime && !isLoading{

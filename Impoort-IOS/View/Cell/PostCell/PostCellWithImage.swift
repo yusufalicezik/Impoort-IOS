@@ -28,20 +28,21 @@ class PostCellWithImage: UITableViewCell {
     var  perDelegate:PostCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    func configCell(){
         self.postContainerView.layer.cornerRadius = 10
         self.postContainerView.layer.shadowRadius = 10
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.width / 2
         self.postContainerView.layer.shadowOpacity = 0.11
         self.postContainerView.layer.shadowColor = UIColor.black.cgColor
         self.postContainerView.layer.shadowOffset = CGSize.zero
         self.postContainerView.generateOuterShadow()
-        self.profileImage.layer.cornerRadius = self.profileImage.frame.width / 2
         self.postImage.layer.cornerRadius = 4
         
         let postClickRecognizer = UITapGestureRecognizer(target: self, action: #selector(clickedPost))
         self.addGestureRecognizer(postClickRecognizer)
         let readMoreRecognizer = UITapGestureRecognizer(target: self, action: #selector(clickedReadMore))
         self.postDescription.addGestureRecognizer(readMoreRecognizer)
-        // Initialization code
     }
     @objc func clickedPost(){
         perDelegate?.didSelectPost(self.postID!) //postun kendisi gönderilecek.
@@ -52,5 +53,6 @@ class PostCellWithImage: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+
     
 }

@@ -17,6 +17,13 @@ class PostsView: UIView {
     var parentVC:UIViewController?
     var senderProfileType:SenderProfileTyle?
     let refreshControl = UIRefreshControl()
+    var isLoading = false
+    var firstTime = true
+    var fState = false
+    var sState = false
+    @IBOutlet weak var loadingMorePostsActivityView:UIActivityIndicatorView!
+    var currentOffset = CGPoint(x: 0, y: 0)
+    var data = [1,2,2,2,2,2,22,2,2,2,2] //parentVC den gönderilebilri.
     override func awakeFromNib() {
         super.awakeFromNib()
         tableView.delegate = self
@@ -24,6 +31,9 @@ class PostsView: UIView {
         self.refreshControl.tintColor = #colorLiteral(red: 0.4375773668, green: 0.8031894565, blue: 0.7201564908, alpha: 1)
         tableView.refreshControl = self.refreshControl
         refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.3){
+            self.firstTime = false
+        }
     }
     
     func load(){
@@ -59,14 +69,24 @@ class PostsView: UIView {
 }
 extension PostsView:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+        return self.data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = UITableViewCell()
         switch senderProfileType! {
         case .posts:
-            cell = Bundle.main.loadNibNamed("PostCell", owner: self, options: nil)?.first as! PostCell
+            cell = Bundle.main.loadNibNamed("PostCellWithImage", owner: self, options: nil)?.first as! PostCellWithImage
+            (cell as? PostCellWithImage)?.postID = indexPath.row
+            (cell as? PostCellWithImage)?.perDelegate = self
+            (cell as? PostCellWithImage)?.configCell()
+            if (indexPath.row == self.data.count-1)  && !firstTime && !isLoading{
+                print("yüklenecek")
+                self.loadingMorePostsActivityView.isHidden = false
+                self.isLoading = true
+                getData()
+            }
+            
             //cell. config işlemleri posta göre
         case .watcher:
             cell = Bundle.main.loadNibNamed("WatcherCell", owner: self, options: nil)?.first as! WatcherCell
@@ -113,5 +133,61 @@ extension PostsView : UIScrollViewDelegate{
         }, completion: nil)
        
     }
+    
+    
+    
+    //Pagination:
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        print("Drag begin")
+        if isLoading{
+            self.fState = false
+        }
+    }
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.fState = true
+    }
+    func getData(){
+        DispatchQueue.main.asyncAfter(deadline: .now()+2){
+            if self.fState{
+                var indexes = [IndexPath]()
+                let startIndex = self.data.count
+                
+                for i in 0..<10{
+                    self.data.append(i)
+                    indexes.append(IndexPath(row: startIndex+i, section: 0))
+                }
+                self.tableView.beginUpdates()
+                self.tableView.insertRows(at: indexes, with: .fade)
+                //self.tableView.scrollToRow(at: self.currentRow, at: .none, animated: false)
+                self.tableView.endUpdates()
+                ///self.tableView.reloadData()
+                print(self.data.count)
+                self.isLoading = false
+                //self.tableView.scrollToRow(at: self.currentIndx, at: .bottom, animated: true)
+                self.tableView.setContentOffset(self.currentOffset, animated: true)
+                self.loadingMorePostsActivityView.isHidden = true
+                
+                //self.tableView.isScrollEnabled = true
+            }else{
+                self.getData()
+                //self.isLoading = false
+                //self.loadingMorePostsActivityView.isHidden = true
+                
+                
+            }
+            
+        }
+    }
+    
+}
+extension PostsView:PostCellDelegate{
+    func didSelectPost(_ id: Int) {
+        print("clicked post \(id)")
+    }
+    
+    func didSelectReadMore(_ id: Int) {
+        
+    }
+    
     
 }
