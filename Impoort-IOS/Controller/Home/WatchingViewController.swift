@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WatchingViewController: UIViewController {
+class WatchingViewController: BaseViewController {
     @IBOutlet weak var containerView:UIView!
     var postView:PostsView?
     override func viewDidLoad() {

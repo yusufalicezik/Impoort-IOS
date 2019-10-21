@@ -13,6 +13,8 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        self.addSwipeRightDismissRecognizer()
+        self.addSwipeLeftDismissRecognizer()
     }
     
     func goToRegisterFirstStep(){
@@ -112,6 +114,32 @@ class BaseViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Tools", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "CommentVC") as? CommentViewController
         self.present(vc!, animated: true, completion: nil)
+    }
+    
+    
+    func addSwipeLeftDismissRecognizer(){
+        let sw = UISwipeGestureRecognizer(target: self, action: #selector(swipeToLeft))
+        sw.direction = .right
+        self.view.addGestureRecognizer(sw)
+    }
+    @objc private func swipeToLeft(){
+        if let tabbarVc = self.tabBarController{
+            if tabbarVc.selectedIndex > 0{
+                tabbarVc.selectedIndex = tabbarVc.selectedIndex-1 //swipe left.
+            }
+        }
+    }
+    func addSwipeRightDismissRecognizer(){
+        let sw = UISwipeGestureRecognizer(target: self, action: #selector(swipeToRight))
+        sw.direction = .left
+        self.view.addGestureRecognizer(sw)
+    }
+    @objc private func swipeToRight(){
+        if let tabbarVc = self.tabBarController{
+            if tabbarVc.selectedIndex < 4{
+                tabbarVc.selectedIndex = tabbarVc.selectedIndex+1 //swipe left.
+            }
+        }
     }
 
 }

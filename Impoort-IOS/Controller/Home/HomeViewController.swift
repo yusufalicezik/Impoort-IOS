@@ -62,11 +62,6 @@ class HomeViewController: BaseViewController {
 
         refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
         shareRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.goToShareQuickly))
-        let postDetailRecog = UITapGestureRecognizer(target: self, action: #selector(goToDetails))
-        self.tableView.isUserInteractionEnabled = true
-        self.tableView.addGestureRecognizer(postDetailRecog)
-        
-        
         self.quickShareGreenView.layer.cornerRadius = 10
         self.quickShareGreenView.layer.shadowRadius = 10
         self.quickShareGreenView.layer.shadowOpacity = 0.14
@@ -80,9 +75,6 @@ class HomeViewController: BaseViewController {
         }
 
         
-    }
-    @objc func goToDetails(){
-        self.goToPostDetailVC()
     }
     @objc func refreshWeatherData(_ sender: Any){
         DispatchQueue.main.asyncAfter(deadline: .now()+4){
@@ -122,10 +114,13 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
             cell = Bundle.main.loadNibNamed("PostCellWithImage", owner: self, options: nil)?.first as! PostCellWithImage
             (cell as? PostCellWithImage)?.nameSurnameTxtFied.text = String(indexPath.row)
             (cell as? PostCellWithImage)?.postImageHeightConstraint.constant = 0.0
+            (cell as? PostCellWithImage)?.perDelegate = self
+            (cell as? PostCellWithImage)?.postID = indexPath.row
         }else{
             cell = Bundle.main.loadNibNamed("PostCellWithImage", owner: self, options: nil)?.first as! PostCellWithImage
             (cell as? PostCellWithImage)?.nameSurnameTxtFied.text = String(indexPath.row)
-
+            (cell as? PostCellWithImage)?.perDelegate = self
+            (cell as? PostCellWithImage)?.postID = indexPath.row
         }
         if (indexPath.row == self.data.count)  && !firstTime && !isLoading{
             print("yüklenecek")
@@ -261,4 +256,16 @@ extension HomeViewController:UITabBarControllerDelegate{
             }
         }
     }
+}
+extension HomeViewController:PostCellDelegate{
+    func didSelectPost(_ id: Int) {
+        print("tiklandi.. \(id)")
+       self.goToPostDetailVC() //parametre olarak gelen post gönderilecek, şimdilik id geliyor, modellerden sonra eklenecek
+    }
+    
+    func didSelectReadMore(_ id: Int) {
+        print("asd")
+    }
+    
+    
 }

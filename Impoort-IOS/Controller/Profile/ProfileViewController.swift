@@ -59,9 +59,8 @@ class ProfileViewController: BaseViewController {
         self.profileImageView.addGestureRecognizer(profileRecognizer)
         self.profileImageView.isUserInteractionEnabled = true
         loadPostsView(senderType: .posts)
-        
-
     }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         URLCache.shared.removeAllCachedResponses()

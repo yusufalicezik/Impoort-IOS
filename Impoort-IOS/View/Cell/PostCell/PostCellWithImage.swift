@@ -11,7 +11,8 @@ import SwiftyShadow
 
 
 protocol PostCellDelegate{
-    func didSelectPost()
+    func didSelectPost(_ id:Int)
+    func didSelectReadMore(_ id:Int)
 }
 
 class PostCellWithImage: UITableViewCell {
@@ -24,6 +25,7 @@ class PostCellWithImage: UITableViewCell {
     @IBOutlet weak var postDescription: UILabel!
     @IBOutlet weak var postImage: UIImageView!
     var postID:Int? //burası modeller eklendikten sonra post olacak her şeyine erişebilmek için
+    var  perDelegate:PostCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         self.postContainerView.layer.cornerRadius = 10
@@ -34,13 +36,21 @@ class PostCellWithImage: UITableViewCell {
         self.postContainerView.generateOuterShadow()
         self.profileImage.layer.cornerRadius = self.profileImage.frame.width / 2
         self.postImage.layer.cornerRadius = 4
+        
+        let postClickRecognizer = UITapGestureRecognizer(target: self, action: #selector(clickedPost))
+        self.addGestureRecognizer(postClickRecognizer)
+        let readMoreRecognizer = UITapGestureRecognizer(target: self, action: #selector(clickedReadMore))
+        self.postDescription.addGestureRecognizer(readMoreRecognizer)
         // Initialization code
     }
-
+    @objc func clickedPost(){
+        perDelegate?.didSelectPost(self.postID!) //postun kendisi gönderilecek.
+    }
+    @objc func clickedReadMore(){
+        
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }
