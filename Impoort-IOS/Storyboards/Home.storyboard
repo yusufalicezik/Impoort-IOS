@@ -723,10 +723,10 @@
             </objects>
             <point key="canvasLocation" x="-1926.0869565217392" y="-627.45535714285711"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="mMS-MP-mHv">
             <objects>
-                <tabBarController id="PXj-D4-MbZ" sceneMemberID="viewController">
+                <tabBarController id="PXj-D4-MbZ" customClass="TabBarViewController" customModule="Impoort_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="urm-8H-Ech">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

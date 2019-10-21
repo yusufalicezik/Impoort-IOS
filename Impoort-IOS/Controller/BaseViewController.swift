@@ -125,7 +125,8 @@ class BaseViewController: UIViewController {
     @objc private func swipeToLeft(){
         if let tabbarVc = self.tabBarController{
             if tabbarVc.selectedIndex > 0{
-                tabbarVc.selectedIndex = tabbarVc.selectedIndex-1 //swipe left.
+                (tabbarVc as? TabBarViewController)?.set(selectedIndex: tabbarVc.selectedIndex-1)
+                //tabbarVc.selectedIndex = tabbarVc.selectedIndex-1 //swipe left.
             }
         }
     }
@@ -137,7 +138,8 @@ class BaseViewController: UIViewController {
     @objc private func swipeToRight(){
         if let tabbarVc = self.tabBarController{
             if tabbarVc.selectedIndex < 4{
-                tabbarVc.selectedIndex = tabbarVc.selectedIndex+1 //swipe left.
+                (tabbarVc as? TabBarViewController)?.set(selectedIndex: tabbarVc.selectedIndex+1)
+                //tabbarVc.selectedIndex = tabbarVc.selectedIndex+1 //swipe left.
             }
         }
     }
