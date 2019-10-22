@@ -19,15 +19,25 @@ class ProfileViewController: BaseViewController {
     @IBOutlet weak var containerView: UIView!
     
     
+    @IBOutlet weak var profileStackView: UIStackView!
     @IBOutlet weak var barImageView: UIImageView!
     @IBOutlet weak var headerBarView: UIView!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var barHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var barWidthConstraint: NSLayoutConstraint!
     
-    let titles = ["Posts","Watcher(167)", "Watching"]
+    let titles = ["About","Posts(25)","Watcher(135)", "Watching(224)"]
     lazy var postsView:PostsView = PostsView()
     lazy var profileBiggestView:ProfileBiggest = ProfileBiggest()
+    
+    
+    @IBOutlet weak var profileGeneralStackView: UIStackView!
+    @IBOutlet weak var profileInfoViews: UIView!
+    @IBOutlet weak var quickWatchButton: UIButton!
+    @IBOutlet weak var quickMessageButton: UIButton!
+    @IBOutlet weak var profileGeneralStackViewConstraints: NSLayoutConstraint!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -35,6 +45,9 @@ class ProfileViewController: BaseViewController {
     
     func setup(){
         //let frame = CGRect(x: 5, y:  200, width: view.frame.width - 10, height: 40)
+        self.profileInfoViews.layer.cornerRadius = 8
+        self.quickWatchButton.layer.cornerRadius = 8
+        self.quickMessageButton.layer.cornerRadius = 8
         let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         let segmentedControl = TwicketSegmentedControl(frame: frame)
         segmentedControl.setSegmentItems(titles)
@@ -42,6 +55,7 @@ class ProfileViewController: BaseViewController {
         segmentedControl.sliderBackgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
         segmentedControl.defaultTextColor = #colorLiteral(red: 0.9725490196, green: 0.9450980392, blue: 0.9803921569, alpha: 0.9276808647)
         segmentedControl.highlightTextColor = #colorLiteral(red: 0.9725490196, green: 0.9450980392, blue: 0.9803921569, alpha: 0.9276808647)
+        segmentedControl.font = UIFont(name: "Avenir", size: 12.0)!
         segmentedControl.isSliderShadowHidden = false
         segmentedControl.delegate = self
         segmentContainerView.addSubview(segmentedControl)

@@ -114,8 +114,8 @@ extension PostsView : UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let parentVC = parentVC as? ProfileViewController else {return}
         if scrollView.contentOffset.y <= 0{
-            parentVC.profileImageHeight?.constant = 160.0
-            parentVC.profileImageWidth?.constant = 160.0
+            parentVC.profileGeneralStackViewConstraints?.constant = 110.0
+            parentVC.profileGeneralStackViewConstraints?.constant = 110.0
             parentVC.barWidthConstraint?.constant = 0.0
             parentVC.barHeightConstraint?.constant = 0.0
             
@@ -125,8 +125,8 @@ extension PostsView : UIScrollViewDelegate{
                 }, completion: nil)
             }
         }else if (scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y < (scrollView.contentSize.height - scrollView.frame.size.height)){
-            parentVC.profileImageHeight?.constant = 0
-            parentVC.profileImageWidth?.constant = 0
+            parentVC.profileGeneralStackViewConstraints?.constant = 0
+            parentVC.profileGeneralStackViewConstraints?.constant = 0
             parentVC.barWidthConstraint?.constant = 35.0
             parentVC.barHeightConstraint?.constant = 35.0
             //self.barImageView.layer.masksToBounds = true
@@ -136,13 +136,13 @@ extension PostsView : UIScrollViewDelegate{
             if !isPagingMaking{
                 UIView.animate(withDuration: 0.5, delay: 0.0, options: .allowUserInteraction, animations: {
                     parentVC.headerBarView.layoutIfNeeded()
-                    parentVC.view.layoutSubviews()
+                    parentVC.profileGeneralStackView.layoutIfNeeded()
                     parentVC.barImageView.layer.cornerRadius = parentVC.barImageView.frame.width / 2
                 }, completion: nil)
             }else{
                 UIView.animate(withDuration: 0.5, delay: 0.0, options: .allowUserInteraction, animations: {
                     parentVC.headerBarView.layoutIfNeeded()
-                    parentVC.view.layoutSubviews()
+                    parentVC.profileGeneralStackView.layoutIfNeeded()
                     parentVC.barImageView.layer.cornerRadius = parentVC.barImageView.frame.width / 2
                 }, completion: nil)
                 isPagingMaking = false
