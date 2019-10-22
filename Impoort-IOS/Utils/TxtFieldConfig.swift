@@ -26,6 +26,20 @@ class TxtFieldConfig{
         textfield.rightView = UIView(frame:
             CGRect(x: -20, y: 0, width: 30, height: 30))
     }
+    func addIconForSearch(to textfield:UITextField, iconName imageName:String){
+        let image = UIImage(named: imageName)
+        let iconView = UIImageView(frame:
+            CGRect(x: 7.5, y: 5, width: 17, height: 17))
+        iconView.image = image
+        let iconContainerView: UIView = UIView(frame:
+            CGRect(x: 25, y: 0, width: 35, height: 30))
+        iconContainerView.addSubview(iconView)
+        textfield.leftViewMode = UITextField.ViewMode.always
+        textfield.rightViewMode = UITextField.ViewMode.always
+        textfield.leftView = iconContainerView
+        textfield.rightView = UIView(frame:
+            CGRect(x: -10, y: 0, width: 30, height: 30))
+    }
     
     func givePadding(to textfield:UITextField){
         let iconContainerView: UIView = UIView(frame:

@@ -25,7 +25,7 @@ class ProfileViewController: BaseViewController {
     @IBOutlet weak var barHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var barWidthConstraint: NSLayoutConstraint!
     
-    let titles = ["Posts", "Watcher", "Watching"]
+    let titles = ["Posts","Watcher(167)", "Watching"]
     lazy var postsView:PostsView = PostsView()
     lazy var profileBiggestView:ProfileBiggest = ProfileBiggest()
     override func viewDidLoad() {
