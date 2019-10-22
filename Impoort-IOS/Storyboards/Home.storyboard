@@ -848,7 +848,7 @@
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kaK-iI-b50">
-                                        <rect key="frame" x="30" y="7.5" width="35" height="35"/>
+                                        <rect key="frame" x="30" y="5" width="35" height="35"/>
                                         <color key="backgroundColor" red="0.97254901959999995" green="0.94509803920000002" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="OeL-7i-kfh"/>
@@ -861,15 +861,15 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="kaK-iI-b50" secondAttribute="bottom" constant="10" id="Dt3-pI-SGC"/>
                                     <constraint firstAttribute="height" constant="50" id="NSa-GO-TLi"/>
-                                    <constraint firstItem="kaK-iI-b50" firstAttribute="centerY" secondItem="fAl-qo-78H" secondAttribute="centerY" id="gNV-Lz-1tu"/>
                                     <constraint firstAttribute="bottom" secondItem="eIT-H4-fCx" secondAttribute="bottom" constant="10" id="jpl-rT-u6t"/>
                                     <constraint firstItem="kaK-iI-b50" firstAttribute="leading" secondItem="fAl-qo-78H" secondAttribute="leading" constant="30" id="sF2-1p-rNx"/>
                                     <constraint firstItem="eIT-H4-fCx" firstAttribute="centerX" secondItem="fAl-qo-78H" secondAttribute="centerX" id="zeD-c5-hgg"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kkn-Ui-7Nv">
-                                <rect key="frame" x="12" y="141.5" width="390" height="671.5"/>
+                                <rect key="frame" x="12" y="140" width="390" height="673"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EYZ-QI-Qoj">
                                     <size key="itemSize" width="197" height="262"/>
@@ -967,8 +967,8 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suggested Watchers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlE-Zp-Dna">
-                                <rect key="frame" x="12" y="109" width="390" height="27.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="23"/>
+                                <rect key="frame" x="12" y="109" width="390" height="23"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="19"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -976,13 +976,13 @@
                         <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="KlE-Zp-Dna" firstAttribute="leading" secondItem="o67-HJ-ZJd" secondAttribute="leading" constant="12" id="4nH-ss-8gB"/>
-                            <constraint firstItem="kkn-Ui-7Nv" firstAttribute="top" secondItem="KlE-Zp-Dna" secondAttribute="bottom" constant="5" id="DD5-AE-bSs"/>
+                            <constraint firstItem="kkn-Ui-7Nv" firstAttribute="top" secondItem="KlE-Zp-Dna" secondAttribute="bottom" constant="8" id="DD5-AE-bSs"/>
                             <constraint firstItem="kkn-Ui-7Nv" firstAttribute="leading" secondItem="o67-HJ-ZJd" secondAttribute="leading" constant="12" id="HOS-R8-u3W"/>
                             <constraint firstItem="fAl-qo-78H" firstAttribute="leading" secondItem="In3-0P-XNV" secondAttribute="leading" id="UTW-1K-qi7"/>
                             <constraint firstItem="o67-HJ-ZJd" firstAttribute="trailing" secondItem="KlE-Zp-Dna" secondAttribute="trailing" constant="12" id="Un1-aT-HUo"/>
                             <constraint firstItem="KlE-Zp-Dna" firstAttribute="top" secondItem="fAl-qo-78H" secondAttribute="bottom" constant="15" id="c5v-nr-v98"/>
                             <constraint firstItem="fAl-qo-78H" firstAttribute="top" secondItem="o67-HJ-ZJd" secondAttribute="top" id="cTr-uF-0OR"/>
-                            <constraint firstItem="o67-HJ-ZJd" firstAttribute="trailing" secondItem="fAl-qo-78H" secondAttribute="trailing" id="esR-YN-hta"/>
+                            <constraint firstAttribute="trailing" secondItem="fAl-qo-78H" secondAttribute="trailing" id="esR-YN-hta"/>
                             <constraint firstItem="o67-HJ-ZJd" firstAttribute="trailing" secondItem="kkn-Ui-7Nv" secondAttribute="trailing" constant="12" id="lbP-t8-dyr"/>
                             <constraint firstItem="o67-HJ-ZJd" firstAttribute="bottom" secondItem="kkn-Ui-7Nv" secondAttribute="bottom" id="q5G-Aq-wx6"/>
                         </constraints>
