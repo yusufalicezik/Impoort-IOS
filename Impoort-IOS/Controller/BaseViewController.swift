@@ -13,8 +13,8 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        self.addSwipeRightDismissRecognizer()
-        self.addSwipeLeftDismissRecognizer()
+        //self.addSwipeRightDismissRecognizer()
+        //self.addSwipeLeftDismissRecognizer()
     }
     
     func goToRegisterFirstStep(){
@@ -141,6 +141,15 @@ class BaseViewController: UIViewController {
                 (tabbarVc as? TabBarViewController)?.set(selectedIndex: tabbarVc.selectedIndex+1)
                 //tabbarVc.selectedIndex = tabbarVc.selectedIndex+1 //swipe left.
             }
+        }
+    }
+    func goToProfileDetails(){
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ProfileDetailVC") as? ProfileViewController
+        if let navBar = self.navigationController{
+            navBar.pushViewController(vc!, animated: true)
+        }else{
+            self.present(vc!, animated: true, completion: nil)
         }
     }
 

@@ -18,19 +18,19 @@ class ProfileBiggest: UIView {
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(closePage))
         self.addGestureRecognizer(recognizer)
     }
-    func configView(_ parentVC:ProfileViewController, _ addedView:ProfileBiggest){
-            parentVC.view.addSubview(addedView)
-            addedView.translatesAutoresizingMaskIntoConstraints = false
-            addedView.profileImg.translatesAutoresizingMaskIntoConstraints = false
-            addedView.leftAnchor.constraint(equalTo: parentVC.view.leftAnchor, constant: 0.0).isActive = true
-            addedView.rightAnchor.constraint(equalTo: parentVC.view.rightAnchor, constant: 0.0).isActive = true
-            addedView.profileImg.heightAnchor.constraint(equalToConstant: parentVC.view.frame.width).isActive = true
-            addedView.centerYAnchor.constraint(equalTo: parentVC.view.centerYAnchor, constant: 0.0).isActive = true
-            addedView.topAnchor.constraint(equalTo: parentVC.view.topAnchor, constant: 0.0).isActive = true
-            addedView.bottomAnchor.constraint(equalTo: parentVC.view.bottomAnchor, constant: 0.0).isActive = true
-     
-        
-    }
+//    func configView(_ parentVC:ProfileViewController, _ addedView:ProfileBiggest){
+//            parentVC.view.addSubview(addedView)
+//            addedView.translatesAutoresizingMaskIntoConstraints = false
+//            addedView.profileImg.translatesAutoresizingMaskIntoConstraints = false
+//            addedView.leftAnchor.constraint(equalTo: parentVC.view.leftAnchor, constant: 0.0).isActive = true
+//            addedView.rightAnchor.constraint(equalTo: parentVC.view.rightAnchor, constant: 0.0).isActive = true
+//            addedView.profileImg.heightAnchor.constraint(equalToConstant: parentVC.view.frame.width).isActive = true
+//            addedView.centerYAnchor.constraint(equalTo: parentVC.view.centerYAnchor, constant: 0.0).isActive = true
+//            addedView.topAnchor.constraint(equalTo: parentVC.view.topAnchor, constant: 0.0).isActive = true
+//            addedView.bottomAnchor.constraint(equalTo: parentVC.view.bottomAnchor, constant: 0.0).isActive = true
+//     
+//        
+//    }
 
 
     @objc func closePage(){
