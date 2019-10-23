@@ -16,7 +16,7 @@ class PostsView: UIView {
     @IBOutlet weak var tableView: UITableView!
     var parentVC:UIViewController?
     var senderProfileType:SenderProfileTyle?
-    let refreshControl = UIRefreshControl()
+    //let refreshControl = UIRefreshControl()
     var isLoading = false
     var firstTime = true
     var fState = false
@@ -29,9 +29,9 @@ class PostsView: UIView {
         super.awakeFromNib()
         tableView.delegate = self
         tableView.dataSource = self
-        self.refreshControl.tintColor = #colorLiteral(red: 0.4375773668, green: 0.8031894565, blue: 0.7201564908, alpha: 1)
-        tableView.refreshControl = self.refreshControl
-        refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
+        //self.refreshControl.tintColor = #colorLiteral(red: 0.4375773668, green: 0.8031894565, blue: 0.7201564908, alpha: 1)
+        //tableView.refreshControl = self.refreshControl
+        //refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
         DispatchQueue.main.asyncAfter(deadline: .now()+0.3){
             self.firstTime = false
         }
@@ -61,12 +61,7 @@ class PostsView: UIView {
         }
         
     }
-    
-    @objc func refreshWeatherData(_ sender: Any){
-        DispatchQueue.main.asyncAfter(deadline: .now()+2){
-            self.refreshControl.endRefreshing()
-        }
-    }
+
 
     
 }
@@ -124,7 +119,8 @@ extension PostsView : UIScrollViewDelegate{
                 UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
                 parentVC.isDarkHeader = true
             }
-        }else if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) && scrollView.contentOffset.y != 0 {
+        }
+        else if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) && scrollView.contentOffset.y != 0 {
             UIView.animate(withDuration: 0.3){
 //                parentVC.headerBarView.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
 //                UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
@@ -142,7 +138,6 @@ extension PostsView : UIScrollViewDelegate{
             }
           
         }
-        print(tableView.contentOffset.y)
         parentVC.setNeedsStatusBarAppearanceUpdate()
         
     }
@@ -161,6 +156,7 @@ extension PostsView : UIScrollViewDelegate{
     func getData(){
         DispatchQueue.main.asyncAfter(deadline: .now()+2){
             if self.fState{
+                if (self.parentVC as? ProfileViewController)!.postsView == self{
                 self.isPagingMaking = true
                 var indexes = [IndexPath]()
                 let startIndex = self.data.count
@@ -187,6 +183,8 @@ extension PostsView : UIScrollViewDelegate{
                 //self.loadingMorePostsActivityView.isHidden = true
 
 
+                }
+                
             }
 
         }

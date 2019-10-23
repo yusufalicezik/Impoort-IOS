@@ -28,6 +28,8 @@ class WatchingViewController: BaseViewController {
         postView?.load()
     }
     
-
+    override func viewDidAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    }
 
 }

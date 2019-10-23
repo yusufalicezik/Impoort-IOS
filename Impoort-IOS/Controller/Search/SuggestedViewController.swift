@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SuggestedViewController: UIViewController {
+class SuggestedViewController: BaseViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var headerView: UIView!
@@ -59,6 +59,9 @@ class SuggestedViewController: UIViewController {
         self.searchTxtField.becomeFirstResponder()
         self.isOpenedSearchBar = true
         }
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
     func setPlaceHolder(_ isAppear:Bool = false){
         if isAppear{

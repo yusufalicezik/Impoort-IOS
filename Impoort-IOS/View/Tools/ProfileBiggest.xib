@@ -16,8 +16,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img" translatesAutoresizingMaskIntoConstraints="NO" id="5hg-oZ-R54">
-                    <rect key="frame" x="2" y="113" width="414" height="670"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilepp" translatesAutoresizingMaskIntoConstraints="NO" id="5hg-oZ-R54">
+                    <rect key="frame" x="2" y="73.5" width="414" height="749"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.79823951198630139" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -34,6 +34,6 @@
         </view>
     </objects>
     <resources>
-        <image name="img" width="960" height="670"/>
+        <image name="profilepp" width="749" height="749"/>
     </resources>
 </document>

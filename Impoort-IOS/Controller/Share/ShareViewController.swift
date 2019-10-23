@@ -66,6 +66,9 @@ class ShareViewController: BaseViewController,UITextViewDelegate{
 
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    }
     func textViewDidBeginEditing(_ textView: UITextView) {
         self.postDescClicked()
         if postDescriptionTxtView.textColor == UIColor.lightGray {
@@ -90,6 +93,7 @@ class ShareViewController: BaseViewController,UITextViewDelegate{
             self.view.layoutIfNeeded()
         }
     }
+    
 
     @IBAction func shareButtonClicked(_ sender: Any) {
         print(postType)

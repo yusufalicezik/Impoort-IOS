@@ -18,14 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img" translatesAutoresizingMaskIntoConstraints="NO" id="h93-cw-i8s">
-                                <rect key="frame" x="2" y="440" width="410" height="16"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilepp" translatesAutoresizingMaskIntoConstraints="NO" id="h93-cw-i8s">
+                                <rect key="frame" x="2" y="73.5" width="410" height="749"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRT-uE-96F">
-                                <rect key="frame" x="167" y="471" width="80" height="50"/>
-                                <color key="backgroundColor" red="0.35238897800000002" green="0.62907201049999995" blue="0.51960390810000001" alpha="0.54433326199999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="167" y="837.5" width="80" height="35"/>
+                                <color key="backgroundColor" red="0.039618691570000003" green="0.12009075869999999" blue="0.17116116749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="WFa-qf-YaI"/>
+                                    <constraint firstAttribute="height" constant="35" id="WFa-qf-YaI"/>
                                     <constraint firstAttribute="width" constant="80" id="YSU-sz-G7G"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -701,6 +701,7 @@
         <image name="img" width="960" height="670"/>
         <image name="likeicon" width="19" height="20"/>
         <image name="logo" width="289" height="95"/>
+        <image name="profilepp" width="749" height="749"/>
         <image name="sendbutton" width="72" height="72"/>
         <image name="stonks" width="680" height="510"/>
         <image name="watch" width="23" height="17"/>

@@ -17,6 +17,7 @@ class BiggerPictureEditViewController: UIViewController {
         self.profileImg.translatesAutoresizingMaskIntoConstraints = false
         self.profileImg.heightAnchor.constraint(equalTo: self.view.widthAnchor, constant: -4).isActive = true
         self.view.isOpaque = false
+        self.editButton.layer.cornerRadius = 8
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {

@@ -31,6 +31,7 @@ class ProfileViewController: BaseViewController {
     }
     
     func setup(){
+        self.addSwipeDismiss(vc: self)
         self.barImageView.layer.cornerRadius = self.barImageView.frame.width / 2
         let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         let segmentedControl = TwicketSegmentedControl(frame: frame)
@@ -50,30 +51,37 @@ class ProfileViewController: BaseViewController {
         segmentedControl.bottomAnchor.constraint(equalTo: self.segmentContainerView.bottomAnchor, constant: 0.0).isActive = true
         segmentedControl.heightAnchor.constraint(equalToConstant: 45.0).isActive = true
         
-        loadPostsView(senderType: .posts)
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
             if isDarkHeader{
                 return .lightContent
             }else{
+                
                 return .default
             }
     }
     override func viewWillDisappear(_ animated: Bool) {
-            clearHeader()
-            isChanged = true
+        isChanged = true
+        clearHeader()
+
     }
 
 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        URLCache.shared.removeAllCachedResponses()
-        URLCache.shared.diskCapacity = 0
-        URLCache.shared.memoryCapacity = 0
-        SDImageCache.shared.clearMemory()
-        SDImageCache.shared.clearDisk(onCompletion: nil)
+
+        //super.viewWillAppear(animated)
+//        if !self.isDarkHeader{
+//            clearHeader()
+//        }else{
+//            UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
+//        }
         clearHeader()
+        loadPostsView(senderType: .posts)
+        isChanged = false
+
+        
     }
     
     @IBAction func messageButtonClicked(_ sender: Any) {
@@ -113,7 +121,7 @@ class ProfileViewController: BaseViewController {
         self.goToBack()
     }
     
-    func clearHeader(){
+    override func clearHeader(){
         UIView.animate(withDuration: 0.3){
             self.isDarkHeader = false
             self.headerBarView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -126,6 +134,7 @@ class ProfileViewController: BaseViewController {
 extension ProfileViewController:TwicketSegmentedControlDelegate{
     func didSelect(_ segmentIndex: Int) {
         clearHeader()
+        self.isDarkHeader = false
         switch segmentIndex {
         case 0:
             loadPostsView(senderType: .posts)
@@ -137,7 +146,4 @@ extension ProfileViewController:TwicketSegmentedControlDelegate{
     }
 }
 
-extension ProfileViewController : UIScrollViewDelegate{
 
-    
-}

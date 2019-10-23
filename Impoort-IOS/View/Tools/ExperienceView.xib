@@ -54,6 +54,7 @@
             <connections>
                 <outlet property="companyNameLabel" destination="gth-Ss-6aq" id="JAw-HZ-vA2"/>
                 <outlet property="departmentLabel" destination="yLR-op-Dfd" id="kUi-NS-ltT"/>
+                <outlet property="icon" destination="lOo-v4-cpZ" id="J5e-uW-y5n"/>
             </connections>
             <point key="canvasLocation" x="86.231884057971016" y="274.88839285714283"/>
         </view>

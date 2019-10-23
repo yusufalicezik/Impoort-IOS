@@ -8,8 +8,10 @@
 
 import UIKit
 
-class WatcherView: UIView {
+class LinksView: UIView {
 
+    @IBOutlet weak var linkImageView: UIImageView!
+    @IBOutlet weak var linkLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
     }

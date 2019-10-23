@@ -49,6 +49,7 @@ class HomeViewController: BaseViewController {
         SDImageCache.shared.clearMemory()
         SDImageCache.shared.clearDisk(onCompletion: nil)
     }
+
     func setup(){
         self.tabBarController!.tabBar.layer.borderWidth = 0.25
         self.tabBarController?.tabBar.clipsToBounds = true

@@ -40,8 +40,8 @@
 		485AD842234AD313008E8E52 /* ChatRightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AD841234AD313008E8E52 /* ChatRightCell.swift */; };
 		486A0D4A235693A30019329D /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A0D49235693A30019329D /* PostsView.swift */; };
 		486A0D4C235693AB0019329D /* PostsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486A0D4B235693AB0019329D /* PostsView.xib */; };
-		486A0D4E23569B220019329D /* WatcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A0D4D23569B220019329D /* WatcherView.swift */; };
-		486A0D5023569B3E0019329D /* WatcherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486A0D4F23569B3E0019329D /* WatcherView.xib */; };
+		486A0D4E23569B220019329D /* LinksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A0D4D23569B220019329D /* LinksView.swift */; };
+		486A0D5023569B3E0019329D /* LinksView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486A0D4F23569B3E0019329D /* LinksView.xib */; };
 		486A0D5B2356AF9E0019329D /* WatcherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A0D592356AF9E0019329D /* WatcherCell.swift */; };
 		486A0D5C2356AF9E0019329D /* WatcherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486A0D5A2356AF9E0019329D /* WatcherCell.xib */; };
 		4890BD3D2355142E0083AEAF /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890BD3C2355142E0083AEAF /* ShareViewController.swift */; };
@@ -102,8 +102,8 @@
 		485AD841234AD313008E8E52 /* ChatRightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRightCell.swift; sourceTree = "<group>"; };
 		486A0D49235693A30019329D /* PostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsView.swift; sourceTree = "<group>"; };
 		486A0D4B235693AB0019329D /* PostsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostsView.xib; sourceTree = "<group>"; };
-		486A0D4D23569B220019329D /* WatcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatcherView.swift; sourceTree = "<group>"; };
-		486A0D4F23569B3E0019329D /* WatcherView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatcherView.xib; sourceTree = "<group>"; };
+		486A0D4D23569B220019329D /* LinksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LinksView.swift; path = ../../ProfileSegments/LinksView.swift; sourceTree = "<group>"; };
+		486A0D4F23569B3E0019329D /* LinksView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LinksView.xib; path = ../../ProfileSegments/LinksView.xib; sourceTree = "<group>"; };
 		486A0D592356AF9E0019329D /* WatcherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatcherCell.swift; sourceTree = "<group>"; };
 		486A0D5A2356AF9E0019329D /* WatcherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatcherCell.xib; sourceTree = "<group>"; };
 		4890BD3C2355142E0083AEAF /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -121,13 +121,13 @@
 		4893007D23428A92004B37AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4893007F23428A92004B37AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48A830F72357CEE300451E38 /* Tools.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tools.storyboard; sourceTree = "<group>"; };
-		48A830FA2357CFEA00451E38 /* ProfileBiggest.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileBiggest.xib; sourceTree = "<group>"; };
-		48A830FC2357CFFB00451E38 /* ProfileBiggest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBiggest.swift; sourceTree = "<group>"; };
+		48A830FA2357CFEA00451E38 /* ProfileBiggest.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProfileBiggest.xib; path = ../ProfileBiggest.xib; sourceTree = "<group>"; };
+		48A830FC2357CFFB00451E38 /* ProfileBiggest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileBiggest.swift; path = ../ProfileBiggest.swift; sourceTree = "<group>"; };
 		48A830FE2357DDBC00451E38 /* BiggerPictureEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiggerPictureEditViewController.swift; sourceTree = "<group>"; };
 		48B6E013235F45BB00001920 /* NewProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProfileViewController.swift; sourceTree = "<group>"; };
 		48B6E016235FA3CE00001920 /* ExperiencesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperiencesCollectionViewCell.swift; sourceTree = "<group>"; };
-		48B6E018235FC11A00001920 /* ExperienceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExperienceView.xib; sourceTree = "<group>"; };
-		48B6E01A235FC12F00001920 /* ExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceView.swift; sourceTree = "<group>"; };
+		48B6E018235FC11A00001920 /* ExperienceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ExperienceView.xib; path = ../ExperienceView.xib; sourceTree = "<group>"; };
+		48B6E01A235FC12F00001920 /* ExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExperienceView.swift; path = ../ExperienceView.swift; sourceTree = "<group>"; };
 		48CEF2042359392400FCC5BD /* QuickShareCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickShareCell.swift; sourceTree = "<group>"; };
 		48CEF2052359392400FCC5BD /* QuickShareCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickShareCell.xib; sourceTree = "<group>"; };
 		48D95FA9235E82AC0053ECA7 /* SuggestedCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedCollectionCell.swift; sourceTree = "<group>"; };
@@ -264,6 +264,19 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		4842728D23600FBF00FE9C15 /* AboutViews */ = {
+			isa = PBXGroup;
+			children = (
+				486A0D4D23569B220019329D /* LinksView.swift */,
+				486A0D4F23569B3E0019329D /* LinksView.xib */,
+				48A830FA2357CFEA00451E38 /* ProfileBiggest.xib */,
+				48A830FC2357CFFB00451E38 /* ProfileBiggest.swift */,
+				48B6E018235FC11A00001920 /* ExperienceView.xib */,
+				48B6E01A235FC12F00001920 /* ExperienceView.swift */,
+			);
+			path = AboutViews;
+			sourceTree = "<group>";
+		};
 		48463F9A235D127D00E1054E /* CommentCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,8 +332,6 @@
 			children = (
 				486A0D49235693A30019329D /* PostsView.swift */,
 				486A0D4B235693AB0019329D /* PostsView.xib */,
-				486A0D4D23569B220019329D /* WatcherView.swift */,
-				486A0D4F23569B3E0019329D /* WatcherView.xib */,
 			);
 			path = ProfileSegments;
 			sourceTree = "<group>";
@@ -399,13 +410,10 @@
 		48A830F92357CF4100451E38 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				48A830FA2357CFEA00451E38 /* ProfileBiggest.xib */,
-				48A830FC2357CFFB00451E38 /* ProfileBiggest.swift */,
+				4842728D23600FBF00FE9C15 /* AboutViews */,
 				48A830FE2357DDBC00451E38 /* BiggerPictureEditViewController.swift */,
 				48547750235D069B00BD6213 /* PostDetailViewController.swift */,
 				48463F9F235D13A900E1054E /* CommentViewController.swift */,
-				48B6E018235FC11A00001920 /* ExperienceView.xib */,
-				48B6E01A235FC12F00001920 /* ExperienceView.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -497,7 +505,7 @@
 			files = (
 				48CEF2072359392400FCC5BD /* QuickShareCell.xib in Resources */,
 				4893007E23428A92004B37AD /* LaunchScreen.storyboard in Resources */,
-				486A0D5023569B3E0019329D /* WatcherView.xib in Resources */,
+				486A0D5023569B3E0019329D /* LinksView.xib in Resources */,
 				4849170A234A93180093091D /* PostCellWithImage.xib in Resources */,
 				486A0D4C235693AB0019329D /* PostsView.xib in Resources */,
 				4890BD492355605B0083AEAF /* ProfileSettingsView.xib in Resources */,
@@ -565,7 +573,7 @@
 			files = (
 				483DD9BE234814B900DCA3A1 /* SectorCell.swift in Sources */,
 				48A830FD2357CFFB00451E38 /* ProfileBiggest.swift in Sources */,
-				486A0D4E23569B220019329D /* WatcherView.swift in Sources */,
+				486A0D4E23569B220019329D /* LinksView.swift in Sources */,
 				483DD9B32348042E00DCA3A1 /* BaseViewController.swift in Sources */,
 				48463FA0235D13A900E1054E /* CommentViewController.swift in Sources */,
 				483DD9B12348035800DCA3A1 /* RegisterFirstStepViewController.swift in Sources */,

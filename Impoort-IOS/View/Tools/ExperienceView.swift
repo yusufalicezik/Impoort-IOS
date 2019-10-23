@@ -12,6 +12,7 @@ class ExperienceView: UIView {
 
     @IBOutlet weak var companyNameLabel: UILabel!
     @IBOutlet weak var departmentLabel: UILabel!
+    @IBOutlet weak var icon: UIImageView!
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

@@ -36,8 +36,6 @@ class SettingsViewController: BaseViewController {
     }
     @IBAction func logOutButtonClicked(_ sender: Any) {
     }
-    
-
 
 }
 extension SettingsViewController:UITableViewDelegate,UITableViewDataSource{

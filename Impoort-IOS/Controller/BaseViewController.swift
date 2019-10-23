@@ -152,6 +152,20 @@ class BaseViewController: UIViewController {
             self.present(vc!, animated: true, completion: nil)
         }
     }
+    func clearHeader(){
+        UIView.animate(withDuration: 0.3){
+            //self.headerView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        clearHeader()
+    }
 
 }
 
