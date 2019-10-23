@@ -25,6 +25,7 @@ class CommentViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.clearHeader()
         setup()
         // Do any additional setup after loading the view.
     }

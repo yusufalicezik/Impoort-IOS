@@ -17,6 +17,7 @@ class WatchingViewController: BaseViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.clearHeader()
         loadPosts()
     }
     
@@ -31,5 +32,15 @@ class WatchingViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    override func clearHeader(){
+        UIView.animate(withDuration: 0.2){
+            UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    
 
 }

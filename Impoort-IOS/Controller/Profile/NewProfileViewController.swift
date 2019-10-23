@@ -21,6 +21,7 @@ class NewProfileViewController: BaseViewController {
     @IBOutlet weak var experiencesStackView: UIStackView!
     @IBOutlet weak var linksStackView: UIStackView!
     @IBOutlet weak var profileImage: UIImageView!
+    var isClosed = false
     //bu ikisi tek sınıf olacak.
     let experiences = ["Nuevo Softwarehouse", "Özgür Yazılım AŞ", "BTPro Yazılım Çözümleri", "Microsoft", "Apple", "Oracle"]
     let experiencesDepartment = ["IOS Developer", "Java Developer", "Middle IOS Developer", ".Net Developer", "Senior IOS Developer", "Software Developer"]
@@ -75,6 +76,7 @@ class NewProfileViewController: BaseViewController {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
+        isClosed = false
         if !self.isDarkHeader{
             clearHeader()
         }else{
@@ -83,6 +85,13 @@ class NewProfileViewController: BaseViewController {
             self.isDarkHeader = true
         }
         pastelView?.startAnimation()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        isClosed = true
+        self.clearHeader()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        self.clearHeader()
     }
     
     @IBAction func didMoreClicked(_ sender: Any) {
@@ -117,9 +126,9 @@ class NewProfileViewController: BaseViewController {
             case "github":
                 mView?.linkImageView.image = UIImage(named: "github")
             case "linkedin":
-                mView?.linkImageView.image = UIImage(named: "linkedin")
+                mView?.linkImageView.image = UIImage(named: "linkedin35")
             case "facebook":
-                mView?.linkImageView.image = UIImage(named: "facebook")
+                mView?.linkImageView.image = UIImage(named: "facebook35")
             default:
                 mView?.linkImageView.image = UIImage(named: "github")
             }
@@ -139,7 +148,7 @@ class NewProfileViewController: BaseViewController {
     }
 
     override func clearHeader(){
-        UIView.animate(withDuration: 0.2){
+        UIView.animate(withDuration: 0.3){
             self.headerView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             self.setNeedsStatusBarAppearanceUpdate()
@@ -148,7 +157,9 @@ class NewProfileViewController: BaseViewController {
 
 }
 extension NewProfileViewController:UIScrollViewDelegate{
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if !self.isClosed {
         if self.scrollView.contentOffset.y >= 160{
             UIView.animate(withDuration: 0.3){
                 self.headerView.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
@@ -163,5 +174,6 @@ extension NewProfileViewController:UIScrollViewDelegate{
             }
         }
         setNeedsStatusBarAppearanceUpdate()
+    }
     }
 }

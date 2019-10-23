@@ -20,6 +20,7 @@ class SettingsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        self.clearHeader()
     }
     func setup(){
         self.profileImgView.layer.cornerRadius = self.profileImgView.frame.width/2
@@ -35,6 +36,16 @@ class SettingsViewController: BaseViewController {
         self.goToBack()
     }
     @IBAction func logOutButtonClicked(_ sender: Any) {
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    
+    override func clearHeader(){
+        UIView.animate(withDuration: 0.3){
+            UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
     }
 
 }

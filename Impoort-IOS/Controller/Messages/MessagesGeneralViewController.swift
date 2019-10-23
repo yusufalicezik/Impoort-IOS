@@ -19,6 +19,7 @@ class MessagesGeneralViewController: BaseViewController {
     @IBOutlet weak var searchTxtField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        clearHeader()
         setup()
     }
     
@@ -84,5 +85,10 @@ extension MessagesGeneralViewController:UITableViewDataSource,UITableViewDelegat
         self.goToChatVC() // id gönderilecek. indexpath.row.id
         self.tableView.deselectRow(at: indexPath, animated: false)
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
 }

@@ -26,6 +26,7 @@ class SearchViewController: BaseViewController {
     var prevOffset:CGFloat = 0.0
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.clearHeader()
         setup()
 
         // Do any additional setup after loading the view.
@@ -39,11 +40,17 @@ class SearchViewController: BaseViewController {
         self.filterCollectionView.delegate = self
         self.filterCollectionView.dataSource = self
         self.filterView.translatesAutoresizingMaskIntoConstraints = false
-//        if let flowLayout = filterCollectionView.collectionViewLayout as? UICollectionViewFlowLayout{
-//            flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-//        }
-        
     }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    override func clearHeader(){
+        UIView.animate(withDuration: 0.2){
+            UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    
     
     @IBAction func messageButtonClicked(_ sender: Any) {
         self.goToMessagesGeneral()

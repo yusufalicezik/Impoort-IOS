@@ -19,6 +19,7 @@ class PostDetailViewController: BaseViewController {
     //var post = Post()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.clearHeader()
         setup()
         // Do any additional setup after loading the view.
     }

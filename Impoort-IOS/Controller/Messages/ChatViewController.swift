@@ -28,6 +28,7 @@ class ChatViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.clearHeader()
         setup()
 
         // Do any additional setup after loading the view.
@@ -146,5 +147,13 @@ extension ChatViewController {
             self.scrollToBottom(true)
             
         }
+    }
+}
+extension ChatViewController{
+    override func viewDidAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
     }
 }

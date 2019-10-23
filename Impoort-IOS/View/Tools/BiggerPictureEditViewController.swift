@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BiggerPictureEditViewController: UIViewController {
+class BiggerPictureEditViewController: BaseViewController {
 
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var profileImg: UIImageView!
@@ -18,6 +18,7 @@ class BiggerPictureEditViewController: UIViewController {
         self.profileImg.heightAnchor.constraint(equalTo: self.view.widthAnchor, constant: -4).isActive = true
         self.view.isOpaque = false
         self.editButton.layer.cornerRadius = 8
+        self.clearHeader()
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
