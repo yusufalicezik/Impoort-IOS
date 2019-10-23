@@ -20,10 +20,10 @@ class PostsView: UIView {
     var isLoading = false
     var firstTime = true
     var fState = false
-    var sState = false
     @IBOutlet weak var loadingMorePostsActivityView:UIActivityIndicatorView!
     var currentOffset = CGPoint(x: 0, y: 0)
     var data = [1,1,1,1,1,1,1,1,1]
+    var currentIndex = 0
     var isPagingMaking = false
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -67,6 +67,7 @@ class PostsView: UIView {
             self.refreshControl.endRefreshing()
         }
     }
+
     
 }
 extension PostsView:UITableViewDelegate, UITableViewDataSource{
@@ -107,51 +108,47 @@ extension PostsView:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        self.currentIndex = indexPath.row
+    }
     
+
     
 }
 extension PostsView : UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let parentVC = parentVC as? ProfileViewController else {return}
-        if scrollView.contentOffset.y <= 0{
-            parentVC.profileImageHeight?.constant = 160.0
-            parentVC.profileImageWidth?.constant = 160.0
-            parentVC.barWidthConstraint?.constant = 0.0
-            parentVC.barHeightConstraint?.constant = 0.0
-            
-            if !isPagingMaking{
-                UIView.animate(withDuration: 0.5, delay: 0.0, options: .allowUserInteraction, animations: {
-                    parentVC.view.layoutIfNeeded()
-                }, completion: nil)
+        if (scrollView.contentOffset.y >= 80 && scrollView.contentOffset.y < (scrollView.contentSize.height - scrollView.frame.size.height)) && !parentVC.isChanged && scrollView.contentOffset.y != 0{
+            UIView.animate(withDuration: 0.3){
+                parentVC.headerBarView.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
+                UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
+                parentVC.isDarkHeader = true
             }
-        }else if (scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y < (scrollView.contentSize.height - scrollView.frame.size.height)){
-            parentVC.profileImageHeight?.constant = 0
-            parentVC.profileImageWidth?.constant = 0
-            parentVC.barWidthConstraint?.constant = 35.0
-            parentVC.barHeightConstraint?.constant = 35.0
-            //self.barImageView.layer.masksToBounds = true
-            //self.profileImageView.heightAnchor.constraint(equalToConstant: 45.0).isActive = true
-            // self.profileImageView.widthAnchor.constraint(equalToConstant: 45.0).isActive = true
-            
-            if !isPagingMaking{
-                UIView.animate(withDuration: 0.5, delay: 0.0, options: .allowUserInteraction, animations: {
-                    parentVC.headerBarView.layoutIfNeeded()
-                    parentVC.view.layoutSubviews()
-                    parentVC.barImageView.layer.cornerRadius = parentVC.barImageView.frame.width / 2
-                }, completion: nil)
-            }else{
-                UIView.animate(withDuration: 0.5, delay: 0.0, options: .allowUserInteraction, animations: {
-                    parentVC.headerBarView.layoutIfNeeded()
-                    parentVC.view.layoutSubviews()
-                    parentVC.barImageView.layer.cornerRadius = parentVC.barImageView.frame.width / 2
-                }, completion: nil)
-                isPagingMaking = false
+        }else if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) && scrollView.contentOffset.y != 0 {
+            UIView.animate(withDuration: 0.3){
+//                parentVC.headerBarView.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
+//                UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
+//                parentVC.isDarkHeader = true
             }
         }
+        else {
+            if scrollView.contentOffset.y <= 0{
+                scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: 0), animated: false)
+                UIView.animate(withDuration: 0.3){
+                    parentVC.headerBarView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                    UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                    parentVC.isDarkHeader = false
+                }
+            }
+          
+        }
+        print(tableView.contentOffset.y)
+        parentVC.setNeedsStatusBarAppearanceUpdate()
+        
     }
-    
-    
-    
+
+
+
     //Pagination:
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         if isLoading{
@@ -167,7 +164,7 @@ extension PostsView : UIScrollViewDelegate{
                 self.isPagingMaking = true
                 var indexes = [IndexPath]()
                 let startIndex = self.data.count
-                
+
                 for i in 0..<10{
                     self.data.append(i)
                     indexes.append(IndexPath(row: startIndex+i, section: 0))
@@ -182,28 +179,43 @@ extension PostsView : UIScrollViewDelegate{
                 //self.tableView.scrollToRow(at: self.currentIndx, at: .bottom, animated: true)
                 self.tableView.setContentOffset(self.currentOffset, animated: true)
                 self.loadingMorePostsActivityView.isHidden = true
-                
+
                 //self.tableView.isScrollEnabled = true
             }else{
                 self.getData()
                 //self.isLoading = false
                 //self.loadingMorePostsActivityView.isHidden = true
-                
-                
+
+
             }
-            
+
         }
     }
-    
+
 }
+
 extension PostsView:PostCellDelegate{
     func didSelectPost(_ id: Int) {
         print("clicked post \(id)")
     }
-    
+
     func didSelectReadMore(_ id: Int) {
-        
+
     }
-    
-    
+
+
 }
+//extension PostsView : UIScrollViewDelegate{
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        if scrollView.contentOffset.y <= 0{
+//             guard let parentVC = parentVC as? ProfileViewController else {return}
+//            //parentVC.scrollView.isScrollEnabled = true
+//            if scrollView == self.tableView{
+//                if scrollView.contentOffset.y <= 0{
+//                    self.tableView.isScrollEnabled = false
+//                    parentVC.scrollView.isScrollEnabled = true
+//                }
+//            }
+//        }
+//    }
+//}
