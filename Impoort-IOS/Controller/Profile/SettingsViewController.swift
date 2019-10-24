@@ -15,6 +15,7 @@ class SettingsViewController: BaseViewController {
     @IBOutlet weak var logOutButton: UIButton!
     let profileProperties = ["Name" ,"Surname", "City", "Date of Birth/Established", "Gender", "Sector"]
     let accountProperties = ["E mail", "Password", "Phone Number","Profile Type", "Verify Account"]
+    let infoProperties = ["Profile Description","Experiences & Projects","Links"]
     let supportProperties = ["About Us","Terms & Conditions", "Contact"]
     lazy var popupView:ProfileSettingsView = ProfileSettingsView()
     override func viewDidLoad() {
@@ -47,17 +48,20 @@ class SettingsViewController: BaseViewController {
             self.setNeedsStatusBarAppearanceUpdate()
         }
     }
+    
 
 }
 extension SettingsViewController:UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0{
             return profileProperties.count
         }else if section == 1{
             return accountProperties.count
+        }else if section == 2{
+            return infoProperties.count
         }else{
             return supportProperties.count
         }
@@ -71,6 +75,9 @@ extension SettingsViewController:UITableViewDelegate,UITableViewDataSource{
         }else if indexPath.section == 1{
             cell.propertyNameLabel.text = accountProperties[indexPath.row]
             cell.profileNameLabel.text = accountProperties[indexPath.row]
+        }else if indexPath.section == 2{
+            cell.propertyNameLabel.text = infoProperties[indexPath.row]
+            cell.profileNameLabel.isHidden = true
         }else{
             cell.propertyNameLabel.text = supportProperties[indexPath.row]
             cell.profileNameLabel.text = supportProperties[indexPath.row]
@@ -105,17 +112,22 @@ extension SettingsViewController:UITableViewDelegate,UITableViewDataSource{
         if section == 0{
             headerView?.headerTitleLabel.text = "Profile"
             headerView?.settingsAction = {
-                print("profile settings..")
+                self.goToSettingsDetailVC(title: "Profile", propertyList: self.profileProperties)
             }
         }else if section == 1{
             headerView?.headerTitleLabel.text = "Account"
             headerView?.settingsAction = {
-                print("account settings..")
+                self.goToSettingsDetailVC(title: "Account", propertyList: self.accountProperties)
+            }
+        }else if section == 2{
+            headerView?.headerTitleLabel.text = "Information"
+            headerView?.settingsAction = {
+                self.goToSettingsDetailVC(title: "Information", propertyList: self.infoProperties)
             }
         }else{
-             headerView?.headerTitleLabel.text = "Support"
+            headerView?.headerTitleLabel.text = "Support"
             headerView?.settingsAction = {
-                print("support settings..")
+                self.goToSettingsDetailVC(title: "Support", propertyList: self.supportProperties)
             }
         }
         return headerView!

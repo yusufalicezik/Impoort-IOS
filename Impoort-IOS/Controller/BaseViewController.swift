@@ -77,19 +77,31 @@ class BaseViewController: UIViewController {
     func goToMessagesGeneral(){
         let storyboard = UIStoryboard(name: "External", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "MessagesGeneralVC") as? MessagesGeneralViewController
+        if let navBar = self.navigationController{
+            navBar.pushViewController(vc!, animated: true)
+        }else{
             self.present(vc!, animated: true, completion: nil)
+        }
     }
     
     func goToChatVC(){ //id de gönderilecek. mesajlasılan kisinin.
         let storyboard = UIStoryboard(name: "External", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ChatVC") as? ChatViewController
-        self.present(vc!, animated: true, completion: nil)
+        if let navBar = self.navigationController{
+            navBar.pushViewController(vc!, animated: true)
+        }else{
+            self.present(vc!, animated: true, completion: nil)
+        }
         
     }
     func goToSettingsVC(){  //id gönderilebilir. me or other
         let storyboard = UIStoryboard(name: "External", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SettingsVC") as? SettingsViewController
-        self.present(vc!, animated: true, completion: nil)
+        if let navBar = self.navigationController{
+            navBar.pushViewController(vc!, animated: true)
+        }else{
+            self.present(vc!, animated: true, completion: nil)
+        }
         
     }
     func addSwipeDismiss(vc:UIViewController){
@@ -99,6 +111,7 @@ class BaseViewController: UIViewController {
         vc.view.addGestureRecognizer(swipeGesture)
     }
     @objc private func dismissView(){
+        
         self.goToBack()
     }
     func goToPostDetailVC(){
@@ -165,6 +178,18 @@ class BaseViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         clearHeader()
+    }
+    
+    func goToSettingsDetailVC(title:String, propertyList:[String]){
+        let storyboard = UIStoryboard(name: "External", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SettingsDetailVC") as? SettingsDetailViewController
+        vc?.titleString = title
+        vc?.propertyList = propertyList
+        if let navBar = self.navigationController{
+            navBar.pushViewController(vc!, animated: true)
+        }else{
+            self.present(vc!, animated: true, completion: nil)
+        }
     }
 
 }

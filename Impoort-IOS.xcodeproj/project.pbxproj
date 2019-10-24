@@ -14,6 +14,7 @@
 		481918DC23611BF200D43D88 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 481918DB23611BF200D43D88 /* SearchView.xib */; };
 		481918E1236127D700D43D88 /* FilterNewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481918DF236127D700D43D88 /* FilterNewCollectionViewCell.swift */; };
 		481918E2236127D700D43D88 /* FilterNewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 481918E0236127D700D43D88 /* FilterNewCollectionViewCell.xib */; };
+		481918E4236157F100D43D88 /* SettingsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481918E3236157F100D43D88 /* SettingsDetailViewController.swift */; };
 		481FF4572356D121000836D0 /* WatchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FF4562356D121000836D0 /* WatchingViewController.swift */; };
 		483DD9AE2347F99F00DCA3A1 /* TxtFieldConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9AD2347F99F00DCA3A1 /* TxtFieldConfig.swift */; };
 		483DD9B12348035800DCA3A1 /* RegisterFirstStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9B02348035800DCA3A1 /* RegisterFirstStepViewController.swift */; };
@@ -80,6 +81,7 @@
 		481918DB23611BF200D43D88 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		481918DF236127D700D43D88 /* FilterNewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterNewCollectionViewCell.swift; sourceTree = "<group>"; };
 		481918E0236127D700D43D88 /* FilterNewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterNewCollectionViewCell.xib; sourceTree = "<group>"; };
+		481918E3236157F100D43D88 /* SettingsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDetailViewController.swift; sourceTree = "<group>"; };
 		481FF4562356D121000836D0 /* WatchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingViewController.swift; sourceTree = "<group>"; };
 		483DD9AD2347F99F00DCA3A1 /* TxtFieldConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxtFieldConfig.swift; sourceTree = "<group>"; };
 		483DD9B02348035800DCA3A1 /* RegisterFirstStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFirstStepViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				4890BD3E23554A800083AEAF /* SettingsViewController.swift */,
 				48B6E013235F45BB00001920 /* NewProfileViewController.swift */,
 				4842728B235FD1F500FE9C15 /* ProfileViewController.swift */,
+				481918E3236157F100D43D88 /* SettingsDetailViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				4890BD41235552CC0083AEAF /* ProfilePropertiesCell.swift in Sources */,
 				48463FA2235D362100E1054E /* TabBarViewController.swift in Sources */,
 				48463F9C235D12A100E1054E /* CommentPostOwnerCell.swift in Sources */,
+				481918E4236157F100D43D88 /* SettingsDetailViewController.swift in Sources */,
 				48B6E014235F45BB00001920 /* NewProfileViewController.swift in Sources */,
 				480E6A12234D1CAA006A4DA0 /* FilterSearchCollectionViewCell.swift in Sources */,
 				485AD839234AC46D008E8E52 /* MessagesGeneralViewController.swift in Sources */,
