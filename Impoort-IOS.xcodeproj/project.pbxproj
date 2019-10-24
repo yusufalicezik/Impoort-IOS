@@ -175,13 +175,13 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		481918D823611AF900D43D88 /* New Group */ = {
+		481918D823611AF900D43D88 /* SearchView */ = {
 			isa = PBXGroup;
 			children = (
 				481918D923611B1500D43D88 /* SearchView.swift */,
 				481918DB23611BF200D43D88 /* SearchView.xib */,
 			);
-			path = "New Group";
+			path = SearchView;
 			sourceTree = "<group>";
 		};
 		483DD9A62347F48100DCA3A1 /* Controller */ = {
@@ -429,7 +429,7 @@
 		48A830F92357CF4100451E38 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				481918D823611AF900D43D88 /* New Group */,
+				481918D823611AF900D43D88 /* SearchView */,
 				4842728D23600FBF00FE9C15 /* AboutViews */,
 				48A830FE2357DDBC00451E38 /* BiggerPictureEditViewController.swift */,
 				48547750235D069B00BD6213 /* PostDetailViewController.swift */,

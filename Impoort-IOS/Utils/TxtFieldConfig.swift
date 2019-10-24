@@ -11,6 +11,7 @@ import UIKit
 
 class TxtFieldConfig{
     static let shared = TxtFieldConfig()
+    var dismissAction:(()->())?
     
     func addIcon(to textfield:UITextField, iconName imageName:String){
         let image = UIImage(named: imageName)
@@ -74,8 +75,27 @@ class TxtFieldConfig{
         textField.rightViewMode = UITextField.ViewMode.always
         textField.rightView = iconContainerView
     }
+    func giveCloseToRight(to textField:UITextField, parentVC:UIViewController,action:@escaping (()->())){
+        self.dismissAction = action
+        let imgRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.dismissSearchBar))
+        let image = UIImage(named: "cancelicon")
+        let iconView = UIImageView(frame:
+            CGRect(x: 10, y: 5, width: 20, height: 20))
+        iconView.image = image
+        let iconContainerView: UIView = UIView(frame:
+            CGRect(x: 30, y: 0, width: 35, height: 30))
+        iconContainerView.addSubview(iconView)
+        iconContainerView.addGestureRecognizer(imgRecognizer)
+        textField.rightViewMode = UITextField.ViewMode.always
+        textField.rightView = iconContainerView
+    }
     func giveEmptyToRight(to textField:UITextField){
         textField.rightView = nil
+    }
+    @objc func dismissSearchBar(){
+        if let action = self.dismissAction{
+            action()
+        }
     }
     
 }

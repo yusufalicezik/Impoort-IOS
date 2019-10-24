@@ -100,15 +100,41 @@ class SuggestedViewController: BaseViewController {
             if !isSearchResultOpened{
                 self.loadSearchResultsView()
                 isSearchResultOpened = true
+                TxtFieldConfig.shared.giveCloseToRight(to: textField, parentVC: self) {
+                    self.searchTxtField.text = ""
+                    self.closeSearchResult(self.searchTxtField)
+                    self.searchTxtField.resignFirstResponder()
+                    self.smallerSearchBar()
+                }
             }
         }else if textField.text!.count == 0{
-            if let mSearchView = self.searchResultView{
-                UIView.transition(with: self.view, duration: 0.3, options: [.transitionCrossDissolve], animations: {
-                    mSearchView.removeFromSuperview()
-                    self.isSearchResultOpened = false
-                }, completion: nil)
-            }
+            self.closeSearchResult(textField)
         }
+    }
+    
+    
+    func closeSearchResult(_ textfield:UITextField){
+        TxtFieldConfig.shared.giveEmptyToRight(to: textfield)
+        if let mSearchView = self.searchResultView{
+            UIView.transition(with: self.view, duration: 0.3, options: [.transitionCrossDissolve], animations: {
+                mSearchView.removeFromSuperview()
+                self.isSearchResultOpened = false
+            }, completion: nil)
+        }
+    }
+    
+    func smallerSearchBar(){
+        self.widthConstraintShort = NSLayoutConstraint(item: searchTxtField!, attribute: .width, relatedBy: .equal, toItem: .none, attribute: .width, multiplier: 1, constant: 35)
+        widthConstraintShort?.priority = UILayoutPriority(rawValue: 999)
+        self.widthConstraint?.isActive = false
+        self.widthConstraintShort?.isActive = true
+        logo.isHidden = false
+        UIView.animate(withDuration: 0.3){
+            self.setPlaceHolder()
+            self.headerView.layoutIfNeeded()
+        }
+        self.isOpenedSearchBar = false
+        searchTxtField.addGestureRecognizer(leftRecognizer!)
     }
 }
 extension SuggestedViewController:UITextFieldDelegate{
@@ -117,16 +143,7 @@ extension SuggestedViewController:UITextFieldDelegate{
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.text?.count == 0 && self.isOpenedSearchBar{
-            self.widthConstraintShort = NSLayoutConstraint(item: searchTxtField!, attribute: .width, relatedBy: .equal, toItem: .none, attribute: .width, multiplier: 1, constant: 35)
-            self.widthConstraint?.isActive = false
-            self.widthConstraintShort?.isActive = true
-            logo.isHidden = false
-            UIView.animate(withDuration: 0.3){
-                self.setPlaceHolder()
-                self.headerView.layoutIfNeeded()
-            }
-            self.isOpenedSearchBar = false
-            searchTxtField.addGestureRecognizer(leftRecognizer!)
+            self.smallerSearchBar()
         }else if textField.text!.count > 0{
             searchTxtField.removeGestureRecognizer(leftRecognizer!)
         }
