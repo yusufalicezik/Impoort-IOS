@@ -35,9 +35,7 @@ class PostsView: UIView {
         DispatchQueue.main.asyncAfter(deadline: .now()+0.3){
             self.firstTime = false
         }
-
     }
-    
     func load(){
         if senderProfileType! == .posts{
             tableView.allowsSelection = false
@@ -59,11 +57,7 @@ class PostsView: UIView {
             self.leftAnchor.constraint(equalTo: parentVC.containerView.leftAnchor, constant: 0.0).isActive = true
             self.rightAnchor.constraint(equalTo: parentVC.containerView.rightAnchor, constant: 0.0).isActive = true
         }
-        
     }
-
-
-    
 }
 extension PostsView:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -94,7 +88,6 @@ extension PostsView:UITableViewDelegate, UITableViewDataSource{
                     mCell.watchingWatcherButton.backgroundColor = #colorLiteral(red: 0.3960784314, green: 0.7254901961, blue: 0.6470588235, alpha: 1)
                 }
             }
-            
         default:
             cell = Bundle.main.loadNibNamed("WatcherCell", owner: self, options: nil)?.first as! WatcherCell
         }
@@ -106,9 +99,6 @@ extension PostsView:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         self.currentIndex = indexPath.row
     }
-    
-
-    
 }
 extension PostsView : UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -136,10 +126,8 @@ extension PostsView : UIScrollViewDelegate{
                     parentVC.isDarkHeader = false
                 }
             }
-          
         }
         parentVC.setNeedsStatusBarAppearanceUpdate()
-        
     }
 
 
@@ -154,66 +142,65 @@ extension PostsView : UIScrollViewDelegate{
         self.fState = true
     }
     func getData(){
-        DispatchQueue.main.asyncAfter(deadline: .now()+2){
-            if self.fState{
-                if (self.parentVC as? ProfileViewController)!.postsView == self{
-                self.isPagingMaking = true
-                var indexes = [IndexPath]()
-                let startIndex = self.data.count
-
-                for i in 0..<10{
-                    self.data.append(i)
-                    indexes.append(IndexPath(row: startIndex+i, section: 0))
+        if let mParentVC = (self.parentVC as? ProfileViewController){
+            DispatchQueue.main.asyncAfter(deadline: .now()+2){
+                if self.fState{
+                    if mParentVC.postsView == self{
+                        self.isPagingMaking = true
+                        var indexes = [IndexPath]()
+                        let startIndex = self.data.count
+                        
+                        for i in 0..<10{
+                            self.data.append(i)
+                            indexes.append(IndexPath(row: startIndex+i, section: 0))
+                        }
+                        self.tableView.beginUpdates()
+                        self.tableView.insertRows(at: indexes, with: .fade)
+                        //self.tableView.scrollToRow(at: self.currentRow, at: .none, animated: false)
+                        self.tableView.endUpdates()
+                        ///self.tableView.reloadData()
+                        print(self.data.count)
+                        self.isLoading = false
+                        //self.tableView.scrollToRow(at: self.currentIndx, at: .bottom, animated: true)
+                        self.tableView.setContentOffset(self.currentOffset, animated: true)
+                        self.loadingMorePostsActivityView.isHidden = true
+                    }else{
+                        self.getData()
+                    }
                 }
-                self.tableView.beginUpdates()
-                self.tableView.insertRows(at: indexes, with: .fade)
-                //self.tableView.scrollToRow(at: self.currentRow, at: .none, animated: false)
-                self.tableView.endUpdates()
-                ///self.tableView.reloadData()
-                print(self.data.count)
-                self.isLoading = false
-                //self.tableView.scrollToRow(at: self.currentIndx, at: .bottom, animated: true)
-                self.tableView.setContentOffset(self.currentOffset, animated: true)
-                self.loadingMorePostsActivityView.isHidden = true
-
-                //self.tableView.isScrollEnabled = true
-            }else{
-                self.getData()
-                //self.isLoading = false
-                //self.loadingMorePostsActivityView.isHidden = true
-
-
-                }
-                
             }
-
-        }
+        }else if let mParentVC = (self.parentVC as? WatchingViewController){
+            DispatchQueue.main.asyncAfter(deadline: .now()+2){
+                if self.fState{
+                        self.isPagingMaking = true
+                        var indexes = [IndexPath]()
+                        let startIndex = self.data.count
+                        
+                        for i in 0..<10{
+                            self.data.append(i)
+                            indexes.append(IndexPath(row: startIndex+i, section: 0))
+                        }
+                        self.tableView.beginUpdates()
+                        self.tableView.insertRows(at: indexes, with: .fade)
+                        //self.tableView.scrollToRow(at: self.currentRow, at: .none, animated: false)
+                        self.tableView.endUpdates()
+                        ///self.tableView.reloadData()
+                        print(self.data.count)
+                        self.isLoading = false
+                        //self.tableView.scrollToRow(at: self.currentIndx, at: .bottom, animated: true)
+                        self.tableView.setContentOffset(self.currentOffset, animated: true)
+                        self.loadingMorePostsActivityView.isHidden = true
+                    }else{
+                        self.getData()
+                    }
+                }
+            }
     }
-
 }
-
 extension PostsView:PostCellDelegate{
     func didSelectPost(_ id: Int) {
         print("clicked post \(id)")
     }
-
     func didSelectReadMore(_ id: Int) {
-
     }
-
-
 }
-//extension PostsView : UIScrollViewDelegate{
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        if scrollView.contentOffset.y <= 0{
-//             guard let parentVC = parentVC as? ProfileViewController else {return}
-//            //parentVC.scrollView.isScrollEnabled = true
-//            if scrollView == self.tableView{
-//                if scrollView.contentOffset.y <= 0{
-//                    self.tableView.isScrollEnabled = false
-//                    parentVC.scrollView.isScrollEnabled = true
-//                }
-//            }
-//        }
-//    }
-//}

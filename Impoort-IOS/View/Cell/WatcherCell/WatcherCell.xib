@@ -15,12 +15,12 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="66" id="KGk-i7-Jjw" customClass="WatcherCell" customModule="Impoort_IOS" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="380" height="66"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="380" height="65.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4aZ-Ia-iE3">
-                        <rect key="frame" x="10" y="2" width="360" height="55"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4aZ-Ia-iE3">
+                        <rect key="frame" x="10" y="2" width="360" height="61.5"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img" translatesAutoresizingMaskIntoConstraints="NO" id="5wR-L0-kpv">
                                 <rect key="frame" x="10" y="5" width="45" height="45"/>
@@ -72,7 +72,7 @@
                             <constraint firstItem="Jhs-tF-FHi" firstAttribute="leading" secondItem="5wR-L0-kpv" secondAttribute="trailing" constant="8" id="UZo-Es-nIZ"/>
                             <constraint firstAttribute="trailing" secondItem="s5g-ay-eNp" secondAttribute="trailing" constant="8" id="Vh1-PW-knN"/>
                             <constraint firstItem="s5g-ay-eNp" firstAttribute="centerY" secondItem="5wR-L0-kpv" secondAttribute="centerY" id="d2G-yV-kvw"/>
-                            <constraint firstAttribute="bottom" secondItem="5wR-L0-kpv" secondAttribute="bottom" constant="5" id="jdL-Y2-ceW"/>
+                            <constraint firstAttribute="bottom" secondItem="5wR-L0-kpv" secondAttribute="bottom" priority="998" constant="5" id="jdL-Y2-ceW"/>
                             <constraint firstItem="5wR-L0-kpv" firstAttribute="leading" secondItem="4aZ-Ia-iE3" secondAttribute="leading" constant="10" id="u9L-7R-A9o"/>
                         </constraints>
                     </view>

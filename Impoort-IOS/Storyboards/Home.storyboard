@@ -1206,7 +1206,7 @@
                                         <color key="backgroundColor" red="0.97254901959999995" green="0.94509803920000002" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="OeL-7i-kfh"/>
-                                            <constraint firstAttribute="width" constant="35" id="hpp-MB-ZHe"/>
+                                            <constraint firstAttribute="width" priority="999" constant="35" id="hpp-MB-ZHe"/>
                                         </constraints>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
@@ -1223,7 +1223,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kkn-Ui-7Nv">
-                                <rect key="frame" x="12" y="140" width="351" height="589"/>
+                                <rect key="frame" x="10" y="97" width="355" height="632"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EYZ-QI-Qoj">
                                     <size key="itemSize" width="197" height="262"/>
@@ -1233,7 +1233,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="mUi-iU-9mj" customClass="SuggestedCollectionCell" customModule="Impoort_IOS" customModuleProvider="target">
-                                        <rect key="frame" x="77" y="0.0" width="197" height="262"/>
+                                        <rect key="frame" x="79" y="0.0" width="197" height="262"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="197" height="262"/>
@@ -1320,24 +1320,15 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suggested Watchers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlE-Zp-Dna">
-                                <rect key="frame" x="12" y="109" width="351" height="23"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="19"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="KlE-Zp-Dna" firstAttribute="leading" secondItem="o67-HJ-ZJd" secondAttribute="leading" constant="12" id="4nH-ss-8gB"/>
-                            <constraint firstItem="kkn-Ui-7Nv" firstAttribute="top" secondItem="KlE-Zp-Dna" secondAttribute="bottom" constant="8" id="DD5-AE-bSs"/>
-                            <constraint firstItem="kkn-Ui-7Nv" firstAttribute="leading" secondItem="o67-HJ-ZJd" secondAttribute="leading" constant="12" id="HOS-R8-u3W"/>
+                            <constraint firstItem="kkn-Ui-7Nv" firstAttribute="leading" secondItem="o67-HJ-ZJd" secondAttribute="leading" constant="10" id="HOS-R8-u3W"/>
                             <constraint firstItem="fAl-qo-78H" firstAttribute="leading" secondItem="In3-0P-XNV" secondAttribute="leading" id="UTW-1K-qi7"/>
-                            <constraint firstItem="o67-HJ-ZJd" firstAttribute="trailing" secondItem="KlE-Zp-Dna" secondAttribute="trailing" constant="12" id="Un1-aT-HUo"/>
-                            <constraint firstItem="KlE-Zp-Dna" firstAttribute="top" secondItem="fAl-qo-78H" secondAttribute="bottom" constant="15" id="c5v-nr-v98"/>
+                            <constraint firstItem="kkn-Ui-7Nv" firstAttribute="top" secondItem="fAl-qo-78H" secondAttribute="bottom" constant="3" id="aWX-34-rff"/>
                             <constraint firstItem="fAl-qo-78H" firstAttribute="top" secondItem="o67-HJ-ZJd" secondAttribute="top" id="cTr-uF-0OR"/>
                             <constraint firstAttribute="trailing" secondItem="fAl-qo-78H" secondAttribute="trailing" id="esR-YN-hta"/>
-                            <constraint firstItem="o67-HJ-ZJd" firstAttribute="trailing" secondItem="kkn-Ui-7Nv" secondAttribute="trailing" constant="12" id="lbP-t8-dyr"/>
+                            <constraint firstItem="o67-HJ-ZJd" firstAttribute="trailing" secondItem="kkn-Ui-7Nv" secondAttribute="trailing" constant="10" id="lbP-t8-dyr"/>
                             <constraint firstItem="o67-HJ-ZJd" firstAttribute="bottom" secondItem="kkn-Ui-7Nv" secondAttribute="bottom" id="q5G-Aq-wx6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="o67-HJ-ZJd"/>

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import IQKeyboardManagerSwift
 class SuggestedViewController: BaseViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -20,17 +20,24 @@ class SuggestedViewController: BaseViewController {
     var leftRecognizer:UITapGestureRecognizer?
     var isOpenedSearchBar = false
     var isFirstTime = true
+    var isSearchResultOpened = false
+    
+    var searchResultView:SearchView?
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         self.clearHeader()
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Done"
+        IQKeyboardManager.shared.enableAutoToolbar = true
     }
     
     func setup(){
         self.searchTxtField.delegate = self
         self.searchTxtField.layer.cornerRadius = 15
+        self.searchTxtField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         TxtFieldConfig.shared.addIconForSearch(to: self.searchTxtField, iconName: "search")
-        
+
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         
@@ -48,8 +55,7 @@ class SuggestedViewController: BaseViewController {
     @objc func didClickedSearch(){
         print("asd")
         if !self.isOpenedSearchBar{
-
-                self.widthConstraint = NSLayoutConstraint(item: searchTxtField!, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: -30)
+            self.widthConstraint = NSLayoutConstraint(item: searchTxtField!, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: -30)
         self.widthConstraintShort?.isActive = false
         self.widthConstraint?.isActive = true
             logo.isHidden = true
@@ -86,6 +92,24 @@ class SuggestedViewController: BaseViewController {
         self.textFieldDidEndEditing(self.searchTxtField)
         self.searchTxtField.resignFirstResponder()
     }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        print(textField.text!.count)
+        if textField.text!.count == 1{
+            //            self.didClickedSearch()
+            if !isSearchResultOpened{
+                self.loadSearchResultsView()
+                isSearchResultOpened = true
+            }
+        }else if textField.text!.count == 0{
+            if let mSearchView = self.searchResultView{
+                UIView.transition(with: self.view, duration: 0.3, options: [.transitionCrossDissolve], animations: {
+                    mSearchView.removeFromSuperview()
+                    self.isSearchResultOpened = false
+                }, completion: nil)
+            }
+        }
+    }
 }
 extension SuggestedViewController:UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -97,7 +121,7 @@ extension SuggestedViewController:UITextFieldDelegate{
             self.widthConstraint?.isActive = false
             self.widthConstraintShort?.isActive = true
             logo.isHidden = false
-            UIView.animate(withDuration: 0.5){
+            UIView.animate(withDuration: 0.3){
                 self.setPlaceHolder()
                 self.headerView.layoutIfNeeded()
             }
@@ -107,11 +131,25 @@ extension SuggestedViewController:UITextFieldDelegate{
             searchTxtField.removeGestureRecognizer(leftRecognizer!)
         }
     }
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if self.searchTxtField.text!.count > -1 && !isOpenedSearchBar{
-            self.didClickedSearch()
+    
+    func loadSearchResultsView(){
+        if let mSearchView = self.searchResultView{
+            UIView.transition(with: self.view, duration: 0.3, options: [.transitionCrossDissolve], animations: {
+                mSearchView.removeFromSuperview()
+                self.isSearchResultOpened = false
+            }, completion: nil)
         }
-        return true
+        self.searchResultView = Bundle.main.loadNibNamed("SearchView", owner: self, options: nil)?.first as? SearchView
+        UIView.transition(with: self.view, duration: 0.25, options: [.transitionCrossDissolve], animations: {
+            self.view.addSubview(self.searchResultView!)
+        }, completion: nil)
+        self.searchResultView?.translatesAutoresizingMaskIntoConstraints = false
+        self.searchResultView?.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0.0).isActive = true
+        self.searchResultView?.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0.0).isActive = true
+        let bottomConst = self.searchResultView?.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0.0)
+        bottomConst?.priority = UILayoutPriority(rawValue: 999)
+        bottomConst?.isActive = true
+        self.searchResultView?.topAnchor.constraint(equalTo: self.headerView.bottomAnchor, constant: 0.0).isActive = true
     }
 }
 extension SuggestedViewController:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
@@ -126,12 +164,9 @@ extension SuggestedViewController:UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if UIDevice().userInterfaceIdiom == .phone {
-
-                
-                return CGSize(width: (collectionView.frame.width / 2) - 5, height: (collectionView.frame.width / 1.9) - 7)
-            }
-
-            let widthDivide = collectionView.frame.width / 130
+            return CGSize(width: (collectionView.frame.width / 2) - 5, height: (collectionView.frame.width / 2.1) - 7)
+        }
+        let widthDivide = collectionView.frame.width / 130
             return CGSize(width: (collectionView.frame.width / round(widthDivide)) - 10, height: 230)
     }
     
