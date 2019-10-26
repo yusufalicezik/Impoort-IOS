@@ -31,7 +31,7 @@ pod 'PopupDialog'
 pod 'Cloudinary', '~> 2.0'
 pod 'PhoneNumberKit', '~> 3.0'
 pod 'PagingTableView'
-
+pod 'Zoomy'
 
 
 end

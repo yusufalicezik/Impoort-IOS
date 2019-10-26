@@ -10,6 +10,7 @@ import UIKit
 import SwiftyShadow
 import ListPlaceholder
 import SDWebImage
+import Zoomy
 class HomeViewController: BaseViewController {
 
     @IBOutlet weak var loadingMorePostsActivityView: UIView!
@@ -121,6 +122,7 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
         }else{
             cell = Bundle.main.loadNibNamed("PostCellWithImage", owner: self, options: nil)?.first as! PostCellWithImage
             (cell as? PostCellWithImage)?.nameSurnameTxtFied.text = String(indexPath.row)
+            addZoombehavior(for: (cell as? PostCellWithImage)!.postImage, settings: .instaZoomSettings)
             (cell as? PostCellWithImage)?.perDelegate = self
             (cell as? PostCellWithImage)?.configCell()
             (cell as? PostCellWithImage)?.postID = indexPath.row

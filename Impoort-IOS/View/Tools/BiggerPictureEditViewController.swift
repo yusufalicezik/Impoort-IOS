@@ -7,28 +7,35 @@
 //
 
 import UIKit
+import Zoomy
 
 class BiggerPictureEditViewController: BaseViewController {
 
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var profileImg: UIImageView!
+    var parentVC:ProfileViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.profileImg.translatesAutoresizingMaskIntoConstraints = false
         self.profileImg.heightAnchor.constraint(equalTo: self.view.widthAnchor, constant: -4).isActive = true
         self.view.isOpaque = false
         self.editButton.layer.cornerRadius = 8
+        self.parentVC?.tabBarController?.delegate = self
         self.clearHeader()
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.profileImg.layer.cornerRadius = self.view.frame.width/2
+
+       // self.profileImg.layer.cornerRadius = self.view.frame.width/2
         let recognizer = UISwipeGestureRecognizer(target: self, action: #selector(dismissVC))
         recognizer.direction = .down
         self.view.addGestureRecognizer(recognizer)
+        addZoombehavior(for: profileImg, settings: .instaZoomSettings)
     }
-
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
     /*
     // MARK: - Navigation
 
@@ -44,5 +51,12 @@ class BiggerPictureEditViewController: BaseViewController {
     
     @objc func dismissVC(){
         self.dismiss(animated: true, completion: nil)
+    }
+}
+extension BiggerPictureEditViewController:UITabBarControllerDelegate{
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if parentVC!.tabBarController!.selectedIndex != 4 {
+            self.dismissVC()
+        }
     }
 }

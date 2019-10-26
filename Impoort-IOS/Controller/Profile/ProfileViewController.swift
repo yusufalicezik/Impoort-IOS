@@ -19,7 +19,7 @@ class ProfileViewController: BaseViewController {
     @IBOutlet weak var headerBarView: UIView!
     @IBOutlet weak var barHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var barWidthConstraint: NSLayoutConstraint!
-    
+    var bgVC:BiggerPictureEditViewController?
     let titles = ["Posts", "Watcher", "Watching"]
     lazy var postsView:PostsView = PostsView()
     lazy var profileBiggestView:ProfileBiggest = ProfileBiggest()
@@ -50,7 +50,7 @@ class ProfileViewController: BaseViewController {
         segmentedControl.leftAnchor.constraint(equalTo: self.segmentContainerView.leftAnchor, constant: 0.0).isActive = true
         segmentedControl.bottomAnchor.constraint(equalTo: self.segmentContainerView.bottomAnchor, constant: 0.0).isActive = true
         segmentedControl.heightAnchor.constraint(equalToConstant: 45.0).isActive = true
-        
+
         
     }
     
@@ -108,8 +108,10 @@ class ProfileViewController: BaseViewController {
     }
     @objc func openProfilePictureBig(){
         
-        let bgVC = UIStoryboard(name: "Tools", bundle: nil).instantiateViewController(withIdentifier: "BiggerPictureEditVC") as? BiggerPictureEditViewController
+         bgVC = UIStoryboard(name: "Tools", bundle: nil).instantiateViewController(withIdentifier: "BiggerPictureEditVC") as? BiggerPictureEditViewController
         bgVC?.modalPresentationStyle = .overCurrentContext
+        bgVC?.parentVC = self
+
         self.present(bgVC!, animated: true, completion: nil)
     }
     @IBAction func backButtonClicked(_ sender: Any) {
@@ -145,5 +147,4 @@ extension ProfileViewController:TwicketSegmentedControlDelegate{
         }
     }
 }
-
 

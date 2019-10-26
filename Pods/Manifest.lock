@@ -5,6 +5,7 @@ PODS:
   - Connectivity (3.1.1)
   - DGElasticPullToRefresh (1.1)
   - DynamicBlurView (3.0.1)
+  - InjectableLoggers (2.1.1)
   - IQKeyboardManagerSwift (6.5.1)
   - Letters (2.1.1)
   - ListPlaceholder (1.4)
@@ -37,6 +38,8 @@ PODS:
   - SwipeCellKit (2.7.1)
   - TwicketSegmentedControl (0.1.2)
   - ViewAnimator (2.5.1)
+  - Zoomy (3.1.0):
+    - InjectableLoggers (~> 2.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -63,6 +66,7 @@ DEPENDENCIES:
   - SwipeCellKit
   - TwicketSegmentedControl
   - ViewAnimator
+  - Zoomy
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -71,6 +75,7 @@ SPEC REPOS:
     - Connectivity
     - DGElasticPullToRefresh
     - DynamicBlurView
+    - InjectableLoggers
     - IQKeyboardManagerSwift
     - Letters
     - ListPlaceholder
@@ -92,6 +97,7 @@ SPEC REPOS:
     - SwipeCellKit
     - TwicketSegmentedControl
     - ViewAnimator
+    - Zoomy
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -99,6 +105,7 @@ SPEC CHECKSUMS:
   Connectivity: ba066ca8d135f0c94adf2179afbf135a9de47cfa
   DGElasticPullToRefresh: 28f11a6026302a90f8ffebbc6e24748e584dddd3
   DynamicBlurView: b1df5415f9bd31897549e5d7077e5ec120a4d636
+  InjectableLoggers: 7bc1a68fb12d73785d3d50944a3f1744a8cea868
   IQKeyboardManagerSwift: 9ac7524fad9f9fe9a3b98c927e7772471ca546d2
   Letters: 34476b0d413813bcf9273b2760be7ff4cd75f5c7
   ListPlaceholder: 08ddaddf67520a20fc52cf37160fb56aa64d071d
@@ -120,7 +127,8 @@ SPEC CHECKSUMS:
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
   TwicketSegmentedControl: 6d7a4cf243657e0ac3f00d06d873a25334c04042
   ViewAnimator: 173932c659a43c5a15c665878750d92801ae2cf1
+  Zoomy: d18aa5937b43852af86ab7c4682231eec5e4f8ac
 
-PODFILE CHECKSUM: 2c8fd8b96b661d66a2985ab720229ab7e0087e67
+PODFILE CHECKSUM: f670d958694baaa73c6d867575be054ee82bf4de
 
 COCOAPODS: 1.7.3
