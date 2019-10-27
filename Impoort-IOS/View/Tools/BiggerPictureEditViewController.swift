@@ -13,7 +13,7 @@ class BiggerPictureEditViewController: BaseViewController {
 
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var profileImg: UIImageView!
-    var parentVC:ProfileViewController?
+    var parentVC:NewProfileViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.profileImg.translatesAutoresizingMaskIntoConstraints = false

@@ -62,6 +62,7 @@ class NewProfileViewController: BaseViewController {
     }
     @objc func openBiggerProfileImage(){
         let bgVC = UIStoryboard(name: "Tools", bundle: nil).instantiateViewController(withIdentifier: "BiggerPictureEditVC") as? BiggerPictureEditViewController
+        bgVC?.parentVC = self
         bgVC?.modalPresentationStyle = .overCurrentContext
         self.present(bgVC!, animated: true, completion: nil)
 

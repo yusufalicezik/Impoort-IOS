@@ -109,10 +109,10 @@ class ProfileViewController: BaseViewController {
     @objc func openProfilePictureBig(){
         
          bgVC = UIStoryboard(name: "Tools", bundle: nil).instantiateViewController(withIdentifier: "BiggerPictureEditVC") as? BiggerPictureEditViewController
-        bgVC?.modalPresentationStyle = .overCurrentContext
-        bgVC?.parentVC = self
+       // bgVC?.modalPresentationStyle = .overCurrentContext
+        self.navigationController?.pushViewController(bgVC!, animated: true)
 
-        self.present(bgVC!, animated: true, completion: nil)
+        //self.present(bgVC!, animated: true, completion: nil)
     }
     @IBAction func backButtonClicked(_ sender: Any) {
         UIView.animate(withDuration: 0.3){
