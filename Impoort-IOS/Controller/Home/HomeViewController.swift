@@ -62,6 +62,9 @@ class HomeViewController: BaseViewController {
         tableView.refreshControl = self.refreshControl
         //tableView.isDragging = false
 
+        tableView.delaysContentTouches = false
+
+        
         refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
         shareRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.goToShareQuickly))
         self.quickShareGreenView.layer.cornerRadius = 10
@@ -263,6 +266,10 @@ extension HomeViewController:UITabBarControllerDelegate{
     }
 }
 extension HomeViewController:PostCellDelegate{
+    func didClickedProfilePic() {
+        self.goToProfile(2)
+    }
+    
     func didSelectPost(_ id: Int) {
         print("tiklandi.. \(id)")
        self.goToPostDetailVC() //parametre olarak gelen post gönderilecek, şimdilik id geliyor, modellerden sonra eklenecek

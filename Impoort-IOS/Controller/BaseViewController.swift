@@ -165,6 +165,14 @@ class BaseViewController: UIViewController {
             self.present(vc!, animated: true, completion: nil)
         }
     }
+    func goToProfile(_ id:Int){ //id alıancak params olarak ve vc.id ye verilecek
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "NewProfileVC") as? NewProfileViewController
+        
+            vc?.profileID = id
+            self.present(vc!, animated: true, completion: nil)
+        
+    }
     func clearHeader(){
         UIView.animate(withDuration: 0.3){
             //self.headerView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)

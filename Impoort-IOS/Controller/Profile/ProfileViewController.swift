@@ -49,7 +49,7 @@ class ProfileViewController: BaseViewController {
         segmentedControl.rightAnchor.constraint(equalTo: self.segmentContainerView.rightAnchor, constant: 0).isActive = true
         segmentedControl.leftAnchor.constraint(equalTo: self.segmentContainerView.leftAnchor, constant: 0).isActive = true
         segmentedControl.bottomAnchor.constraint(equalTo: self.segmentContainerView.bottomAnchor, constant: 2.0).isActive = true
-        segmentedControl.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
+        //segmentedControl.heightAnchor.constraint(equalToConstant: 45.0).isActive = true
 
         
     }

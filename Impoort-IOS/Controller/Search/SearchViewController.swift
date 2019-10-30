@@ -36,6 +36,7 @@ class SearchViewController: BaseViewController {
         TxtFieldConfig.shared.givePadding(to: self.searchTxtField)
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.tableView.delaysContentTouches = false
         self.filterCollectionView.delegate = self
         self.filterCollectionView.dataSource = self
         self.filterView.translatesAutoresizingMaskIntoConstraints = false

@@ -604,7 +604,7 @@
         <!--New Profile View Controller-->
         <scene sceneID="efc-je-atG">
             <objects>
-                <viewController id="GVy-Wt-apd" customClass="NewProfileViewController" customModule="Impoort_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewProfileVC" id="GVy-Wt-apd" customClass="NewProfileViewController" customModule="Impoort_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yet-7U-xoV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -662,10 +662,10 @@
                                     <constraint firstItem="FRY-6U-8la" firstAttribute="leading" secondItem="tD9-T4-giU" secondAttribute="leading" constant="15" id="wsQ-hD-KR9"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PLE-NV-G2j">
+                            <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PLE-NV-G2j">
                                 <rect key="frame" x="-20" y="94" width="415" height="635"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PwN-Sf-4pa">
+                                    <stackView autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" verticalHuggingPriority="249" ambiguous="YES" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PwN-Sf-4pa">
                                         <rect key="frame" x="20" y="10" width="375" height="760"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PyM-0A-x2N">
@@ -982,6 +982,7 @@
                         <viewLayoutGuide key="safeArea" id="ZCE-by-Hgs"/>
                     </view>
                     <navigationItem key="navigationItem" id="CKj-hc-ljL"/>
+                    <size key="freeformSize" width="375" height="812"/>
                     <connections>
                         <outlet property="experiencesStackView" destination="Wzp-Az-GSt" id="nhb-Ml-Viq"/>
                         <outlet property="headerProfileImage" destination="R6u-JX-jNf" id="7Kp-ZH-S8c"/>
@@ -989,9 +990,11 @@
                         <outlet property="headerProfileImageWidthConst" destination="ZtZ-mB-bIJ" id="Vtf-aO-Myj"/>
                         <outlet property="headerView" destination="tD9-T4-giU" id="76k-wl-dMd"/>
                         <outlet property="linksStackView" destination="6bA-nR-U89" id="aae-aW-2TU"/>
+                        <outlet property="parentStackView" destination="PwN-Sf-4pa" id="fJm-V5-wqu"/>
                         <outlet property="profileImage" destination="0J4-kP-s0g" id="c0E-3j-rEZ"/>
                         <outlet property="scrollView" destination="PLE-NV-G2j" id="LNt-3d-PsL"/>
                         <outlet property="topContainerView" destination="PyM-0A-x2N" id="1rc-8G-Lhb"/>
+                        <outlet property="topLeftIcon" destination="FRY-6U-8la" id="AEG-rT-L6O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FpJ-rZ-Nzx" userLabel="First Responder" sceneMemberID="firstResponder"/>

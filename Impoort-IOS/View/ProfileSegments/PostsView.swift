@@ -29,6 +29,8 @@ class PostsView: UIView {
         super.awakeFromNib()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.delaysContentTouches = false
+
         //self.refreshControl.tintColor = #colorLiteral(red: 0.4375773668, green: 0.8031894565, blue: 0.7201564908, alpha: 1)
         //tableView.refreshControl = self.refreshControl
         //refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
@@ -198,6 +200,10 @@ extension PostsView : UIScrollViewDelegate{
     }
 }
 extension PostsView:PostCellDelegate{
+    func didClickedProfilePic() {
+        
+    }
+    
     func didSelectPost(_ id: Int) {
         print("clicked post \(id)")
     }

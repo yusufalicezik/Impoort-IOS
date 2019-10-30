@@ -46,11 +46,8 @@ class SuggestedViewController: BaseViewController {
         self.searchTxtField.isUserInteractionEnabled = true
         // Do any additional setup after loading the view.
         
-//        let width = (((collectionView?.layer.bounds.width)!-25) / 2.2   );
-//        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-//
-//
-//        layout.itemSize = CGSize(width: width, height: width);
+        collectionView.delaysContentTouches = false
+
     }
     @objc func didClickedSearch(){
         print("asd")

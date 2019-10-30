@@ -13,6 +13,7 @@ import SwiftyShadow
 protocol PostCellDelegate{
     func didSelectPost(_ id:Int)
     func didSelectReadMore(_ id:Int)
+    func didClickedProfilePic() //id gönderilecek
 }
 
 class PostCellWithImage: UITableViewCell {
@@ -28,6 +29,7 @@ class PostCellWithImage: UITableViewCell {
     @IBOutlet weak var postDescription: UILabel!
     @IBOutlet weak var postImage: UIImageView!
     var postID:Int? //burası modeller eklendikten sonra post olacak her şeyine erişebilmek için
+    var parentVC:UIViewController?
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var replyButton: UIButton!
     var  perDelegate:PostCellDelegate?
@@ -60,6 +62,10 @@ class PostCellWithImage: UITableViewCell {
         self.addGestureRecognizer(postClickRecognizer)
         let readMoreRecognizer = UITapGestureRecognizer(target: self, action: #selector(clickedReadMore))
         self.postDescription.addGestureRecognizer(readMoreRecognizer)
+        
+        let postProfileImageRecognizer = UITapGestureRecognizer(target: self, action: #selector(profileClicked))
+        self.profileImage.isUserInteractionEnabled = true
+        self.profileImage.addGestureRecognizer(postProfileImageRecognizer)
     }
     @objc func clickedPost(){
         perDelegate?.didSelectPost(self.postID!) //postun kendisi gönderilecek.
@@ -69,6 +75,9 @@ class PostCellWithImage: UITableViewCell {
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    @objc func profileClicked(){
+        perDelegate?.didClickedProfilePic()
     }
 
     

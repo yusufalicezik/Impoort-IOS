@@ -18,12 +18,15 @@ class NewProfileViewController: BaseViewController {
     @IBOutlet weak var headerProfileImageHeightConst: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var topContainerView: UIView!
+    @IBOutlet weak var topLeftIcon: UIButton!
     var pastelView : PastelView?
-    lazy var profileBiggestView:ProfileBiggest = ProfileBiggest()
+    @IBOutlet weak var parentStackView: UIStackView!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var experiencesStackView: UIStackView!
     @IBOutlet weak var linksStackView: UIStackView!
     @IBOutlet weak var profileImage: UIImageView!
+    var profileTopLeftAction:(()->())!
+    var profileID = 0
     var isClosed = false
     //bu ikisi tek sınıf olacak.
     let experiences = ["Nuevo Softwarehouse", "Özgür Yazılım AŞ", "BTPro Yazılım Çözümleri", "Microsoft", "Apple", "Oracle"]
@@ -38,7 +41,26 @@ class NewProfileViewController: BaseViewController {
         setup()
     }
     
+    deinit {
+        pastelView = nil
+        scrollView = nil
+       
+        headerProfileImageHeightConst = nil
+        
+    }
+    
     func setup(){
+        if self.profileID == 0{ // me
+            self.topLeftIcon.setImage(UIImage(named: "settingsicon"), for: .normal)
+            self.profileTopLeftAction = {
+                self.goToSettingsVC()
+            }
+        }else{
+            self.topLeftIcon.setImage(UIImage(named: "close"), for: .normal)
+            self.profileTopLeftAction = {
+                self.goToBack()
+            }
+        }
         self.headerProfileImage.layer.cornerRadius = self.headerProfileImage.frame.width / 2
         self.profileImage.layer.cornerRadius = self.profileImage.frame.width / 2
         pastelView = PastelView(frame: topContainerView.bounds)
@@ -63,6 +85,7 @@ class NewProfileViewController: BaseViewController {
         scrollView.delegate = self
         getExperiences()
         getLinks()
+        
     }
     @objc func openBiggerProfileImage(){
         let bgVC = UIStoryboard(name: "Tools", bundle: nil).instantiateViewController(withIdentifier: "BiggerPictureEditVC") as? BiggerPictureEditViewController
@@ -103,7 +126,7 @@ class NewProfileViewController: BaseViewController {
         self.goToProfileDetails()
     }
     @IBAction func settingsClicked(_ sender: Any) {
-        self.goToSettingsVC()
+        self.profileTopLeftAction()
     }
     @IBAction func messagesClicked(_ sender: Any) {
         self.goToMessagesGeneral()
