@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3658B74F6004F9C095D83820 /* Pods_Impoort_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B402A1EBB0D5E3D36435322A /* Pods_Impoort_IOS.framework */; };
+		480DB7FC23699A94000F1CAA /* DenemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480DB7FB23699A94000F1CAA /* DenemeViewController.swift */; };
 		480E6A10234D195D006A4DA0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480E6A0F234D195D006A4DA0 /* SearchViewController.swift */; };
 		480E6A12234D1CAA006A4DA0 /* FilterSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480E6A11234D1CAA006A4DA0 /* FilterSearchCollectionViewCell.swift */; };
 		481918DA23611B1500D43D88 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481918D923611B1500D43D88 /* SearchView.swift */; };
@@ -75,6 +76,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		480DB7FB23699A94000F1CAA /* DenemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DenemeViewController.swift; sourceTree = "<group>"; };
 		480E6A0F234D195D006A4DA0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		480E6A11234D1CAA006A4DA0 /* FilterSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		481918D923611B1500D43D88 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				483DD9AC2347F8B200DCA3A1 /* Login */,
 				483DD9AF2348032B00DCA3A1 /* Register */,
 				48463FA1235D362100E1054E /* TabBarViewController.swift */,
+				480DB7FB23699A94000F1CAA /* DenemeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				48491709234A93180093091D /* PostCellWithImage.swift in Sources */,
 				48B6E017235FA3CE00001920 /* ExperiencesCollectionViewCell.swift in Sources */,
 				48B6E01B235FC12F00001920 /* ExperienceView.swift in Sources */,
+				480DB7FC23699A94000F1CAA /* DenemeViewController.swift in Sources */,
 				483DD9AE2347F99F00DCA3A1 /* TxtFieldConfig.swift in Sources */,
 				483DD9BB23480C5900DCA3A1 /* User.swift in Sources */,
 				4890BD4B235560670083AEAF /* ProfileSettingsView.swift in Sources */,
