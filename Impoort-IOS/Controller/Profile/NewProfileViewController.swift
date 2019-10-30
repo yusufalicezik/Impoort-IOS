@@ -105,16 +105,16 @@ class NewProfileViewController: BaseViewController {
         self.present(bgVC!, animated: true, completion: nil)
     }
     override func viewDidAppear(_ animated: Bool) {
-        if !self.isDarkHeader{
+        //if !self.isDarkHeader{
             clearHeader()
-        }else{
-            self.headerView.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
-            UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
-            self.isDarkHeader = true
-        }
+//        }else{
+//            self.headerView.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
+//            UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
+//            self.isDarkHeader = true
+//        }
     }
     override func viewWillAppear(_ animated: Bool) {
-//        self.scrollView.setContentOffset(CGPoint(x: 0, y: <#T##Int#>), animated: <#T##Bool#>)
+        self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
        clearExperiencesAndLinksView()
             DispatchQueue.main.async{
                 self.getAbout()
@@ -130,13 +130,13 @@ class NewProfileViewController: BaseViewController {
         
         
         isClosed = false
-        if !self.isDarkHeader{
+        //if !self.isDarkHeader{
             clearHeader()
-        }else{
-            self.headerView.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
-            UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
-            self.isDarkHeader = true
-        }
+        //}else{
+            //self.headerView.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
+            //UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
+            //self.isDarkHeader = true
+        //}
         pastelView?.startAnimation()
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -225,7 +225,7 @@ extension NewProfileViewController:UIScrollViewDelegate{
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if !self.isClosed {
-        if self.scrollView.contentOffset.y >= 160{
+        if self.scrollView.contentOffset.y >= 370{
             self.headerProfileImageHeightConst.constant = 35.0
             self.headerProfileImageWidthConst.constant = 35.0
             UIView.animate(withDuration: 0.3){
