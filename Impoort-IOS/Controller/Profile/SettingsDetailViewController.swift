@@ -120,6 +120,16 @@ class SettingsDetailViewController: BaseViewController {
                 txt.placeholder = "Contact"
             }
         }
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 80, height: 50))
+        button.setTitle("Save", for: .normal)
+        button.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
+        button.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
+        button.layer.cornerRadius = 10
+        self.containerStackView.addArrangedSubview(button)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.centerXAnchor.constraint(equalTo: self.containerStackView.centerXAnchor, constant: 0.0).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 47).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 80).isActive = true
     }
     
 

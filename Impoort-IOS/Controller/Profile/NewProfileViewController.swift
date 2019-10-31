@@ -227,7 +227,7 @@ extension NewProfileViewController:UIScrollViewDelegate{
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if !self.isClosed {
-        if self.scrollView.contentOffset.y >= 370{
+        if self.scrollView.contentOffset.y >= 375{
             self.headerProfileImageHeightConst.constant = 35.0
             self.headerProfileImageWidthConst.constant = 35.0
             UIView.animate(withDuration: 0.3){
