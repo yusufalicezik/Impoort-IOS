@@ -83,12 +83,9 @@ class NewProfileViewController: BaseViewController {
         let biggerImageRecognizer = UITapGestureRecognizer(target: self, action: #selector(openBiggerProfileImage))
         self.profileImage.isUserInteractionEnabled = true
         self.profileImage.addGestureRecognizer(biggerImageRecognizer)
-        // Do any additional setup after loading the view.
         scrollView.delaysContentTouches = false
         scrollView.delegate = self
-     
-        
-    }
+  }
     
     func getAbout(){
 //        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
@@ -105,40 +102,24 @@ class NewProfileViewController: BaseViewController {
         self.present(bgVC!, animated: true, completion: nil)
     }
     override func viewDidAppear(_ animated: Bool) {
-        //if !self.isDarkHeader{
-            clearHeader()
-//        }else{
-//            self.headerView.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
-//            UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
-//            self.isDarkHeader = true
-//        }
+        clearHeader()
     }
     override func viewWillAppear(_ animated: Bool) {
         self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-       clearExperiencesAndLinksView()
-            DispatchQueue.main.async{
-                self.getAbout()
-            }
-            DispatchQueue.main.async {
-                self.getExperiences()
-                
-            }
-            DispatchQueue.main.async {
-                self.getLinks()
-            }
-        
+        clearExperiencesAndLinksView()
+        DispatchQueue.main.async{
+            self.getAbout()
+        }
+        DispatchQueue.main.async {
+            self.getExperiences()
+        }
+        DispatchQueue.main.async {
+            self.getLinks()
+        }
         isDarkHeader = false
         setNeedsStatusBarAppearanceUpdate()
-        
-        
         isClosed = false
-        //if !self.isDarkHeader{
-            clearHeader()
-        //}else{
-            //self.headerView.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
-            //UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
-            //self.isDarkHeader = true
-        //}
+        clearHeader()
         pastelView?.startAnimation()
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -221,36 +202,33 @@ class NewProfileViewController: BaseViewController {
             self.setNeedsStatusBarAppearanceUpdate()
         }
     }
-
 }
 extension NewProfileViewController:UIScrollViewDelegate{
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if !self.isClosed {
-        if self.scrollView.contentOffset.y >= 375{
-            self.headerProfileImageHeightConst.constant = 35.0
-            self.headerProfileImageWidthConst.constant = 35.0
-            UIView.animate(withDuration: 0.3){
-                self.headerView.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
-                UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
-                self.isDarkHeader = true
-                self.headerView.layoutIfNeeded()
-                self.headerProfileImage.layer.cornerRadius = self.headerProfileImage.frame.width / 2
+            if self.scrollView.contentOffset.y >= 375{
+                self.headerProfileImageHeightConst.constant = 35.0
+                self.headerProfileImageWidthConst.constant = 35.0
+                UIView.animate(withDuration: 0.3){
+                    self.headerView.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
+                    UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
+                    self.isDarkHeader = true
+                    self.headerView.layoutIfNeeded()
+                    self.headerProfileImage.layer.cornerRadius = self.headerProfileImage.frame.width / 2
+                }
+            }else{
+                UIView.animate(withDuration: 0.3){
+                    self.headerProfileImageHeightConst.constant = 0.0
+                    self.headerProfileImageWidthConst.constant = 0.0
+                    self.headerView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                    UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                    self.isDarkHeader = false
+                    self.headerView.layoutIfNeeded()
+                    self.headerProfileImage.layer.cornerRadius = self.headerProfileImage.frame.width / 2
+                }
             }
-            
-        }else{
-            UIView.animate(withDuration: 0.3){
-                self.headerProfileImageHeightConst.constant = 0.0
-                self.headerProfileImageWidthConst.constant = 0.0
-                self.headerView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-                UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-                self.isDarkHeader = false
-                self.headerView.layoutIfNeeded()
-                self.headerProfileImage.layer.cornerRadius = self.headerProfileImage.frame.width / 2
-            }
+            setNeedsStatusBarAppearanceUpdate()
         }
-        setNeedsStatusBarAppearanceUpdate()
-    }
     }
 }
 extension UILabel {

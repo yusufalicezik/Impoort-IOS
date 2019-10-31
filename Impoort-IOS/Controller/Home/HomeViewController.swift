@@ -27,8 +27,6 @@ class HomeViewController: BaseViewController {
     var firstTime = true
     lazy var quickQhareView = ProfileSettingsView()
     var shareRecognizer:UITapGestureRecognizer?
-
-    //var currentRow = IndexPath(row: 0, section: 0)
     var currentOffset = CGPoint(x: 0, y: 0)
     var prevOffsetx = CGPoint(x: 0, y: 0)
     var currentIndx = IndexPath(row: 0, section: 0)
@@ -60,11 +58,7 @@ class HomeViewController: BaseViewController {
         self.tableView.allowsSelection = false
         self.refreshControl.tintColor = #colorLiteral(red: 0.4375773668, green: 0.8031894565, blue: 0.7201564908, alpha: 1)
         tableView.refreshControl = self.refreshControl
-        //tableView.isDragging = false
-
         tableView.delaysContentTouches = false
-
-        
         refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
         shareRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.goToShareQuickly))
         self.quickShareGreenView.layer.cornerRadius = 10
@@ -73,13 +67,10 @@ class HomeViewController: BaseViewController {
         self.quickShareGreenView.layer.shadowColor = UIColor.black.cgColor
         self.quickShareGreenView.layer.shadowOffset = CGSize.zero
         self.quickShareGreenView.generateOuterShadow()
-        
         self.tabBarController?.delegate = self
         DispatchQueue.main.asyncAfter(deadline: .now()+0.3){
             self.firstTime = false
         }
-
-        
     }
     @objc func refreshWeatherData(_ sender: Any){
         DispatchQueue.main.asyncAfter(deadline: .now()+4){
@@ -89,8 +80,7 @@ class HomeViewController: BaseViewController {
             }
         }
     }
-
-
+    
     @IBAction func messagesButtonClicked(_ sender: Any) {
         self.goToMessagesGeneral()
     }
@@ -133,12 +123,10 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
         if (indexPath.row == self.data.count)  && !firstTime && !isLoading{
             print("yüklenecek")
             self.loadingMorePostsActivityView.isHidden = false
-            //self.tableView.isScrollEnabled = false
             self.isLoading = true
             getData()
         }
-       
-        return cell
+       return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
@@ -151,43 +139,31 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
     func getData(){
         DispatchQueue.main.asyncAfter(deadline: .now()+2){
             if self.fState{
-            var indexes = [IndexPath]()
-            let startIndex = self.data.count
-
-        for i in 1..<11{
-            self.data.append(i)
-            indexes.append(IndexPath(row: startIndex+i, section: 0))
-        }
-            self.tableView.beginUpdates()
-            self.tableView.insertRows(at: indexes, with: .fade)
-            //self.tableView.scrollToRow(at: self.currentRow, at: .none, animated: false)
-            self.tableView.endUpdates()
-            ///self.tableView.reloadData()
-            print(self.data.count)
-            self.isLoading = false
-            //self.tableView.scrollToRow(at: self.currentIndx, at: .bottom, animated: true)
-            self.tableView.setContentOffset(self.currentOffset, animated: true)
-            self.loadingMorePostsActivityView.isHidden = true
-
-            //self.tableView.isScrollEnabled = true
+                var indexes = [IndexPath]()
+                let startIndex = self.data.count
+                for i in 1..<11{
+                    self.data.append(i)
+                    indexes.append(IndexPath(row: startIndex+i, section: 0))
+                }
+                self.tableView.beginUpdates()
+                self.tableView.insertRows(at: indexes, with: .fade)
+                //self.tableView.scrollToRow(at: self.currentRow, at: .none, animated: false)
+                self.tableView.endUpdates()
+                ///self.tableView.reloadData()
+                print(self.data.count)
+                self.isLoading = false
+                //self.tableView.scrollToRow(at: self.currentIndx, at: .bottom, animated: true)
+                self.tableView.setContentOffset(self.currentOffset, animated: true)
+                self.loadingMorePostsActivityView.isHidden = true
             }else{
                 self.getData()
-                //self.isLoading = false
-                //self.loadingMorePostsActivityView.isHidden = true
-
-
             }
-            
         }
     }
 }
 extension HomeViewController : UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
         self.currentOffset = scrollView.contentOffset
-        
-        
-
 //        if (scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y < (scrollView.contentSize.height - scrollView.frame.size.height)){
 //            //not top and not bottom
 //            let offsetY = scrollView.contentOffset.y
@@ -243,17 +219,10 @@ extension HomeViewController : UIScrollViewDelegate{
         if isLoading{
             self.fState = false
         }
-        
-  
-
-   }
-
-    
+    }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         self.fState = true
-       
    }
-    
 }
 extension HomeViewController:UITabBarControllerDelegate{
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
@@ -272,12 +241,10 @@ extension HomeViewController:PostCellDelegate{
     
     func didSelectPost(_ id: Int) {
         print("tiklandi.. \(id)")
-       self.goToPostDetailVC() //parametre olarak gelen post gönderilecek, şimdilik id geliyor, modellerden sonra eklenecek
+        self.goToPostDetailVC() //parametre olarak gelen post gönderilecek, şimdilik id geliyor, modellerden sonra eklenecek
     }
     
     func didSelectReadMore(_ id: Int) {
         print("asd")
     }
-    
-    
 }

@@ -19,10 +19,8 @@ class ProfileViewController: BaseViewController {
     @IBOutlet weak var headerBarView: UIView!
     @IBOutlet weak var barHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var barWidthConstraint: NSLayoutConstraint!
-    var bgVC:BiggerPictureEditViewController?
     let titles = ["Posts", "Watcher", "Watching"]
     lazy var postsView:PostsView = PostsView()
-    lazy var profileBiggestView:ProfileBiggest = ProfileBiggest()
     var isDarkHeader = false
     var isChanged = false
     override func viewDidLoad() {
@@ -50,8 +48,6 @@ class ProfileViewController: BaseViewController {
         segmentedControl.leftAnchor.constraint(equalTo: self.segmentContainerView.leftAnchor, constant: 0).isActive = true
         segmentedControl.bottomAnchor.constraint(equalTo: self.segmentContainerView.bottomAnchor, constant: 2.0).isActive = true
         //segmentedControl.heightAnchor.constraint(equalToConstant: 45.0).isActive = true
-
-        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -69,18 +65,9 @@ class ProfileViewController: BaseViewController {
 
 
     override func viewWillAppear(_ animated: Bool) {
-
-        //super.viewWillAppear(animated)
-//        if !self.isDarkHeader{
-//            clearHeader()
-//        }else{
-//            UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
-//        }
         clearHeader()
         loadPostsView(senderType: .posts)
         isChanged = false
-
-        
     }
     
     @IBAction func messageButtonClicked(_ sender: Any) {
@@ -101,17 +88,6 @@ class ProfileViewController: BaseViewController {
             self.postsView.senderProfileType = senderType
             self.postsView.load()
         }
-    }
-    @objc func swipeLeft(){
-        print("swipped")
-    }
-    @objc func openProfilePictureBig(){
-        
-         bgVC = UIStoryboard(name: "Tools", bundle: nil).instantiateViewController(withIdentifier: "BiggerPictureEditVC") as? BiggerPictureEditViewController
-       // bgVC?.modalPresentationStyle = .overCurrentContext
-        self.navigationController?.pushViewController(bgVC!, animated: true)
-
-        //self.present(bgVC!, animated: true, completion: nil)
     }
     @IBAction func backButtonClicked(_ sender: Any) {
         UIView.animate(withDuration: 0.3){
