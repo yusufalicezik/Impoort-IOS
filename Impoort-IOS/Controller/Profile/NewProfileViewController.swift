@@ -66,7 +66,7 @@ class NewProfileViewController: BaseViewController {
         }
         self.headerProfileImage.layer.cornerRadius = self.headerProfileImage.frame.width / 2
         self.profileImage.layer.cornerRadius = self.profileImage.frame.width / 2
-        pastelView = PastelView(frame: topContainerView.bounds)
+        pastelView = PastelView(frame: CGRect(x: 0, y: 0, width: topContainerView.frame.width+50, height: topContainerView.frame.height))
         pastelView!.startPastelPoint = .bottomLeft
         pastelView!.endPastelPoint = .topRight
         pastelView!.animationDuration = 1.4
