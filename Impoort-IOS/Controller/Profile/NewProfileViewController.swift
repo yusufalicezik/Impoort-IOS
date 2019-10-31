@@ -42,8 +42,8 @@ class NewProfileViewController: BaseViewController {
     let experiencesDepartment = ["IOS Developer", "Java Developer", "Middle IOS Developer", ".Net Developer", "Senior IOS Developer", "Software Developer"]
     
     //bu ikisi tek sınıf olacak
-    let linkNames = ["Github", "Facebook", "Linkedin","Linkedin","Linkedin","Linkedin","Linkedin","Linkedin"]
-    let linkAdresses = ["/yusufalicezik", "/yusufali.cezik", "/yusuf-ali.cezik","Linkedin","Linkedin","Linkedin","Linkedin","Linkedin"]
+    let linkNames = ["Github", "Facebook", "Linkedin"]
+    let linkAdresses = ["/yusufalicezik", "/yusufali.cezik", "/yusuf-ali.cezik"]
     var isDarkHeader = false
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,6 +127,8 @@ class NewProfileViewController: BaseViewController {
                 self.getLinks()
             }
         
+        isDarkHeader = false
+        setNeedsStatusBarAppearanceUpdate()
         
         
         isClosed = false

@@ -624,13 +624,13 @@
                                     <constraint firstAttribute="height" constant="50" id="zLM-n7-VVx"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Y7Z-Wq-gW2">
-                                <rect key="frame" x="15" y="104" width="384" height="758"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Y7Z-Wq-gW2">
+                                <rect key="frame" x="15" y="104" width="384" height="748"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="NUE-uq-FcN" firstAttribute="bottom" secondItem="Y7Z-Wq-gW2" secondAttribute="bottom" id="143-GG-OJb"/>
+                            <constraint firstItem="NUE-uq-FcN" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Y7Z-Wq-gW2" secondAttribute="bottom" constant="10" id="143-GG-OJb"/>
                             <constraint firstItem="NUE-uq-FcN" firstAttribute="trailing" secondItem="M5y-CU-fA9" secondAttribute="trailing" id="25Q-Sj-PkB"/>
                             <constraint firstItem="M5y-CU-fA9" firstAttribute="leading" secondItem="vki-Gq-0g9" secondAttribute="leading" id="CVr-ah-r4Q"/>
                             <constraint firstItem="Y7Z-Wq-gW2" firstAttribute="top" secondItem="M5y-CU-fA9" secondAttribute="bottom" constant="10" id="KaQ-9w-S53"/>

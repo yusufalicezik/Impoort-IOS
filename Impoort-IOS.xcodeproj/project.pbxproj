@@ -73,6 +73,7 @@
 		48CEF2062359392400FCC5BD /* QuickShareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CEF2042359392400FCC5BD /* QuickShareCell.swift */; };
 		48CEF2072359392400FCC5BD /* QuickShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48CEF2052359392400FCC5BD /* QuickShareCell.xib */; };
 		48D95FAA235E82AC0053ECA7 /* SuggestedCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D95FA9235E82AC0053ECA7 /* SuggestedCollectionCell.swift */; };
+		48F22E57236A351600F045F7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F22E56236A351600F045F7 /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,6 +144,7 @@
 		48CEF2042359392400FCC5BD /* QuickShareCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickShareCell.swift; sourceTree = "<group>"; };
 		48CEF2052359392400FCC5BD /* QuickShareCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickShareCell.xib; sourceTree = "<group>"; };
 		48D95FA9235E82AC0053ECA7 /* SuggestedCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedCollectionCell.swift; sourceTree = "<group>"; };
+		48F22E56236A351600F045F7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		8594E1A827AAA942A1D16F0B /* Pods-Impoort-IOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impoort-IOS.release.xcconfig"; path = "Target Support Files/Pods-Impoort-IOS/Pods-Impoort-IOS.release.xcconfig"; sourceTree = "<group>"; };
 		9BB33F7F4F06B3993D6E468E /* Pods-Impoort-IOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impoort-IOS.debug.xcconfig"; path = "Target Support Files/Pods-Impoort-IOS/Pods-Impoort-IOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B402A1EBB0D5E3D36435322A /* Pods_Impoort_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Impoort_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,6 +219,7 @@
 		483DD9A82347F4A000DCA3A1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				48F22E55236A34E500F045F7 /* Components */,
 				48A830F92357CF4100451E38 /* Tools */,
 				486A0D48235691F80019329D /* ProfileSegments */,
 				4890BD42235555930083AEAF /* Xib */,
@@ -452,6 +455,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		48F22E55236A34E500F045F7 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				48F22E56236A351600F045F7 /* CustomTextField.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		613A134B5A5EC3778AFC21B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -619,6 +630,7 @@
 				485AD840234AD306008E8E52 /* ChatLeftCell.swift in Sources */,
 				4893007423428A91004B37AD /* AppDelegate.swift in Sources */,
 				48491701234A71DC0093091D /* HomeViewController.swift in Sources */,
+				48F22E57236A351600F045F7 /* CustomTextField.swift in Sources */,
 				485AD842234AD313008E8E52 /* ChatRightCell.swift in Sources */,
 				4890BD3D2355142E0083AEAF /* ShareViewController.swift in Sources */,
 				48CEF2062359392400FCC5BD /* QuickShareCell.swift in Sources */,

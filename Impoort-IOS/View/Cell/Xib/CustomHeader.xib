@@ -17,20 +17,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hyv-iM-oVC">
-                    <rect key="frame" x="15" y="64" width="446" height="59"/>
+                    <rect key="frame" x="8" y="64" width="453" height="59"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4E-Tw-KxS">
-                            <rect key="frame" x="0.0" y="0.0" width="418.5" height="59"/>
+                            <rect key="frame" x="0.0" y="0.0" width="453" height="59"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="27"/>
                             <color key="textColor" red="0.47827315329999998" green="0.80319577460000002" blue="0.71947270630000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jx-tP-heF">
-                            <rect key="frame" x="418.5" y="0.0" width="27.5" height="59"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
-                            <color key="textColor" red="0.054901960780000002" green="0.16078431369999999" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -41,7 +34,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Hyv-iM-oVC" secondAttribute="trailing" constant="5" id="6EK-mD-jeJ"/>
                 <constraint firstItem="Hyv-iM-oVC" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="Na4-cd-wgr"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Hyv-iM-oVC" secondAttribute="bottom" constant="3" id="XhR-BK-59g"/>
-                <constraint firstItem="Hyv-iM-oVC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="e2G-cl-Uqz"/>
+                <constraint firstItem="Hyv-iM-oVC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="e2G-cl-Uqz"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
