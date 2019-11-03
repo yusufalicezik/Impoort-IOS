@@ -34,7 +34,7 @@ class LoginViewController: BaseViewController {
     func setup(){
         let uiViews:[UIView] = [loginButton, eMailTxtField, passwordTxtField]
         for i in uiViews {
-            i.layer.cornerRadius = 12
+            i.layer.cornerRadius = 13
         }
         TxtFieldConfig.shared.addIcon(to: eMailTxtField, iconName: "mailps")
         TxtFieldConfig.shared.addIcon(to: passwordTxtField, iconName: "iconps")
