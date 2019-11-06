@@ -336,10 +336,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8CG-9u-nkE">
-                                <rect key="frame" x="187.5" y="433.5" width="0.0" height="0.0"/>
+                                <rect key="frame" x="187.5" y="333.5" width="0.0" height="0.0"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGx-Ei-lWl">
-                                        <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="27"/>
+                                        <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="0.74159888698630139" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -370,7 +370,7 @@
                         <constraints>
                             <constraint firstItem="8CG-9u-nkE" firstAttribute="centerX" secondItem="JBs-Gz-LQI" secondAttribute="centerX" id="48U-cZ-uh4"/>
                             <constraint firstItem="bQm-3b-lmy" firstAttribute="trailing" secondItem="Uzg-u7-AwH" secondAttribute="trailing" constant="25" id="4Yz-H6-PEp"/>
-                            <constraint firstItem="8CG-9u-nkE" firstAttribute="centerY" secondItem="JBs-Gz-LQI" secondAttribute="centerY" constant="100" id="ES3-hm-DXp"/>
+                            <constraint firstItem="8CG-9u-nkE" firstAttribute="centerY" secondItem="JBs-Gz-LQI" secondAttribute="centerY" id="ES3-hm-DXp"/>
                             <constraint firstItem="otU-AN-Xgw" firstAttribute="leading" secondItem="bQm-3b-lmy" secondAttribute="leading" constant="20" id="K36-HW-LuT"/>
                             <constraint firstItem="otU-AN-Xgw" firstAttribute="top" secondItem="bQm-3b-lmy" secondAttribute="top" constant="45" id="LP2-DH-WXQ"/>
                             <constraint firstItem="bQm-3b-lmy" firstAttribute="trailing" secondItem="otU-AN-Xgw" secondAttribute="trailing" constant="20" id="kBF-dx-RA2"/>
