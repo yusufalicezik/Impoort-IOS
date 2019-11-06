@@ -170,6 +170,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/InjectableLoggers/InjectableLoggers.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Letters/Letters.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ListPlaceholder/ListPlaceholder.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MXParallaxHeader/MXParallaxHeader.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PagingTableView/PagingTableView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PanModal/PanModal.framework"
@@ -181,6 +182,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftVideoBackground/SwiftVideoBackground.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftWebSocket/SwiftWebSocket.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover/SwiftyPickerPopover.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyShadow/SwiftyShadow.framework"
@@ -188,6 +190,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/TwicketSegmentedControl/TwicketSegmentedControl.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ViewAnimator/ViewAnimator.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Zoomy/Zoomy.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/collection-view-layouts/collection_view_layouts.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/netfox/netfox.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -200,6 +203,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/InjectableLoggers/InjectableLoggers.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Letters/Letters.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ListPlaceholder/ListPlaceholder.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MXParallaxHeader/MXParallaxHeader.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PagingTableView/PagingTableView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PanModal/PanModal.framework"
@@ -211,6 +215,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftVideoBackground/SwiftVideoBackground.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftWebSocket/SwiftWebSocket.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover/SwiftyPickerPopover.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyShadow/SwiftyShadow.framework"
@@ -218,6 +223,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/TwicketSegmentedControl/TwicketSegmentedControl.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ViewAnimator/ViewAnimator.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Zoomy/Zoomy.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/collection-view-layouts/collection_view_layouts.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/netfox/netfox.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

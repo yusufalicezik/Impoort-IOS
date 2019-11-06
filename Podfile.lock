@@ -2,6 +2,21 @@ PODS:
   - Alamofire (4.8.2)
   - Cloudinary (2.7.0):
     - Alamofire (~> 4.8.2)
+  - collection-view-layouts/Core (0.2.2)
+  - collection-view-layouts/FacebookLayout (0.2.2):
+    - collection-view-layouts/Core
+  - collection-view-layouts/FlickrLayout (0.2.2):
+    - collection-view-layouts/Core
+  - collection-view-layouts/FlipboardLayout (0.2.2):
+    - collection-view-layouts/Core
+  - collection-view-layouts/InstagramLayout (0.2.2):
+    - collection-view-layouts/Core
+  - collection-view-layouts/PinterestLayout (0.2.2):
+    - collection-view-layouts/Core
+  - collection-view-layouts/Px500Layout (0.2.2):
+    - collection-view-layouts/Core
+  - collection-view-layouts/TagsLayout (0.2.2):
+    - collection-view-layouts/Core
   - Connectivity (3.1.1)
   - DGElasticPullToRefresh (1.1)
   - DynamicBlurView (3.0.1)
@@ -9,6 +24,7 @@ PODS:
   - IQKeyboardManagerSwift (6.5.1)
   - Letters (2.1.1)
   - ListPlaceholder (1.4)
+  - MXParallaxHeader (1.0.0)
   - netfox (1.16.0)
   - NVActivityIndicatorView (4.8.0):
     - NVActivityIndicatorView/Presenter (= 4.8.0)
@@ -32,6 +48,7 @@ PODS:
   - SwiftDate (6.1.0)
   - SwiftEntryKit (1.1.3):
     - QuickLayout (= 3.0.0)
+  - SwiftVideoBackground (3.4.0)
   - SwiftWebSocket (2.7.0)
   - SwiftyPickerPopover (6.6.5)
   - SwiftyShadow (1.7.0)
@@ -44,11 +61,20 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - Cloudinary (~> 2.0)
+  - collection-view-layouts/Core
+  - collection-view-layouts/FacebookLayout
+  - collection-view-layouts/FlickrLayout
+  - collection-view-layouts/FlipboardLayout
+  - collection-view-layouts/InstagramLayout
+  - collection-view-layouts/PinterestLayout
+  - collection-view-layouts/Px500Layout
+  - collection-view-layouts/TagsLayout
   - Connectivity
   - DGElasticPullToRefresh
   - IQKeyboardManagerSwift
   - Letters
   - ListPlaceholder
+  - MXParallaxHeader
   - netfox
   - NVActivityIndicatorView
   - PagingTableView
@@ -60,6 +86,7 @@ DEPENDENCIES:
   - SDWebImage
   - SwiftDate
   - SwiftEntryKit (= 1.1.3)
+  - SwiftVideoBackground
   - SwiftWebSocket
   - SwiftyPickerPopover
   - SwiftyShadow (~> 1.7.0)
@@ -69,7 +96,7 @@ DEPENDENCIES:
   - Zoomy
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Cloudinary
     - Connectivity
@@ -98,10 +125,15 @@ SPEC REPOS:
     - TwicketSegmentedControl
     - ViewAnimator
     - Zoomy
+  trunk:
+    - collection-view-layouts
+    - MXParallaxHeader
+    - SwiftVideoBackground
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Cloudinary: d9b2d7d7692a6deb51227fa9f4e7cf8f49d6c375
+  collection-view-layouts: 474ec4cce601a26247737227a97fa6a4eb30213f
   Connectivity: ba066ca8d135f0c94adf2179afbf135a9de47cfa
   DGElasticPullToRefresh: 28f11a6026302a90f8ffebbc6e24748e584dddd3
   DynamicBlurView: b1df5415f9bd31897549e5d7077e5ec120a4d636
@@ -109,6 +141,7 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 9ac7524fad9f9fe9a3b98c927e7772471ca546d2
   Letters: 34476b0d413813bcf9273b2760be7ff4cd75f5c7
   ListPlaceholder: 08ddaddf67520a20fc52cf37160fb56aa64d071d
+  MXParallaxHeader: a95e0af1f485b1b718a6939f583f0dbae6992c41
   netfox: 4590811e5b02e392c72a924c73e000a60ee1f0c7
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   PagingTableView: ba7869ff22f7cf3f8b2190b0314688d2cb0e46c4
@@ -121,6 +154,7 @@ SPEC CHECKSUMS:
   SDWebImage: 609192dcf3898c910a2848032372ead951e66364
   SwiftDate: fa2bb3962056bb44047b4b85a30044e5eae30b03
   SwiftEntryKit: be00509cf6e1e88b57bb96cf2114b09cf20ee84a
+  SwiftVideoBackground: 826e0567c737ded2a211aa309e9951c643695e8f
   SwiftWebSocket: 612c9729fd503cb6b0b8b45390c788686dac306f
   SwiftyPickerPopover: f2975fd0233d04c0a8f8d52d09b6f24b882de6fb
   SwiftyShadow: d2697c62eb83759b7806466e3ea29de24c772c29
@@ -129,6 +163,6 @@ SPEC CHECKSUMS:
   ViewAnimator: 173932c659a43c5a15c665878750d92801ae2cf1
   Zoomy: d18aa5937b43852af86ab7c4682231eec5e4f8ac
 
-PODFILE CHECKSUM: f670d958694baaa73c6d867575be054ee82bf4de
+PODFILE CHECKSUM: a91f04224a2441828c4f300c9d5a20f797d1c04a
 
-COCOAPODS: 1.7.3
+COCOAPODS: 1.8.4

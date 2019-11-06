@@ -18,6 +18,7 @@ pod 'Repeat'
 pod 'IQKeyboardManagerSwift'
 pod 'netfox'
 pod "Pastel"
+pod 'MXParallaxHeader'
 pod 'SwiftyShadow', '~> 1.7.0'
 pod 'SDWebImage'
 pod 'SwipeCellKit'
@@ -32,6 +33,15 @@ pod 'Cloudinary', '~> 2.0'
 pod 'PhoneNumberKit', '~> 3.0'
 pod 'PagingTableView'
 pod 'Zoomy'
+pod 'collection-view-layouts/Core'
+pod 'collection-view-layouts/TagsLayout'
+pod 'collection-view-layouts/PinterestLayout'
+pod 'collection-view-layouts/Px500Layout'
+pod 'collection-view-layouts/InstagramLayout'
+pod 'collection-view-layouts/FlipboardLayout'
+pod 'collection-view-layouts/FacebookLayout'
+pod 'collection-view-layouts/FlickrLayout'
+pod 'SwiftVideoBackground'
 
 
 end

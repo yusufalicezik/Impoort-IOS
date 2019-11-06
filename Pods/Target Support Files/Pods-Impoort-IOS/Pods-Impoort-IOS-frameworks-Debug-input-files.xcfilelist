@@ -8,6 +8,7 @@ ${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework
 ${BUILT_PRODUCTS_DIR}/InjectableLoggers/InjectableLoggers.framework
 ${BUILT_PRODUCTS_DIR}/Letters/Letters.framework
 ${BUILT_PRODUCTS_DIR}/ListPlaceholder/ListPlaceholder.framework
+${BUILT_PRODUCTS_DIR}/MXParallaxHeader/MXParallaxHeader.framework
 ${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework
 ${BUILT_PRODUCTS_DIR}/PagingTableView/PagingTableView.framework
 ${BUILT_PRODUCTS_DIR}/PanModal/PanModal.framework
@@ -19,6 +20,7 @@ ${BUILT_PRODUCTS_DIR}/Repeat/Repeat.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
 ${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework
 ${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework
+${BUILT_PRODUCTS_DIR}/SwiftVideoBackground/SwiftVideoBackground.framework
 ${BUILT_PRODUCTS_DIR}/SwiftWebSocket/SwiftWebSocket.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover/SwiftyPickerPopover.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyShadow/SwiftyShadow.framework
@@ -26,4 +28,5 @@ ${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework
 ${BUILT_PRODUCTS_DIR}/TwicketSegmentedControl/TwicketSegmentedControl.framework
 ${BUILT_PRODUCTS_DIR}/ViewAnimator/ViewAnimator.framework
 ${BUILT_PRODUCTS_DIR}/Zoomy/Zoomy.framework
+${BUILT_PRODUCTS_DIR}/collection-view-layouts/collection_view_layouts.framework
 ${BUILT_PRODUCTS_DIR}/netfox/netfox.framework

@@ -178,7 +178,8 @@ extension SuggestedViewController:UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if UIDevice().userInterfaceIdiom == .phone {
-            return CGSize(width: (collectionView.frame.width / 2) - 5, height: (collectionView.frame.width / 2.1) - 7)
+            var height = collectionView.frame.width / 2.1
+            return CGSize(width: (collectionView.frame.width / 2) - 5, height: (height) - 7)
         }
         let widthDivide = collectionView.frame.width / 130
             return CGSize(width: (collectionView.frame.width / round(widthDivide)) - 10, height: 230)
