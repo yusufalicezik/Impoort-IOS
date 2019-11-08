@@ -199,6 +199,15 @@ class BaseViewController: UIViewController {
             self.present(vc!, animated: true, completion: nil)
         }
     }
+    
+    func goToDiscoverHits(){
+        let vc = UIStoryboard(name: "External", bundle: nil).instantiateViewController(withIdentifier: "HitsVC") as? HitsViewController
+        if let navBar = self.navigationController{
+            navBar.pushViewController(vc!, animated: true)
+        }else{
+            self.present(vc!, animated: true, completion: nil)
+        }
+    }
 
 }
 

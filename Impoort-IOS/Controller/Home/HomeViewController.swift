@@ -84,6 +84,9 @@ class HomeViewController: BaseViewController {
     @IBAction func messagesButtonClicked(_ sender: Any) {
         self.goToMessagesGeneral()
     }
+    @IBAction func discoverButtonClicked(_ sender: Any) {
+        self.goToDiscoverHits()
+    }
     
     @objc func goToShareQuickly(){
         let shareVc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ShareVC") as? ShareViewController

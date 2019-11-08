@@ -806,11 +806,24 @@
                                             <action selector="messagesButtonClicked:" destination="a6d-5e-Tfp" eventType="touchUpInside" id="Uaa-7o-z8V"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tJ-oH-RqB">
+                                        <rect key="frame" x="15" y="10" width="29" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="29" id="FIj-px-71r"/>
+                                            <constraint firstAttribute="height" constant="29" id="tCw-Xc-kr6"/>
+                                        </constraints>
+                                        <state key="normal" image="planet-ex"/>
+                                        <connections>
+                                            <action selector="discoverButtonClicked:" destination="a6d-5e-Tfp" eventType="touchUpInside" id="xv8-uE-LJ3"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="4Jk-Hx-8hq" secondAttribute="trailing" constant="20" id="2P4-pd-Vwd"/>
+                                    <constraint firstItem="1tJ-oH-RqB" firstAttribute="centerY" secondItem="4Jk-Hx-8hq" secondAttribute="centerY" constant="1" id="8ql-r6-rm1"/>
                                     <constraint firstItem="4Jk-Hx-8hq" firstAttribute="leading" secondItem="PEA-Pk-hNs" secondAttribute="leading" constant="20" id="CvB-mf-k6g"/>
+                                    <constraint firstItem="1tJ-oH-RqB" firstAttribute="leading" secondItem="PEA-Pk-hNs" secondAttribute="leading" constant="15" id="E4c-Pz-y5q"/>
                                     <constraint firstItem="yTu-no-ayF" firstAttribute="centerY" secondItem="PEA-Pk-hNs" secondAttribute="centerY" constant="1" id="JhM-Wc-3Oi"/>
                                     <constraint firstAttribute="trailing" secondItem="yTu-no-ayF" secondAttribute="trailing" constant="15" id="e2e-wD-gBh"/>
                                     <constraint firstAttribute="height" constant="50" id="ePN-0z-vkS"/>
@@ -1753,6 +1766,7 @@
         <image name="morewhite" width="22" height="20"/>
         <image name="person" width="16.333333969116211" height="16.666666030883789"/>
         <image name="phone35" width="30" height="30"/>
+        <image name="planet-ex" width="35" height="35"/>
         <image name="profilepp" width="749" height="749"/>
         <image name="search" width="22" height="22.333333969116211"/>
         <image name="settingsicon" width="60" height="60"/>

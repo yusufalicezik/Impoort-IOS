@@ -353,11 +353,11 @@
                             </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uzg-u7-AwH">
                                 <rect key="frame" x="25" y="642" width="325" height="0.0"/>
-                                <color key="backgroundColor" red="0.36376497194217294" green="0.64399587563451777" blue="0.53881323479180887" alpha="0.99333797089041098" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.43580392000000001" green="0.76767843960000004" blue="0.63639014959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="Rme-kD-KGy"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="18"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="0.81993792809999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>

@@ -72,6 +72,7 @@
 		48B6E017235FA3CE00001920 /* ExperiencesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6E016235FA3CE00001920 /* ExperiencesCollectionViewCell.swift */; };
 		48B6E019235FC11A00001920 /* ExperienceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48B6E018235FC11A00001920 /* ExperienceView.xib */; };
 		48B6E01B235FC12F00001920 /* ExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6E01A235FC12F00001920 /* ExperienceView.swift */; };
+		48C22EE22375FD14002C558D /* HitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C22EE12375FD14002C558D /* HitsViewController.swift */; };
 		48CEF2062359392400FCC5BD /* QuickShareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CEF2042359392400FCC5BD /* QuickShareCell.swift */; };
 		48CEF2072359392400FCC5BD /* QuickShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48CEF2052359392400FCC5BD /* QuickShareCell.xib */; };
 		48D95FAA235E82AC0053ECA7 /* SuggestedCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D95FA9235E82AC0053ECA7 /* SuggestedCollectionCell.swift */; };
@@ -145,6 +146,7 @@
 		48B6E016235FA3CE00001920 /* ExperiencesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperiencesCollectionViewCell.swift; sourceTree = "<group>"; };
 		48B6E018235FC11A00001920 /* ExperienceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ExperienceView.xib; path = ../ExperienceView.xib; sourceTree = "<group>"; };
 		48B6E01A235FC12F00001920 /* ExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExperienceView.swift; path = ../ExperienceView.swift; sourceTree = "<group>"; };
+		48C22EE12375FD14002C558D /* HitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitsViewController.swift; sourceTree = "<group>"; };
 		48CEF2042359392400FCC5BD /* QuickShareCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickShareCell.swift; sourceTree = "<group>"; };
 		48CEF2052359392400FCC5BD /* QuickShareCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickShareCell.xib; sourceTree = "<group>"; };
 		48D95FA9235E82AC0053ECA7 /* SuggestedCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedCollectionCell.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		480E6A0E234D192C006A4DA0 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				48C22EE02375FCF1002C558D /* Popular */,
 				480E6A0F234D195D006A4DA0 /* SearchViewController.swift */,
 				48463FA3235E5FA400E1054E /* SuggestedViewController.swift */,
 			);
@@ -254,6 +257,7 @@
 		483DD9AB2347F4C600DCA3A1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				48C22EDF2375F3C0002C558D /* Resources */,
 				483DD9BF23482AF900DCA3A1 /* AlertConroller.swift */,
 				483DD9AD2347F99F00DCA3A1 /* TxtFieldConfig.swift */,
 			);
@@ -427,7 +431,6 @@
 		4893007223428A91004B37AD /* Impoort-IOS */ = {
 			isa = PBXGroup;
 			children = (
-				48355B942372493000B5C17A /* myvideo.mp4 */,
 				483DD9A62347F48100DCA3A1 /* Controller */,
 				483DD9A92347F4A900DCA3A1 /* App */,
 				483DD9A82347F4A000DCA3A1 /* View */,
@@ -459,6 +462,22 @@
 				48B6E016235FA3CE00001920 /* ExperiencesCollectionViewCell.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		48C22EDF2375F3C0002C558D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				48355B942372493000B5C17A /* myvideo.mp4 */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		48C22EE02375FCF1002C558D /* Popular */ = {
+			isa = PBXGroup;
+			children = (
+				48C22EE12375FD14002C558D /* HitsViewController.swift */,
+			);
+			path = Popular;
 			sourceTree = "<group>";
 		};
 		48F22E55236A34E500F045F7 /* Components */ = {
@@ -661,6 +680,7 @@
 				481918E4236157F100D43D88 /* SettingsDetailViewController.swift in Sources */,
 				48B6E014235F45BB00001920 /* NewProfileViewController.swift in Sources */,
 				480E6A12234D1CAA006A4DA0 /* FilterSearchCollectionViewCell.swift in Sources */,
+				48C22EE22375FD14002C558D /* HitsViewController.swift in Sources */,
 				485AD839234AC46D008E8E52 /* MessagesGeneralViewController.swift in Sources */,
 				486A0D5B2356AF9E0019329D /* WatcherCell.swift in Sources */,
 				4842728C235FD1F500FE9C15 /* ProfileViewController.swift in Sources */,
