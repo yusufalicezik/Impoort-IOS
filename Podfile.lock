@@ -3,19 +3,11 @@ PODS:
   - Cloudinary (2.7.0):
     - Alamofire (~> 4.8.2)
   - collection-view-layouts/Core (0.2.2)
-  - collection-view-layouts/FacebookLayout (0.2.2):
-    - collection-view-layouts/Core
   - collection-view-layouts/FlickrLayout (0.2.2):
     - collection-view-layouts/Core
   - collection-view-layouts/FlipboardLayout (0.2.2):
     - collection-view-layouts/Core
   - collection-view-layouts/InstagramLayout (0.2.2):
-    - collection-view-layouts/Core
-  - collection-view-layouts/PinterestLayout (0.2.2):
-    - collection-view-layouts/Core
-  - collection-view-layouts/Px500Layout (0.2.2):
-    - collection-view-layouts/Core
-  - collection-view-layouts/TagsLayout (0.2.2):
     - collection-view-layouts/Core
   - Connectivity (3.1.1)
   - DGElasticPullToRefresh (1.1)
@@ -62,13 +54,9 @@ DEPENDENCIES:
   - Alamofire
   - Cloudinary (~> 2.0)
   - collection-view-layouts/Core
-  - collection-view-layouts/FacebookLayout
   - collection-view-layouts/FlickrLayout
   - collection-view-layouts/FlipboardLayout
   - collection-view-layouts/InstagramLayout
-  - collection-view-layouts/PinterestLayout
-  - collection-view-layouts/Px500Layout
-  - collection-view-layouts/TagsLayout
   - Connectivity
   - DGElasticPullToRefresh
   - IQKeyboardManagerSwift
@@ -163,6 +151,6 @@ SPEC CHECKSUMS:
   ViewAnimator: 173932c659a43c5a15c665878750d92801ae2cf1
   Zoomy: d18aa5937b43852af86ab7c4682231eec5e4f8ac
 
-PODFILE CHECKSUM: a91f04224a2441828c4f300c9d5a20f797d1c04a
+PODFILE CHECKSUM: d1afe81ac2e51ac0b2566f003e273887e3029765
 
 COCOAPODS: 1.8.4

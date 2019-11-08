@@ -8,7 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
-
+import collection_view_layouts
 class HitsViewController: BaseViewController {
 
     @IBOutlet weak var searchTxtField: UITextField!
