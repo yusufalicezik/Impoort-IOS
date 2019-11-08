@@ -71,8 +71,8 @@ class NewProfileViewController: BaseViewController {
         pastelView!.endPastelPoint = .topRight
         pastelView!.animationDuration = 1.4
         pastelView!.setColors([#colorLiteral(red: 0.2392156863, green: 0.3098039216, blue: 0.4588235294, alpha: 1),
-                               #colorLiteral(red: 0.412048799, green: 0.5332120053, blue: 0.7917790292, alpha: 1),
-                               #colorLiteral(red: 0.1269120915, green: 0.4231440355, blue: 0.2988528522, alpha: 0.8982234589),
+                               #colorLiteral(red: 0.4117647059, green: 0.5333333333, blue: 0.7921568627, alpha: 1),
+                               #colorLiteral(red: 0.1254901961, green: 0.4235294118, blue: 0.2980392157, alpha: 0.8982234589),
                                #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)])
         topContainerView.insertSubview(pastelView!, at: 0)
         self.profileImage.layer.shadowRadius = 20

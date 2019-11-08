@@ -24,9 +24,10 @@ class HitsViewController: BaseViewController {
         self.addSwipeDismiss(vc: self)
         IQKeyboardManager.shared.enable = true
     IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Done"
-        IQKeyboardManager.shared.enableAutoToolbar = true
+        IQKeyboardManager.shared.enableAutoToolbar = false
         collectionView.delegate = self
         collectionView.dataSource = self
+        self.searchTxtField.delegate = self
         setCollectionLayout()
         self.searchTxtField.layer.cornerRadius = 15
         TxtFieldConfig.shared.addIconForSearch(to: self.searchTxtField, iconName: "search")
@@ -35,7 +36,7 @@ class HitsViewController: BaseViewController {
     func setCollectionLayout(){
         let layout:BaseLayout = FlickrLayout()
         layout.delegate = self
-        layout.cellsPadding = ItemsPadding(horizontal: 8, vertical: 8)
+        layout.cellsPadding = ItemsPadding(horizontal: 6, vertical: 6)
         self.collectionView.collectionViewLayout = layout
         collectionView.reloadData()
     }
@@ -51,12 +52,25 @@ extension HitsViewController:UICollectionViewDelegate, UICollectionViewDataSourc
         cell.postImageView.image = self.imgData[indexPath.row]
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("selected index \(indexPath.row)")
+    }
 }
 
 extension HitsViewController: LayoutDelegate{
     func cellSize(indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 50, height: 90)
+        return CGSize(width: 50, height: 120)
     }
-    
-    
+}
+extension HitsViewController : UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if !textField.text!.isEmpty{
+            openSearchVCWithKey(with:textField.text!)
+        }
+        return true
+    }
+    func openSearchVCWithKey(with txtKey:String){
+        print(txtKey) //filterResultVC deki keye gönderilecek.
+    }
 }
