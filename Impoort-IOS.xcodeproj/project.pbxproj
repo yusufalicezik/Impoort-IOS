@@ -73,6 +73,7 @@
 		48B6E019235FC11A00001920 /* ExperienceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48B6E018235FC11A00001920 /* ExperienceView.xib */; };
 		48B6E01B235FC12F00001920 /* ExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6E01A235FC12F00001920 /* ExperienceView.swift */; };
 		48C22EE22375FD14002C558D /* HitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C22EE12375FD14002C558D /* HitsViewController.swift */; };
+		48C22EE523760294002C558D /* HitsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C22EE423760294002C558D /* HitsCollectionCell.swift */; };
 		48CEF2062359392400FCC5BD /* QuickShareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CEF2042359392400FCC5BD /* QuickShareCell.swift */; };
 		48CEF2072359392400FCC5BD /* QuickShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48CEF2052359392400FCC5BD /* QuickShareCell.xib */; };
 		48D95FAA235E82AC0053ECA7 /* SuggestedCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D95FA9235E82AC0053ECA7 /* SuggestedCollectionCell.swift */; };
@@ -147,6 +148,7 @@
 		48B6E018235FC11A00001920 /* ExperienceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ExperienceView.xib; path = ../ExperienceView.xib; sourceTree = "<group>"; };
 		48B6E01A235FC12F00001920 /* ExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExperienceView.swift; path = ../ExperienceView.swift; sourceTree = "<group>"; };
 		48C22EE12375FD14002C558D /* HitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitsViewController.swift; sourceTree = "<group>"; };
+		48C22EE423760294002C558D /* HitsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitsCollectionCell.swift; sourceTree = "<group>"; };
 		48CEF2042359392400FCC5BD /* QuickShareCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickShareCell.swift; sourceTree = "<group>"; };
 		48CEF2052359392400FCC5BD /* QuickShareCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickShareCell.xib; sourceTree = "<group>"; };
 		48D95FA9235E82AC0053ECA7 /* SuggestedCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedCollectionCell.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				48D95FA9235E82AC0053ECA7 /* SuggestedCollectionCell.swift */,
 				481918DF236127D700D43D88 /* FilterNewCollectionViewCell.swift */,
 				481918E0236127D700D43D88 /* FilterNewCollectionViewCell.xib */,
+				48C22EE423760294002C558D /* HitsCollectionCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				48A830FF2357DDBC00451E38 /* BiggerPictureEditViewController.swift in Sources */,
 				48547751235D069B00BD6213 /* PostDetailViewController.swift in Sources */,
 				483DD9B72348050A00DCA3A1 /* RegisterSecondStepViewController.swift in Sources */,
+				48C22EE523760294002C558D /* HitsCollectionCell.swift in Sources */,
 				485AD83E234AC861008E8E52 /* MessagesGeneralCell.swift in Sources */,
 				4890BD3F23554A800083AEAF /* SettingsViewController.swift in Sources */,
 				48463F9E235D12B100E1054E /* CommentCell.swift in Sources */,

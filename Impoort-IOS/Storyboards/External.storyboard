@@ -624,7 +624,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Inx-RX-Wze">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Inx-RX-Wze" customClass="HitsCollectionCell" customModule="Impoort_IOS" customModuleProvider="target">
                                         <rect key="frame" x="55" y="0.0" width="304" height="306"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -642,6 +642,9 @@
                                             <constraint firstAttribute="trailing" secondItem="uge-4X-zjU" secondAttribute="trailing" id="Exb-sg-bfr"/>
                                             <constraint firstItem="uge-4X-zjU" firstAttribute="leading" secondItem="Inx-RX-Wze" secondAttribute="leading" id="Fgn-Yl-C3e"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="postImageView" destination="uge-4X-zjU" id="MnR-KC-UVH"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -660,6 +663,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="gKc-Ny-gyB"/>
                     <connections>
+                        <outlet property="collectionView" destination="qZr-4Q-mL2" id="vPv-Mz-6bk"/>
                         <outlet property="searchTxtField" destination="Dcb-55-6hi" id="WKL-Fc-QO0"/>
                     </connections>
                 </viewController>
