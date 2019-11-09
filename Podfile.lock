@@ -9,8 +9,6 @@ PODS:
     - collection-view-layouts/Core
   - collection-view-layouts/InstagramLayout (0.2.2):
     - collection-view-layouts/Core
-  - collection-view-layouts/PinterestLayout (0.2.2):
-    - collection-view-layouts/Core
   - Connectivity (3.1.1)
   - DGElasticPullToRefresh (1.1)
   - DynamicBlurView (3.0.1)
@@ -59,7 +57,6 @@ DEPENDENCIES:
   - collection-view-layouts/FlickrLayout
   - collection-view-layouts/FlipboardLayout
   - collection-view-layouts/InstagramLayout
-  - collection-view-layouts/PinterestLayout
   - Connectivity
   - DGElasticPullToRefresh
   - IQKeyboardManagerSwift
@@ -154,6 +151,6 @@ SPEC CHECKSUMS:
   ViewAnimator: 173932c659a43c5a15c665878750d92801ae2cf1
   Zoomy: d18aa5937b43852af86ab7c4682231eec5e4f8ac
 
-PODFILE CHECKSUM: a35e4148f35bde9401d52f9da2d4d6d3cded4f93
+PODFILE CHECKSUM: d1afe81ac2e51ac0b2566f003e273887e3029765
 
 COCOAPODS: 1.8.4
