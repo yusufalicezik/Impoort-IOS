@@ -10,6 +10,7 @@ import UIKit
 
 class FilterResultViewController: BaseViewController {
 
+    var searchFilterKey:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
 

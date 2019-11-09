@@ -42,6 +42,21 @@ class TxtFieldConfig{
             CGRect(x: -10, y: 0, width: 30, height: 30))
     }
     
+    func addIconForSharp(to textfield:UITextField, iconName imageName:String){
+        let image = UIImage(named: imageName)
+        let iconView = UIImageView(frame:
+            CGRect(x: 7.5, y: 5, width: 13, height: 13))
+        iconView.image = image
+        let iconContainerView: UIView = UIView(frame:
+            CGRect(x: 25, y: 0, width: 21, height: 25))
+        iconContainerView.addSubview(iconView)
+        textfield.leftViewMode = UITextField.ViewMode.always
+        textfield.rightViewMode = UITextField.ViewMode.always
+        textfield.leftView = iconContainerView
+        textfield.rightView = UIView(frame:
+            CGRect(x: -10, y: 0, width: 30, height: 30))
+    }
+    
     func givePadding(to textfield:UITextField){
         let iconContainerView: UIView = UIView(frame:
             CGRect(x: 10, y: 0, width: 15, height: 30))

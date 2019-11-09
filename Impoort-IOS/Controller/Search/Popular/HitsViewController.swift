@@ -30,7 +30,7 @@ class HitsViewController: BaseViewController {
         self.searchTxtField.delegate = self
         setCollectionLayout()
         self.searchTxtField.layer.cornerRadius = 15
-        TxtFieldConfig.shared.addIconForSearch(to: self.searchTxtField, iconName: "search")
+        TxtFieldConfig.shared.addIconForSharp(to: self.searchTxtField, iconName: "diyez")
     }
     
     func setCollectionLayout(){
@@ -71,6 +71,10 @@ extension HitsViewController : UITextFieldDelegate{
         return true
     }
     func openSearchVCWithKey(with txtKey:String){
-        print(txtKey) //filterResultVC deki keye gönderilecek.
+        print(txtKey)
+        let vc = UIStoryboard(name: "External", bundle: nil).instantiateViewController(withIdentifier: "FilterVC") as? FilterResultViewController
+        vc?.searchFilterKey = txtKey
+        self.navigationController?.pushViewController(vc!, animated: true)
+        
     }
 }
