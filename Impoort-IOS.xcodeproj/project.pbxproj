@@ -436,6 +436,7 @@
 		4893007223428A91004B37AD /* Impoort-IOS */ = {
 			isa = PBXGroup;
 			children = (
+				48355B942372493000B5C17A /* myvideo.mp4 */,
 				483DD9A62347F48100DCA3A1 /* Controller */,
 				483DD9A92347F4A900DCA3A1 /* App */,
 				483DD9A82347F4A000DCA3A1 /* View */,
@@ -472,7 +473,6 @@
 		48C22EDF2375F3C0002C558D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				48355B942372493000B5C17A /* myvideo.mp4 */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

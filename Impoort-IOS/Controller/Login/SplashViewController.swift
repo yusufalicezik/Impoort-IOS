@@ -31,7 +31,7 @@ class SplashViewController: UIViewController {
     func getTypeWriterAnim(){
         for i in self.text{
             self.impoort.text! += "\(i)"
-                RunLoop.current.run(until: Date()+0.20)
+                RunLoop.current.run(until: Date()+0.15)
             if i == "."{
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.5){
                     self.showLoginButton()
