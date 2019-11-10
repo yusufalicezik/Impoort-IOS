@@ -403,7 +403,7 @@
                                 <rect key="frame" x="0.0" y="94" width="375" height="635"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XPF-oz-p56">
-                                        <rect key="frame" x="0.0" y="25" width="375" height="197"/>
+                                        <rect key="frame" x="0.0" y="25" width="375" height="194"/>
                                         <subviews>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you want to share about?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15U-Vi-IyR">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
@@ -418,24 +418,25 @@
                                                     <constraint firstAttribute="height" priority="999" constant="14" id="ZyS-2f-wCS"/>
                                                 </constraints>
                                             </view>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QOO-lR-Tfu">
-                                                <rect key="frame" x="15" y="14" width="345" height="45"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="About What?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QOO-lR-Tfu">
+                                                <rect key="frame" x="15" y="14" width="345" height="42"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="Pnk-6A-1Dh"/>
+                                                    <constraint firstAttribute="height" constant="42" id="Pnk-6A-1Dh"/>
                                                 </constraints>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" red="0.41176470588235292" green="0.4823529411764706" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvD-ME-C6K">
-                                                <rect key="frame" x="27.666666666666657" y="59" width="320" height="8"/>
+                                                <rect key="frame" x="27.666666666666657" y="56" width="320" height="8"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="999" constant="8" id="D8u-4J-55B"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g0L-Lp-8IA">
-                                                <rect key="frame" x="15" y="67" width="345" height="1"/>
+                                                <rect key="frame" x="15" y="64" width="345" height="1"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dn3-mh-ykr">
                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="1"/>
@@ -464,24 +465,24 @@
                                                 </constraints>
                                             </view>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Spi-cJ-ic8">
-                                                <rect key="frame" x="15" y="68" width="345" height="70"/>
+                                                <rect key="frame" x="15" y="65" width="345" height="70"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="999" constant="70" id="faw-DX-roq"/>
                                                 </constraints>
-                                                <color key="textColor" red="0.41239845749999998" green="0.48374867440000002" blue="0.54169982670000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.41176470588235292" green="0.4823529411764706" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v91-pX-kIr">
-                                                <rect key="frame" x="0.0" y="138" width="375" height="14"/>
+                                                <rect key="frame" x="0.0" y="135" width="375" height="14"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="999" constant="14" id="oaK-H5-uYS"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OTf-LL-xvo">
-                                                <rect key="frame" x="15" y="152" width="345" height="45"/>
+                                                <rect key="frame" x="15" y="149" width="345" height="45"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYq-kL-2Iw">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="45"/>
@@ -559,6 +560,7 @@
                         <outlet property="imgViewParent" destination="g0L-Lp-8IA" id="8pB-9m-RlJ"/>
                         <outlet property="postDescriptionTxtView" destination="Spi-cJ-ic8" id="h5H-dc-z2o"/>
                         <outlet property="postImageView" destination="dn3-mh-ykr" id="KER-o4-oeO"/>
+                        <outlet property="postTitleTxtField" destination="QOO-lR-Tfu" id="uRi-9j-tX5"/>
                         <outlet property="postTxtHeightConstraint" destination="faw-DX-roq" id="uSO-Dc-rw3"/>
                         <outlet property="shareButton" destination="gF7-eG-VPG" id="VEM-TZ-8nv"/>
                         <outlet property="topRightButton" destination="npu-9J-xoz" id="2xL-uZ-kLl"/>

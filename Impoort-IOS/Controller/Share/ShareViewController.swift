@@ -22,6 +22,7 @@ class ShareViewController: BaseViewController,UITextViewDelegate{
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postDescriptionTxtView: UITextView!
     @IBOutlet weak var topRightButton: UIButton!
+    @IBOutlet weak var postTitleTxtField: UITextField!
     @IBOutlet weak var postTxtHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var imgParentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var imgParentCloseButtonHEightConst: NSLayoutConstraint!
@@ -32,6 +33,7 @@ class ShareViewController: BaseViewController,UITextViewDelegate{
     var isTag = false
     var isTagFirstTime = false
     var currentTag = ""
+    var textColorBlue:UIColor?
     var tagList = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +55,8 @@ class ShareViewController: BaseViewController,UITextViewDelegate{
                 self.goToBack()
             }
         }
+        self.textColorBlue = self.postDescriptionTxtView.textColor
+        self.postTitleTxtField.layer.cornerRadius = 12
         self.postDescriptionTxtView.delegate = self
         self.postDescriptionTxtView.layer.cornerRadius = 12
         self.shareButton.layer.cornerRadius = 11
@@ -62,8 +66,8 @@ class ShareViewController: BaseViewController,UITextViewDelegate{
         self.closeButton.layer.cornerRadius = 12
         self.closeButton.clipsToBounds = true
         self.imgViewParent.backgroundColor = .clear
-        postDescriptionTxtView.text = "What do you want to share about?"
-        postDescriptionTxtView.textColor = UIColor.lightGray
+        postDescriptionTxtView.text = "What is the description of your topic?"
+        postDescriptionTxtView.textColor  = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = true
         IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Done"
@@ -85,7 +89,7 @@ class ShareViewController: BaseViewController,UITextViewDelegate{
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
         self.postDescClicked()
-        if postDescriptionTxtView.textColor == UIColor.lightGray {
+        if postDescriptionTxtView.textColor == #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) {
             postDescriptionTxtView.text = ""
             postDescriptionTxtView.textColor = #colorLiteral(red: 0.07843137255, green: 0.2509803922, blue: 0.3882352941, alpha: 0.5303135702)
         }
@@ -93,8 +97,8 @@ class ShareViewController: BaseViewController,UITextViewDelegate{
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if postDescriptionTxtView.text == "" {
-            postDescriptionTxtView.text = "What do you want to share about?"
-            postDescriptionTxtView.textColor = UIColor.lightGray
+            postDescriptionTxtView.text = "What is the description of your topic?"
+            postDescriptionTxtView.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         }
         if postDescriptionTxtView.text.count < 80{
             decreasePostViewHeight()
@@ -113,10 +117,10 @@ class ShareViewController: BaseViewController,UITextViewDelegate{
             }
         }
         if isTag{
-            self.postDescriptionTxtView.typingAttributes = [NSAttributedString.Key.foregroundColor:UIColor.blue, NSAttributedString.Key.font:self.postDescriptionTxtView.font!]
+            self.postDescriptionTxtView.typingAttributes = [NSAttributedString.Key.foregroundColor:#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1), NSAttributedString.Key.font:UIFont(name: "Avenir-Medium", size: 15)!]
 
         }else{
-            self.postDescriptionTxtView.typingAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black, NSAttributedString.Key.font:self.postDescriptionTxtView.font!]
+            self.postDescriptionTxtView.typingAttributes = [NSAttributedString.Key.foregroundColor:textColorBlue!, NSAttributedString.Key.font:self.postDescriptionTxtView.font!]
         }
         return true
     }
