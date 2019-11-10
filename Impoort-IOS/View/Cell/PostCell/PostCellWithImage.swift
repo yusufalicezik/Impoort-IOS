@@ -18,6 +18,7 @@ protocol PostCellDelegate{
 
 class PostCellWithImage: UITableViewCell {
 
+    @IBOutlet weak var readMoreButton: UIButton!
     @IBOutlet weak var lineView: UIView!
     @IBOutlet weak var lineViewHeightConst: NSLayoutConstraint!
     @IBOutlet weak var bottomLineViewCostraint: NSLayoutConstraint!
@@ -68,10 +69,12 @@ class PostCellWithImage: UITableViewCell {
         self.profileImage.addGestureRecognizer(postProfileImageRecognizer)
     }
     @objc func clickedPost(){
-        perDelegate?.didSelectPost(self.postID!) //postun kendisi gönderilecek.
+        //perDelegate?.didSelectPost(self.postID!) //postun kendisi gönderilecek.
+    }
+    @IBAction func readMoreClicked(_ sender: Any) {
+        perDelegate?.didSelectPost(self.postID!)
     }
     @objc func clickedReadMore(){
-        
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -80,5 +83,8 @@ class PostCellWithImage: UITableViewCell {
         perDelegate?.didClickedProfilePic()
     }
 
+    func hiddenReadMore(){
+        
+    }
     
 }
