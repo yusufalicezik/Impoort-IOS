@@ -18,7 +18,6 @@
 		481918E4236157F100D43D88 /* SettingsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481918E3236157F100D43D88 /* SettingsDetailViewController.swift */; };
 		481FF4572356D121000836D0 /* WatchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FF4562356D121000836D0 /* WatchingViewController.swift */; };
 		48355B8F2372393000B5C17A /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48355B8E2372393000B5C17A /* SplashViewController.swift */; };
-		48355B952372493300B5C17A /* myvideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 48355B942372493000B5C17A /* myvideo.mp4 */; };
 		483DD9AE2347F99F00DCA3A1 /* TxtFieldConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9AD2347F99F00DCA3A1 /* TxtFieldConfig.swift */; };
 		483DD9B12348035800DCA3A1 /* RegisterFirstStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9B02348035800DCA3A1 /* RegisterFirstStepViewController.swift */; };
 		483DD9B32348042E00DCA3A1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9B22348042E00DCA3A1 /* BaseViewController.swift */; };
@@ -52,6 +51,7 @@
 		486A0D5023569B3E0019329D /* LinksView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486A0D4F23569B3E0019329D /* LinksView.xib */; };
 		486A0D5B2356AF9E0019329D /* WatcherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A0D592356AF9E0019329D /* WatcherCell.swift */; };
 		486A0D5C2356AF9E0019329D /* WatcherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486A0D5A2356AF9E0019329D /* WatcherCell.xib */; };
+		486BC8342378647E005B0750 /* myvideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 48355B942372493000B5C17A /* myvideo.mp4 */; };
 		4890BD3D2355142E0083AEAF /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890BD3C2355142E0083AEAF /* ShareViewController.swift */; };
 		4890BD3F23554A800083AEAF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890BD3E23554A800083AEAF /* SettingsViewController.swift */; };
 		4890BD41235552CC0083AEAF /* ProfilePropertiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890BD40235552CC0083AEAF /* ProfilePropertiesCell.swift */; };
@@ -92,7 +92,7 @@
 		481918E3236157F100D43D88 /* SettingsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDetailViewController.swift; sourceTree = "<group>"; };
 		481FF4562356D121000836D0 /* WatchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingViewController.swift; sourceTree = "<group>"; };
 		48355B8E2372393000B5C17A /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		48355B942372493000B5C17A /* myvideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = myvideo.mp4; sourceTree = "<group>"; };
+		48355B942372493000B5C17A /* myvideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = myvideo.mp4; path = ../../myvideo.mp4; sourceTree = "<group>"; };
 		483DD9AD2347F99F00DCA3A1 /* TxtFieldConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxtFieldConfig.swift; sourceTree = "<group>"; };
 		483DD9B02348035800DCA3A1 /* RegisterFirstStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFirstStepViewController.swift; sourceTree = "<group>"; };
 		483DD9B22348042E00DCA3A1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -436,7 +436,6 @@
 		4893007223428A91004B37AD /* Impoort-IOS */ = {
 			isa = PBXGroup;
 			children = (
-				48355B942372493000B5C17A /* myvideo.mp4 */,
 				483DD9A62347F48100DCA3A1 /* Controller */,
 				483DD9A92347F4A900DCA3A1 /* App */,
 				483DD9A82347F4A000DCA3A1 /* View */,
@@ -473,6 +472,7 @@
 		48C22EDF2375F3C0002C558D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				48355B942372493000B5C17A /* myvideo.mp4 */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -571,7 +571,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48355B952372493300B5C17A /* myvideo.mp4 in Resources */,
+				486BC8342378647E005B0750 /* myvideo.mp4 in Resources */,
 				48CEF2072359392400FCC5BD /* QuickShareCell.xib in Resources */,
 				4893007E23428A92004B37AD /* LaunchScreen.storyboard in Resources */,
 				486A0D5023569B3E0019329D /* LinksView.xib in Resources */,
