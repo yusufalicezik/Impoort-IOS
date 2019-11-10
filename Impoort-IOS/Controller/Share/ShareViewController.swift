@@ -29,7 +29,10 @@ class ShareViewController: BaseViewController,UITextViewDelegate{
     var openedFromTab = true
     var topRightButtonAction:(()->Void)!
     var imagePicker = UIImagePickerController()
-    
+    var isTag = false
+    var isTagFirstTime = false
+    var currentTag = ""
+    var tagList = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.clearHeader()
@@ -98,6 +101,25 @@ class ShareViewController: BaseViewController,UITextViewDelegate{
         }
     }
 
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if textView.text!.count == 0{
+            isTag = false
+        }
+        if textView == self.postDescriptionTxtView{
+            if textView.text!.last == "#"{
+                isTag = true
+            }else if textView.text!.last == " "{
+                isTag = false
+            }
+        }
+        if isTag{
+            self.postDescriptionTxtView.typingAttributes = [NSAttributedString.Key.foregroundColor:UIColor.blue, NSAttributedString.Key.font:self.postDescriptionTxtView.font!]
+
+        }else{
+            self.postDescriptionTxtView.typingAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black, NSAttributedString.Key.font:self.postDescriptionTxtView.font!]
+        }
+        return true
+    }
     func decreasePostViewHeight(){
         self.postTxtHeightConstraint.constant = 70
         UIView.animate(withDuration: 0.3){
@@ -108,6 +130,18 @@ class ShareViewController: BaseViewController,UITextViewDelegate{
 
     @IBAction func shareButtonClicked(_ sender: Any) {
         print(postType)
+        var
+        wordsOfDesc = postDescriptionTxtView.text.split(separator: "#")
+        if wordsOfDesc.count > 0 && self.postDescriptionTxtView.text.first != "#"{
+            wordsOfDesc.removeFirst()
+        }
+        for word in wordsOfDesc{
+            let wordOfSpace = String(word).split(separator: " ")
+            if wordOfSpace.count > 0{
+                self.tagList.append(String(wordOfSpace[0]))
+                print(String(wordOfSpace[0]))
+            }
+        }
     }
     
     @objc func postDescClicked(){
