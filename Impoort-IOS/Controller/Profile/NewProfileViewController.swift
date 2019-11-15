@@ -156,10 +156,18 @@ class NewProfileViewController: BaseViewController {
                 mView?.departmentLabel.text = self.experiencesDepartment[i]
                 self.experiencesStackView.addArrangedSubview(mView!)
                 mView?.translatesAutoresizingMaskIntoConstraints = false
-                mView?.heightAnchor.constraint(greaterThanOrEqualToConstant: 40).isActive = true
+                mView?.heightAnchor.constraint(equalToConstant: 40).isActive = true
                 mView?.centerXAnchor.constraint(equalTo: self.experiencesStackView.centerXAnchor, constant: 0.0).isActive = true
                 if i == 0{
-                    mView?.icon.image = UIImage(named:"bluesettings")
+                    mView?.icon.image = UIImage(named:"bigEx")
+                    mView?.widthConst.constant = 22
+                    mView?.leadingConst.constant = (mView?.leadingConst.constant)! - 3.5
+                    mView?.topStackConst.constant = 0
+                    mView?.layoutIfNeeded()
+                }
+                if i == self.experiences.count-1{
+                    mView?.icon.image = UIImage(named:"normalExp")
+                    mView?.layoutIfNeeded()
                 }
                 self.currentExperienceViews.append(mView!)
             }

@@ -10,9 +10,12 @@ import UIKit
 
 class ExperienceView: UIView {
 
+    @IBOutlet weak var widthConst: NSLayoutConstraint!
     @IBOutlet weak var companyNameLabel: UILabel!
     @IBOutlet weak var departmentLabel: UILabel!
     @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var leadingConst: NSLayoutConstraint!
+    @IBOutlet weak var topStackConst: NSLayoutConstraint!
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
