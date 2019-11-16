@@ -82,6 +82,7 @@ class BaseViewController: UIViewController {
         }else{
             self.present(vc!, animated: true, completion: nil)
         }
+        
     }
     
     func goToChatVC(){ //id de gönderilecek. mesajlasılan kisinin.

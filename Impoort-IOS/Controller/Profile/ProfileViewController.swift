@@ -82,13 +82,6 @@ class ProfileViewController: BaseViewController {
         self.postsView.senderProfileType = senderType
         self.postsView.load()
     }
-    func loadWatcherView(senderType:SenderProfileTyle){
-            if let _ = self.postsView.superview {
-            self.postsView.removeFromSuperview()
-            self.postsView.senderProfileType = senderType
-            self.postsView.load()
-        }
-    }
     @IBAction func backButtonClicked(_ sender: Any) {
         UIView.animate(withDuration: 0.3){
             UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -105,6 +98,9 @@ class ProfileViewController: BaseViewController {
             UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             self.setNeedsStatusBarAppearanceUpdate()
         }
+    }
+    deinit{
+        print("profile deinit")
     }
     
 }

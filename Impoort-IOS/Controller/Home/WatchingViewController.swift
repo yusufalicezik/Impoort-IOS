@@ -41,6 +41,4 @@ class WatchingViewController: BaseViewController {
             self.setNeedsStatusBarAppearanceUpdate()
         }
     }
-    
-
 }

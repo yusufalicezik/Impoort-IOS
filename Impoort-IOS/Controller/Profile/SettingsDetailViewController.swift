@@ -22,6 +22,7 @@ class SettingsDetailViewController: BaseViewController {
     }
     
     @IBAction func backbuttonCicked(_ sender: Any) {
+        self.containerStackView.subviews.forEach {$0.removeFromSuperview()}
         self.goToBack()
     }
     
@@ -35,47 +36,47 @@ class SettingsDetailViewController: BaseViewController {
                 txt.setup()
                 txt.placeholder = "Name"
             }else if $0.contains("Surname"){
-                let txt = CustomTextField()
-                txt.parentVC = self
-                self.containerStackView.addArrangedSubview(txt)
-                txt.setup()
-                txt.placeholder = "Surname"
+                weak var txt = CustomTextField()
+                txt?.parentVC = self
+                self.containerStackView.addArrangedSubview(txt!)
+                txt?.setup()
+                txt?.placeholder = "Surname"
             }else if $0.contains("City"){
-                let txt = CustomTextField()
-                txt.parentVC = self
-                self.containerStackView.addArrangedSubview(txt)
-                txt.setup()
-                txt.placeholder = "City"
+                weak var txt = CustomTextField()
+                txt?.parentVC = self
+                self.containerStackView.addArrangedSubview(txt!)
+                txt?.setup()
+                txt?.placeholder = "City"
             }else if $0.contains("Date of Birth/Established"){
-                let txt = CustomTextField()
-                txt.parentVC = self
-                self.containerStackView.addArrangedSubview(txt)
-                txt.setup()
-                txt.placeholder = "Date of Birth/Established"
+                 weak var txt = CustomTextField()
+                txt?.parentVC = self
+                self.containerStackView.addArrangedSubview(txt!)
+                txt?.setup()
+                txt?.placeholder = "Date of Birth/Established"
             }else if $0.contains("Gender"){
-                let txt = CustomTextField()
-                txt.parentVC = self
-                self.containerStackView.addArrangedSubview(txt)
-                txt.setup()
-                txt.placeholder = "Gender"
+                 weak var txt = CustomTextField()
+                txt?.parentVC = self
+                self.containerStackView.addArrangedSubview(txt!)
+                txt?.setup()
+                txt?.placeholder = "Gender"
             }else if $0.contains("Sector"){
-                let txt = CustomTextField()
-                txt.parentVC = self
-                self.containerStackView.addArrangedSubview(txt)
-                txt.setup()
-                txt.placeholder = "Sector"
+                 weak var txt = CustomTextField()
+                txt?.parentVC = self
+                self.containerStackView.addArrangedSubview(txt!)
+                txt?.setup()
+                txt?.placeholder = "Sector"
             }else if $0.contains("E mail"){
-                let txt = CustomTextField()
-                txt.parentVC = self
-                self.containerStackView.addArrangedSubview(txt)
-                txt.setup()
-                txt.placeholder = "E mail"
+                 weak var txt = CustomTextField()
+                txt?.parentVC = self
+                self.containerStackView.addArrangedSubview(txt!)
+                txt?.setup()
+                txt?.placeholder = "E mail"
             }else if $0.contains("Password"){
-                let txt = CustomTextField()
-                txt.parentVC = self
-                self.containerStackView.addArrangedSubview(txt)
-                txt.setup()
-                txt.placeholder = "Password"
+                 weak var txt = CustomTextField()
+                txt?.parentVC = self
+                self.containerStackView.addArrangedSubview(txt!)
+                txt?.setup()
+                txt?.placeholder = "Password"
             }else if $0.contains("Phone Number"){
                 let txt = CustomTextField()
                 txt.parentVC = self
@@ -83,11 +84,11 @@ class SettingsDetailViewController: BaseViewController {
                 txt.setup()
                 txt.placeholder = "Phone Number"
             }else if $0.contains("Profile Type"){
-                let txt = CustomTextField()
-                txt.parentVC = self
-                self.containerStackView.addArrangedSubview(txt)
-                txt.setup()
-                txt.placeholder = "Profile Type"
+                weak var txt = CustomTextField()
+                txt?.parentVC = self
+                self.containerStackView.addArrangedSubview(txt!)
+                txt?.setup()
+                txt?.placeholder = "Profile Type"
             }else if $0.contains("Verify Account"){
                 let txt = CustomTextField()
                 txt.parentVC = self
@@ -131,6 +132,8 @@ class SettingsDetailViewController: BaseViewController {
         button.heightAnchor.constraint(equalToConstant: 47).isActive = true
         button.widthAnchor.constraint(equalToConstant: 80).isActive = true
     }
-    
+    deinit{
+        print("settings detail de init")
+    }
 
 }

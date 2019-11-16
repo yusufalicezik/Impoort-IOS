@@ -414,7 +414,7 @@
         <!--Navigation Controller-->
         <scene sceneID="9b9-lu-Gal">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Yro-cm-M6J" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MessageNav" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Yro-cm-M6J" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9Jd-TM-2Rt">
                         <autoresizingMask key="autoresizingMask"/>

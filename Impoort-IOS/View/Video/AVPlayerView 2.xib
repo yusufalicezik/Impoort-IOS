@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AVPlayerView" customModule="Impoort_IOS" customModuleProvider="target">
+            <connections>
+                <outlet property="btnFullScreen" destination="BmA-U3-p2w" id="nsq-tF-QHh"/>
+                <outlet property="btnMute" destination="Wn6-le-7i5" id="H6k-ON-7v7"/>
+                <outlet property="indicatorView" destination="rRY-el-UDH" id="V62-OJ-w6U"/>
+                <outlet property="parentView" destination="Bua-Qp-IcB" id="4ah-d9-320"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="576" height="388"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bua-Qp-IcB">
+                    <rect key="frame" x="0.0" y="348" width="576" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wn6-le-7i5">
+                            <rect key="frame" x="10" y="0.0" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="9Ly-mb-Irv"/>
+                                <constraint firstAttribute="width" constant="40" id="Mde-dY-kIL"/>
+                            </constraints>
+                            <state key="normal" image="sound"/>
+                            <connections>
+                                <action selector="actMute:" destination="-1" eventType="touchUpInside" id="RX5-n6-nGn"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmA-U3-p2w">
+                            <rect key="frame" x="516" y="0.0" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="1j0-uA-quF"/>
+                                <constraint firstAttribute="height" constant="40" id="4Mv-QI-44e"/>
+                                <constraint firstAttribute="width" constant="40" id="5fl-oD-wzU"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="AX0-bL-FuS"/>
+                            </constraints>
+                            <state key="normal" image="icnFullscreen"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.086274509803921567" green="0.086274509803921567" blue="0.086274509803921567" alpha="0.52862799657534243" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="Wn6-le-7i5" firstAttribute="leading" secondItem="Bua-Qp-IcB" secondAttribute="leading" constant="10" id="RNK-KQ-HgH"/>
+                        <constraint firstAttribute="height" constant="40" id="SwY-KF-mcB"/>
+                        <constraint firstItem="BmA-U3-p2w" firstAttribute="centerY" secondItem="Bua-Qp-IcB" secondAttribute="centerY" id="WdC-gM-pQ9"/>
+                        <constraint firstAttribute="trailing" secondItem="BmA-U3-p2w" secondAttribute="trailing" constant="20" id="fhC-hj-P7h"/>
+                        <constraint firstItem="Wn6-le-7i5" firstAttribute="centerY" secondItem="Bua-Qp-IcB" secondAttribute="centerY" id="gTM-b7-oTj"/>
+                    </constraints>
+                </view>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="rRY-el-UDH">
+                    <rect key="frame" x="269.5" y="175.5" width="37" height="37"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Bua-Qp-IcB" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="1aL-Ar-9Uk"/>
+                <constraint firstItem="Bua-Qp-IcB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="5pv-3Z-kQT"/>
+                <constraint firstItem="rRY-el-UDH" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="AwD-V8-cs4"/>
+                <constraint firstItem="rRY-el-UDH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Q3D-QB-E9C"/>
+                <constraint firstItem="Bua-Qp-IcB" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="eKV-li-agv"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="81.599999999999994" y="-92.653673163418304"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icnFullscreen" width="21" height="20"/>
+        <image name="sound" width="24" height="24"/>
+    </resources>
+</document>

@@ -23,6 +23,9 @@ class SettingsViewController: BaseViewController {
         setup()
         self.clearHeader()
     }
+    deinit{
+        print("settings de init")
+    }
     func setup(){
         self.profileImgView.layer.cornerRadius = self.profileImgView.frame.width/2
         self.logOutButton.layer.cornerRadius = 11

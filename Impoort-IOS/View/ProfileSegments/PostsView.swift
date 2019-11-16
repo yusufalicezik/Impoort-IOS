@@ -14,7 +14,7 @@ enum SenderProfileTyle{
 class PostsView: UIView {
 
     @IBOutlet weak var tableView: UITableView!
-    var parentVC:UIViewController?
+    weak var parentVC:UIViewController? //weak for memory leaks/retain cycle
     var senderProfileType:SenderProfileTyle?
     //let refreshControl = UIRefreshControl()
     var isLoading = false

@@ -55,13 +55,13 @@ class NewProfileViewController: BaseViewController {
     func setup(){
         if self.profileID == 0{ // me
             self.topLeftIcon.setImage(UIImage(named: "settingsicon"), for: .normal)
-            self.profileTopLeftAction = {
-                self.goToSettingsVC()
+            self.profileTopLeftAction = {[weak self] in
+                self?.goToSettingsVC()
             }
         }else{
             self.topLeftIcon.setImage(UIImage(named: "close"), for: .normal)
-            self.profileTopLeftAction = {
-                self.goToBack()
+            self.profileTopLeftAction = {[weak self] in
+                self?.goToBack()
             }
         }
         self.headerProfileImage.layer.cornerRadius = self.headerProfileImage.frame.width / 2
@@ -147,7 +147,9 @@ class NewProfileViewController: BaseViewController {
     @IBAction func messagesClicked(_ sender: Any) {
         self.goToMessagesGeneral()
     }
-    
+    deinit{
+        print("new de init")
+    }
     func getExperiences(){
         self.currentExperienceViews.removeAll()
             for i in 0..<self.experiences.count{

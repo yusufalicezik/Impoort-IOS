@@ -43,8 +43,8 @@ class ChatViewController: BaseViewController {
         self.tableView.dataSource = self
         self.tableView.allowsSelection = false
         self.sendMessageTxtField.becomeFirstResponder()
-        self.timer = Repeater.every(.seconds(5.0)) { timer  in
-            self.getDataFromService()
+        self.timer = Repeater.every(.seconds(5.0)) { [weak self] timer  in
+            self?.getDataFromService()
         }
         
         

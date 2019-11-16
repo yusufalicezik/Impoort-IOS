@@ -61,7 +61,6 @@ class MessagesGeneralViewController: BaseViewController {
             return dataItem.hasPrefix(keyword)
         })
     }
-
 }
 extension MessagesGeneralViewController:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
