@@ -134,8 +134,7 @@ class ShareViewController: BaseViewController,UITextViewDelegate{
 
     @IBAction func shareButtonClicked(_ sender: Any) {
         print(postType)
-        var
-        wordsOfDesc = postDescriptionTxtView.text.split(separator: "#")
+        var wordsOfDesc = postDescriptionTxtView.text.split(separator: "#")
         if wordsOfDesc.count > 0 && self.postDescriptionTxtView.text.first != "#"{
             wordsOfDesc.removeFirst()
         }
