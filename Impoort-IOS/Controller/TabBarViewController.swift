@@ -5,11 +5,10 @@
 //  Created by Yusuf ali cezik on 21.10.2019.
 //  Copyright © 2019 Yusuf Ali Cezik. All rights reserved.
 //
-
 import UIKit
 
 class TabBarViewController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
@@ -18,7 +17,7 @@ class TabBarViewController: UITabBarController {
     @objc func set(selectedIndex index : Int) {
         _ = self.tabBarController(self, shouldSelect: self.viewControllers![index])
     }
-
+    
 }
 @objc extension TabBarViewController: UITabBarControllerDelegate  {
     @objc func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {

@@ -14,6 +14,7 @@ class SplashViewController: UIViewController {
     var text = "Find Your\nInvestor\nStartup\nor\nTeam \nWith Impoort."
     var index = 0
 
+    @IBOutlet weak var loginButttonBottomConst: NSLayoutConstraint! //-45 default
     @IBOutlet weak var impoort: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loginButtonHeightConst: NSLayoutConstraint!
@@ -48,10 +49,9 @@ class SplashViewController: UIViewController {
     }
     
     func showLoginButton(){
-        self.loginButtonHeightConst.constant = 40.0
-        UIView.animate(withDuration: 0.5){
+        self.loginButttonBottomConst.constant = 35
+        UIView.animate(withDuration: 0.7){
             self.view.layoutIfNeeded()
-            self.loginButton.isHidden = false
         }
     }
     @IBAction func loginClicked(_ sender: Any) {
