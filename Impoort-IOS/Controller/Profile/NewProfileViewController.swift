@@ -38,8 +38,8 @@ class NewProfileViewController: BaseViewController {
     var isClosed = false
     var firstLoadAppear = false
     //bu ikisi tek sınıf olacak.
-    let experiences = ["Nuevo Softwarehouse", "Özgür Yazılım AŞ", "BTPro Yazılım Çözümleri", "Microsoft", "Apple", "Oracle"]
-    let experiencesDepartment = ["IOS Developer", "Java Developer", "Middle IOS Developer", ".Net Developer", "Senior IOS Developer", "Software Developer"]
+    let experiences = ["Cyoxes", "Özgür Yazılım AŞ", "Ceux Softwarehouse", "Microsoft", "Apple", "Oracle"]
+    let experiencesDepartment = ["Senior IOS Developer", "Java Developer", "Middle IOS Developer", ".Net Developer", "Junior IOS Developer", "Software Developer"]
     
     //bu ikisi tek sınıf olacak
     let linkNames = ["Github", "Facebook", "Linkedin"]
