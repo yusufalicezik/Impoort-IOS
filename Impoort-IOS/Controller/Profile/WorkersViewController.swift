@@ -19,6 +19,7 @@ class WorkersViewController: UIViewController {
         super.viewDidLoad()
         self.containerView.layer.cornerRadius = 15
         self.tableView.layer.cornerRadius = 15
+        self.tableView.delaysContentTouches = false
         self.tableView.register(UINib(nibName: "WatcherCell", bundle: nil), forCellReuseIdentifier: "watcherCell")
         let recognizerDismiss = UITapGestureRecognizer(target: self, action: #selector(self.dismissSelf))
         self.view.addGestureRecognizer(recognizerDismiss)
