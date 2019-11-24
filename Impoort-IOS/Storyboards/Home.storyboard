@@ -1082,12 +1082,25 @@
                                                             <action selector="didMoreClicked:" destination="GVy-Wt-apd" eventType="touchUpInside" id="piK-qZ-kMi"/>
                                                         </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHl-RP-NCS">
+                                                        <rect key="frame" x="10" y="333" width="22" height="22"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="22" id="C8l-7G-sjn"/>
+                                                            <constraint firstAttribute="width" constant="22" id="Dii-vI-BpK"/>
+                                                        </constraints>
+                                                        <state key="normal" image="peopleicon"/>
+                                                        <connections>
+                                                            <action selector="workersButtonClicked:" destination="GVy-Wt-apd" eventType="touchUpInside" id="xQp-TQ-iVA"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="0xa-NI-gjl" firstAttribute="top" secondItem="0J4-kP-s0g" secondAttribute="bottom" constant="5" id="0v3-Dh-zvu"/>
                                                     <constraint firstAttribute="bottom" secondItem="Mq7-ey-SKh" secondAttribute="bottom" constant="15" id="5DX-iY-Ddc"/>
+                                                    <constraint firstItem="DHl-RP-NCS" firstAttribute="leading" secondItem="PyM-0A-x2N" secondAttribute="leading" constant="10" id="9sd-Gn-XtN"/>
                                                     <constraint firstItem="RiR-fW-tlo" firstAttribute="centerX" secondItem="PyM-0A-x2N" secondAttribute="centerX" id="L6f-BE-4KF"/>
+                                                    <constraint firstAttribute="bottom" secondItem="DHl-RP-NCS" secondAttribute="bottom" constant="15" id="MPI-Ea-GO4"/>
                                                     <constraint firstItem="0J4-kP-s0g" firstAttribute="centerX" secondItem="PyM-0A-x2N" secondAttribute="centerX" id="MmH-4j-bxd"/>
                                                     <constraint firstItem="0J4-kP-s0g" firstAttribute="top" secondItem="PyM-0A-x2N" secondAttribute="top" constant="60" id="P7j-ga-4CH"/>
                                                     <constraint firstAttribute="trailing" secondItem="0xa-NI-gjl" secondAttribute="trailing" constant="10" id="PzT-kf-Bu2"/>
@@ -1780,6 +1793,7 @@
         <image name="messageicon" width="60" height="51"/>
         <image name="messagwwhite" width="23" height="17"/>
         <image name="morewhite" width="22" height="20"/>
+        <image name="peopleicon" width="30" height="30"/>
         <image name="person" width="16.333333969116211" height="16.666666030883789"/>
         <image name="phone35" width="30" height="30"/>
         <image name="planet-ex" width="35" height="35"/>

@@ -19,7 +19,6 @@ class NewProfileViewController: BaseViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var topContainerView: UIView!
     @IBOutlet weak var topLeftIcon: UIButton!
-    var pastelView : PastelView?
     @IBOutlet weak var parentStackView: UIStackView!
     @IBOutlet weak var aboutTextView: UITextView!
     @IBOutlet weak var aboutStackView: UIStackView!
@@ -31,6 +30,7 @@ class NewProfileViewController: BaseViewController {
     
     var currentExperienceViews = [ExperienceView]()
     var currentLinkViews = [LinksView]()
+    var pastelView : PastelView?
 
     
     var profileTopLeftAction:(()->())!
@@ -211,6 +211,12 @@ class NewProfileViewController: BaseViewController {
             UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             self.setNeedsStatusBarAppearanceUpdate()
         }
+    }
+    
+    @IBAction func workersButtonClicked(_ sender: Any) {
+        let workersVC = UIStoryboard(name: "External", bundle: nil).instantiateViewController(withIdentifier: "WorkersVC") as? WorkersViewController
+        workersVC?.modalPresentationStyle = .overCurrentContext
+        self.present(workersVC!, animated: false, completion: nil)
     }
 }
 extension NewProfileViewController:UIScrollViewDelegate{

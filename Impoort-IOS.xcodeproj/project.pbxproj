@@ -17,6 +17,7 @@
 		481918E4236157F100D43D88 /* SettingsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481918E3236157F100D43D88 /* SettingsDetailViewController.swift */; };
 		481FF4572356D121000836D0 /* WatchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481FF4562356D121000836D0 /* WatchingViewController.swift */; };
 		48235ED32380982F0082DC6D /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48235ED22380982F0082DC6D /* TabBarViewController.swift */; };
+		482D71A3238A021100EF34D4 /* WorkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482D71A2238A021100EF34D4 /* WorkersViewController.swift */; };
 		48355B8F2372393000B5C17A /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48355B8E2372393000B5C17A /* SplashViewController.swift */; };
 		483DD9AE2347F99F00DCA3A1 /* TxtFieldConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9AD2347F99F00DCA3A1 /* TxtFieldConfig.swift */; };
 		483DD9B12348035800DCA3A1 /* RegisterFirstStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD9B02348035800DCA3A1 /* RegisterFirstStepViewController.swift */; };
@@ -90,6 +91,7 @@
 		481918E3236157F100D43D88 /* SettingsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDetailViewController.swift; sourceTree = "<group>"; };
 		481FF4562356D121000836D0 /* WatchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchingViewController.swift; sourceTree = "<group>"; };
 		48235ED22380982F0082DC6D /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		482D71A2238A021100EF34D4 /* WorkersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkersViewController.swift; sourceTree = "<group>"; };
 		48355B8E2372393000B5C17A /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		48355B942372493000B5C17A /* myvideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = myvideo.mp4; path = ../../myvideo.mp4; sourceTree = "<group>"; };
 		483DD9AD2347F99F00DCA3A1 /* TxtFieldConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxtFieldConfig.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				48B6E013235F45BB00001920 /* NewProfileViewController.swift */,
 				4842728B235FD1F500FE9C15 /* ProfileViewController.swift */,
 				481918E3236157F100D43D88 /* SettingsDetailViewController.swift */,
+				482D71A2238A021100EF34D4 /* WorkersViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -681,6 +684,7 @@
 				4890BD41235552CC0083AEAF /* ProfilePropertiesCell.swift in Sources */,
 				48463F9C235D12A100E1054E /* CommentPostOwnerCell.swift in Sources */,
 				481918E4236157F100D43D88 /* SettingsDetailViewController.swift in Sources */,
+				482D71A3238A021100EF34D4 /* WorkersViewController.swift in Sources */,
 				48B6E014235F45BB00001920 /* NewProfileViewController.swift in Sources */,
 				48235ED32380982F0082DC6D /* TabBarViewController.swift in Sources */,
 				480E6A12234D1CAA006A4DA0 /* FilterSearchCollectionViewCell.swift in Sources */,
