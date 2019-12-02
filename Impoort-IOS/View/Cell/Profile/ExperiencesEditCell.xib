@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ExperiencesEditCell" customModule="Impoort_IOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" id="5j3-FI-6U4" customClass="ExperienceView" customModule="Impoort_IOS" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="rqC-ao-XtE">
+                                <rect key="frame" x="27" y="-3" width="301" height="35"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nuevo SfotwareHouse" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFu-8u-fOH">
+                                        <rect key="frame" x="0.0" y="0.0" width="147.5" height="19.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intern IOS Developer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0I-dJ-148">
+                                        <rect key="frame" x="0.0" y="19.5" width="106" height="15.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="11"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smallBig" translatesAutoresizingMaskIntoConstraints="NO" id="KtZ-dL-e0B">
+                                <rect key="frame" x="5" y="0.0" width="15" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="ACz-CL-zhg"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="rqC-ao-XtE" firstAttribute="trailing" secondItem="wCJ-sg-Ekk" secondAttribute="trailing" constant="8" id="3RV-fF-zKe"/>
+                            <constraint firstItem="KtZ-dL-e0B" firstAttribute="top" secondItem="5j3-FI-6U4" secondAttribute="top" id="6mg-bE-fKx"/>
+                            <constraint firstItem="rqC-ao-XtE" firstAttribute="leading" secondItem="KtZ-dL-e0B" secondAttribute="trailing" constant="7" id="JIN-IF-hoR"/>
+                            <constraint firstItem="KtZ-dL-e0B" firstAttribute="leading" secondItem="wCJ-sg-Ekk" secondAttribute="leading" constant="5" id="N5A-vp-7VT"/>
+                            <constraint firstItem="KtZ-dL-e0B" firstAttribute="centerY" secondItem="5j3-FI-6U4" secondAttribute="centerY" id="ckm-PL-N0V"/>
+                            <constraint firstItem="rqC-ao-XtE" firstAttribute="top" secondItem="KtZ-dL-e0B" secondAttribute="top" constant="-3" id="ihN-WJ-n6v"/>
+                            <constraint firstAttribute="bottom" secondItem="KtZ-dL-e0B" secondAttribute="bottom" id="iuS-0a-29N"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wCJ-sg-Ekk"/>
+                        <connections>
+                            <outlet property="companyNameLabel" destination="PFu-8u-fOH" id="9NQ-EI-2sv"/>
+                            <outlet property="departmentLabel" destination="m0I-dJ-148" id="kcn-wF-dWZ"/>
+                            <outlet property="icon" destination="KtZ-dL-e0B" id="IPt-85-d2D"/>
+                            <outlet property="leadingConst" destination="H2p-sc-9uM" id="F8j-y3-0uz"/>
+                            <outlet property="topStackConst" destination="H2p-sc-9uM" id="2nh-ir-iqE"/>
+                            <outlet property="widthConst" destination="H2p-sc-9uM" id="23F-Gf-7SA"/>
+                        </connections>
+                    </view>
+                </subviews>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="compNameLabel" destination="PFu-8u-fOH" id="cYw-pa-aJw"/>
+                <outlet property="deptLabel" destination="m0I-dJ-148" id="FBC-gq-1J6"/>
+                <outlet property="icon" destination="KtZ-dL-e0B" id="D4J-oN-bf4"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="153.34821428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="smallBig" width="42" height="119"/>
+    </resources>
+</document>

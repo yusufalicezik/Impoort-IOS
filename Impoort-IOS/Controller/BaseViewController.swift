@@ -12,7 +12,12 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        if #available(iOS 13.0, *){
+            let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
+            statusBarView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        }else{
+            UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        }
         //self.addSwipeRightDismissRecognizer()
         //self.addSwipeLeftDismissRecognizer()
     }
@@ -175,12 +180,10 @@ class BaseViewController: UIViewController {
         
     }
     func clearHeader(){
-        UIView.animate(withDuration: 0.3){
-            //self.headerView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
+        UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             self.setNeedsStatusBarAppearanceUpdate()
         }
-    }
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
     }
@@ -217,11 +220,33 @@ class RegisteredUser{
     var user = User()
 }
 
+//extension UIApplication {
+//    var statusBarView: UIView? {
+//        if responds(to: Selector(("statusBar"))) {
+//            return value(forKey: "statusBar") as? UIView
+//        }
+//        return nil
+//    }
+//}
 extension UIApplication {
-    var statusBarView: UIView? {
-        if responds(to: Selector("statusBar")) {
-            return value(forKey: "statusBar") as? UIView
+var statusBarView: UIView? {
+    if #available(iOS 13.0, *) {
+        let tag = 38482
+        let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+
+        if let statusBar = keyWindow?.viewWithTag(tag) {
+            return statusBar
+        } else {
+            guard let statusBarFrame = keyWindow?.windowScene?.statusBarManager?.statusBarFrame else { return nil }
+            let statusBarView = UIView(frame: statusBarFrame)
+            statusBarView.tag = tag
+            keyWindow?.addSubview(statusBarView)
+            return statusBarView
         }
+    } else if responds(to: Selector(("statusBar"))) {
+        return value(forKey: "statusBar") as? UIView
+    } else {
         return nil
     }
+  }
 }

@@ -216,7 +216,7 @@ class NewProfileViewController: BaseViewController {
     @IBAction func workersButtonClicked(_ sender: Any) {
         let workersVC = UIStoryboard(name: "External", bundle: nil).instantiateViewController(withIdentifier: "WorkersVC") as? WorkersViewController
         workersVC?.modalPresentationStyle = .overCurrentContext
-        self.present(workersVC!, animated: false, completion: nil)
+        self.present(workersVC!, animated: true, completion: nil)
     }
 }
 extension NewProfileViewController:UIScrollViewDelegate{

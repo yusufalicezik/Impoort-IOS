@@ -48,6 +48,8 @@ class RegisterSecondStepViewController: BaseViewController {
 
     }
     
+    
+    
     @IBAction func nextButtonClicked(_ sender: Any) {
         if validate(){
             giveRegisteredUserInfo()

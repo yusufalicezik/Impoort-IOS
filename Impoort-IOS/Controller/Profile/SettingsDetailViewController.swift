@@ -106,13 +106,17 @@ class SettingsDetailViewController: BaseViewController {
                 txt.parentVC = self
                 self.containerStackView.addArrangedSubview(txt)
                 txt.setup()
-                txt.placeholder = "Experiences & Projects"
+                txt.placeholder = "Edit Experiences & Projects"
+                let recognizer = UITapGestureRecognizer(target: self, action: #selector(goToExperiences))
+                txt.addGestureRecognizer(recognizer)
             }else if $0.contains("Links"){
                 let txt = CustomTextField()
                 txt.parentVC = self
                 self.containerStackView.addArrangedSubview(txt)
                 txt.setup()
-                txt.placeholder = "Links"
+                txt.placeholder = "Edit Links"
+                let recognizer = UITapGestureRecognizer(target: self, action: #selector(goToLinks))
+                txt.addGestureRecognizer(recognizer)
             }else if $0.contains("Contact"){
                 let txt = CustomTextField()
                 txt.parentVC = self
@@ -132,6 +136,23 @@ class SettingsDetailViewController: BaseViewController {
         button.heightAnchor.constraint(equalToConstant: 47).isActive = true
         button.widthAnchor.constraint(equalToConstant: 80).isActive = true
     }
+    
+    @objc private func goToExperiences(){
+        self.view.endEditing(true)
+        let vc = UIStoryboard(name: "External", bundle: nil).instantiateViewController(withIdentifier: "ExpAndLinksEditVC") as? ExperiencesAndLinksEditViewController
+        vc?.pageType = .experiences
+        vc?.modalPresentationStyle = .overCurrentContext
+        self.present(vc!, animated: true, completion: nil)
+    }
+    
+    @objc private func goToLinks(){
+        self.view.endEditing(true)
+        let vc = UIStoryboard(name: "External", bundle: nil).instantiateViewController(withIdentifier: "ExpAndLinksEditVC") as? ExperiencesAndLinksEditViewController
+        vc?.pageType = .links
+        vc?.modalPresentationStyle = .overCurrentContext
+        self.present(vc!, animated: true, completion: nil)
+    }
+    
     deinit{
         print("settings detail de init")
     }
