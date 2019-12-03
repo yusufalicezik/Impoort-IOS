@@ -37,7 +37,7 @@ class ExperiencesAndLinksEditViewController: UIViewController {
         self.addButton.layer.cornerRadius = 8
         self.saveButton.layer.cornerRadius = 8
         tableViewExperiences.separatorStyle = .none
-        tableViewExperiences.rowHeight = 37
+        tableViewExperiences.rowHeight = 40
         containerView.layer.cornerRadius = 12
         if pageType == PageType.experiences{
             CompanyNameTxtField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
