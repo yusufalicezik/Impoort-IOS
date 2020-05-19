@@ -71,7 +71,7 @@ extension PostsView:UITableViewDelegate, UITableViewDataSource{
         switch senderProfileType! {
         case .posts:
             cell = Bundle.main.loadNibNamed("PostCellWithImage", owner: self, options: nil)?.first as! PostCellWithImage
-            (cell as? PostCellWithImage)?.postID = indexPath.row
+            //(cell as? PostCellWithImage)?.postID = indexPath.row
             (cell as? PostCellWithImage)?.perDelegate = self
             (cell as? PostCellWithImage)?.configCell()
             if (indexPath.row == self.data.count-1)  && !firstTime && !isLoading{

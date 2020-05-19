@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyShadow
-
+import SDWebImage
 
 protocol PostCellDelegate{
     func didSelectPost(_ id:Int)
@@ -18,6 +18,8 @@ protocol PostCellDelegate{
 
 class PostCellWithImage: UITableViewCell {
 
+    @IBOutlet weak var tagsLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var readMoreButton: UIButton!
     @IBOutlet weak var lineView: UIView!
     @IBOutlet weak var lineViewHeightConst: NSLayoutConstraint!
@@ -29,7 +31,29 @@ class PostCellWithImage: UITableViewCell {
     @IBOutlet weak var nameSurnameTxtFied: UILabel!
     @IBOutlet weak var postDescription: UILabel!
     @IBOutlet weak var postImage: UIImageView!
-    var postID:Int? //burası modeller eklendikten sonra post olacak her şeyine erişebilmek için
+    var post: PostResponseDTO? {
+        didSet {
+            if PostType(rawValue: post?.postType ?? 0) == PostType.withPhotoPost {
+                postImage.sd_setImage(with: URL(string: (post?.mediaUrl!)!), completed: nil)
+            }
+            profileImage.sd_setImage(with: URL(string: (post?.user?.profileImgUrl!)!)!, completed: nil)
+            sectorTxtField.text = post?.user?.department!
+            dateLabel.text = post?.createdDateTime!
+            
+            tagsLabel.isHidden = true
+            if let tags = post?.tags {
+                if tags.count != 0 {
+                    tagsLabel.isHidden = false
+                    tagsLabel.text = ""
+                    post?.tags?.forEach {
+                        tagsLabel.text! += "#\($0)"
+                    }
+                }
+            }
+            
+            likeButton.setTitle("\(post?.likeCount! ?? 0) likes", for: .normal)
+        }
+    }
     var parentVC:UIViewController?
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var replyButton: UIButton!
@@ -72,7 +96,7 @@ class PostCellWithImage: UITableViewCell {
         //perDelegate?.didSelectPost(self.postID!) //postun kendisi gönderilecek.
     }
     @IBAction func readMoreClicked(_ sender: Any) {
-        perDelegate?.didSelectPost(self.postID!)
+        perDelegate?.didSelectPost((self.post?.postId!)!)
     }
     @objc func clickedReadMore(){
     }

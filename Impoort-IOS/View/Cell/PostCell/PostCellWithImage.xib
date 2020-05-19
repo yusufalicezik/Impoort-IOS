@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -90,7 +90,7 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5j-Ld-i57">
-                                <rect key="frame" x="10" y="110" width="404" height="208"/>
+                                <rect key="frame" x="10" y="110" width="404" height="142.5"/>
                                 <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum est ultricies integer quis auctor elit. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo. Adipiscing bibendum est Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo.</string>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="13"/>
                                 <color key="textColor" name="postCellDescriptionTextColor"/>
@@ -123,10 +123,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="8L9-Ef-4Ih">
-                                <rect key="frame" x="10" y="321" width="404" height="18"/>
+                                <rect key="frame" x="10" y="255.5" width="404" height="83.5"/>
                                 <subviews>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYp-pg-Dz0">
-                                        <rect key="frame" x="0.0" y="-15" width="65" height="15"/>
+                                        <rect key="frame" x="0.0" y="83.5" width="65" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="Dfd-Ot-oni"/>
                                         </constraints>
@@ -138,8 +138,8 @@
                                             <action selector="readMoreClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="uUO-AO-wdz"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="#Yazilim #IOS #Swift #Developer #XCode #ComputerScience" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBc-Lx-U32">
-                                        <rect key="frame" x="0.0" y="0.0" width="372" height="18"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="#Yazilim #IOS #Swift #Developer #XCode #ComputerScience" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBc-Lx-U32">
+                                        <rect key="frame" x="0.0" y="83.5" width="372" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="13"/>
                                         <color key="textColor" red="0.43529411759999997" green="0.76862745099999996" blue="0.63529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -194,6 +194,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="bottomLineViewCostraint" destination="j5b-Ia-h3N" id="FfV-SO-cNP"/>
+                <outlet property="dateLabel" destination="meW-RC-KTQ" id="sdp-Hv-WVT"/>
                 <outlet property="likeButton" destination="qk6-z9-K0e" id="40n-Zs-WzV"/>
                 <outlet property="lineView" destination="v2K-qj-sBt" id="crv-gY-wfY"/>
                 <outlet property="lineViewHeightConst" destination="NhX-Zu-ggA" id="HXZ-fC-sEV"/>
@@ -206,6 +207,7 @@
                 <outlet property="readMoreButton" destination="zYp-pg-Dz0" id="LF5-JC-amr"/>
                 <outlet property="replyButton" destination="Ctu-JP-vLi" id="Su2-Fa-rbY"/>
                 <outlet property="sectorTxtField" destination="c1M-To-K4r" id="cp8-gN-G8A"/>
+                <outlet property="tagsLabel" destination="wBc-Lx-U32" id="CiK-Dz-KWa"/>
             </connections>
             <point key="canvasLocation" x="124.6376811594203" y="161.38392857142856"/>
         </tableViewCell>
@@ -220,16 +222,16 @@
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="postCellButtonColor">
-            <color red="0.054901960784313725" green="0.16078431372549018" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.054999999701976776" green="0.16099999845027924" blue="0.22699999809265137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="postCellDescriptionTextColor">
-            <color red="0.49803921568627452" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.49799999594688416" green="0.49799999594688416" blue="0.49799999594688416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="postCellNameSectorTextColor">
-            <color red="0.43137254901960786" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.4309999942779541" green="0.4309999942779541" blue="0.4309999942779541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="postCellTitleColor">
-            <color red="0.054901960784313725" green="0.16078431372549018" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.054999999701976776" green="0.16099999845027924" blue="0.22699999809265137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
