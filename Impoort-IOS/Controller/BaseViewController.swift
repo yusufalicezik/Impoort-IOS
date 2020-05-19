@@ -217,7 +217,7 @@ class BaseViewController: UIViewController {
 
 class RegisteredUser{
     static let shared = RegisteredUser()
-    var user = User()
+    var user = User2()
 }
 
 //extension UIApplication {

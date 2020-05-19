@@ -8,6 +8,7 @@
 
 import UIKit
 import Cloudinary
+import Alamofire
 
 class LoginViewController: BaseViewController {
 
@@ -20,6 +21,24 @@ class LoginViewController: BaseViewController {
         super.viewDidLoad()
         setup()
         self.clearHeader()
+        
+//        UserAuthControllerAPI.addNewUserUsingPOST(userRequestDTO: UserRequestDTO(birthDate: "1233123123", city: "İstanbul", department: "CdddddE", _description: "a4ssadasdd", email: "yusufal@hotmail.com", employeeCount: 2, employees: [], experiences: [], firstName: "yusufal2i", gender: "erkek", lastName: "cezik", links: ["asd":"asd"], password: "asdasd123asd", phoneNumber: "5310853020", userType: .investor)) { (res, err) in
+//            print(res)
+//            print(err)
+//        }
+                
+//        let configuration = URLSessionConfiguration.default
+//        var nHeaders = configuration.httpAdditionalHeaders
+//        nHeaders!["Authorization"] = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE1OTMyNDA1MjgsImVtYWlsIjoiYXNzc0Bhc2Rhc3NkLmNvbSJ9.mjwIvJ3CjW9Ma4qEVrzwex9vM1z9FOL1d95eIpxD8SCMbWNtqfzC3JOZSnlNJQlCayKDeLDFnW4Onx35HZkOXg"
+//        configuration.httpAdditionalHeaders = nHeaders!
+        
+        PostControllerAPI.addNewPostUsingPOST(postRequestDTO: PostRequestDTO(createdDateTime: nil, department: "asd", mediaUrl: "asd", postDescription: "ddd", postType: 2, tags: [], userId: "2c918082721e0bbb01721e0bff630000")) { (res, err) in
+            print(res)
+            print(err)
+        }
+        
+        
+        
 //        let img = UIImage(named: "2f0")
 //        let config = CLDConfiguration(cloudName: "divfjwrpa", apiKey: "2ljI1k92Jow0EulTwDSntlsPfH4")
 //        let cloudinary = CLDCloudinary(configuration: config)

@@ -105,10 +105,10 @@ class RegisterFirstStepViewController: BaseViewController {
     }
     
     func giveRegisteredUserInfo(){
-        RegisteredUser.shared.user.firstName = self.nameTxtField.text!
-        RegisteredUser.shared.user.lastName = self.surnameTxtField.text!
-        RegisteredUser.shared.user.email = self.eMailTxtField.text!
-        RegisteredUser.shared.user.password = self.passwordTxtField.text!
+//        RegisteredUser.shared.user.firstName = self.nameTxtField.text!
+//        RegisteredUser.shared.user.lastName = self.surnameTxtField.text!
+//        RegisteredUser.shared.user.email = self.eMailTxtField.text!
+//        RegisteredUser.shared.user.password = self.passwordTxtField.text!
     }
     
 

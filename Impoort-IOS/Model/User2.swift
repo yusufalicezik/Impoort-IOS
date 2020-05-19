@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class User{
+class User2{
     var description:String?
     var sector:String?
     var userType:Int?

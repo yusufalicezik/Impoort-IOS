@@ -10,14 +10,13 @@ import UIKit
 import IQKeyboardManagerSwift
 import Repeat
 
-struct Message {
+struct Message2Model {
     var text:String
     var fromMe:Bool
 }
 class ChatViewController: BaseViewController {
 
-    var exData = [Message(text: "Selam", fromMe: false), Message(text: "Selam Yusuf", fromMe: true),
-    Message(text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum est ultricies integer quis auctor elit. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo. Adipiscing bibendum est Lorem ipsum dolor sit amet.", fromMe: false), Message(text: "Bibendum est ultricies integer quis auctor elit.", fromMe: false), Message(text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum est ultricies integer quis auctor elit. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo.", fromMe: true), Message(text: "Ok.", fromMe: false),  Message(text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum est ultricies integer quis auctor elit. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo.", fromMe: true), Message(text: "Ok.", fromMe: false),  Message(text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum est ultricies integer quis auctor elit. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo.", fromMe: true), Message(text: "Ok.", fromMe: false),  Message(text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum est ultricies integer quis auctor elit. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo.", fromMe: true), Message(text: "Ok.", fromMe: false)]
+    var exData: [Message2Model] = []
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sendMessageTxtField: UITextField!
     @IBOutlet weak var profileNameSurnameLabel: UILabel!
@@ -100,13 +99,14 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if exData[indexPath.row].fromMe{
+       // if exData[indexPath.row].fromMe{
+        if true {
             let cell = tableView.dequeueReusableCell(withIdentifier: "rightCell", for: indexPath) as? ChatRightCell
-            cell?.messageTextLabel.text = exData[indexPath.row].text
+            //cell?.messageTextLabel.text = exData[indexPath.row].text
             return cell!
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "leftCell", for: indexPath) as? ChatLeftCell
-            cell?.messageTextLabel.text = exData[indexPath.row].text
+            //cell?.messageTextLabel.text = exData[indexPath.row].text
             return cell!
         }
     }

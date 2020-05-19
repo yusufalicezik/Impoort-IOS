@@ -17,6 +17,7 @@ class WorkersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.containerView.layer.cornerRadius = 15
         self.tableView.layer.cornerRadius = 15
         self.tableView.delaysContentTouches = false

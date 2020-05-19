@@ -9,14 +9,14 @@
 import UIKit
 import IQKeyboardManagerSwift
 
-struct Comment {
+struct Comment2Model {
     var commentOwnerName:String
     var commentText:String
 }
 
 class CommentViewController: BaseViewController {
-    var commentOwnerPost = Comment(commentOwnerName: "Yusuf Ali Cezik", commentText: "Deneme post Açıklaması Deneme post Açıklaması Deneme post Açıklaması Deneme post Açıklaması Deneme post Açıklaması Deneme post Açıklaması Deneme post Açıklaması")
-    var commentDataList = [Comment(commentOwnerName: "Can Yardımcı", commentText: "Deneme comment Deneme comment Deneme comment Deneme comment Deneme comment Deneme comment Deneme comment"), Comment(commentOwnerName: "Can Yardımcı", commentText: "Deneme comment"), Comment(commentOwnerName: "Can Yardımcı", commentText: "Deneme comment"), Comment(commentOwnerName: "Can Yardımcı", commentText: "Deneme comment"), Comment(commentOwnerName: "Can Yardımcı", commentText: "Deneme comment"), Comment(commentOwnerName: "Can Yardımcı", commentText: "Deneme comment"), Comment(commentOwnerName: "Can Yardımcı", commentText: "Deneme comment"), Comment(commentOwnerName: "Can Yardımcı", commentText: "Deneme comment Deneme comment Deneme comment Deneme comment Deneme comment Deneme comment Deneme commentDeneme comment Deneme comment Deneme comment Deneme comment Deneme comment Deneme comment Deneme commentDeneme comment Deneme comment Deneme comment Deneme comment Deneme comment Deneme comment Deneme commentDeneme comment Deneme comment Deneme comment Deneme comment Deneme comment Deneme comment Deneme comment"), Comment(commentOwnerName: "Can Yardımcı", commentText: "Deneme comment"), Comment(commentOwnerName: "Can Yardımcı", commentText: "Deneme comment"), Comment(commentOwnerName: "Can Yardımcı", commentText: "Deneme comment"),Comment(commentOwnerName: "Can Yardımcı", commentText: "Deneme comment"), Comment(commentOwnerName: "Can Yardımcı", commentText: "Deneme comment Deneme comment Deneme comment Deneme comment Deneme comment Deneme comment Deneme comment Deneme commentDeneme comment Deneme comment Deneme comment Deneme comment Deneme comment Deneme comment Deneme commentDeneme comment Deneme comment Deneme comment Deneme comment Deneme comment Deneme comment Deneme commentDeneme comment Deneme comment Deneme comment Deneme comment Deneme comment Deneme comment Deneme comment")]
+    var commentOwnerPost = Comment2Model(commentOwnerName: "Yusuf Ali Cezik", commentText: "Deneme post Açıklaması Deneme post Açıklaması Deneme post Açıklaması Deneme post Açıklaması Deneme post Açıklaması Deneme post Açıklaması Deneme post Açıklaması")
+    var commentDataList: [Comment2Model] = []
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sendCommentTxtField: UITextField!
