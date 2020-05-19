@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 enum SenderProfileTyle{
     case posts, watching, watcher
@@ -22,9 +23,19 @@ class PostsView: UIView {
     var fState = false
     @IBOutlet weak var loadingMorePostsActivityView:UIActivityIndicatorView!
     var currentOffset = CGPoint(x: 0, y: 0)
-    var data = [1,1,1,1,1,1,1,1,1]
+    //var dataList = [1,1,1,1,1,1,1,1,1]
     var currentIndex = 0
     var isPagingMaking = false
+    
+    private var dataList: [PostResponseDTO] = [PostResponseDTO(commentCount: 2, commentList: nil, createdDateTime: "Cumartesi, 12:20", department: "Yazılım", isLiked: false, isWatched: false, likeCount: 12, likeList: nil, mediaUrl: "https://www.klasiksanatlar.com/img/sayfalar/b/1_1534620012_Ekran-Resmi-2018-08-18-22.25.18.png", postDescription: "Deneme post açıklaması..", postId: 1, postType: 1, tags: ["deneme", "bir", "iki"], user: UserResponseDTO(active: true, activeGuide: "asd", birthDate: "11", city: "", confirmed: true, department: "Yazilim", _description: "deneme", email: nil, employeeCount: nil, employees: nil, experiences: nil, firstName: "Yusuf Ali", fullName: "Yusuf Ali Cezik", gender: "erkek", lastName: "Cezik", links: nil, phoneNumber: nil, profileImgUrl: "https://mobile.tgrthaber.com.tr/images/ckfiles/images/1(801).jpg", userId: "22", userType: .developer, watcherCount: 0, watchingCount: 0, watchingPostCount: 2))]
+    private var pageNumber: Int = 1
+    private var userId: String = ""
+    
+    private var watcherDataList: [Watcher] = [Watcher(beingWatch: true, _id: 1, user: User(active: true, activeGuide: "asd", birthDate: nil, city: nil, confirmed: nil, department: nil, _description: nil, email: nil, employeeCount: nil, firstName: "Deneme", fullName: "Deeme user", gender: nil, lastName: "user", links: nil, password: "asdasdasd", phoneNumber: "123123", profileImgUrl: "https://mobile.tgrthaber.com.tr/images/ckfiles/images/1(801).jpg", userId: "3", userType: .normalUser, watchPosts: nil, watcherCount: nil, watchingCount: 2, watchingPostCount: 3), watchMapId: UUID(uuidString: "dasdasdasd"), watchingUser: nil)]
+    private var watchingDataList: [Watching] = []
+
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         tableView.delegate = self
@@ -41,6 +52,7 @@ class PostsView: UIView {
     func load(){
         if senderProfileType! == .posts{
             tableView.allowsSelection = false
+            fetchPostData()
         }
         if let parentVC = parentVC as? ProfileViewController{
             parentVC.containerView.addSubview(self)
@@ -50,6 +62,7 @@ class PostsView: UIView {
             self.bottomAnchor.constraint(equalTo: parentVC.containerView.bottomAnchor, constant: 0.0).isActive = true
             self.leftAnchor.constraint(equalTo: parentVC.containerView.leftAnchor, constant: 0.0).isActive = true
             self.rightAnchor.constraint(equalTo: parentVC.containerView.rightAnchor, constant: 0.0).isActive = true
+            fetchWatchingData()
         }else if let parentVC = parentVC as? WatchingViewController{
             parentVC.containerView.addSubview(self)
             self.frame = parentVC.containerView.frame
@@ -58,12 +71,60 @@ class PostsView: UIView {
             self.bottomAnchor.constraint(equalTo: parentVC.containerView.bottomAnchor, constant: 0.0).isActive = true
             self.leftAnchor.constraint(equalTo: parentVC.containerView.leftAnchor, constant: 0.0).isActive = true
             self.rightAnchor.constraint(equalTo: parentVC.containerView.rightAnchor, constant: 0.0).isActive = true
+            fetchWatcherData()
         }
     }
+    
+    
+    private func fetchPostData() {
+        PostControllerAPI.listPostsUsingGET(userId: userId, pageNumber: pageNumber, pageSize: 20, profilePost: false) { [weak self] postList, error in
+            guard let self = self else { return }
+            if error == nil {
+                guard let posts = postList?.content else { return }
+                self.dataList = posts
+                self.pageNumber+=1
+                self.tableView.reloadData()
+            } else {
+                print("HOME fetching posts error: \(error?.localizedDescription ?? "error")")
+            }
+        }
+    }
+    
+    private func fetchWatchingData() {
+        WatchControllerAPI.getWatchingUsingGET(myId: userId, userId: userId) { [weak self] (list, error) in
+            if error == nil {
+                guard let watchingList = list?.content else { return }
+                self?.watchingDataList = watchingList
+                self?.tableView.reloadData()
+            } else {
+                print("Error Fetching Watcthing data : \(error?.localizedDescription ?? "error")")
+            }
+        }
+    }
+    
+    private func fetchWatcherData() {
+        WatchControllerAPI.getWatcherUsingGET(myId: userId, userId: userId) { [weak self] (list, error) in
+            if error == nil {
+                guard let watcherList = list?.content else { return }
+                self?.watcherDataList = watcherList
+                self?.tableView.reloadData()
+            } else {
+                print("Error Fetching Watcthing data : \(error?.localizedDescription ?? "error")")
+            }
+        }
+    }
+    
 }
 extension PostsView:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.data.count
+        switch senderProfileType! {
+        case .posts:
+             return self.dataList.count
+        case .watcher:
+             return self.watcherDataList.count
+        case .watching:
+             return self.watchingDataList.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -71,24 +132,44 @@ extension PostsView:UITableViewDelegate, UITableViewDataSource{
         switch senderProfileType! {
         case .posts:
             cell = Bundle.main.loadNibNamed("PostCellWithImage", owner: self, options: nil)?.first as! PostCellWithImage
+            guard let cell = cell as? PostCellWithImage else { return UITableViewCell() }
             //(cell as? PostCellWithImage)?.postID = indexPath.row
-            (cell as? PostCellWithImage)?.perDelegate = self
-            (cell as? PostCellWithImage)?.configCell()
-            if (indexPath.row == self.data.count-1)  && !firstTime && !isLoading{
+            cell.post = dataList[indexPath.row]
+            cell.perDelegate = self
+            cell.configCell()
+            
+            cell.nameSurnameTxtFied.text = dataList[indexPath.row].user?.fullName ?? "Guest"
+            cell.postDescription.text = dataList[indexPath.row].postDescription ?? ""
+            cell.postDescription.numberOfLines = 7
+            
+            if PostType(rawValue: dataList[indexPath.row].postType ?? 1) == PostType.normalPost {
+                cell.postImageHeightConstraint.constant = 0.0
+            }
+            
+            if (cell.postDescription.calculateMaxLines()) > 7{
+                cell.readMoreButton.isHidden = false
+            }
+            
+            
+            if (indexPath.row == self.dataList.count-1)  && !firstTime && !isLoading{
                 print("yüklenecek")
                 self.loadingMorePostsActivityView.isHidden = false
                 self.isLoading = true
-                getData()
+                fetchPostData()
             }
             
             //cell. config işlemleri posta göre
         case .watcher:
             cell = Bundle.main.loadNibNamed("WatcherCell", owner: self, options: nil)?.first as! WatcherCell
-            if indexPath.row % 3 == 0{
-                if let mCell = cell as? WatcherCell{
-                    mCell.watchingWatcherButton.setTitle("Watch", for: .normal)
-                    mCell.watchingWatcherButton.backgroundColor = #colorLiteral(red: 0.3960784314, green: 0.7254901961, blue: 0.6470588235, alpha: 1)
-                }
+            if let mCell = cell as? WatcherCell{
+                mCell.profileSectorLabel.text = watcherDataList[indexPath.row].user?.department ?? ""
+                mCell.profileNAmeSurnameLabel.text = watcherDataList[indexPath.row].user?.fullName ?? ""
+                
+                let isWatching = watcherDataList[indexPath.row].beingWatch ?? true ? "Watching" : "Watch"
+                mCell.watchingWatcherButton.setTitle(isWatching, for: .normal)
+                mCell.watchingWatcherButton.backgroundColor = watcherDataList[indexPath.row].beingWatch ?? true ? #colorLiteral(red: 0.3960784314, green: 0.7254901961, blue: 0.6470588235, alpha: 1) : #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
+                
+                mCell.profileImg?.sd_setImage(with: URL(string: watcherDataList[indexPath.row].user?.profileImgUrl ?? "" ), completed: nil)
             }
         default:
             cell = Bundle.main.loadNibNamed("WatcherCell", owner: self, options: nil)?.first as! WatcherCell
@@ -143,61 +224,61 @@ extension PostsView : UIScrollViewDelegate{
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         self.fState = true
     }
-    func getData(){
-        if let mParentVC = (self.parentVC as? ProfileViewController){
-            DispatchQueue.main.asyncAfter(deadline: .now()+2){
-                if self.fState{
-                    if mParentVC.postsView == self{
-                        self.isPagingMaking = true
-                        var indexes = [IndexPath]()
-                        let startIndex = self.data.count
-                        
-                        for i in 0..<10{
-                            self.data.append(i)
-                            indexes.append(IndexPath(row: startIndex+i, section: 0))
-                        }
-                        self.tableView.beginUpdates()
-                        self.tableView.insertRows(at: indexes, with: .fade)
-                        //self.tableView.scrollToRow(at: self.currentRow, at: .none, animated: false)
-                        self.tableView.endUpdates()
-                        ///self.tableView.reloadData()
-                        print(self.data.count)
-                        self.isLoading = false
-                        //self.tableView.scrollToRow(at: self.currentIndx, at: .bottom, animated: true)
-                        self.tableView.setContentOffset(self.currentOffset, animated: true)
-                        self.loadingMorePostsActivityView.isHidden = true
-                    }else{
-                        self.getData()
-                    }
-                }
-            }
-        }else if let mParentVC = (self.parentVC as? WatchingViewController){
-            DispatchQueue.main.asyncAfter(deadline: .now()+2){
-                if self.fState{
-                        self.isPagingMaking = true
-                        var indexes = [IndexPath]()
-                        let startIndex = self.data.count
-                        
-                        for i in 0..<10{
-                            self.data.append(i)
-                            indexes.append(IndexPath(row: startIndex+i, section: 0))
-                        }
-                        self.tableView.beginUpdates()
-                        self.tableView.insertRows(at: indexes, with: .fade)
-                        //self.tableView.scrollToRow(at: self.currentRow, at: .none, animated: false)
-                        self.tableView.endUpdates()
-                        ///self.tableView.reloadData()
-                        print(self.data.count)
-                        self.isLoading = false
-                        //self.tableView.scrollToRow(at: self.currentIndx, at: .bottom, animated: true)
-                        self.tableView.setContentOffset(self.currentOffset, animated: true)
-                        self.loadingMorePostsActivityView.isHidden = true
-                    }else{
-                        self.getData()
-                    }
-                }
-            }
-    }
+//    func getData(){
+//        if let mParentVC = (self.parentVC as? ProfileViewController){
+//            DispatchQueue.main.asyncAfter(deadline: .now()+2){
+//                if self.fState{
+//                    if mParentVC.postsView == self{
+//                        self.isPagingMaking = true
+//                        var indexes = [IndexPath]()
+//                        let startIndex = self.data.count
+//
+//                        for i in 0..<10{
+//                            self.data.append(i)
+//                            indexes.append(IndexPath(row: startIndex+i, section: 0))
+//                        }
+//                        self.tableView.beginUpdates()
+//                        self.tableView.insertRows(at: indexes, with: .fade)
+//                        //self.tableView.scrollToRow(at: self.currentRow, at: .none, animated: false)
+//                        self.tableView.endUpdates()
+//                        ///self.tableView.reloadData()
+//                        print(self.data.count)
+//                        self.isLoading = false
+//                        //self.tableView.scrollToRow(at: self.currentIndx, at: .bottom, animated: true)
+//                        self.tableView.setContentOffset(self.currentOffset, animated: true)
+//                        self.loadingMorePostsActivityView.isHidden = true
+//                    }else{
+//                        self.getData()
+//                    }
+//                }
+//            }
+//        }else if let mParentVC = (self.parentVC as? WatchingViewController){
+//            DispatchQueue.main.asyncAfter(deadline: .now()+2){
+//                if self.fState{
+//                        self.isPagingMaking = true
+//                        var indexes = [IndexPath]()
+//                        let startIndex = self.data.count
+//
+//                        for i in 0..<10{
+//                            self.data.append(i)
+//                            indexes.append(IndexPath(row: startIndex+i, section: 0))
+//                        }
+//                        self.tableView.beginUpdates()
+//                        self.tableView.insertRows(at: indexes, with: .fade)
+//                        //self.tableView.scrollToRow(at: self.currentRow, at: .none, animated: false)
+//                        self.tableView.endUpdates()
+//                        ///self.tableView.reloadData()
+//                        print(self.data.count)
+//                        self.isLoading = false
+//                        //self.tableView.scrollToRow(at: self.currentIndx, at: .bottom, animated: true)
+//                        self.tableView.setContentOffset(self.currentOffset, animated: true)
+//                        self.loadingMorePostsActivityView.isHidden = true
+//                    }else{
+//                        self.getData()
+//                    }
+//                }
+//            }
+//    }
 }
 extension PostsView:PostCellDelegate{
     func didClickedProfilePic() {

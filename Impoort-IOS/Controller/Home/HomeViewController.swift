@@ -59,6 +59,7 @@ class HomeViewController: BaseViewController {
                 guard let posts = postList?.content else { return }
                 self.dataList = posts
                 self.pageNumber+=1
+                self.tableView.reloadData()
             } else {
                 print("HOME fetching posts error: \(error?.localizedDescription ?? "error")")
             }
