@@ -9,10 +9,11 @@
 import UIKit
 import Pastel
 import SwiftyShadow
+import SDWebImage
 
 class NewProfileViewController: BaseViewController {
-   
-
+    
+    
     @IBOutlet weak var headerProfileImage: UIImageView!
     @IBOutlet weak var headerProfileImageWidthConst: NSLayoutConstraint!
     @IBOutlet weak var headerProfileImageHeightConst: NSLayoutConstraint!
@@ -28,29 +29,44 @@ class NewProfileViewController: BaseViewController {
     @IBOutlet weak var linksStackView: UIStackView!
     @IBOutlet weak var profileImage: UIImageView!
     
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var departmentLabel: UILabel!
+    @IBOutlet weak var nameSurnameLabel: UILabel!
     var currentExperienceViews = [ExperienceView]()
     var currentLinkViews = [LinksView]()
     var pastelView : PastelView?
-
+    
     
     var profileTopLeftAction:(()->())!
     var profileID = 0
     var isClosed = false
     var firstLoadAppear = false
-    //bu ikisi tek sınıf olacak.
-    let experiences = ["Cyoxes", "Özgür Yazılım AŞ", "Ceux Softwarehouse", "Microsoft", "Apple", "Oracle"]
-    let experiencesDepartment = ["Senior IOS Developer", "Java Developer", "Middle IOS Developer", ".Net Developer", "Junior IOS Developer", "Software Developer"]
     
-    //bu ikisi tek sınıf olacak
-    let linkNames = ["Github", "Facebook", "Linkedin"]
-    let linkAdresses = ["/yusufalicezik", "/yusufali.cezik", "/yusuf-ali.cezik"]
+    var experiences: [String] = []
+    var experiencesDepartment: [String] = []
+    
+    var linkNames: [String] = []
+    var linkAdresses: [String] = []
     var isDarkHeader = false
+    
+    private var profileDetails: UserResponseDTO? = UserResponseDTO(active: true, activeGuide: "asd", birthDate: "123123", city: "İstanbul", confirmed: true, department: "iOS Geliştirici", _description: "iOS Developer at Appcent", email: "yusuf.cezik@appcent.mobi", employeeCount: 2, employees: nil, experiences:[
+        
+        Experience(companyId: "asd", companyName: "Appcent", department: "iOS Developer", experienceId: 2, stillWork: true, workerId: "dd"),
+         Experience(companyId: "ased", companyName: "Nuevo Softwarehouse", department: "iOS Intern", experienceId: 2, stillWork: false, workerId: "dd"),
+         Experience(companyId: "adsd", companyName: "Mercedes-Benz", department: "IT Intern", experienceId: 2, stillWork: false, workerId: "dd")
+    
+    
+    ], firstName: "Yusuf Ali", fullName: "Yusuf Ali Cezik", gender: "Erkek", lastName: "Cezik", links: ["github": "/yusufalicezik", "facebook": "/yusufalicezik", "twitter": "/klecon"], phoneNumber: "123123", profileImgUrl: "https://www.klasiksanatlar.com/img/sayfalar/b/1_1534620012_Ekran-Resmi-2018-08-18-22.25.18.png", userId: "23", userType: .developer, watcherCount: 123, watchingCount: 22, watchingPostCount: 2)
+    private var userId: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.firstLoadAppear = true
         setup()
+        fetchProfileDetails()
+        updateUI() //kaldırılacak
     }
-
+    
     
     func setup(){
         if self.profileID == 0{ // me
@@ -85,28 +101,51 @@ class NewProfileViewController: BaseViewController {
         self.profileImage.addGestureRecognizer(biggerImageRecognizer)
         scrollView.delaysContentTouches = false
         scrollView.delegate = self
-  }
+    }
     
-    func getAbout(){
-//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
-//        label.text = "asdasdasdasdasdasd"
-//        self.aboutStackView.addArrangedSubview(label)
-        self.aboutLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.aboutLabel.heightAnchor.constraint(equalToConstant: CGFloat(self.aboutLabel.calculateMaxLines()*18)).isActive = true
-      
+    private func fetchProfileDetails() {
+                
+        UserControllerAPI.getUserUsingGET(myId: userId, userId: userId) { [weak self] userResponse, error in
+            if error == nil {
+                self?.profileDetails = userResponse
+                self?.updateUI()
+            } else {
+                print("Fetch profile error: \(error?.localizedDescription ?? "error")")
+            }
+        }
     }
-    @objc func openBiggerProfileImage(){
-        let bgVC = UIStoryboard(name: "Tools", bundle: nil).instantiateViewController(withIdentifier: "BiggerPictureEditVC") as? BiggerPictureEditViewController
-        bgVC?.parentVC = self
-        bgVC?.modalPresentationStyle = .overCurrentContext
-        self.present(bgVC!, animated: true, completion: nil)
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        clearHeader()
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-        clearExperiencesAndLinksView()
+    
+    private func updateUI() {
+        guard let profileDetails = self.profileDetails else { return }
+        
+        if let exps = profileDetails.experiences?.map({ $0.companyName ?? "" }), let expsDepartment = profileDetails.experiences?.map({ $0.department ?? "" }) {
+            if exps.count != expsDepartment.count { return }
+            self.experiences = exps
+            self.experiencesDepartment = expsDepartment
+        }
+
+        
+        if let links = profileDetails.links {
+            for (key, value) in links {
+                self.linkNames.append(key)
+                self.linkAdresses.append(value)
+            }
+        }
+        
+        if let expsDepartment = profileDetails.experiences?.map({ $0.department ?? "" }) {
+            self.experiencesDepartment = expsDepartment
+        }
+        
+        
+        if let profileImageUrl = profileDetails.profileImgUrl {
+            headerProfileImage.sd_setImage(with: URL(string: profileImageUrl)!, completed: nil)
+            profileImage.sd_setImage(with: URL(string: profileImageUrl)!, completed: nil)
+        }
+        nameSurnameLabel.text = profileDetails.fullName ?? ""
+        departmentLabel.text = profileDetails.department ?? ""
+        locationLabel.text = profileDetails.city ?? ""
+        aboutLabel.text = profileDetails._description ?? ""
+        
         DispatchQueue.main.async{
             self.getAbout()
         }
@@ -116,16 +155,44 @@ class NewProfileViewController: BaseViewController {
         DispatchQueue.main.async {
             self.getLinks()
         }
+        
+    }
+    
+    
+    func getAbout(){
+        self.aboutLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.aboutLabel.heightAnchor.constraint(equalToConstant: CGFloat(self.aboutLabel.calculateMaxLines()*18)).isActive = true
+        
+    }
+    
+    @objc func openBiggerProfileImage(){
+        let bgVC = UIStoryboard(name: "Tools", bundle: nil).instantiateViewController(withIdentifier: "BiggerPictureEditVC") as? BiggerPictureEditViewController
+        bgVC?.parentVC = self
+        bgVC?.modalPresentationStyle = .overCurrentContext
+        self.present(bgVC!, animated: true, completion: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        clearHeader()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+        clearExperiencesAndLinksView()
+        
         isDarkHeader = false
         setNeedsStatusBarAppearanceUpdate()
         isClosed = false
         clearHeader()
         pastelView?.startAnimation()
     }
+     
+    
     override func viewWillDisappear(_ animated: Bool) {
         isClosed = true
         self.clearHeader()
     }
+    
     func clearExperiencesAndLinksView(){
         currentExperienceViews.forEach {
             $0.removeFromSuperview()
@@ -134,6 +201,7 @@ class NewProfileViewController: BaseViewController {
             $0.removeFromSuperview()
         }
     }
+    
     override func viewDidDisappear(_ animated: Bool) {
         self.clearHeader()
     }
@@ -141,45 +209,49 @@ class NewProfileViewController: BaseViewController {
     @IBAction func didMoreClicked(_ sender: Any) {
         self.goToProfileDetails()
     }
+    
     @IBAction func settingsClicked(_ sender: Any) {
         self.profileTopLeftAction()
     }
     @IBAction func messagesClicked(_ sender: Any) {
         self.goToMessagesGeneral()
     }
+    
     deinit{
         print("new de init")
     }
+    
     func getExperiences(){
         self.currentExperienceViews.removeAll()
-            for i in 0..<self.experiences.count{
-                let mView = Bundle.main.loadNibNamed("ExperienceView", owner: self, options: nil)?.first as? ExperienceView
-                mView?.companyNameLabel.text = self.experiences[i]
-                mView?.departmentLabel.text = self.experiencesDepartment[i]
-                self.experiencesStackView.addArrangedSubview(mView!)
-                mView?.translatesAutoresizingMaskIntoConstraints = false
-                mView?.heightAnchor.constraint(equalToConstant: 40).isActive = true
-                mView?.centerXAnchor.constraint(equalTo: self.experiencesStackView.centerXAnchor, constant: 0.0).isActive = true
-                if i == 0{
-                    mView?.icon.image = UIImage(named:"bigEx")
-                    mView?.widthConst.constant = 22
-                    mView?.leadingConst.constant = (mView?.leadingConst.constant)! - 3.5
-                    mView?.topStackConst.constant = 0
-                    mView?.layoutIfNeeded()
-                }
-                if i == self.experiences.count-1{
-                    mView?.icon.image = UIImage(named:"normalExp")
-                    mView?.layoutIfNeeded()
-                }
-                self.currentExperienceViews.append(mView!)
+        for i in 0..<self.experiences.count{
+            let mView = Bundle.main.loadNibNamed("ExperienceView", owner: self, options: nil)?.first as? ExperienceView
+            mView?.companyNameLabel.text = self.experiences[i]
+            mView?.departmentLabel.text = self.experiencesDepartment[i]
+            self.experiencesStackView.addArrangedSubview(mView!)
+            mView?.translatesAutoresizingMaskIntoConstraints = false
+            mView?.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            mView?.centerXAnchor.constraint(equalTo: self.experiencesStackView.centerXAnchor, constant: 0.0).isActive = true
+            if i == 0{
+                mView?.icon.image = UIImage(named:"bigEx")
+                mView?.widthConst.constant = 22
+                mView?.leadingConst.constant = (mView?.leadingConst.constant)! - 3.5
+                mView?.topStackConst.constant = 0
+                mView?.layoutIfNeeded()
             }
+            if i == self.experiences.count-1{
+                mView?.icon.image = UIImage(named:"normalExp")
+                mView?.layoutIfNeeded()
+            }
+            self.currentExperienceViews.append(mView!)
+        }
     }
+    
     func getLinks(){
         self.currentLinkViews.removeAll()
-            for i in 0..<self.linkAdresses.count{
+        for i in 0..<self.linkAdresses.count{
             let mView = Bundle.main.loadNibNamed("LinksView", owner: self, options: nil)?.first as? LinksView
-                mView?.linkLabel.text = self.linkAdresses[i]
-                switch self.linkNames[i].lowercased(){
+            mView?.linkLabel.text = self.linkAdresses[i]
+            switch self.linkNames[i].lowercased(){
             case "github":
                 mView?.linkImageView.image = UIImage(named: "github")
             case "linkedin":
@@ -194,9 +266,10 @@ class NewProfileViewController: BaseViewController {
             mView?.translatesAutoresizingMaskIntoConstraints = false
             mView?.heightAnchor.constraint(greaterThanOrEqualToConstant: 32).isActive = true
             mView?.centerXAnchor.constraint(equalTo: self.linksStackView.centerXAnchor, constant: 0.0).isActive = true
-                self.currentLinkViews.append(mView!)
+            self.currentLinkViews.append(mView!)
         }
     }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         if isDarkHeader{
             return .lightContent
@@ -204,7 +277,7 @@ class NewProfileViewController: BaseViewController {
             return .default
         }
     }
-
+    
     override func clearHeader(){
         UIView.animate(withDuration: 0.3){
             self.headerView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)

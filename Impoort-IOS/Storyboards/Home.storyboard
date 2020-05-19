@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PXj-D4-MbZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PXj-D4-MbZ">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1337,12 +1337,15 @@
                     <navigationItem key="navigationItem" id="CKj-hc-ljL"/>
                     <connections>
                         <outlet property="aboutLabel" destination="lMg-zD-wAt" id="bfH-jA-ykP"/>
+                        <outlet property="departmentLabel" destination="Wca-Ws-c0Q" id="g9b-SR-THc"/>
                         <outlet property="experiencesStackView" destination="Wzp-Az-GSt" id="nhb-Ml-Viq"/>
                         <outlet property="headerProfileImage" destination="R6u-JX-jNf" id="7Kp-ZH-S8c"/>
                         <outlet property="headerProfileImageHeightConst" destination="Rky-l0-LiF" id="y9X-Ne-Ttc"/>
                         <outlet property="headerProfileImageWidthConst" destination="ZtZ-mB-bIJ" id="Vtf-aO-Myj"/>
                         <outlet property="headerView" destination="tD9-T4-giU" id="76k-wl-dMd"/>
                         <outlet property="linksStackView" destination="6bA-nR-U89" id="aae-aW-2TU"/>
+                        <outlet property="locationLabel" destination="I0R-BA-ibK" id="x3S-7z-b0K"/>
+                        <outlet property="nameSurnameLabel" destination="ZAJ-r1-K6E" id="UPg-0x-ftN"/>
                         <outlet property="parentStackView" destination="PwN-Sf-4pa" id="fJm-V5-wqu"/>
                         <outlet property="profileImage" destination="0J4-kP-s0g" id="c0E-3j-rEZ"/>
                         <outlet property="scrollView" destination="PLE-NV-G2j" id="LNt-3d-PsL"/>
