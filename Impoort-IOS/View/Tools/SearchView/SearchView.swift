@@ -10,6 +10,9 @@ import UIKit
 import SDWebImage
 
 class SearchView: UIView {
+    
+    private var lastText: String = ""
+    
     @IBOutlet weak var collectionViewFilter: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     var filterItems = [FilterView(filterName: "startup", isSelected: false),FilterView(filterName: "developer", isSelected: false),
@@ -46,6 +49,7 @@ class SearchView: UIView {
     }
 
     func fetchData(text: String) {
+        lastText = text
         var userTypes: [SearchRequest.UserTypes] = []
 
         for i in filteredIndex {
@@ -105,6 +109,22 @@ extension SearchView : UICollectionViewDelegate, UICollectionViewDataSource, UIC
         }
         print("Filterelenecekler : \(self.filteredIndex)")
         filterItems[indexPath.row].isSelected = !filterItems[indexPath.row].isSelected
+        var userTypes: [SearchRequest.UserTypes] = []
+
+        for i in filteredIndex {
+            if i <= 2 {
+                userTypes.append(SearchRequest.UserTypes(rawValue: filterItems[i].filterName.uppercased())!)
+            }
+        }
+        
+        SearchControllerAPI.searchUserUsingGET(searchRequest: SearchRequest(fullName: lastText, userTypes: userTypes)) { [weak self] (responseDtoList, error) in
+            if error == nil {
+                if let response = responseDtoList {
+                    self?.searchUserList = response
+                    self?.tableView.reloadData()
+                }
+            }
+        }
     }
     
 }
