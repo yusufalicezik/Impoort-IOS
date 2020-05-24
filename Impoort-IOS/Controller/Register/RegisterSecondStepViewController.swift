@@ -115,18 +115,17 @@ class RegisterSecondStepViewController: BaseViewController {
         return result
     }
     func giveRegisteredUserInfo(){
-        RegisteredUser.shared.user.phoneNumber = self.phoneNumberTxtField.text!
-        RegisteredUser.shared.user.gender = self.genderTxtField.text!
-        RegisteredUser.shared.user.city = self.cityTxtField.text!
-        RegisteredUser.shared.user.birthDate = self.dateOfBirthOrEstablishedTxtField.text!
+        RegisteredUser.shared.phoneNumber = self.phoneNumberTxtField.text!
+        RegisteredUser.shared.gender = self.genderTxtField.text!
+        RegisteredUser.shared.city = self.cityTxtField.text!
+        RegisteredUser.shared.birthDate = self.dateOfBirthOrEstablishedTxtField.text!
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
 
     }
-    
-
 }
+
 extension RegisterSecondStepViewController : UITextFieldDelegate{
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         return false
