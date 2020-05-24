@@ -7,18 +7,29 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SearchView: UIView {
     @IBOutlet weak var collectionViewFilter: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
-    var filterItems = [FilterView(filterName: "Startup", isSelected: false),FilterView(filterName: "Developer", isSelected: false),
-                       FilterView(filterName: "Investor", isSelected: false), FilterView(filterName: "Look for a team", isSelected: false),
+    var filterItems = [FilterView(filterName: "startup", isSelected: false),FilterView(filterName: "developer", isSelected: false),
+                       FilterView(filterName: "investor", isSelected: false), FilterView(filterName: "Look for a team", isSelected: false),
                        FilterView(filterName: "Just a user", isSelected: false)]
     var filteredIndex = [Int]() // 0,1,2,3.. bu id türleri indexpath.row olarak alınacak. bu türlere göre sorgulama yapılacak. >1 ise and ile
     @IBOutlet weak var filterHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var filterView: UIView!
     var searchVisible = true
     var prevOffset:CGFloat = 0.0
+    
+    var searchUserList: [UserResponseDTO] = [UserResponseDTO(active: true, activeGuide: "asd", birthDate: "123123", city: "İstanbul", confirmed: true, department: "iOS Geliştirici", _description: "iOS Developer at Appcent", email: "yusuf.cezik@appcent.mobi", employeeCount: 2, employees: nil, experiences:[
+        
+        Experience(companyId: "asd", companyName: "Appcent", department: "iOS Developer", experienceId: 2, stillWork: true, workerId: "dd"),
+         Experience(companyId: "ased", companyName: "Nuevo Softwarehouse", department: "iOS Intern", experienceId: 2, stillWork: false, workerId: "dd"),
+         Experience(companyId: "adsd", companyName: "Mercedes-Benz", department: "IT Intern", experienceId: 2, stillWork: false, workerId: "dd")
+    
+    
+    ], firstName: "Yusuf Ali", fullName: "Yusuf Ali Cezik", gender: "Erkek", lastName: "Cezik", links: ["github": "/yusufalicezik", "facebook": "/yusufalicezik", "linkedin": "/klecon"], phoneNumber: "123123", profileImgUrl: "https://www.klasiksanatlar.com/img/sayfalar/b/1_1534620012_Ekran-Resmi-2018-08-18-22.25.18.png", userId: "23", userType: .developer, watcherCount: 123, watchingCount: 22, watchingPostCount: 2)]
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         let nib = UINib(nibName: "FilterNewCollectionViewCell", bundle: nil)
@@ -34,6 +45,24 @@ class SearchView: UIView {
 
     }
 
+    func fetchData(text: String) {
+        var userTypes: [SearchRequest.UserTypes] = []
+
+        for i in filteredIndex {
+            if i <= 2 {
+                userTypes.append(SearchRequest.UserTypes(rawValue: filterItems[i].filterName.uppercased())!)
+            }
+        }
+        
+        SearchControllerAPI.searchUserUsingGET(searchRequest: SearchRequest(fullName: text, userTypes: userTypes)) { [weak self] (responseDtoList, error) in
+            if error == nil {
+                if let response = responseDtoList {
+                    self?.searchUserList = response
+                    self?.tableView.reloadData()
+                }
+            }
+        }
+    }
 }
 
 extension SearchView : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
@@ -83,11 +112,14 @@ extension SearchView : UICollectionViewDelegate, UICollectionViewDataSource, UIC
 
 extension SearchView : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 25
+        return searchUserList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = Bundle.main.loadNibNamed("WatcherCell", owner: self, options: nil)?.first as? WatcherCell else {return UITableViewCell()}
+        cell.profileNAmeSurnameLabel.text = searchUserList[indexPath.row].fullName ?? ""
+        cell.profileSectorLabel.text = searchUserList[indexPath.row].department ?? ""
+        cell.profileImg.sd_setImage(with: URL(string: searchUserList[indexPath.row].profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png")!, completed: nil)
         return cell
     }
 

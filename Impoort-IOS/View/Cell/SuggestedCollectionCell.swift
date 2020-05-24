@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SuggestedCollectionCell: UICollectionViewCell {
     @IBOutlet weak var profileImgView: UIImageView!
@@ -20,6 +21,10 @@ class SuggestedCollectionCell: UICollectionViewCell {
         self.profileImgView.layer.cornerRadius = self.profileImgView.frame.width/2
         self.watchButton.layer.cornerRadius = 7
         self.containerView.layer.cornerRadius = 12
+    }
+    
+    func configCell(imageUrl: String) {
+        
     }
     
     @IBAction func watchButtonClicked(_ sender: Any) {

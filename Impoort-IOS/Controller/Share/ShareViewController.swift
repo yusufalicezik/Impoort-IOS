@@ -134,6 +134,9 @@ class ShareViewController: BaseViewController,UITextViewDelegate{
 
     @IBAction func shareButtonClicked(_ sender: Any) {
         print(postType)
+        
+      
+        
         var wordsOfDesc = postDescriptionTxtView.text.split(separator: "#")
         if wordsOfDesc.count > 0 && self.postDescriptionTxtView.text.first != "#"{
             wordsOfDesc.removeFirst()
@@ -143,6 +146,20 @@ class ShareViewController: BaseViewController,UITextViewDelegate{
             if wordOfSpace.count > 0{
                 self.tagList.append(String(wordOfSpace[0]))
                 print(String(wordOfSpace[0]))
+            }
+        }
+        
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: date)
+        
+        var mediaUrl: String? = nil
+        PostControllerAPI.addNewPostUsingPOST(postRequestDTO: PostRequestDTO(createdDateTime: dateString , department: CurrentUser.shared.sector ?? "" , mediaUrl: mediaUrl ?? nil, postDescription: postDescriptionTxtView.text, postType: postType.rawValue, tags: tagList, userId: CurrentUser.shared.userId ?? "")) { (response, error) in
+            if error == nil {
+                AlertController.shared.showBasicAlert(viewCont: self, title: "Success", message: "New post shared!", buttonTitle: "Ok")
+            } else {
+                AlertController.shared.showBasicAlert(viewCont: self, title: "Error", message: "Check your connection!", buttonTitle: "Ok")
             }
         }
     }

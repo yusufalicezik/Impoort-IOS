@@ -118,6 +118,8 @@
 		48A830FB2357CFEA00451E38 /* ProfileBiggest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48A830FA2357CFEA00451E38 /* ProfileBiggest.xib */; };
 		48A830FD2357CFFB00451E38 /* ProfileBiggest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A830FC2357CFFB00451E38 /* ProfileBiggest.swift */; };
 		48A830FF2357DDBC00451E38 /* BiggerPictureEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A830FE2357DDBC00451E38 /* BiggerPictureEditViewController.swift */; };
+		48B21774247ADC6700312445 /* myvideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 48B21773247ADBFE00312445 /* myvideo.mp4 */; };
+		48B2347B247AE47900C1D569 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B2347A247AE47900C1D569 /* CurrentUser.swift */; };
 		48B6E014235F45BB00001920 /* NewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6E013235F45BB00001920 /* NewProfileViewController.swift */; };
 		48B6E017235FA3CE00001920 /* ExperiencesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6E016235FA3CE00001920 /* ExperiencesCollectionViewCell.swift */; };
 		48B6E019235FC11A00001920 /* ExperienceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48B6E018235FC11A00001920 /* ExperienceView.xib */; };
@@ -129,7 +131,6 @@
 		48C7E2F22394C585005209ED /* ExperiencesAndLinksEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C7E2F12394C585005209ED /* ExperiencesAndLinksEditViewController.swift */; };
 		48C7E2F72394D180005209ED /* ExperiencesEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C7E2F52394D180005209ED /* ExperiencesEditCell.swift */; };
 		48C7E2F82394D180005209ED /* ExperiencesEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48C7E2F62394D180005209ED /* ExperiencesEditCell.xib */; };
-		48C7E2FA2394D95F005209ED /* myvideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 48C7E2F92394D95F005209ED /* myvideo.mp4 */; };
 		48CEF2062359392400FCC5BD /* QuickShareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CEF2042359392400FCC5BD /* QuickShareCell.swift */; };
 		48CEF2072359392400FCC5BD /* QuickShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48CEF2052359392400FCC5BD /* QuickShareCell.xib */; };
 		48D95FAA235E82AC0053ECA7 /* SuggestedCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D95FA9235E82AC0053ECA7 /* SuggestedCollectionCell.swift */; };
@@ -250,6 +251,8 @@
 		48A830FA2357CFEA00451E38 /* ProfileBiggest.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProfileBiggest.xib; path = ../ProfileBiggest.xib; sourceTree = "<group>"; };
 		48A830FC2357CFFB00451E38 /* ProfileBiggest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileBiggest.swift; path = ../ProfileBiggest.swift; sourceTree = "<group>"; };
 		48A830FE2357DDBC00451E38 /* BiggerPictureEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiggerPictureEditViewController.swift; sourceTree = "<group>"; };
+		48B21773247ADBFE00312445 /* myvideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = myvideo.mp4; path = "Impoort-IOS/myvideo.mp4"; sourceTree = SOURCE_ROOT; };
+		48B2347A247AE47900C1D569 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		48B6E013235F45BB00001920 /* NewProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProfileViewController.swift; sourceTree = "<group>"; };
 		48B6E016235FA3CE00001920 /* ExperiencesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperiencesCollectionViewCell.swift; sourceTree = "<group>"; };
 		48B6E018235FC11A00001920 /* ExperienceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ExperienceView.xib; path = ../ExperienceView.xib; sourceTree = "<group>"; };
@@ -261,7 +264,6 @@
 		48C7E2F12394C585005209ED /* ExperiencesAndLinksEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperiencesAndLinksEditViewController.swift; sourceTree = "<group>"; };
 		48C7E2F52394D180005209ED /* ExperiencesEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperiencesEditCell.swift; sourceTree = "<group>"; };
 		48C7E2F62394D180005209ED /* ExperiencesEditCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExperiencesEditCell.xib; sourceTree = "<group>"; };
-		48C7E2F92394D95F005209ED /* myvideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = myvideo.mp4; path = "Impoort-IOS/myvideo.mp4"; sourceTree = SOURCE_ROOT; };
 		48CEF2042359392400FCC5BD /* QuickShareCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickShareCell.swift; sourceTree = "<group>"; };
 		48CEF2052359392400FCC5BD /* QuickShareCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickShareCell.xib; sourceTree = "<group>"; };
 		48D95FA9235E82AC0053ECA7 /* SuggestedCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedCollectionCell.swift; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				483DD9BA23480C5900DCA3A1 /* User2.swift */,
+				48B2347A247AE47900C1D569 /* CurrentUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -687,7 +690,7 @@
 		48C7E2ED2394B8B1005209ED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				48C7E2F92394D95F005209ED /* myvideo.mp4 */,
+				48B21773247ADBFE00312445 /* myvideo.mp4 */,
 				4893007A23428A92004B37AD /* Assets.xcassets */,
 				48C7E2EE2394B954005209ED /* Color.xcassets */,
 			);
@@ -787,6 +790,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48B21774247ADC6700312445 /* myvideo.mp4 in Resources */,
 				48CEF2072359392400FCC5BD /* QuickShareCell.xib in Resources */,
 				4893007E23428A92004B37AD /* LaunchScreen.storyboard in Resources */,
 				486A0D5023569B3E0019329D /* LinksView.xib in Resources */,
@@ -803,7 +807,6 @@
 				4893007923428A91004B37AD /* Main.storyboard in Resources */,
 				4890BD44235555A50083AEAF /* CustomHeader.xib in Resources */,
 				485AD836234AC0FE008E8E52 /* External.storyboard in Resources */,
-				48C7E2FA2394D95F005209ED /* myvideo.mp4 in Resources */,
 				484916FE234A5EA10093091D /* Home.storyboard in Resources */,
 				48C7E2EF2394B954005209ED /* Color.xcassets in Resources */,
 				48A830F82357CEE300451E38 /* Tools.storyboard in Resources */,
@@ -944,6 +947,7 @@
 				48212E63247021FC00FE35DA /* LikeRequestDTO.swift in Sources */,
 				481918E4236157F100D43D88 /* SettingsDetailViewController.swift in Sources */,
 				482D71A3238A021100EF34D4 /* WorkersViewController.swift in Sources */,
+				48B2347B247AE47900C1D569 /* CurrentUser.swift in Sources */,
 				48212E6C247021FC00FE35DA /* Watch.swift in Sources */,
 				48212E48247021FB00FE35DA /* BasicErrorControllerAPI.swift in Sources */,
 				48B6E014235F45BB00001920 /* NewProfileViewController.swift in Sources */,

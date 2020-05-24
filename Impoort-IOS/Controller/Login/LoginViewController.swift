@@ -32,11 +32,11 @@ class LoginViewController: BaseViewController {
 //        nHeaders!["Authorization"] = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE1OTMyNDA1MjgsImVtYWlsIjoiYXNzc0Bhc2Rhc3NkLmNvbSJ9.mjwIvJ3CjW9Ma4qEVrzwex9vM1z9FOL1d95eIpxD8SCMbWNtqfzC3JOZSnlNJQlCayKDeLDFnW4Onx35HZkOXg"
 //        configuration.httpAdditionalHeaders = nHeaders!
         
-        PostControllerAPI.addNewPostUsingPOST(postRequestDTO: PostRequestDTO(createdDateTime: nil, department: "asd", mediaUrl: "asd", postDescription: "ddd", postType: 2, tags: [], userId: "2c918082721e0bbb01721e0bff630000")) { (res, err) in
-            print(res)
-            print(err)
-        }
-        
+//        PostControllerAPI.addNewPostUsingPOST(postRequestDTO: PostRequestDTO(createdDateTime: nil, department: "asd", mediaUrl: "asd", postDescription: "ddd", postType: 2, tags: [], userId: "2c918082721e0bbb01721e0bff630000")) { (res, err) in
+//            print(res)
+//            print(err)
+//        }
+//        
         
         
 //        let img = UIImage(named: "2f0")
@@ -68,7 +68,19 @@ class LoginViewController: BaseViewController {
     }
     
     @IBAction func loginButtonClicked(_ sender: Any) {
-        self.goToHome()
+        if !eMailTxtField.text!.isEmpty && !passwordTxtField.text!.isEmpty {
+            UserAuthControllerAPI.loginUsingPOST(userAuthRequestDto: UserAuthRequestDto(email: eMailTxtField.text!, password: passwordTxtField.text!)) { (responseJson, error) in
+                if error == nil {
+                    print(responseJson) //JWT ALINIP KAYDEDİLECEK
+                    self.goToHome()
+                } else {
+                    AlertController.shared.showBasicAlert(viewCont: self, title: "Error", message: "E mail or password wrong. Please check your information", buttonTitle: "Ok")
+                }
+            }
+        } else {
+            self.goToHome()
+            AlertController.shared.showBasicAlert(viewCont: self, title: "Error", message: "E mail or password wrong. Please check your information", buttonTitle: "Ok")
+        }
     }
     
 }

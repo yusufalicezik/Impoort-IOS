@@ -32,6 +32,8 @@ class NewProfileViewController: BaseViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var departmentLabel: UILabel!
     @IBOutlet weak var nameSurnameLabel: UILabel!
+    @IBOutlet weak var contactMailLabel: UILabel!
+    @IBOutlet weak var contactPhoneLabel: UILabel!
     var currentExperienceViews = [ExperienceView]()
     var currentLinkViews = [LinksView]()
     var pastelView : PastelView?
@@ -56,15 +58,13 @@ class NewProfileViewController: BaseViewController {
          Experience(companyId: "adsd", companyName: "Mercedes-Benz", department: "IT Intern", experienceId: 2, stillWork: false, workerId: "dd")
     
     
-    ], firstName: "Yusuf Ali", fullName: "Yusuf Ali Cezik", gender: "Erkek", lastName: "Cezik", links: ["github": "/yusufalicezik", "facebook": "/yusufalicezik", "twitter": "/klecon"], phoneNumber: "123123", profileImgUrl: "https://www.klasiksanatlar.com/img/sayfalar/b/1_1534620012_Ekran-Resmi-2018-08-18-22.25.18.png", userId: "23", userType: .developer, watcherCount: 123, watchingCount: 22, watchingPostCount: 2)
+    ], firstName: "Yusuf Ali", fullName: "Yusuf Ali Cezik", gender: "Erkek", lastName: "Cezik", links: ["github": "/yusufalicezik", "facebook": "/yusufalicezik", "linkedin": "/klecon"], phoneNumber: "123123", profileImgUrl: "https://www.klasiksanatlar.com/img/sayfalar/b/1_1534620012_Ekran-Resmi-2018-08-18-22.25.18.png", userId: "23", userType: .developer, watcherCount: 123, watchingCount: 22, watchingPostCount: 2)
     private var userId: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.firstLoadAppear = true
         setup()
-        fetchProfileDetails()
-        updateUI() //kaldırılacak
     }
     
     
@@ -126,6 +126,8 @@ class NewProfileViewController: BaseViewController {
 
         
         if let links = profileDetails.links {
+            self.linkNames.removeAll()
+            self.linkAdresses.removeAll()
             for (key, value) in links {
                 self.linkNames.append(key)
                 self.linkAdresses.append(value)
@@ -145,6 +147,8 @@ class NewProfileViewController: BaseViewController {
         departmentLabel.text = profileDetails.department ?? ""
         locationLabel.text = profileDetails.city ?? ""
         aboutLabel.text = profileDetails._description ?? ""
+        contactMailLabel.text = profileDetails.email ?? ""
+        contactPhoneLabel.text = profileDetails.phoneNumber ?? ""
         
         DispatchQueue.main.async{
             self.getAbout()
@@ -174,6 +178,8 @@ class NewProfileViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         clearHeader()
+        fetchProfileDetails()
+        updateUI() //kaldırılacak
     }
     
     override func viewWillAppear(_ animated: Bool) {

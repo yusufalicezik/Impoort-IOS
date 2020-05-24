@@ -52,9 +52,9 @@ class RegisterThirdStepViewController: BaseViewController {
         if validate(){
             self.giveRegisteredUserInfo()
             
-            guard let birhDate = RegisteredUser.shared.birthDate, let city = RegisteredUser.shared.city, let sector = RegisteredUser.shared.sector, let description = RegisteredUser.shared.description, let email = RegisteredUser.shared.email, let firstname = RegisteredUser.shared.firstName, let lastName = RegisteredUser.shared.lastName, let gender = RegisteredUser.shared.gender, let pass = RegisteredUser.shared.password, let phoneNumber = RegisteredUser.shared.phoneNumber else { return }
+            guard let birhDate = RegisteredUser.shared.birthDate, let city = RegisteredUser.shared.city, let sector = RegisteredUser.shared.sector, let email = RegisteredUser.shared.email, let firstname = RegisteredUser.shared.firstName, let lastName = RegisteredUser.shared.lastName, let gender = RegisteredUser.shared.gender, let pass = RegisteredUser.shared.password, let phoneNumber = RegisteredUser.shared.phoneNumber else { return }
             
-            let userReq = UserRequestDTO(birthDate: birhDate, city: city, department: sector, _description: description, email: email, employeeCount: nil, employees: nil, experiences: nil, firstName: firstname, gender: gender, lastName: lastName, links: nil, password: pass, phoneNumber: phoneNumber, userType: selectedProfileType)
+            let userReq = UserRequestDTO(birthDate: birhDate, city: city, department: sector, _description: nil, email: email, employeeCount: nil, employees: nil, experiences: nil, firstName: firstname, gender: gender, lastName: lastName, links: nil, password: pass, phoneNumber: phoneNumber, userType: selectedProfileType)
             
             print(userReq)
             

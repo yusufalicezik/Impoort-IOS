@@ -8,6 +8,8 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import SDWebImage
+
 class SuggestedViewController: BaseViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -22,6 +24,15 @@ class SuggestedViewController: BaseViewController {
     var isFirstTime = true
     var isSearchResultOpened = false
     
+    var userList: [UserResponseDTO] = [UserResponseDTO(active: true, activeGuide: "asd", birthDate: "123123", city: "İstanbul", confirmed: true, department: "iOS Geliştirici", _description: "iOS Developer at Appcent", email: "yusuf.cezik@appcent.mobi", employeeCount: 2, employees: nil, experiences:[
+        
+        Experience(companyId: "asd", companyName: "Appcent", department: "iOS Developer", experienceId: 2, stillWork: true, workerId: "dd"),
+         Experience(companyId: "ased", companyName: "Nuevo Softwarehouse", department: "iOS Intern", experienceId: 2, stillWork: false, workerId: "dd"),
+         Experience(companyId: "adsd", companyName: "Mercedes-Benz", department: "IT Intern", experienceId: 2, stillWork: false, workerId: "dd")
+    
+    
+    ], firstName: "Yusuf Ali", fullName: "Yusuf Ali Cezik", gender: "Erkek", lastName: "Cezik", links: ["github": "/yusufalicezik", "facebook": "/yusufalicezik", "linkedin": "/klecon"], phoneNumber: "123123", profileImgUrl: "https://www.klasiksanatlar.com/img/sayfalar/b/1_1534620012_Ekran-Resmi-2018-08-18-22.25.18.png", userId: "23", userType: .developer, watcherCount: 123, watchingCount: 22, watchingPostCount: 2)]
+    
     var searchResultView:SearchView?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +41,7 @@ class SuggestedViewController: BaseViewController {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Done"
         IQKeyboardManager.shared.enableAutoToolbar = true
+        
     }
     
     func setup(){
@@ -49,6 +61,16 @@ class SuggestedViewController: BaseViewController {
         collectionView.delaysContentTouches = false
 
     }
+    
+    private func fetchData() {
+        DiscoverControllerAPI.discoverUserUsingGET {  [weak self] (userResponseList, error) in
+            if error == nil && userResponseList != nil {
+                self?.userList = userResponseList!
+                self?.collectionView.reloadData()
+            }
+        }
+    }
+    
     @objc func didClickedSearch(){
         print("asd")
         if !self.isOpenedSearchBar{
@@ -66,6 +88,7 @@ class SuggestedViewController: BaseViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        fetchData()
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
@@ -92,10 +115,10 @@ class SuggestedViewController: BaseViewController {
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         print(textField.text!.count)
+        
         if textField.text!.count == 1{
             //            self.didClickedSearch()
             if !isSearchResultOpened{
-                self.loadSearchResultsView()
                 isSearchResultOpened = true
                 TxtFieldConfig.shared.giveCloseToRight(to: textField, parentVC: self) {
                     self.searchTxtField.text = ""
@@ -106,6 +129,10 @@ class SuggestedViewController: BaseViewController {
             }
         }else if textField.text!.count == 0{
             self.closeSearchResult(textField)
+        }
+        
+        if !textField.text!.isEmpty {
+            self.loadSearchResultsView(text: textField.text!)
         }
     }
     
@@ -146,7 +173,7 @@ extension SuggestedViewController:UITextFieldDelegate{
         }
     }
     
-    func loadSearchResultsView(){
+    func loadSearchResultsView(text: String){
         if let mSearchView = self.searchResultView{
             UIView.transition(with: self.view, duration: 0.3, options: [.transitionCrossDissolve], animations: {
                 mSearchView.removeFromSuperview()
@@ -164,15 +191,24 @@ extension SuggestedViewController:UITextFieldDelegate{
         bottomConst?.priority = UILayoutPriority(rawValue: 999)
         bottomConst?.isActive = true
         self.searchResultView?.topAnchor.constraint(equalTo: self.headerView.bottomAnchor, constant: 0.0).isActive = true
+        fetchSearchData(text: text)
+    }
+    
+    
+    private func fetchSearchData(text: String) {
+        searchResultView?.fetchData(text: text)
     }
 }
 extension SuggestedViewController:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 40
+        return userList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? SuggestedCollectionCell else{ return UICollectionViewCell()}
+        cell.profileNameLabel.text = userList[indexPath.row].fullName ?? ""
+        cell.profileSectorLabel.text = userList[indexPath.row].department ?? ""
+        cell.profileImgView.sd_setImage(with: URL(string: userList[indexPath.row].profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png")!, completed: nil)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

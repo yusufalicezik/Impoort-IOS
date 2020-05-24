@@ -1337,6 +1337,8 @@
                     <navigationItem key="navigationItem" id="CKj-hc-ljL"/>
                     <connections>
                         <outlet property="aboutLabel" destination="lMg-zD-wAt" id="bfH-jA-ykP"/>
+                        <outlet property="contactMailLabel" destination="VXs-KG-r6H" id="57H-eh-Krs"/>
+                        <outlet property="contactPhoneLabel" destination="4Mu-Hy-DFb" id="5fS-Cw-8Yx"/>
                         <outlet property="departmentLabel" destination="Wca-Ws-c0Q" id="g9b-SR-THc"/>
                         <outlet property="experiencesStackView" destination="Wzp-Az-GSt" id="nhb-Ml-Viq"/>
                         <outlet property="headerProfileImage" destination="R6u-JX-jNf" id="7Kp-ZH-S8c"/>
