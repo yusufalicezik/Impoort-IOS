@@ -22,6 +22,7 @@ ${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework
 ${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework
 ${BUILT_PRODUCTS_DIR}/SwiftVideoBackground/SwiftVideoBackground.framework
 ${BUILT_PRODUCTS_DIR}/SwiftWebSocket/SwiftWebSocket.framework
+${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover/SwiftyPickerPopover.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyShadow/SwiftyShadow.framework
 ${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework

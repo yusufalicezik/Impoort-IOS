@@ -38,6 +38,6 @@ pod 'collection-view-layouts/InstagramLayout'
 pod 'collection-view-layouts/FlipboardLayout'
 pod 'collection-view-layouts/FlickrLayout'
 pod 'SwiftVideoBackground'
-
+pod 'SwiftyJSON'
 
 end

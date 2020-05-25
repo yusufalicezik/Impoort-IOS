@@ -10,7 +10,7 @@ import Foundation
 class User2{
     var description:String?
     var sector:String?
-    var userType:Int?
+    var userType:String?
     var firstName:String?
     var password:String?
     var lastName:String?

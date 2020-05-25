@@ -23,6 +23,7 @@ class CurrentUser {
     var gender:String?
     var phoneNumber:String?
     var experienceYear:String?
-    var experienceCompanies:String?
+    var experiences: [Experience]?
+    var links: [String:String]?
     var employeeCount:Int?
 }

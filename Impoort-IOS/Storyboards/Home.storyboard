@@ -695,7 +695,7 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qQO-MS-0u0">
                                                                     <rect key="frame" x="15" y="3" width="345" height="99"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stonks" translatesAutoresizingMaskIntoConstraints="NO" id="4jR-Cc-bW0">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-person" translatesAutoresizingMaskIntoConstraints="NO" id="4jR-Cc-bW0">
                                                                             <rect key="frame" x="20" y="5" width="45" height="89"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="45" id="Tv1-dp-3tP"/>
@@ -1001,7 +1001,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PyM-0A-x2N">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="370"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilepp" translatesAutoresizingMaskIntoConstraints="NO" id="0J4-kP-s0g">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-person" translatesAutoresizingMaskIntoConstraints="NO" id="0J4-kP-s0g">
                                                         <rect key="frame" x="107.66666666666669" y="60" width="160" height="160"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="160" id="Exe-YU-QU6"/>
@@ -1398,7 +1398,7 @@
                                             <action selector="messageButtonClicked:" destination="FyD-DZ-H5u" eventType="touchUpInside" id="gLb-Sm-8wC"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilepp" translatesAutoresizingMaskIntoConstraints="NO" id="Qm5-lZ-s13">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-person" translatesAutoresizingMaskIntoConstraints="NO" id="Qm5-lZ-s13">
                                         <rect key="frame" x="51" y="7.6666666666666643" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="M5j-zB-FZx"/>
@@ -1473,7 +1473,7 @@
         <!--Tab Bar View Controller-->
         <scene sceneID="mMS-MP-mHv">
             <objects>
-                <tabBarController id="PXj-D4-MbZ" customClass="TabBarViewController" customModule="Impoort_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabVC" id="PXj-D4-MbZ" customClass="TabBarViewController" customModule="Impoort_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="urm-8H-Ech">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1606,7 +1606,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G34-HQ-fSM">
                                                     <rect key="frame" x="5" y="1" width="187" height="260"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img" translatesAutoresizingMaskIntoConstraints="NO" id="0vJ-AI-vff">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-person" translatesAutoresizingMaskIntoConstraints="NO" id="0vJ-AI-vff">
                                                             <rect key="frame" x="58.666666666666657" y="13" width="70" height="70"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="70" id="73m-RM-78s"/>
@@ -1787,9 +1787,9 @@
         <image name="attach" width="20" height="20"/>
         <image name="backButton" width="44" height="76"/>
         <image name="closeimgicon" width="50" height="50"/>
+        <image name="empty-person" width="300" height="320"/>
         <image name="home" width="20.333333969116211" height="21"/>
         <image name="homecircles" width="7" height="12"/>
-        <image name="img" width="960" height="670"/>
         <image name="logo" width="289" height="95"/>
         <image name="mail35" width="31" height="25"/>
         <image name="markericon" width="20" height="20"/>
@@ -1805,7 +1805,6 @@
         <image name="settingsicon" width="60" height="60"/>
         <image name="share" width="23.666666030883789" height="23.666666030883789"/>
         <image name="sharewhite" width="142" height="142"/>
-        <image name="stonks" width="680" height="510"/>
         <image name="watch" width="23.666666030883789" height="17.666666030883789"/>
         <image name="watchwhite" width="23" height="20"/>
     </resources>

@@ -7,7 +7,7 @@
 import Foundation
 
 open class SwaggerClientAPI {
-    public static var basePath = "http://ec2-18-156-7-211.eu-central-1.compute.amazonaws.com"
+    public static var basePath = "http://ec2-18-156-84-119.eu-central-1.compute.amazonaws.com"
     public static var credential: URLCredential?
     public static var customHeaders: [String:String] = [:]
     public static var requestBuilderFactory: RequestBuilderFactory = AlamofireRequestBuilderFactory()

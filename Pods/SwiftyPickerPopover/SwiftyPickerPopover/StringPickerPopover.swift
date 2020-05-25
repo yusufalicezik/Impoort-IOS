@@ -11,7 +11,7 @@ public class StringPickerPopover: AbstractPopover {
 
     // MARK: Types
     
-    /// Type of choice valued
+    /// Type of choice value
     public typealias ItemType = String
     /// Popover type
     public typealias PopoverType = StringPickerPopover

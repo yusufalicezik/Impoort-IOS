@@ -243,8 +243,11 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
             httpHeaders[key] = value
         }
         
-        if true {
-            httpHeaders["Authorization"] = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE1OTMyMjY1MjQsImVtYWlsIjoiYXNzc0Bhc2Rhc3NkLmNvbSJ9.4Hp0P7kohA87axzQcmsxa1x3hW8hRk1dz6FiUtsuozwVQGOppg26zlvDA4jj1ZBzoRgvA8RrTfLclG2fWOu6nw"
+        if UserDefaults.standard.bool(forKey: "userLoggedIn") {
+            if let token = UserDefaults.standard.string(forKey: "AuthJWT") {
+                httpHeaders["Authorization"] = token
+                //"Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE1OTMyMjY1MjQsImVtYWlsIjoiYXNzc0Bhc2Rhc3NkLmNvbSJ9.4Hp0P7kohA87axzQcmsxa1x3hW8hRk1dz6FiUtsuozwVQGOppg26zlvDA4jj1ZBzoRgvA8RrTfLclG2fWOu6nw"
+            }
         }
         
         return httpHeaders

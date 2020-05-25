@@ -9,15 +9,21 @@
 import UIKit
 import IQKeyboardManagerSwift
 import collection_view_layouts
+import SDWebImage
+
 class HitsViewController: BaseViewController {
 
     let imgData = [UIImage(named: "1"),UIImage(named: "2"),UIImage(named: "3"),UIImage(named: "4"),UIImage(named: "5"),UIImage(named: "6"),UIImage(named: "7"),UIImage(named: "8"),UIImage(named: "9"),UIImage(named: "10"),UIImage(named: "1"),UIImage(named: "2"),UIImage(named: "3"),UIImage(named: "4"),UIImage(named: "5"),UIImage(named: "6"),UIImage(named: "7"),UIImage(named: "8"),UIImage(named: "9"),UIImage(named: "10"),UIImage(named: "1"),UIImage(named: "2"),UIImage(named: "3"),UIImage(named: "4"),UIImage(named: "5"),UIImage(named: "6"),UIImage(named: "7"),UIImage(named: "8")]
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchTxtField: UITextField!
+    
+    private var bestPostsList: [PostResponseDTO] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.clearHeader()
         setup()
+        fetchPostsData()
         // Do any additional setup after loading the view.
     }
     func setup(){
@@ -40,16 +46,26 @@ class HitsViewController: BaseViewController {
         self.collectionView.collectionViewLayout = layout
         collectionView.reloadData()
     }
+    
+    private func fetchPostsData() {
+        DiscoverControllerAPI.discoverPostsUsingGET { [weak self] (postList, error) in
+            if error == nil {
+                if let postsList = postList {
+                    self?.bestPostsList = postsList
+                }
+            }
+        }
+    }
 
 }
 extension HitsViewController:UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imgData.count
+        return bestPostsList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? HitsCollectionCell else {return UICollectionViewCell()}
-        cell.postImageView.image = self.imgData[indexPath.row]
+        cell.postImageView.sd_setImage(with: URL(string: bestPostsList[indexPath.row].mediaUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png")!, completed: nil)
         return cell
     }
     

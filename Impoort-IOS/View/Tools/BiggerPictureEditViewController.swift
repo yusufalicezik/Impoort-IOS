@@ -8,12 +8,16 @@
 
 import UIKit
 import Zoomy
+import Cloudinary
 
 class BiggerPictureEditViewController: BaseViewController {
 
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var profileImg: UIImageView!
     var parentVC:NewProfileViewController?
+    var profImage: UIImage?
+    var loading = UIActivityIndicatorView()
+    var imagePicker = UIImagePickerController()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.profileImg.translatesAutoresizingMaskIntoConstraints = false
@@ -22,6 +26,18 @@ class BiggerPictureEditViewController: BaseViewController {
         self.editButton.layer.cornerRadius = 8
         self.parentVC?.tabBarController?.delegate = self
         self.clearHeader()
+        editButton.addTarget(self, action: #selector(openGallery), for: .touchUpInside)
+        profileImg.addSubview(loading)
+        loading.translatesAutoresizingMaskIntoConstraints = false
+        loading.centerXAnchor.constraint(equalTo: profileImg.centerXAnchor).isActive = true
+        loading.centerYAnchor.constraint(equalTo: profileImg.centerYAnchor).isActive = true
+
+        loading.startAnimating()
+        loading.isHidden = true
+        loading.color = UIColor.red
+        if let profImage = profImage {
+            profileImg.image = profImage
+        }
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -36,15 +52,7 @@ class BiggerPictureEditViewController: BaseViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     @IBAction func closeClicked(_ sender: Any) {
         self.dismissVC()
     }
@@ -52,11 +60,97 @@ class BiggerPictureEditViewController: BaseViewController {
     @objc func dismissVC(){
         self.dismiss(animated: true, completion: nil)
     }
+    
+
+    
 }
 extension BiggerPictureEditViewController:UITabBarControllerDelegate{
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if parentVC!.tabBarController!.selectedIndex != 4 {
             self.dismissVC()
+        }
+    }
+}
+
+
+extension BiggerPictureEditViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate{
+     @objc func openGallery(){
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            print("Button capture")
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = true
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        print("qwe")
+        picker.dismiss(animated: true, completion: nil)
+        guard let image = info[.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        
+        loading.startAnimating()
+        loading.isHidden = false
+        
+        
+        
+        let img = image
+        let config = CLDConfiguration(cloudName: "divfjwrpa", apiKey: "2ljI1k92Jow0EulTwDSntlsPfH4")
+        let cloudinary = CLDCloudinary(configuration: config)
+        
+        let data = img.jpeg(.lowest)
+        let request = cloudinary.createUploader().upload(data: data!, uploadPreset: "ml_default")
+        request.response { [weak self] (result, err) in
+            if err == nil {
+                self?.loading.isHidden = true
+                self?.profileImg.image = image
+                if let url = result?.url {
+                    
+                    var type: UserUpdateDto.UserType!
+                    
+                    switch CurrentUser.shared.userType {
+                    case 0:
+                        type = .developer
+                    case 1:
+                        type = .startup
+                    case 2:
+                        type = .investor
+                    default:
+                        type = .normalUser
+                    }
+                    
+                    
+                    UserControllerAPI.updateUserUsingPOST(user: UserUpdateDto(
+                        birthDate: CurrentUser.shared.birthDate ?? "",
+                        city: CurrentUser.shared.city ?? "",
+                        department: CurrentUser.shared.sector ?? "",
+                        _description: CurrentUser.shared.description ?? "",
+                        email: CurrentUser.shared.email ?? "",
+                        employeeCount: 0,
+                        employees: nil,
+                        experiences: CurrentUser.shared.experiences ?? nil,
+                        firstName: CurrentUser.shared.firstName ?? "",
+                        gender: CurrentUser.shared.gender ?? "",
+                        lastName: CurrentUser.shared.lastName ?? "",
+                        links: CurrentUser.shared.links ?? nil,
+                        password: CurrentUser.shared.password ?? "",
+                        phoneNumber: CurrentUser.shared.phoneNumber ?? "",
+                        profileImgUrl: url,
+                        userId: CurrentUser.shared.userId ?? "",
+                        userType: type)) { (resp, err) in
+                        if err == nil {
+                            print("success: profile")
+                        }
+                    }
+                    
+                    
+                    
+               
+                }
+                print("res: \(result?.url)")
+            }
         }
     }
 }

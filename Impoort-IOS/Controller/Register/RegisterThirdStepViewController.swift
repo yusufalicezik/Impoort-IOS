@@ -56,7 +56,7 @@ class RegisterThirdStepViewController: BaseViewController {
             
             let userReq = UserRequestDTO(birthDate: birhDate, city: city, department: sector, _description: nil, email: email, employeeCount: nil, employees: nil, experiences: nil, firstName: firstname, gender: gender, lastName: lastName, links: nil, password: pass, phoneNumber: phoneNumber, userType: selectedProfileType)
             
-            print(userReq)
+            //print(userReq)
             
             UserAuthControllerAPI.addNewUserUsingPOST(userRequestDTO: userReq) { (responseDto, error) in
                 if error == nil {

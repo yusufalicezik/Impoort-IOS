@@ -71,7 +71,12 @@ class LoginViewController: BaseViewController {
         if !eMailTxtField.text!.isEmpty && !passwordTxtField.text!.isEmpty {
             UserAuthControllerAPI.loginUsingPOST(userAuthRequestDto: UserAuthRequestDto(email: eMailTxtField.text!, password: passwordTxtField.text!)) { (responseJson, error) in
                 if error == nil {
+                    
                     print(responseJson) //JWT ALINIP KAYDEDİLECEK
+                    UserDefaults.standard.set(true, forKey: "userLoggedIn")
+                    let token: String = ""
+                    UserDefaults.standard.set(token, forKey: "AuthJWT")
+                    //setCurrentUserInfo()
                     self.goToHome()
                 } else {
                     AlertController.shared.showBasicAlert(viewCont: self, title: "Error", message: "E mail or password wrong. Please check your information", buttonTitle: "Ok")
@@ -81,6 +86,9 @@ class LoginViewController: BaseViewController {
             self.goToHome()
             AlertController.shared.showBasicAlert(viewCont: self, title: "Error", message: "E mail or password wrong. Please check your information", buttonTitle: "Ok")
         }
+    }
+    
+    private func setCurrentUserInfo() {
     }
     
 }

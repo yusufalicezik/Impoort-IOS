@@ -141,7 +141,7 @@ open class DGElasticPullToRefreshView: UIView {
         addSubview(r2ControlPointView)
         addSubview(r3ControlPointView)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(DGElasticPullToRefreshView.applicationWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -193,7 +193,7 @@ open class DGElasticPullToRefreshView: UIView {
     // MARK: -
     // MARK: Notifications
     
-    @objc func applicationWillEnterForeground() {
+    func applicationWillEnterForeground() {
         if state == .loading {
             layoutSubviews()
         }
