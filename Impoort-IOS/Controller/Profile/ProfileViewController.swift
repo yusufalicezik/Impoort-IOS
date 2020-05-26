@@ -23,6 +23,9 @@ class ProfileViewController: BaseViewController {
     lazy var postsView:PostsView = PostsView()
     var isDarkHeader = false
     var isChanged = false
+    
+    public var userId: String = CurrentUser.shared.userId ?? ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -85,6 +88,7 @@ class ProfileViewController: BaseViewController {
         self.postsView = (Bundle.main.loadNibNamed("PostsView", owner: self, options: nil)?.first as? PostsView)!
         postsView.parentVC = self
         self.postsView.senderProfileType = senderType
+        self.postsView.userId = userId
         self.postsView.load()
     }
     @IBAction func backButtonClicked(_ sender: Any) {

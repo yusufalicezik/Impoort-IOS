@@ -13,7 +13,7 @@ import SDWebImage
 protocol PostCellDelegate{
     func didSelectPost(_ id:Int)
     func didSelectReadMore(_ id:Int)
-    func didClickedProfilePic() //id gönderilecek
+    func didClickedProfilePic(id: String) //id gönderilecek
 }
 
 class PostCellWithImage: UITableViewCell {
@@ -118,7 +118,7 @@ class PostCellWithImage: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     @objc func profileClicked(){
-        perDelegate?.didClickedProfilePic()
+        perDelegate?.didClickedProfilePic(id: post?.user?.userId ?? (CurrentUser.shared.userId ?? ""))
     }
 
     func hiddenReadMore(){

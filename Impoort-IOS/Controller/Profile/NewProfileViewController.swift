@@ -40,7 +40,7 @@ class NewProfileViewController: BaseViewController {
     
     
     var profileTopLeftAction:(()->())!
-    var profileID: String = ""
+    var profileID: String = CurrentUser.shared.userId ?? ""
     var isClosed = false
     var firstLoadAppear = false
     
@@ -69,8 +69,7 @@ class NewProfileViewController: BaseViewController {
     
     
     func setup(){
-        //self.profileID == userId
-        if true {  // me
+        if self.profileID == CurrentUser.shared.userId ?? "" {  // me
             self.topLeftIcon.setImage(UIImage(named: "settingsicon"), for: .normal)
             self.profileTopLeftAction = {[weak self] in
                 self?.goToSettingsVC()
@@ -106,7 +105,7 @@ class NewProfileViewController: BaseViewController {
     
     private func fetchProfileDetails() {
                 
-        UserControllerAPI.getUserUsingGET(myId: userId, userId: userId) { [weak self] userResponse, error in
+        UserControllerAPI.getUserUsingGET(myId: userId, userId: profileID) { [weak self] userResponse, error in
             if error == nil {
                 self?.profileDetails = userResponse
                 self?.updateUI()
@@ -255,7 +254,7 @@ class NewProfileViewController: BaseViewController {
     }
     
     @IBAction func didMoreClicked(_ sender: Any) {
-        self.goToProfileDetails()
+        self.goToProfileDetails(id: profileID)
     }
     
     @IBAction func settingsClicked(_ sender: Any) {

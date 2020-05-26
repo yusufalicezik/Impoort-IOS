@@ -33,7 +33,7 @@ class PostsView: UIView {
      */
     private var dataList: [PostResponseDTO] = []
     private var pageNumber: Int = 0
-    private var userId: String = CurrentUser.shared.userId ?? ""
+    var userId: String = CurrentUser.shared.userId ?? ""
     
     
     /*
@@ -333,7 +333,7 @@ extension PostsView : UIScrollViewDelegate{
 //    }
 }
 extension PostsView:PostCellDelegate{
-    func didClickedProfilePic() {
+    func didClickedProfilePic(id: String) {
         
     }
     

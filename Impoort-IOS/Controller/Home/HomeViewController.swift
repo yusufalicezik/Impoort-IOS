@@ -286,8 +286,8 @@ extension HomeViewController:UITabBarControllerDelegate{
     }
 }
 extension HomeViewController:PostCellDelegate{
-    func didClickedProfilePic() {
-        self.goToProfile(2)
+    func didClickedProfilePic(id: String) {
+        self.goToProfile(id)
     }
     
     func didSelectPost(_ id: Int) {

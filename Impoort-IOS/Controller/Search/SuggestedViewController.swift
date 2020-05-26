@@ -220,11 +220,17 @@ extension SuggestedViewController:UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if UIDevice().userInterfaceIdiom == .phone {
-            var height = collectionView.frame.width / 2.1
+            let height = collectionView.frame.width / 2.1
             return CGSize(width: (collectionView.frame.width / 2) - 5, height: (height) - 7)
         }
         let widthDivide = collectionView.frame.width / 130
             return CGSize(width: (collectionView.frame.width / round(widthDivide)) - 10, height: 230)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: false)
+        let id = userList[indexPath.row].userId ?? (CurrentUser.shared.userId ?? "")
+        self.goToProfile(id)
     }
     
 }
