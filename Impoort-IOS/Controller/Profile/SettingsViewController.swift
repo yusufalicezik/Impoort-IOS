@@ -17,6 +17,11 @@ class SettingsViewController: BaseViewController {
     let accountProperties = ["E mail", "Password", "Phone Number","Profile Type", "Verify Account"]
     let infoProperties = ["Profile Description","Experiences & Projects","Links"]
     let supportProperties = ["About Us","Terms & Conditions", "Contact"]
+    
+    var profileNames:[String] = []
+    var accountNames:[String] = []
+
+    
     lazy var popupView:ProfileSettingsView = ProfileSettingsView()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +32,15 @@ class SettingsViewController: BaseViewController {
         print("settings de init")
     }
     func setup(){
+        
+        profileNames = [CurrentUser.shared.firstName ?? "", CurrentUser.shared.lastName ?? "",
+        CurrentUser.shared.city ?? "", CurrentUser.shared.birthDate ?? "", CurrentUser.shared.gender ?? "",
+        CurrentUser.shared.sector ?? ""]
+        
+        accountNames = [CurrentUser.shared.email ?? "", CurrentUser.shared.password ?? "",
+        CurrentUser.shared.phoneNumber ?? ""]
+        
+        
         self.profileImgView.layer.cornerRadius = self.profileImgView.frame.width/2
         self.logOutButton.layer.cornerRadius = 11
         self.tableView.delegate = self
@@ -74,16 +88,20 @@ extension SettingsViewController:UITableViewDelegate,UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ProfilePropertiesCell else {return UITableViewCell()}
         if indexPath.section == 0{
             cell.propertyNameLabel.text = profileProperties[indexPath.row]
-            cell.profileNameLabel.text = profileProperties[indexPath.row]
+            cell.profileNameLabel.text = profileNames[indexPath.row]
         }else if indexPath.section == 1{
             cell.propertyNameLabel.text = accountProperties[indexPath.row]
-            cell.profileNameLabel.text = accountProperties[indexPath.row]
+            if indexPath.row < 3 {
+                cell.profileNameLabel.text = accountNames[indexPath.row]
+            } else {
+                cell.profileNameLabel.isHidden = true
+            }
         }else if indexPath.section == 2{
             cell.propertyNameLabel.text = infoProperties[indexPath.row]
             cell.profileNameLabel.isHidden = true
         }else{
             cell.propertyNameLabel.text = supportProperties[indexPath.row]
-            cell.profileNameLabel.text = supportProperties[indexPath.row]
+            cell.profileNameLabel.isHidden = true
         }
         return cell
     }

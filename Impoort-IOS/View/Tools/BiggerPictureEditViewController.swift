@@ -43,8 +43,6 @@ class BiggerPictureEditViewController: BaseViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-       // self.profileImg.layer.cornerRadius = self.view.frame.width/2
         let recognizer = UISwipeGestureRecognizer(target: self, action: #selector(dismissVC))
         recognizer.direction = .down
         self.view.addGestureRecognizer(recognizer)
@@ -118,6 +116,7 @@ extension BiggerPictureEditViewController: UINavigationControllerDelegate, UIIma
                         print(response)
                         self?.loading.isHidden = true
                         self?.profileImg.image = image
+                        self?.parentVC?.profileImage.image = image
                         CurrentUser.shared.profileImgUrl = url
                     }
                 }

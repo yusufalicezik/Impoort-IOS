@@ -24,7 +24,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yYJ-NN-jK2">
                                 <rect key="frame" x="10" y="10" width="384" height="50"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img" translatesAutoresizingMaskIntoConstraints="NO" id="T2c-Gy-IFg">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-person" translatesAutoresizingMaskIntoConstraints="NO" id="T2c-Gy-IFg">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="CIE-T0-Ykq"/>
@@ -214,8 +214,8 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="empty-person" width="300" height="320"/>
         <image name="ex-img" width="1280" height="600"/>
-        <image name="img" width="960" height="670"/>
         <image name="newcommenticon" width="18" height="18"/>
         <image name="newlikeicon" width="18" height="18"/>
         <image name="watch" width="23" height="17"/>

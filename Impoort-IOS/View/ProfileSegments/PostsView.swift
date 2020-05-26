@@ -186,7 +186,7 @@ extension PostsView:UITableViewDelegate, UITableViewDataSource{
             cell.perDelegate = self
             cell.configCell()
             
-            cell.nameSurnameTxtFied.text = dataList[indexPath.row].user?.fullName ?? "Guest"
+            cell.nameSurnameTxtFied.text = (dataList[indexPath.row].user?.firstName ?? "Guest") + (dataList[indexPath.row].user?.lastName ?? "")
             cell.postDescription.text = dataList[indexPath.row].postDescription ?? ""
             cell.postDescription.numberOfLines = 7
             
@@ -211,7 +211,7 @@ extension PostsView:UITableViewDelegate, UITableViewDataSource{
             cell = Bundle.main.loadNibNamed("WatcherCell", owner: self, options: nil)?.first as! WatcherCell
             if let mCell = cell as? WatcherCell{
                 mCell.profileSectorLabel.text = watcherDataList[indexPath.row].user?.department ?? ""
-                mCell.profileNAmeSurnameLabel.text = watcherDataList[indexPath.row].user?.fullName ?? ""
+                mCell.profileNAmeSurnameLabel.text = (watcherDataList[indexPath.row].user?.firstName ?? "") + (watcherDataList[indexPath.row].user?.lastName ?? "")
                 
                 let isWatching = watcherDataList[indexPath.row].beingWatch ?? true ? "Watching" : "Watch"
                 mCell.watchingWatcherButton.setTitle(isWatching, for: .normal)

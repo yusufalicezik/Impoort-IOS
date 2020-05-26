@@ -209,7 +209,7 @@ extension SuggestedViewController:UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? SuggestedCollectionCell else{ return UICollectionViewCell()}
-        cell.profileNameLabel.text = userList[indexPath.row].fullName ?? ""
+        cell.profileNameLabel.text = (userList[indexPath.row].firstName ?? "") +  (userList[indexPath.row].lastName ?? "")
         cell.profileSectorLabel.text = userList[indexPath.row].department ?? ""
         
         if let url = URL(string: userList[indexPath.row].profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png") {

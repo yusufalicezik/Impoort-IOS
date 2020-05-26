@@ -110,6 +110,7 @@ class NewProfileViewController: BaseViewController {
             if error == nil {
                 self?.profileDetails = userResponse
                 self?.updateUI()
+                self?.setCurrentUser()
             } else {
                 print("Fetch profile error: \(error?.localizedDescription ?? "error")")
             }
@@ -145,7 +146,7 @@ class NewProfileViewController: BaseViewController {
             profileImage.sd_setImage(with: url, completed: nil)
         }
         
-        nameSurnameLabel.text = profileDetails.fullName ?? ""
+        nameSurnameLabel.text = (profileDetails.firstName ?? "") + (profileDetails.lastName ?? "")
         departmentLabel.text = profileDetails.department ?? ""
         locationLabel.text = profileDetails.city ?? ""
         aboutLabel.text = profileDetails._description ?? ""
@@ -162,6 +163,45 @@ class NewProfileViewController: BaseViewController {
             self.getLinks()
         }
         
+    }
+    
+    private func setCurrentUser() {
+        if let bDate = profileDetails?.birthDate {
+            CurrentUser.shared.birthDate = bDate
+        }
+        if let city = profileDetails?.city {
+            CurrentUser.shared.city = city
+        }
+        if let desc = profileDetails?._description {
+            CurrentUser.shared.description = desc
+        }
+        if let department = profileDetails?.department {
+            CurrentUser.shared.sector = department
+        }
+        if let email = profileDetails?.email {
+            CurrentUser.shared.email = email
+        }
+        if let firstName = profileDetails?.firstName {
+            CurrentUser.shared.firstName = firstName
+        }
+        if let gender = profileDetails?.gender {
+            CurrentUser.shared.gender = gender
+        }
+        if let lastname = profileDetails?.lastName {
+            CurrentUser.shared.lastName = lastname
+        }
+        if let phoneNumber = profileDetails?.phoneNumber {
+            CurrentUser.shared.phoneNumber = phoneNumber
+        }
+        if let photo = profileDetails?.profileImgUrl {
+            CurrentUser.shared.profileImgUrl = photo
+        }
+        if let exps = profileDetails?.experiences {
+            CurrentUser.shared.experiences = exps
+        }
+        if let links = profileDetails?.links {
+            CurrentUser.shared.links = links
+        }
     }
     
     

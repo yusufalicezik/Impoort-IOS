@@ -17,7 +17,7 @@ protocol LinksViewProtocol:class {
 }
 
 class SettingsDetailViewController: BaseViewController {
-
+    
     @IBOutlet weak var titleSetting: UILabel!
     var titleString = "Settings" //default
     var propertyList:[String] = []
@@ -37,10 +37,17 @@ class SettingsDetailViewController: BaseViewController {
     let nameTxt = CustomTextField()
     let surnameTxt = CustomTextField()
     let descTxt = CustomTextField()
-    
+    let cityText = CustomTextField()
+    let birthtTxt = CustomTextField()
+    let genderTxt = CustomTextField()
+    let sectorTxt = CustomTextField()
+    let emailTxt = CustomTextField()
+    let passtxt = CustomTextField()
+    let phoneTxt = CustomTextField()
+
     var experienceList: [Experience] = []
     var linkList: [String:String] = [:]
-
+    
     
     func setup(){
         
@@ -58,66 +65,47 @@ class SettingsDetailViewController: BaseViewController {
                 surnameTxt.placeholder = "Surname"
                 surnameTxt.text = CurrentUser.shared.lastName ?? ""
             }else if $0.contains("City"){
-                weak var txt = CustomTextField()
-                txt?.parentVC = self
-                self.containerStackView.addArrangedSubview(txt!)
-                txt?.setup()
-                txt?.placeholder = "City"
-                txt?.text = CurrentUser.shared.city ?? ""
+                cityText.parentVC = self
+                self.containerStackView.addArrangedSubview(cityText)
+                cityText.setup()
+                cityText.placeholder = "City"
+                cityText.text = CurrentUser.shared.city ?? ""
             }else if $0.contains("Date of Birth/Established"){
-                 weak var txt = CustomTextField()
-                txt?.parentVC = self
-                self.containerStackView.addArrangedSubview(txt!)
-                txt?.setup()
-                txt?.placeholder = "Date of Birth/Established"
-                txt?.text = CurrentUser.shared.birthDate ?? ""
+                birthtTxt.parentVC = self
+                self.containerStackView.addArrangedSubview(birthtTxt)
+                birthtTxt.setup()
+                birthtTxt.placeholder = "Date of Birth/Established"
+                birthtTxt.text = CurrentUser.shared.birthDate ?? ""
             }else if $0.contains("Gender"){
-                 weak var txt = CustomTextField()
-                txt?.parentVC = self
-                self.containerStackView.addArrangedSubview(txt!)
-                txt?.setup()
-                txt?.placeholder = "Gender"
-                txt?.text = CurrentUser.shared.gender ?? ""
+               genderTxt.parentVC = self
+                self.containerStackView.addArrangedSubview(genderTxt)
+                genderTxt.setup()
+                genderTxt.placeholder = "Gender"
+                genderTxt.text = CurrentUser.shared.gender ?? ""
             }else if $0.contains("Sector"){
-                 weak var txt = CustomTextField()
-                txt?.parentVC = self
-                self.containerStackView.addArrangedSubview(txt!)
-                txt?.setup()
-                txt?.placeholder = "Sector"
-                txt?.text = CurrentUser.shared.sector ?? ""
+               sectorTxt.parentVC = self
+                self.containerStackView.addArrangedSubview(sectorTxt)
+                sectorTxt.setup()
+                sectorTxt.placeholder = "Sector"
+                sectorTxt.text = CurrentUser.shared.sector ?? ""
             }else if $0.contains("E mail"){
-                 weak var txt = CustomTextField()
-                txt?.parentVC = self
-                self.containerStackView.addArrangedSubview(txt!)
-                txt?.setup()
-                txt?.placeholder = "E mail"
-                txt?.text = CurrentUser.shared.email ?? ""
+                emailTxt.parentVC = self
+                self.containerStackView.addArrangedSubview(emailTxt)
+                emailTxt.setup()
+                emailTxt.placeholder = "E mail"
+                emailTxt.text = CurrentUser.shared.email ?? ""
             }else if $0.contains("Password"){
-                 weak var txt = CustomTextField()
-                txt?.parentVC = self
-                self.containerStackView.addArrangedSubview(txt!)
-                txt?.setup()
-                txt?.placeholder = "Password"
-                txt?.text = CurrentUser.shared.password ?? ""
+                passtxt.parentVC = self
+                self.containerStackView.addArrangedSubview(passtxt)
+                passtxt.setup()
+                passtxt.placeholder = "Password"
+                passtxt.text = CurrentUser.shared.password ?? ""
             }else if $0.contains("Phone Number"){
-                let txt = CustomTextField()
-                txt.parentVC = self
-                self.containerStackView.addArrangedSubview(txt)
-                txt.setup()
-                txt.placeholder = "Phone Number"
-                txt.text = CurrentUser.shared.phoneNumber ?? ""
-            }else if $0.contains("Profile Type"){
-                weak var txt = CustomTextField()
-                txt?.parentVC = self
-                self.containerStackView.addArrangedSubview(txt!)
-                txt?.setup()
-                txt?.placeholder = "Profile Type"
-            }else if $0.contains("Verify Account"){
-                let txt = CustomTextField()
-                txt.parentVC = self
-                self.containerStackView.addArrangedSubview(txt)
-                txt.setup()
-                txt.placeholder = "Verify Account"
+                phoneTxt.parentVC = self
+                self.containerStackView.addArrangedSubview(phoneTxt)
+                phoneTxt.setup()
+                phoneTxt.placeholder = "Phone Number"
+                phoneTxt.text = CurrentUser.shared.phoneNumber ?? ""
             }else if $0.contains("Profile Description"){
                 descTxt.parentVC = self
                 self.containerStackView.addArrangedSubview(descTxt)
@@ -145,7 +133,8 @@ class SettingsDetailViewController: BaseViewController {
                 txt.parentVC = self
                 self.containerStackView.addArrangedSubview(txt)
                 txt.setup()
-                txt.placeholder = "Contact"
+                txt.isEnabled = false
+                txt.text = "Contact us! support@impoort.com"
             }
         }
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 80, height: 50))
@@ -203,64 +192,136 @@ class SettingsDetailViewController: BaseViewController {
             var exps = CurrentUser.shared.experiences ?? nil
             if self.experienceList.count != 0 {
                 exps = self.experienceList
-                CompanyAndExperienceControllerAPI.newExperiencesUsingPOST(experiences: self.experienceList) { (respo, err) in
-                    if err == nil {
-                        print("success \(respo)")
+                CompanyAndExperienceControllerAPI.newExperiencesUsingPOST(experiences: self.experienceList) { [weak self] (respo, err) in
+                    print("errorr \(err?.localizedDescription)")
+                    guard let self = self else {return}
+                    UserControllerAPI.updateUserUsingPOST(user: UserUpdateDto(
+                        birthDate: CurrentUser.shared.birthDate ?? "",
+                        city: CurrentUser.shared.city ?? "",
+                        department: CurrentUser.shared.sector ?? "",
+                        _description: self.descTxt.text ?? (CurrentUser.shared.description ?? ""),
+                        email: CurrentUser.shared.email ?? "",
+                        employeeCount: 0,
+                        employees: nil,
+                        experiences: exps,
+                        firstName: CurrentUser.shared.firstName ?? "",
+                        gender: CurrentUser.shared.gender ?? "",
+                        lastName: CurrentUser.shared.lastName ?? "",
+                        links: CurrentUser.shared.links ?? nil,
+                        password: CurrentUser.shared.password ?? "",
+                        phoneNumber: CurrentUser.shared.phoneNumber ?? "",
+                        profileImgUrl: CurrentUser.shared.profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png",
+                        userId: CurrentUser.shared.userId ?? "",
+                        userType: type)) { (resp, err) in
+                            if err == nil {
+                                
+                                print("success: profile\(resp)")
+                                self.navigationController?.popViewController(animated: true)
+                            }
                     }
                 }
+            } else {
+                UserControllerAPI.updateUserUsingPOST(user: UserUpdateDto(
+                    birthDate: CurrentUser.shared.birthDate ?? "",
+                    city: CurrentUser.shared.city ?? "",
+                    department: CurrentUser.shared.sector ?? "",
+                    _description: descTxt.text ?? (CurrentUser.shared.description ?? ""),
+                    email: CurrentUser.shared.email ?? "",
+                    employeeCount: 0,
+                    employees: nil,
+                    experiences: exps,
+                    firstName: CurrentUser.shared.firstName ?? "",
+                    gender: CurrentUser.shared.gender ?? "",
+                    lastName: CurrentUser.shared.lastName ?? "",
+                    links: CurrentUser.shared.links ?? nil,
+                    password: CurrentUser.shared.password ?? "",
+                    phoneNumber: CurrentUser.shared.phoneNumber ?? "",
+                    profileImgUrl: CurrentUser.shared.profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png",
+                    userId: CurrentUser.shared.userId ?? "",
+                    userType: type)) { (resp, err) in
+                        if err == nil {
+                            print("success: profile\(resp)")
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                }
             }
-            
+        } else if titleString == "Profile" {
             UserControllerAPI.updateUserUsingPOST(user: UserUpdateDto(
-                birthDate: CurrentUser.shared.birthDate ?? "",
-                city: CurrentUser.shared.city ?? "",
-                department: CurrentUser.shared.sector ?? "",
-                _description: descTxt.text ?? (CurrentUser.shared.description ?? ""),
+                birthDate: birthtTxt.text ?? "",
+                city: cityText.text ?? "",
+                department: sectorTxt.text ?? "",
+                _description: CurrentUser.shared.description ?? "",
                 email: CurrentUser.shared.email ?? "",
                 employeeCount: 0,
                 employees: nil,
-                experiences: exps,
+                experiences: CurrentUser.shared.experiences ?? nil,
                 firstName: CurrentUser.shared.firstName ?? "",
-                gender: CurrentUser.shared.gender ?? "",
-                lastName: CurrentUser.shared.lastName ?? "",
+                gender: genderTxt.text ?? "",
+                lastName: surnameTxt.text ?? "",
                 links: CurrentUser.shared.links ?? nil,
                 password: CurrentUser.shared.password ?? "",
                 phoneNumber: CurrentUser.shared.phoneNumber ?? "",
                 profileImgUrl: CurrentUser.shared.profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png",
                 userId: CurrentUser.shared.userId ?? "",
                 userType: type)) { (resp, err) in
-                if err == nil {
-                    print("success: profile\(resp)")
-                    self.navigationController?.popViewController(animated: true)
-                }
+                    if err == nil {
+                        print("success: profile\(resp)")
+                        self.navigationController?.popViewController(animated: true)
+                    }
+            }
+        } else if titleString == "Account" {
+            guard let email = emailTxt.text, let ps = passtxt.text, let phone = phoneTxt.text else { return }
+            UserControllerAPI.updateUserUsingPOST(user: UserUpdateDto(
+                birthDate: CurrentUser.shared.birthDate ?? "",
+                city: CurrentUser.shared.city ?? "",
+                department: CurrentUser.shared.sector ?? "",
+                _description: CurrentUser.shared.description ?? "",
+                email: email,
+                employeeCount: 0,
+                employees: nil,
+                experiences: CurrentUser.shared.experiences ?? nil,
+                firstName: CurrentUser.shared.firstName ?? "",
+                gender: CurrentUser.shared.gender ?? "",
+                lastName: CurrentUser.shared.lastName ?? "",
+                links: CurrentUser.shared.links ?? nil,
+                password: ps,
+                phoneNumber: phone,
+                profileImgUrl: CurrentUser.shared.profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png",
+                userId: CurrentUser.shared.userId ?? "",
+                userType: type)) { (resp, err) in
+                    if err == nil {
+                        print("success: profile\(resp)")
+                        self.navigationController?.popViewController(animated: true)
+                    }
             }
         }
     }
-
+    
 }
 
 
 /*
  UserControllerAPI.updateUserUsingPOST(user: UserUpdateDto(
-     birthDate: CurrentUser.shared.birthDate ?? "",
-     city: CurrentUser.shared.city ?? "",
-     department: CurrentUser.shared.sector ?? "",
-     _description: CurrentUser.shared.description ?? "",
-     email: CurrentUser.shared.email ?? "",
-     employeeCount: 0,
-     employees: nil,
-     experiences: CurrentUser.shared.experiences ?? nil,
-     firstName: CurrentUser.shared.firstName ?? "",
-     gender: CurrentUser.shared.gender ?? "",
-     lastName: CurrentUser.shared.lastName ?? "",
-     links: CurrentUser.shared.links ?? nil,
-     password: CurrentUser.shared.password ?? "",
-     phoneNumber: CurrentUser.shared.phoneNumber ?? "",
-     profileImgUrl: url,
-     userId: CurrentUser.shared.userId ?? "",
-     userType: type)) { (resp, err) in
-     if err == nil {
-         print("success: profile")
-     }
+ birthDate: CurrentUser.shared.birthDate ?? "",
+ city: CurrentUser.shared.city ?? "",
+ department: CurrentUser.shared.sector ?? "",
+ _description: CurrentUser.shared.description ?? "",
+ email: CurrentUser.shared.email ?? "",
+ employeeCount: 0,
+ employees: nil,
+ experiences: CurrentUser.shared.experiences ?? nil,
+ firstName: CurrentUser.shared.firstName ?? "",
+ gender: CurrentUser.shared.gender ?? "",
+ lastName: CurrentUser.shared.lastName ?? "",
+ links: CurrentUser.shared.links ?? nil,
+ password: CurrentUser.shared.password ?? "",
+ phoneNumber: CurrentUser.shared.phoneNumber ?? "",
+ profileImgUrl: url,
+ userId: CurrentUser.shared.userId ?? "",
+ userType: type)) { (resp, err) in
+ if err == nil {
+ print("success: profile")
+ }
  }
  */
 extension SettingsDetailViewController: ExperienceViewProtocol {

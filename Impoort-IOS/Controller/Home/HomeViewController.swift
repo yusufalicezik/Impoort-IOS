@@ -97,10 +97,18 @@ class HomeViewController: BaseViewController {
         }
     }
     @objc func refreshWeatherData(_ sender: Any){
-        DispatchQueue.main.asyncAfter(deadline: .now()+4){
-            self.refreshControl.endRefreshing()
-            UIView.animate(withDuration: 0.5){
+        self.pageNumber = 0
+        PostControllerAPI.listPostsUsingGET(userId: CurrentUser.shared.userId ?? "", pageNumber: pageNumber, pageSize: 20, profilePost: false) { [weak self] postList, error in
+            guard let self = self else { return }
+            if error == nil {
+                guard let posts = postList?.content else { return }
+                self.pageNumber+=1
+                self.dataList = posts
+                self.refreshControl.endRefreshing()
                 self.tableView.backgroundColor = #colorLiteral(red: 0.978782475, green: 0.9576403499, blue: 0.9845044017, alpha: 1)
+                self.tableView.reloadData()
+            } else {
+                print("HOME fetching posts error: \(error?.localizedDescription ?? "error")")
             }
         }
     }
@@ -138,7 +146,7 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
             case .withPhotoPost:
                 cell = Bundle.main.loadNibNamed("PostCellWithImage", owner: self, options: nil)?.first as! PostCellWithImage
                 guard let cell = cell as? PostCellWithImage else { return UITableViewCell() }
-                cell.nameSurnameTxtFied.text = dataList[indexPath.row-1].user?.fullName ?? "Guest"
+                cell.nameSurnameTxtFied.text = (dataList[indexPath.row-1].user?.firstName ?? "Guest") + (dataList[indexPath.row-1].user?.lastName ?? "")
                 addZoombehavior(for: cell.postImage, settings: .instaZoomSettings)
                 cell.perDelegate = self
                 cell.configCell()
@@ -152,7 +160,7 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
             case .normalPost:
                 cell = Bundle.main.loadNibNamed("PostCellWithImage", owner: self, options: nil)?.first as! PostCellWithImage
                 guard let cell = cell as? PostCellWithImage else { return UITableViewCell() }
-                cell.nameSurnameTxtFied.text = dataList[indexPath.row-1].user?.fullName ?? "Guest"
+                cell.nameSurnameTxtFied.text = (dataList[indexPath.row-1].user?.firstName ?? "Guest") + (dataList[indexPath.row-1].user?.lastName ?? "")
                 cell.postImageHeightConstraint.constant = 0.0
                 cell.postDescription.text = dataList[indexPath.row-1].postDescription ?? ""
                 cell.perDelegate = self
