@@ -30,7 +30,11 @@ class ExperiencesAndLinksEditViewController: UIViewController {
     private var searchResultsDataList:[String] = []
     private var experiencesDataList:[ExperiencesAndLinks] = []
     
+    private var expList: [Experience] = []
+    
     public var pageType:PageType = PageType.experiences
+    public weak var expDelegate: ExperienceViewProtocol?
+    public weak var linkDelegate: LinksViewProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +44,7 @@ class ExperiencesAndLinksEditViewController: UIViewController {
         tableViewExperiences.rowHeight = 40
         containerView.layer.cornerRadius = 12
         if pageType == PageType.experiences{
-            CompanyNameTxtField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+            //CompanyNameTxtField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         }else{
             CompanyNameTxtField.placeholder = "Add New Link"
             departmentTxtField.placeholder = "Address"
@@ -88,32 +92,48 @@ class ExperiencesAndLinksEditViewController: UIViewController {
     
     
     @IBAction func addButtonClicked(_ sender: Any) {
-        self.experiencesDataList.insert(ExperiencesAndLinks(companyAndWebName: CompanyNameTxtField.text!,
-                                                            departmentAndLinkName: departmentTxtField.text!), at: 0)
+        
+        switch pageType {
+        case .experiences:
+            self.expList.append(Experience(companyId: "1", companyName: CompanyNameTxtField.text!, department: departmentTxtField.text!, experienceId: nil, stillWork: true, workerId: CurrentUser.shared.userId ?? ""))
+        case .links:
+            print("links")
+        }
+        
+        //self.experiencesDataList.insert(ExperiencesAndLinks(companyAndWebName: CompanyNameTxtField.text!,
+                                                            //departmentAndLinkName: departmentTxtField.text!), at: 0)
         self.tableViewExperiences.reloadData()
     }
     @IBAction func closeButtonClicked(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func saveButtonClicked(_ sender: Any) {
+        expDelegate?.didUpdatedExperiences(expList: expList)
         self.dismiss(animated: true, completion: nil)
     }
 }
 
 extension ExperiencesAndLinksEditViewController:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == tableViewExperiences{
-            return experiencesDataList.count
-        }else{
-            return searchResultsDataList.count
+//        if tableView == tableViewExperiences{
+//            return experiencesDataList.count
+//        }else{
+//            return searchResultsDataList.count
+//        }
+        switch pageType {
+        case .experiences:
+            return expList.count
+        case .links:
+            print("links")
+            return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == tableViewExperiences{
             let cell = Bundle.main.loadNibNamed("ExperiencesEditCell", owner: self, options: nil)?.first as? ExperiencesEditCell
-            cell?.compNameLabel.text = experiencesDataList[indexPath.row].companyAndWebName
-            cell?.deptLabel.text = experiencesDataList[indexPath.row].departmentAndLinkName
+            cell?.compNameLabel.text = expList[indexPath.row].companyName ?? ""
+            cell?.deptLabel.text = expList[indexPath.row].department ?? ""
             if indexPath.row == self.experiencesDataList.count-1{ //last one
                 cell?.icon.image = UIImage(named:"normalExp")
             }
@@ -138,7 +158,7 @@ extension ExperiencesAndLinksEditViewController:UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if tableView == tableViewExperiences{
             if editingStyle == .delete{
-                self.experiencesDataList.remove(at: indexPath.row)
+                self.expList.remove(at: indexPath.row)
                 tableView.reloadData()
             }
         }

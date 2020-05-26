@@ -118,6 +118,7 @@ extension BiggerPictureEditViewController: UINavigationControllerDelegate, UIIma
                         print(response)
                         self?.loading.isHidden = true
                         self?.profileImg.image = image
+                        CurrentUser.shared.profileImgUrl = url
                     }
                 }
                 print("res: \(result?.url)")

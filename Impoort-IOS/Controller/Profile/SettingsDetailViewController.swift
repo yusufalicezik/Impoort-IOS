@@ -8,6 +8,14 @@
 
 import UIKit
 
+protocol ExperienceViewProtocol:class {
+    func didUpdatedExperiences(expList: [Experience])
+}
+
+protocol LinksViewProtocol:class {
+    func didUpdatedLinks(linkList: [String:String])
+}
+
 class SettingsDetailViewController: BaseViewController {
 
     @IBOutlet weak var titleSetting: UILabel!
@@ -26,21 +34,27 @@ class SettingsDetailViewController: BaseViewController {
         self.goToBack()
     }
     
+    let nameTxt = CustomTextField()
+    let surnameTxt = CustomTextField()
+    let descTxt = CustomTextField()
+    
+    var experienceList: [Experience] = []
+    var linkList: [String:String] = [:]
+
+    
     func setup(){
         
         propertyList.forEach {
             if $0.contains("Name"){
-                let txt = CustomTextField()
-                txt.parentVC = self
-                self.containerStackView.addArrangedSubview(txt)
-                txt.setup()
-                txt.placeholder = "Name"
+                nameTxt.parentVC = self
+                self.containerStackView.addArrangedSubview(nameTxt)
+                nameTxt.setup()
+                nameTxt.placeholder = "Name"
             }else if $0.contains("Surname"){
-                weak var txt = CustomTextField()
-                txt?.parentVC = self
-                self.containerStackView.addArrangedSubview(txt!)
-                txt?.setup()
-                txt?.placeholder = "Surname"
+                surnameTxt.parentVC = self
+                self.containerStackView.addArrangedSubview(surnameTxt)
+                surnameTxt.setup()
+                surnameTxt.placeholder = "Surname"
             }else if $0.contains("City"){
                 weak var txt = CustomTextField()
                 txt?.parentVC = self
@@ -96,11 +110,10 @@ class SettingsDetailViewController: BaseViewController {
                 txt.setup()
                 txt.placeholder = "Verify Account"
             }else if $0.contains("Profile Description"){
-                let txt = CustomTextField()
-                txt.parentVC = self
-                self.containerStackView.addArrangedSubview(txt)
-                txt.setup()
-                txt.placeholder = "Profile Description"
+                descTxt.parentVC = self
+                self.containerStackView.addArrangedSubview(descTxt)
+                descTxt.setup()
+                descTxt.placeholder = "Profile Description"
             }else if $0.contains("Experiences & Projects"){
                 let txt = CustomTextField()
                 txt.parentVC = self
@@ -135,12 +148,14 @@ class SettingsDetailViewController: BaseViewController {
         button.centerXAnchor.constraint(equalTo: self.containerStackView.centerXAnchor, constant: 0.0).isActive = true
         button.heightAnchor.constraint(equalToConstant: 47).isActive = true
         button.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        button.addTarget(self, action: #selector(saveClicked), for: .touchUpInside)
     }
     
     @objc private func goToExperiences(){
         self.view.endEditing(true)
         let vc = UIStoryboard(name: "External", bundle: nil).instantiateViewController(withIdentifier: "ExpAndLinksEditVC") as? ExperiencesAndLinksEditViewController
         vc?.pageType = .experiences
+        vc?.expDelegate = self
         vc?.modalPresentationStyle = .overCurrentContext
         self.present(vc!, animated: true, completion: nil)
     }
@@ -156,5 +171,89 @@ class SettingsDetailViewController: BaseViewController {
     deinit{
         print("settings detail de init")
     }
+    
+    @objc func saveClicked() {
+        
+        var type: UserUpdateDto.UserType!
+        
+        switch CurrentUser.shared.userType {
+        case 0:
+            type = .developer
+        case 1:
+            type = .startup
+        case 2:
+            type = .investor
+        default:
+            type = .developer
+        }
+        
+        
+        if titleString == "Information" {
+            
+            var exps = CurrentUser.shared.experiences ?? nil
+            if self.experienceList.count != 0 {
+                exps = self.experienceList
+                CompanyAndExperienceControllerAPI.newExperiencesUsingPOST(experiences: self.experienceList) { (respo, err) in
+                    if err == nil {
+                        print("success")
+                    }
+                }
+            } 
+            
+            UserControllerAPI.updateUserUsingPOST(user: UserUpdateDto(
+                birthDate: CurrentUser.shared.birthDate ?? "",
+                city: CurrentUser.shared.city ?? "",
+                department: CurrentUser.shared.sector ?? "",
+                _description: descTxt.text ?? (CurrentUser.shared.description ?? ""),
+                email: CurrentUser.shared.email ?? "",
+                employeeCount: 0,
+                employees: nil,
+                experiences: exps,
+                firstName: CurrentUser.shared.firstName ?? "",
+                gender: CurrentUser.shared.gender ?? "",
+                lastName: CurrentUser.shared.lastName ?? "",
+                links: CurrentUser.shared.links ?? nil,
+                password: CurrentUser.shared.password ?? "",
+                phoneNumber: CurrentUser.shared.phoneNumber ?? "",
+                profileImgUrl: CurrentUser.shared.profileImgUrl ?? "",
+                userId: CurrentUser.shared.userId ?? "",
+                userType: type)) { (resp, err) in
+                if err == nil {
+                    print("success: profile\(resp)")
+                }
+            }
+        }
+    }
 
+}
+
+
+/*
+ UserControllerAPI.updateUserUsingPOST(user: UserUpdateDto(
+     birthDate: CurrentUser.shared.birthDate ?? "",
+     city: CurrentUser.shared.city ?? "",
+     department: CurrentUser.shared.sector ?? "",
+     _description: CurrentUser.shared.description ?? "",
+     email: CurrentUser.shared.email ?? "",
+     employeeCount: 0,
+     employees: nil,
+     experiences: CurrentUser.shared.experiences ?? nil,
+     firstName: CurrentUser.shared.firstName ?? "",
+     gender: CurrentUser.shared.gender ?? "",
+     lastName: CurrentUser.shared.lastName ?? "",
+     links: CurrentUser.shared.links ?? nil,
+     password: CurrentUser.shared.password ?? "",
+     phoneNumber: CurrentUser.shared.phoneNumber ?? "",
+     profileImgUrl: url,
+     userId: CurrentUser.shared.userId ?? "",
+     userType: type)) { (resp, err) in
+     if err == nil {
+         print("success: profile")
+     }
+ }
+ */
+extension SettingsDetailViewController: ExperienceViewProtocol {
+    func didUpdatedExperiences(expList: [Experience]) {
+        self.experienceList = expList
+    }
 }
