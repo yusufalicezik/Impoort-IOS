@@ -35,9 +35,14 @@ class ProfileViewController: BaseViewController {
         self.addSwipeDismiss(vc: self)
         self.barImageView.layer.cornerRadius = self.barImageView.frame.width / 2
         
-        if let url = URL(string: CurrentUser.shared.profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png") {
-            barImageView.sd_setImage(with: url, completed: nil)
+        if userId == (CurrentUser.shared.userId ?? "") {
+            if let url = URL(string: CurrentUser.shared.profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png") {
+                barImageView.sd_setImage(with: url, completed: nil)
+            }
+        } else {
+            barImageView.isHidden = true
         }
+        
         
         let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         let segmentedControl = TwicketSegmentedControl(frame: frame)

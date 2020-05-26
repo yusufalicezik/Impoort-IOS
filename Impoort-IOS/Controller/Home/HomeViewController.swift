@@ -64,7 +64,7 @@ class HomeViewController: BaseViewController {
                     self.dataList.append(contentsOf: posts)
                 } else {
                     self.dataList = posts
-
+                    
                 }
                 self.tableView.reloadData()
             } else {
@@ -187,30 +187,30 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
     }
     
     
-//    func getData(){
-//        DispatchQueue.main.asyncAfter(deadline: .now()+2){
-//            if self.fState{
-//                var indexes = [IndexPath]()
-//                let startIndex = self.dataList.count
-//                for i in 1..<11{
-//                    self.dataList.append(i)
-//                    indexes.append(IndexPath(row: startIndex+i, section: 0))
-//                }
-//                self.tableView.beginUpdates()
-//                self.tableView.insertRows(at: indexes, with: .fade)
-//                //self.tableView.scrollToRow(at: self.currentRow, at: .none, animated: false)
-//                self.tableView.endUpdates()
-//                ///self.tableView.reloadData()
-//                print(self.dataList.count)
-//                self.isLoading = false
-//                //self.tableView.scrollToRow(at: self.currentIndx, at: .bottom, animated: true)
-//                self.tableView.setContentOffset(self.currentOffset, animated: true)
-//                self.loadingMorePostsActivityView.isHidden = true
-//            }else{
-//                self.getData()
-//            }
-//        }
-//    }
+    //    func getData(){
+    //        DispatchQueue.main.asyncAfter(deadline: .now()+2){
+    //            if self.fState{
+    //                var indexes = [IndexPath]()
+    //                let startIndex = self.dataList.count
+    //                for i in 1..<11{
+    //                    self.dataList.append(i)
+    //                    indexes.append(IndexPath(row: startIndex+i, section: 0))
+    //                }
+    //                self.tableView.beginUpdates()
+    //                self.tableView.insertRows(at: indexes, with: .fade)
+    //                //self.tableView.scrollToRow(at: self.currentRow, at: .none, animated: false)
+    //                self.tableView.endUpdates()
+    //                ///self.tableView.reloadData()
+    //                print(self.dataList.count)
+    //                self.isLoading = false
+    //                //self.tableView.scrollToRow(at: self.currentIndx, at: .bottom, animated: true)
+    //                self.tableView.setContentOffset(self.currentOffset, animated: true)
+    //                self.loadingMorePostsActivityView.isHidden = true
+    //            }else{
+    //                self.getData()
+    //            }
+    //        }
+    //    }
 }
 extension HomeViewController : UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -286,6 +286,18 @@ extension HomeViewController:UITabBarControllerDelegate{
     }
 }
 extension HomeViewController:PostCellDelegate{
+    func didClickedlikeDisLikeButton(postId: Int) {
+        <#code#>
+    }
+    
+    func didClickedWatchButton(postId: Int) {
+        PostControllerAPI.watchPostUsingPOST(postId: postId, userId: CurrentUser.shared.userId ?? "") { (response, error) in
+            if error == nil {
+                AlertController.shared.showBasicAlert(viewCont: self, title: "Success", message: "You watched this post", buttonTitle: "Ok")
+            }
+        }
+    }
+    
     func didClickedProfilePic(id: String) {
         self.goToProfile(id)
     }

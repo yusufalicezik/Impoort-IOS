@@ -14,6 +14,8 @@ protocol PostCellDelegate{
     func didSelectPost(_ id:Int)
     func didSelectReadMore(_ id:Int)
     func didClickedProfilePic(id: String) //id gönderilecek
+    func didClickedWatchButton(postId: Int)
+    func didClickedlikeDisLikeButton(postId: Int)
 }
 
 class PostCellWithImage: UITableViewCell {
@@ -122,6 +124,17 @@ class PostCellWithImage: UITableViewCell {
     }
 
     func hiddenReadMore(){
+        
+    }
+    @IBAction func watchButtonClicked(_ sender: Any) {
+        guard let postid = post?.postId else { return }
+        perDelegate?.didClickedWatchButton(postId: postid)
+    }
+    @IBAction func linkeButtonClicked(_ sender: Any) {
+        guard let postid = post?.postId else { return }
+        perDelegate?.didClickedlikeDisLikeButton(postId: postid)
+    }
+    @IBAction func commentButtonClicked(_ sender: Any) {
         
     }
     

@@ -69,6 +69,9 @@
                                 <state key="normal" title=" 3 Likes" image="newlikeicon">
                                     <color key="titleColor" name="postCellButtonColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="linkeButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ipG-lr-M1B"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZdB-lm-2hV">
                                 <rect key="frame" x="367" y="573.5" width="22" height="22"/>
@@ -77,6 +80,9 @@
                                     <constraint firstAttribute="width" constant="22" id="d1T-SN-Snx"/>
                                 </constraints>
                                 <state key="normal" image="watch"/>
+                                <connections>
+                                    <action selector="watchButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="lEy-Yx-uOs"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ctu-JP-vLi">
                                 <rect key="frame" x="120" y="571" width="85" height="27"/>
@@ -88,6 +94,9 @@
                                 <state key="normal" title=" Reply" image="newcommenticon">
                                     <color key="titleColor" name="postCellButtonColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="commentButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="AUE-I6-cf2"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5j-Ld-i57">
                                 <rect key="frame" x="10" y="110" width="404" height="142.5"/>
