@@ -23,14 +23,16 @@ class ExperiencesAndLinksEditViewController: UIViewController {
     @IBOutlet weak var CompanyNameTxtField: UITextField!
     @IBOutlet weak var departmentTxtField: UITextField!
     @IBOutlet weak var tableViewExperiences: UITableView!
-    @IBOutlet weak var tableViewSearchResult: UITableView!
+   // @IBOutlet weak var tableViewSearchResult: UITableView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     
     private var searchResultsDataList:[String] = []
     private var experiencesDataList:[ExperiencesAndLinks] = []
     
-    private var expList: [Experience] = []
+    private var expList: [Experience] = CurrentUser.shared.experiences ?? []
+    private var linkList: [String:String] = CurrentUser.shared.links ?? [:]
+
     
     public var pageType:PageType = PageType.experiences
     public weak var expDelegate: ExperienceViewProtocol?
@@ -55,23 +57,23 @@ class ExperiencesAndLinksEditViewController: UIViewController {
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        if !textField.text!.isEmpty{
-            DispatchQueue.main.asyncAfter(deadline: .now()){
-                self.searchResultsDataList.append("Microsoft1")
-                self.searchResultsDataList.append("Microsoft2")
-                self.searchResultsDataList.append("Microsoft3")
-                self.searchResultsDataList.append("Microsoft4")
-                self.searchResultsDataList.append("Microsoft5")
-                if !self.searchResultsDataList.isEmpty{
-                    self.tableViewSearchResult.reloadData()
-                    self.tableViewSearchResult.isHidden = false
-                }else{
-                    self.tableViewSearchResult.isHidden = true
-                }
-            }
-        }else{
-            self.tableViewSearchResult.isHidden = true //and clear list
-        }
+//        if !textField.text!.isEmpty{
+//            DispatchQueue.main.asyncAfter(deadline: .now()){
+//                self.searchResultsDataList.append("Microsoft1")
+//                self.searchResultsDataList.append("Microsoft2")
+//                self.searchResultsDataList.append("Microsoft3")
+//                self.searchResultsDataList.append("Microsoft4")
+//                self.searchResultsDataList.append("Microsoft5")
+//                if !self.searchResultsDataList.isEmpty{
+//                    self.tableViewSearchResult.reloadData()
+//                    self.tableViewSearchResult.isHidden = false
+//                }else{
+//                    self.tableViewSearchResult.isHidden = true
+//                }
+//            }
+//        }else{
+//            self.tableViewSearchResult.isHidden = true //and clear list
+//        }
     }
     
     @objc func openLinksPopup(){
@@ -92,12 +94,12 @@ class ExperiencesAndLinksEditViewController: UIViewController {
     
     
     @IBAction func addButtonClicked(_ sender: Any) {
-        
+        guard let compName = CompanyNameTxtField.text, let depText = departmentTxtField.text else { return }
         switch pageType {
         case .experiences:
             self.expList.append(Experience(companyId: "1", companyName: CompanyNameTxtField.text!, department: departmentTxtField.text!, experienceId: nil, stillWork: true, workerId: CurrentUser.shared.userId ?? ""))
         case .links:
-            print("links")
+            self.linkList[compName] = depText
         }
         
         //self.experiencesDataList.insert(ExperiencesAndLinks(companyAndWebName: CompanyNameTxtField.text!,
@@ -108,7 +110,12 @@ class ExperiencesAndLinksEditViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func saveButtonClicked(_ sender: Any) {
-        expDelegate?.didUpdatedExperiences(expList: expList)
+        switch pageType {
+        case .experiences:
+            expDelegate?.didUpdatedExperiences(expList: expList)
+        case .links:
+            linkDelegate?.didUpdatedLinks(linkList: linkList)
+        }
         self.dismiss(animated: true, completion: nil)
     }
 }
@@ -124,26 +131,29 @@ extension ExperiencesAndLinksEditViewController:UITableViewDelegate, UITableView
         case .experiences:
             return expList.count
         case .links:
-            print("links")
-            return 0
+            return linkList.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == tableViewExperiences{
+           
             let cell = Bundle.main.loadNibNamed("ExperiencesEditCell", owner: self, options: nil)?.first as? ExperiencesEditCell
-            cell?.compNameLabel.text = expList[indexPath.row].companyName ?? ""
-            cell?.deptLabel.text = expList[indexPath.row].department ?? ""
-            if indexPath.row == self.experiencesDataList.count-1{ //last one
-                cell?.icon.image = UIImage(named:"normalExp")
+            
+            
+            switch pageType {
+            case .experiences:
+                cell?.compNameLabel.text = expList[indexPath.row].companyName ?? ""
+                cell?.deptLabel.text = expList[indexPath.row].department ?? ""
+                if indexPath.row == self.experiencesDataList.count-1{ //last one
+                    cell?.icon.image = UIImage(named:"normalExp")
+                }
+            case .links:
+                cell?.compNameLabel.text = Array(linkList.keys)[indexPath.row]
+                cell?.deptLabel.text = Array(linkList.values)[indexPath.row]
             }
+            
+            
             return cell!
-        }else{
-            let cell = UITableViewCell()
-            cell.textLabel?.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-            cell.textLabel?.text = self.searchResultsDataList[indexPath.row]
-            return cell
-        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -158,7 +168,12 @@ extension ExperiencesAndLinksEditViewController:UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if tableView == tableViewExperiences{
             if editingStyle == .delete{
-                self.expList.remove(at: indexPath.row)
+                switch pageType {
+                case .experiences:
+                    self.expList.remove(at: indexPath.row)
+                case .links:
+                    self.linkList.removeAll()
+                }
                 tableView.reloadData()
             }
         }

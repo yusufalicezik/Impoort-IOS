@@ -45,8 +45,8 @@ class SettingsDetailViewController: BaseViewController {
     let passtxt = CustomTextField()
     let phoneTxt = CustomTextField()
 
-    var experienceList: [Experience] = []
-    var linkList: [String:String] = [:]
+    var experienceList: [Experience] = CurrentUser.shared.experiences ?? []
+    var linkList: [String:String] = CurrentUser.shared.links ?? [:]
     
     
     func setup(){
@@ -163,6 +163,7 @@ class SettingsDetailViewController: BaseViewController {
         self.view.endEditing(true)
         let vc = UIStoryboard(name: "External", bundle: nil).instantiateViewController(withIdentifier: "ExpAndLinksEditVC") as? ExperiencesAndLinksEditViewController
         vc?.pageType = .links
+        vc?.linkDelegate = self
         vc?.modalPresentationStyle = .overCurrentContext
         self.present(vc!, animated: true, completion: nil)
     }
@@ -189,57 +190,50 @@ class SettingsDetailViewController: BaseViewController {
         
         if titleString == "Information" {
             
-            var exps = CurrentUser.shared.experiences ?? nil
-            if self.experienceList.count != 0 {
-                exps = self.experienceList
-                CompanyAndExperienceControllerAPI.newExperiencesUsingPOST(experiences: self.experienceList) { [weak self] (respo, err) in
-                    print("errorr \(err?.localizedDescription)")
-                    guard let self = self else {return}
-                    UserControllerAPI.updateUserUsingPOST(user: UserUpdateDto(
-                        birthDate: CurrentUser.shared.birthDate ?? "",
-                        city: CurrentUser.shared.city ?? "",
-                        department: CurrentUser.shared.sector ?? "",
-                        _description: self.descTxt.text ?? (CurrentUser.shared.description ?? ""),
-                        email: CurrentUser.shared.email ?? "",
-                        employeeCount: 0,
-                        employees: nil,
-                        experiences: exps,
-                        firstName: CurrentUser.shared.firstName ?? "",
-                        gender: CurrentUser.shared.gender ?? "",
-                        lastName: CurrentUser.shared.lastName ?? "",
-                        links: CurrentUser.shared.links ?? nil,
-                        password: CurrentUser.shared.password ?? "",
-                        phoneNumber: CurrentUser.shared.phoneNumber ?? "",
-                        profileImgUrl: CurrentUser.shared.profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png",
-                        userId: CurrentUser.shared.userId ?? "",
-                        userType: type)) { (resp, err) in
-                            if err == nil {
-                                
-                                print("success: profile\(resp)")
-                                self.navigationController?.popViewController(animated: true)
-                            }
-                    }
-                }
-            } else {
+//            var exps = CurrentUser.shared.experiences ?? nil
+//            var links = CurrentUser.shared.links ?? nil
+//            //if self.experienceList.count != 0 {
+//                if exps != nil && exps!.count > 0 {
+//                    exps?.append(contentsOf: experienceList)
+//                } else {
+//                    exps = self.experienceList
+//                }
+//           // }
+//
+//
+//            //if self.linkList.count != 0 {
+//                if links != nil && links!.count > 0 {
+//                    links = linkList.merging(links!, uniquingKeysWith: { (_, last) -> String in
+//                        last
+//                    })
+//                } else {
+//                    links = self.linkList
+//                }
+//           // }
+        
+            CompanyAndExperienceControllerAPI.newExperiencesUsingPOST(experiences: self.experienceList) { [weak self] (respo, err) in
+                print("errorr \(err?.localizedDescription)")
+                guard let self = self else {return}
                 UserControllerAPI.updateUserUsingPOST(user: UserUpdateDto(
                     birthDate: CurrentUser.shared.birthDate ?? "",
                     city: CurrentUser.shared.city ?? "",
                     department: CurrentUser.shared.sector ?? "",
-                    _description: descTxt.text ?? (CurrentUser.shared.description ?? ""),
+                    _description: self.descTxt.text ?? (CurrentUser.shared.description ?? ""),
                     email: CurrentUser.shared.email ?? "",
                     employeeCount: 0,
                     employees: nil,
-                    experiences: exps,
+                    experiences: self.experienceList,
                     firstName: CurrentUser.shared.firstName ?? "",
                     gender: CurrentUser.shared.gender ?? "",
                     lastName: CurrentUser.shared.lastName ?? "",
-                    links: CurrentUser.shared.links ?? nil,
+                    links: self.linkList,
                     password: CurrentUser.shared.password ?? "",
                     phoneNumber: CurrentUser.shared.phoneNumber ?? "",
                     profileImgUrl: CurrentUser.shared.profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png",
                     userId: CurrentUser.shared.userId ?? "",
                     userType: type)) { (resp, err) in
                         if err == nil {
+                            
                             print("success: profile\(resp)")
                             self.navigationController?.popViewController(animated: true)
                         }
@@ -299,32 +293,11 @@ class SettingsDetailViewController: BaseViewController {
     
 }
 
-
-/*
- UserControllerAPI.updateUserUsingPOST(user: UserUpdateDto(
- birthDate: CurrentUser.shared.birthDate ?? "",
- city: CurrentUser.shared.city ?? "",
- department: CurrentUser.shared.sector ?? "",
- _description: CurrentUser.shared.description ?? "",
- email: CurrentUser.shared.email ?? "",
- employeeCount: 0,
- employees: nil,
- experiences: CurrentUser.shared.experiences ?? nil,
- firstName: CurrentUser.shared.firstName ?? "",
- gender: CurrentUser.shared.gender ?? "",
- lastName: CurrentUser.shared.lastName ?? "",
- links: CurrentUser.shared.links ?? nil,
- password: CurrentUser.shared.password ?? "",
- phoneNumber: CurrentUser.shared.phoneNumber ?? "",
- profileImgUrl: url,
- userId: CurrentUser.shared.userId ?? "",
- userType: type)) { (resp, err) in
- if err == nil {
- print("success: profile")
- }
- }
- */
-extension SettingsDetailViewController: ExperienceViewProtocol {
+extension SettingsDetailViewController: ExperienceViewProtocol, LinksViewProtocol {
+    func didUpdatedLinks(linkList: [String : String]) {
+        self.linkList = linkList
+    }
+    
     func didUpdatedExperiences(expList: [Experience]) {
         self.experienceList = expList
     }

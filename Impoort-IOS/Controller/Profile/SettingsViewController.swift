@@ -11,7 +11,6 @@ import UIKit
 class SettingsViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var profileImgView: UIImageView!
     @IBOutlet weak var logOutButton: UIButton!
     let profileProperties = ["Name" ,"Surname", "City", "Date of Birth/Established", "Gender", "Sector"]
     let accountProperties = ["E mail", "Password", "Phone Number","Profile Type", "Verify Account"]
@@ -41,7 +40,7 @@ class SettingsViewController: BaseViewController {
         CurrentUser.shared.phoneNumber ?? ""]
         
         
-        self.profileImgView.layer.cornerRadius = self.profileImgView.frame.width/2
+        //self.profileImgView.layer.cornerRadius = self.profileImgView.frame.width/2
         self.logOutButton.layer.cornerRadius = 11
         self.tableView.delegate = self
         self.tableView.dataSource = self

@@ -448,15 +448,8 @@
                                             <action selector="closeButtonClicked:" destination="Nbq-nB-Yf6" eventType="touchUpInside" id="qJA-xK-MvA"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stonks" translatesAutoresizingMaskIntoConstraints="NO" id="N8M-o4-aOX">
-                                        <rect key="frame" x="10" y="7.5" width="35" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="35" id="I6C-zJ-fNy"/>
-                                            <constraint firstAttribute="height" constant="35" id="ooq-QD-Q4f"/>
-                                        </constraints>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73f-8K-bLi">
-                                        <rect key="frame" x="55" y="11.5" width="307" height="27.5"/>
+                                        <rect key="frame" x="52" y="11.5" width="310" height="27.5"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
                                         <color key="textColor" red="0.47827315330505371" green="0.8031957745552063" blue="0.71947270631790161" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -465,10 +458,8 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="0cH-fW-akh"/>
-                                    <constraint firstItem="73f-8K-bLi" firstAttribute="leading" secondItem="N8M-o4-aOX" secondAttribute="trailing" constant="10" id="0zZ-yS-eG1"/>
-                                    <constraint firstItem="N8M-o4-aOX" firstAttribute="leading" secondItem="Mig-qy-Ojs" secondAttribute="leading" constant="10" id="2B7-VX-qDd"/>
                                     <constraint firstAttribute="trailing" secondItem="YQo-0M-9RI" secondAttribute="trailing" constant="15" id="39R-df-BqA"/>
-                                    <constraint firstItem="N8M-o4-aOX" firstAttribute="centerY" secondItem="Mig-qy-Ojs" secondAttribute="centerY" id="OSp-pY-URy"/>
+                                    <constraint firstItem="73f-8K-bLi" firstAttribute="leading" secondItem="Mig-qy-Ojs" secondAttribute="leading" constant="52" id="Ged-Pp-nXy"/>
                                     <constraint firstAttribute="height" constant="50" id="V8i-uk-HUD"/>
                                     <constraint firstItem="73f-8K-bLi" firstAttribute="centerY" secondItem="Mig-qy-Ojs" secondAttribute="centerY" id="d8h-YY-WbF"/>
                                     <constraint firstItem="YQo-0M-9RI" firstAttribute="leading" secondItem="73f-8K-bLi" secondAttribute="trailing" constant="10" id="mqt-sQ-omr"/>
@@ -574,7 +565,6 @@
                     <navigationItem key="navigationItem" id="dT6-nK-74L"/>
                     <connections>
                         <outlet property="logOutButton" destination="jol-gC-1bX" id="ENa-gU-T0z"/>
-                        <outlet property="profileImgView" destination="N8M-o4-aOX" id="vVT-vm-sz3"/>
                         <outlet property="tableView" destination="iDy-zM-bvA" id="tq6-1K-yCj"/>
                     </connections>
                 </viewController>
@@ -979,14 +969,6 @@
                                             <outlet property="delegate" destination="OJp-Hq-3vF" id="Vp2-qq-HhX"/>
                                         </connections>
                                     </tableView>
-                                    <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aFy-D5-zbS">
-                                        <rect key="frame" x="0.0" y="85.5" width="364" height="484.5"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="OJp-Hq-3vF" id="WOw-ZR-rPz"/>
-                                            <outlet property="delegate" destination="OJp-Hq-3vF" id="hin-YK-jWY"/>
-                                        </connections>
-                                    </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWa-wx-Kft">
                                         <rect key="frame" x="132" y="580" width="100" height="30"/>
                                         <color key="backgroundColor" red="0.43529411759999997" green="0.76862745099999996" blue="0.63529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1005,20 +987,16 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="aFy-D5-zbS" firstAttribute="leading" secondItem="nJY-Vf-4Gc" secondAttribute="leading" id="3L4-Xm-ZdR"/>
                                     <constraint firstItem="hvm-IP-tbn" firstAttribute="leading" secondItem="nJY-Vf-4Gc" secondAttribute="leading" constant="20" id="7oC-wC-P0w"/>
                                     <constraint firstAttribute="trailing" secondItem="rbb-eJ-906" secondAttribute="trailing" constant="20" id="O3v-tl-mqc"/>
                                     <constraint firstItem="uaC-L0-5Vt" firstAttribute="centerX" secondItem="nJY-Vf-4Gc" secondAttribute="centerX" id="O8P-Od-inq"/>
                                     <constraint firstItem="SbY-Ng-cBf" firstAttribute="leading" secondItem="nJY-Vf-4Gc" secondAttribute="leading" constant="20" id="RAX-iQ-d8U"/>
                                     <constraint firstItem="RWa-wx-Kft" firstAttribute="top" secondItem="rbb-eJ-906" secondAttribute="bottom" constant="10" id="Xj6-Tc-6aJ"/>
                                     <constraint firstAttribute="trailing" secondItem="mJw-BV-QqT" secondAttribute="trailing" constant="20" id="YOr-41-c0a"/>
-                                    <constraint firstAttribute="trailing" secondItem="aFy-D5-zbS" secondAttribute="trailing" id="YVN-eU-x5w"/>
                                     <constraint firstAttribute="trailing" secondItem="SbY-Ng-cBf" secondAttribute="trailing" constant="20" id="ZbI-AI-txd"/>
                                     <constraint firstAttribute="trailing" secondItem="EPa-XP-No4" secondAttribute="trailing" constant="3" id="d33-nE-Ktn"/>
                                     <constraint firstAttribute="trailing" secondItem="hvm-IP-tbn" secondAttribute="trailing" constant="20" id="d3F-4v-RtV"/>
                                     <constraint firstItem="hvm-IP-tbn" firstAttribute="top" secondItem="SbY-Ng-cBf" secondAttribute="bottom" constant="10" id="eKs-DK-mEn"/>
-                                    <constraint firstItem="RWa-wx-Kft" firstAttribute="top" secondItem="aFy-D5-zbS" secondAttribute="bottom" constant="10" id="gds-2K-7Zp"/>
-                                    <constraint firstItem="aFy-D5-zbS" firstAttribute="top" secondItem="SbY-Ng-cBf" secondAttribute="bottom" id="ihp-Li-uoV"/>
                                     <constraint firstItem="SbY-Ng-cBf" firstAttribute="top" secondItem="uaC-L0-5Vt" secondAttribute="bottom" constant="20" id="j25-kF-JBH"/>
                                     <constraint firstAttribute="bottom" secondItem="RWa-wx-Kft" secondAttribute="bottom" constant="8" id="mMk-RU-bMX"/>
                                     <constraint firstItem="mJw-BV-QqT" firstAttribute="top" secondItem="hvm-IP-tbn" secondAttribute="bottom" constant="15" id="nZD-NW-gIH"/>
@@ -1046,7 +1024,6 @@
                         <outlet property="departmentTxtField" destination="hvm-IP-tbn" id="gh9-kr-iFf"/>
                         <outlet property="saveButton" destination="RWa-wx-Kft" id="53Z-Qc-m2X"/>
                         <outlet property="tableViewExperiences" destination="rbb-eJ-906" id="1tY-MR-OZ2"/>
-                        <outlet property="tableViewSearchResult" destination="aFy-D5-zbS" id="Cyf-Ml-3JP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5rr-cR-dES" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
