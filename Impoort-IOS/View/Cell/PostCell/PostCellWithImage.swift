@@ -37,7 +37,10 @@ class PostCellWithImage: UITableViewCell {
             if PostType(rawValue: post?.postType ?? 0) == PostType.withPhotoPost {
                 postImage.sd_setImage(with: URL(string: (post?.mediaUrl!)!), completed: nil)
             }
-            profileImage.sd_setImage(with: URL(string: (post?.user?.profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png")!)!, completed: nil)
+            
+            if let pUrl = URL(string: post?.user?.profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png") {
+                profileImage.sd_setImage(with: pUrl, completed: nil)
+            }
             sectorTxtField.text = post?.user?.department ?? ""
             dateLabel.text = post?.createdDateTime ?? ""
             

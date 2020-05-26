@@ -31,7 +31,11 @@ class ProfileViewController: BaseViewController {
     func setup(){
         self.addSwipeDismiss(vc: self)
         self.barImageView.layer.cornerRadius = self.barImageView.frame.width / 2
-        barImageView.sd_setImage(with: URL(string: CurrentUser.shared.profileImgUrl ?? "")!, completed: nil)
+        
+        if let url = URL(string: CurrentUser.shared.profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png") {
+            barImageView.sd_setImage(with: url, completed: nil)
+        }
+        
         let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         let segmentedControl = TwicketSegmentedControl(frame: frame)
         segmentedControl.setSegmentItems(titles)

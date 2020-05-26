@@ -211,7 +211,10 @@ extension SuggestedViewController:UICollectionViewDelegate, UICollectionViewData
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? SuggestedCollectionCell else{ return UICollectionViewCell()}
         cell.profileNameLabel.text = userList[indexPath.row].fullName ?? ""
         cell.profileSectorLabel.text = userList[indexPath.row].department ?? ""
-        cell.profileImgView.sd_setImage(with: URL(string: userList[indexPath.row].profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png")!, completed: nil)
+        
+        if let url = URL(string: userList[indexPath.row].profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png") {
+            cell.profileImgView.sd_setImage(with: url, completed: nil)
+        }
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -139,7 +139,11 @@ extension SearchView : UITableViewDelegate, UITableViewDataSource{
         guard let cell = Bundle.main.loadNibNamed("WatcherCell", owner: self, options: nil)?.first as? WatcherCell else {return UITableViewCell()}
         cell.profileNAmeSurnameLabel.text = searchUserList[indexPath.row].fullName ?? ""
         cell.profileSectorLabel.text = searchUserList[indexPath.row].department ?? ""
-        cell.profileImg.sd_setImage(with: URL(string: searchUserList[indexPath.row].profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png")!, completed: nil)
+        
+        if let url = URL(string: searchUserList[indexPath.row].profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png") {
+            cell.profileImg.sd_setImage(with: url, completed: nil)
+
+        }
         return cell
     }
 

@@ -140,10 +140,11 @@ class NewProfileViewController: BaseViewController {
         }
         
         
-        if let profileImageUrl = profileDetails.profileImgUrl {
-            headerProfileImage.sd_setImage(with: URL(string: profileImageUrl)!, completed: nil)
-            profileImage.sd_setImage(with: URL(string: profileImageUrl)!, completed: nil)
+        if let url = URL(string: profileDetails.profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png") {
+            headerProfileImage.sd_setImage(with: url, completed: nil)
+            profileImage.sd_setImage(with: url, completed: nil)
         }
+        
         nameSurnameLabel.text = profileDetails.fullName ?? ""
         departmentLabel.text = profileDetails.department ?? ""
         locationLabel.text = profileDetails.city ?? ""

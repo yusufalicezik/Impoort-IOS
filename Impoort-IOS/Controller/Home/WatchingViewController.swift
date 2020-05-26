@@ -24,6 +24,7 @@ class WatchingViewController: BaseViewController {
         postView?.removeFromSuperview()
         postView = Bundle.main.loadNibNamed("PostsView", owner: self, options: nil)?.first as? PostsView
         postView?.parentVC = self
+        postView?.isWatchingPost = true
         postView?.senderProfileType = .posts
         postView?.load()
     }

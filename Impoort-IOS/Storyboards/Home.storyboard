@@ -1398,7 +1398,7 @@
                                             <action selector="messageButtonClicked:" destination="FyD-DZ-H5u" eventType="touchUpInside" id="gLb-Sm-8wC"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-person" translatesAutoresizingMaskIntoConstraints="NO" id="Qm5-lZ-s13">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-person" translatesAutoresizingMaskIntoConstraints="NO" id="Qm5-lZ-s13">
                                         <rect key="frame" x="51" y="7.6666666666666643" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="M5j-zB-FZx"/>
@@ -1606,7 +1606,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G34-HQ-fSM">
                                                     <rect key="frame" x="5" y="1" width="187" height="260"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-person" translatesAutoresizingMaskIntoConstraints="NO" id="0vJ-AI-vff">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-person" translatesAutoresizingMaskIntoConstraints="NO" id="0vJ-AI-vff">
                                                             <rect key="frame" x="58.666666666666657" y="13" width="70" height="70"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="70" id="73m-RM-78s"/>

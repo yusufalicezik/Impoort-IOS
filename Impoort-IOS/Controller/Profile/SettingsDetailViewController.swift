@@ -50,53 +50,62 @@ class SettingsDetailViewController: BaseViewController {
                 self.containerStackView.addArrangedSubview(nameTxt)
                 nameTxt.setup()
                 nameTxt.placeholder = "Name"
+                nameTxt.text = CurrentUser.shared.firstName ?? ""
             }else if $0.contains("Surname"){
                 surnameTxt.parentVC = self
                 self.containerStackView.addArrangedSubview(surnameTxt)
                 surnameTxt.setup()
                 surnameTxt.placeholder = "Surname"
+                surnameTxt.text = CurrentUser.shared.lastName ?? ""
             }else if $0.contains("City"){
                 weak var txt = CustomTextField()
                 txt?.parentVC = self
                 self.containerStackView.addArrangedSubview(txt!)
                 txt?.setup()
                 txt?.placeholder = "City"
+                txt?.text = CurrentUser.shared.city ?? ""
             }else if $0.contains("Date of Birth/Established"){
                  weak var txt = CustomTextField()
                 txt?.parentVC = self
                 self.containerStackView.addArrangedSubview(txt!)
                 txt?.setup()
                 txt?.placeholder = "Date of Birth/Established"
+                txt?.text = CurrentUser.shared.birthDate ?? ""
             }else if $0.contains("Gender"){
                  weak var txt = CustomTextField()
                 txt?.parentVC = self
                 self.containerStackView.addArrangedSubview(txt!)
                 txt?.setup()
                 txt?.placeholder = "Gender"
+                txt?.text = CurrentUser.shared.gender ?? ""
             }else if $0.contains("Sector"){
                  weak var txt = CustomTextField()
                 txt?.parentVC = self
                 self.containerStackView.addArrangedSubview(txt!)
                 txt?.setup()
                 txt?.placeholder = "Sector"
+                txt?.text = CurrentUser.shared.sector ?? ""
             }else if $0.contains("E mail"){
                  weak var txt = CustomTextField()
                 txt?.parentVC = self
                 self.containerStackView.addArrangedSubview(txt!)
                 txt?.setup()
                 txt?.placeholder = "E mail"
+                txt?.text = CurrentUser.shared.email ?? ""
             }else if $0.contains("Password"){
                  weak var txt = CustomTextField()
                 txt?.parentVC = self
                 self.containerStackView.addArrangedSubview(txt!)
                 txt?.setup()
                 txt?.placeholder = "Password"
+                txt?.text = CurrentUser.shared.password ?? ""
             }else if $0.contains("Phone Number"){
                 let txt = CustomTextField()
                 txt.parentVC = self
                 self.containerStackView.addArrangedSubview(txt)
                 txt.setup()
                 txt.placeholder = "Phone Number"
+                txt.text = CurrentUser.shared.phoneNumber ?? ""
             }else if $0.contains("Profile Type"){
                 weak var txt = CustomTextField()
                 txt?.parentVC = self
@@ -114,6 +123,7 @@ class SettingsDetailViewController: BaseViewController {
                 self.containerStackView.addArrangedSubview(descTxt)
                 descTxt.setup()
                 descTxt.placeholder = "Profile Description"
+                descTxt.text = CurrentUser.shared.description ?? ""
             }else if $0.contains("Experiences & Projects"){
                 let txt = CustomTextField()
                 txt.parentVC = self
@@ -195,10 +205,10 @@ class SettingsDetailViewController: BaseViewController {
                 exps = self.experienceList
                 CompanyAndExperienceControllerAPI.newExperiencesUsingPOST(experiences: self.experienceList) { (respo, err) in
                     if err == nil {
-                        print("success")
+                        print("success \(respo)")
                     }
                 }
-            } 
+            }
             
             UserControllerAPI.updateUserUsingPOST(user: UserUpdateDto(
                 birthDate: CurrentUser.shared.birthDate ?? "",
@@ -215,11 +225,12 @@ class SettingsDetailViewController: BaseViewController {
                 links: CurrentUser.shared.links ?? nil,
                 password: CurrentUser.shared.password ?? "",
                 phoneNumber: CurrentUser.shared.phoneNumber ?? "",
-                profileImgUrl: CurrentUser.shared.profileImgUrl ?? "",
+                profileImgUrl: CurrentUser.shared.profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png",
                 userId: CurrentUser.shared.userId ?? "",
                 userType: type)) { (resp, err) in
                 if err == nil {
                     print("success: profile\(resp)")
+                    self.navigationController?.popViewController(animated: true)
                 }
             }
         }

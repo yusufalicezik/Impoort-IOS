@@ -23,9 +23,10 @@ class PostsView: UIView {
     var fState = false
     @IBOutlet weak var loadingMorePostsActivityView:UIActivityIndicatorView!
     var currentOffset = CGPoint(x: 0, y: 0)
-    //var dataList = [1,1,1,1,1,1,1,1,1]
     var currentIndex = 0
     var isPagingMaking = false
+
+    var isWatchingPost = false
     
     /*
      PostResponseDTO(commentCount: 2, commentList: nil, createdDateTime: "Cumartesi, 12:20", department: "Yazılım", isLiked: false, isWatched: false, likeCount: 12, likeList: nil, mediaUrl: "https://www.klasiksanatlar.com/img/sayfalar/b/1_1534620012_Ekran-Resmi-2018-08-18-22.25.18.png", postDescription: "Deneme post açıklaması..", postId: 1, postType: 1, tags: ["deneme", "bir", "iki"], user: UserResponseDTO(active: true, activeGuide: "asd", birthDate: "11", city: "", confirmed: true, department: "Yazilim", _description: "deneme", email: nil, employeeCount: nil, employees: nil, experiences: nil, firstName: "Yusuf Ali", fullName: "Yusuf Ali Cezik", gender: "erkek", lastName: "Cezik", links: nil, phoneNumber: nil, profileImgUrl: "https://mobile.tgrthaber.com.tr/images/ckfiles/images/1(801).jpg", userId: "22", userType: .developer, watcherCount: 0, watchingCount: 0, watchingPostCount: 2))
@@ -76,7 +77,7 @@ class PostsView: UIView {
                 self.bottomAnchor.constraint(equalTo: parentVC.containerView.bottomAnchor, constant: 0.0).isActive = true
                 self.leftAnchor.constraint(equalTo: parentVC.containerView.leftAnchor, constant: 0.0).isActive = true
                 self.rightAnchor.constraint(equalTo: parentVC.containerView.rightAnchor, constant: 0.0).isActive = true
-                fetchPostData()
+                fetchWatchingPostData()
             }
         } else if senderProfileType == .watching {
              if let parentVC = parentVC as? ProfileViewController{
@@ -106,7 +107,7 @@ class PostsView: UIView {
     
     
     private func fetchPostData() {
-        PostControllerAPI.listPostsUsingGET(userId: userId, pageNumber: pageNumber, pageSize: 20, profilePost: false) { [weak self] postList, error in
+        PostControllerAPI.listPostsUsingGET(userId: userId, pageNumber: pageNumber, pageSize: 20, profilePost: true) { [weak self] postList, error in
             guard let self = self else { return }
             if error == nil {
                 guard let posts = postList?.content else { return }
@@ -118,6 +119,20 @@ class PostsView: UIView {
                 self.pageNumber+=1
             } else {
                 print("watchng post fetching posts error: \(error?.localizedDescription ?? "error")")
+            }
+        }
+    }
+    
+    private func fetchWatchingPostData() {
+        PostControllerAPI.listWatchedPostsUsingGET(userId: userId) { [weak self] (postList, error) in
+            guard let self = self else { return }
+            if error == nil {
+                guard let posts = postList else { return }
+                self.dataList = posts
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.setNeedsDisplay()
+                }
             }
         }
     }
@@ -202,7 +217,10 @@ extension PostsView:UITableViewDelegate, UITableViewDataSource{
                 mCell.watchingWatcherButton.setTitle(isWatching, for: .normal)
                 mCell.watchingWatcherButton.backgroundColor = watcherDataList[indexPath.row].beingWatch ?? true ? #colorLiteral(red: 0.3960784314, green: 0.7254901961, blue: 0.6470588235, alpha: 1) : #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
                 
-                mCell.profileImg?.sd_setImage(with: URL(string: watcherDataList[indexPath.row].user?.profileImgUrl ?? "" ), completed: nil)
+                
+                if let url = URL(string: watcherDataList[indexPath.row].user?.profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png") {
+                    mCell.profileImg?.sd_setImage(with: url, completed: nil)
+                }
             }
         default:
             cell = Bundle.main.loadNibNamed("WatcherCell", owner: self, options: nil)?.first as! WatcherCell

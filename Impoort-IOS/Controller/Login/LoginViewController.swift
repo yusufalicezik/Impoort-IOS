@@ -73,7 +73,7 @@ class LoginViewController: BaseViewController {
             UserAuthControllerAPI.loginUserSelf(mail: eMailTxtField.text!, password: passwordTxtField.text!) { (data) in
                 print(data)
                 let m = JSON(data.result.value!)
-                if m["statusCodeValue"] == 401 {
+                if m["statusCodeValue"] == 401 || m["statusCodeValue"] == 500 {
                     AlertController.shared.showBasicAlert(viewCont: self, title: "Error", message: "E mail or password wrong. Please check your information", buttonTitle: "Ok")
                 } else {
                     UserDefaults.standard.set(true, forKey: "userLoggedIn")

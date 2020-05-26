@@ -29,7 +29,7 @@ class HitsViewController: BaseViewController {
     func setup(){
         self.addSwipeDismiss(vc: self)
         IQKeyboardManager.shared.enable = true
-    IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Done"
+        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Done"
         IQKeyboardManager.shared.enableAutoToolbar = false
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -52,6 +52,7 @@ class HitsViewController: BaseViewController {
             if error == nil {
                 if let postsList = postList {
                     self?.bestPostsList = postsList
+                    self?.collectionView.reloadData()
                 }
             }
         }
@@ -65,7 +66,10 @@ extension HitsViewController:UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? HitsCollectionCell else {return UICollectionViewCell()}
-        cell.postImageView.sd_setImage(with: URL(string: bestPostsList[indexPath.row].mediaUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png")!, completed: nil)
+        
+        if let url = URL(string: bestPostsList[indexPath.row].mediaUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png") {
+            cell.postImageView.sd_setImage(with: url, completed: nil)
+        }
         return cell
     }
     
