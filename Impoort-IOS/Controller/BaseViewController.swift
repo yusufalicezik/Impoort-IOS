@@ -175,7 +175,7 @@ class BaseViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "NewProfileVC") as? NewProfileViewController
         
-            vc?.profileID = id
+            vc?.profileID = "id"
             self.present(vc!, animated: true, completion: nil)
         
     }

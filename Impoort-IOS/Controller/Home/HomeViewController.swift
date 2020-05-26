@@ -33,14 +33,16 @@ class HomeViewController: BaseViewController {
     var fState = false
     var sState = false
     
-    private var dataList: [PostResponseDTO] = [PostResponseDTO(commentCount: 2, commentList: nil, createdDateTime: "Cumartesi, 12:20", department: "Yazılım", isLiked: false, isWatched: false, likeCount: 12, likeList: nil, mediaUrl: "https://www.klasiksanatlar.com/img/sayfalar/b/1_1534620012_Ekran-Resmi-2018-08-18-22.25.18.png", postDescription: "Deneme post açıklaması..", postId: 1, postType: 1, tags: ["deneme", "bir", "iki"], user: UserResponseDTO(active: true, activeGuide: "asd", birthDate: "11", city: "", confirmed: true, department: "Yazilim", _description: "deneme", email: nil, employeeCount: nil, employees: nil, experiences: nil, firstName: "Yusuf Ali", fullName: "Yusuf Ali Cezik", gender: "erkek", lastName: "Cezik", links: nil, phoneNumber: nil, profileImgUrl: "https://mobile.tgrthaber.com.tr/images/ckfiles/images/1(801).jpg", userId: "22", userType: .developer, watcherCount: 0, watchingCount: 0, watchingPostCount: 2))]
-    private var pageNumber: Int = 1
+    /*
+     PostResponseDTO(commentCount: 2, commentList: nil, createdDateTime: "Cumartesi, 12:20", department: "Yazılım", isLiked: false, isWatched: false, likeCount: 12, likeList: nil, mediaUrl: "https://www.klasiksanatlar.com/img/sayfalar/b/1_1534620012_Ekran-Resmi-2018-08-18-22.25.18.png", postDescription: "Deneme post açıklaması..", postId: 1, postType: 1, tags: ["deneme", "bir", "iki"], user: UserResponseDTO(active: true, activeGuide: "asd", birthDate: "11", city: "", confirmed: true, department: "Yazilim", _description: "deneme", email: nil, employeeCount: nil, employees: nil, experiences: nil, firstName: "Yusuf Ali", fullName: "Yusuf Ali Cezik", gender: "erkek", lastName: "Cezik", links: nil, phoneNumber: nil, profileImgUrl: "https://mobile.tgrthaber.com.tr/images/ckfiles/images/1(801).jpg", userId: "22", userType: .developer, watcherCount: 0, watchingCount: 0, watchingPostCount: 2))
+     */
+    private var dataList: [PostResponseDTO] = []
+    private var pageNumber: Int = 0
     private var userId: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        fetchData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,17 +50,22 @@ class HomeViewController: BaseViewController {
         URLCache.shared.removeAllCachedResponses()
         URLCache.shared.diskCapacity = 0
         URLCache.shared.memoryCapacity = 0
-        SDImageCache.shared.clearMemory()
-        SDImageCache.shared.clearDisk(onCompletion: nil)
+        self.pageNumber = 0
+        fetchData(paging: false)
     }
     
-    private func fetchData() {
-        PostControllerAPI.listPostsUsingGET(userId: userId, pageNumber: pageNumber, pageSize: 20, profilePost: false) { [weak self] postList, error in
+    private func fetchData(paging:Bool) {
+        PostControllerAPI.listPostsUsingGET(userId: CurrentUser.shared.userId ?? "", pageNumber: pageNumber, pageSize: 20, profilePost: false) { [weak self] postList, error in
             guard let self = self else { return }
             if error == nil {
                 guard let posts = postList?.content else { return }
-                self.dataList = posts
                 self.pageNumber+=1
+                if paging{
+                    self.dataList.append(contentsOf: posts)
+                } else {
+                    self.dataList = posts
+
+                }
                 self.tableView.reloadData()
             } else {
                 print("HOME fetching posts error: \(error?.localizedDescription ?? "error")")
@@ -147,6 +154,7 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
                 guard let cell = cell as? PostCellWithImage else { return UITableViewCell() }
                 cell.nameSurnameTxtFied.text = dataList[indexPath.row-1].user?.fullName ?? "Guest"
                 cell.postImageHeightConstraint.constant = 0.0
+                cell.postDescription.text = dataList[indexPath.row-1].postDescription ?? ""
                 cell.perDelegate = self
                 cell.configCell()
                 cell.post = dataList[indexPath.row-1]
@@ -154,11 +162,11 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
                 return UITableViewCell()
             }
             
-            if (indexPath.row == self.dataList.count)  && !firstTime && !isLoading{
+            if (indexPath.row == self.dataList.count)  && !firstTime && !isLoading && self.dataList.count > 15{
                 print("yüklenecek")
                 self.loadingMorePostsActivityView.isHidden = false
                 self.isLoading = true
-                fetchData()
+                fetchData(paging: true)
             }
         }
         return cell

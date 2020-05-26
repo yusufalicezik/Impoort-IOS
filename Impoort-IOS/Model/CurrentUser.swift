@@ -26,4 +26,5 @@ class CurrentUser {
     var experiences: [Experience]?
     var links: [String:String]?
     var employeeCount:Int?
+    var profileImgUrl: String?
 }

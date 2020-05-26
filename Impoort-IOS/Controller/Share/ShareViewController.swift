@@ -8,6 +8,8 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import Cloudinary
+
 
 enum PostType : Int{
     case normalPost = 0, withPhotoPost
@@ -135,7 +137,7 @@ class ShareViewController: BaseViewController,UITextViewDelegate{
     @IBAction func shareButtonClicked(_ sender: Any) {
         print(postType)
         
-      
+        guard !postDescriptionTxtView.text.isEmpty else { return }
         
         var wordsOfDesc = postDescriptionTxtView.text.split(separator: "#")
         if wordsOfDesc.count > 0 && self.postDescriptionTxtView.text.first != "#"{
@@ -149,17 +151,52 @@ class ShareViewController: BaseViewController,UITextViewDelegate{
             }
         }
         
-        let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let dateString = dateFormatter.string(from: date)
         
-        var mediaUrl: String? = nil
-        PostControllerAPI.addNewPostUsingPOST(postRequestDTO: PostRequestDTO(createdDateTime: dateString , department: CurrentUser.shared.sector ?? "" , mediaUrl: mediaUrl ?? nil, postDescription: postDescriptionTxtView.text, postType: postType.rawValue, tags: tagList, userId: CurrentUser.shared.userId ?? "")) { (response, error) in
-            if error == nil {
-                AlertController.shared.showBasicAlert(viewCont: self, title: "Success", message: "New post shared!", buttonTitle: "Ok")
-            } else {
-                AlertController.shared.showBasicAlert(viewCont: self, title: "Error", message: "Check your connection!", buttonTitle: "Ok")
+        if postType == .withPhotoPost {
+            let img = postImageView.image
+            let config = CLDConfiguration(cloudName: "divfjwrpa", apiKey: "2ljI1k92Jow0EulTwDSntlsPfH4")
+            let cloudinary = CLDCloudinary(configuration: config)
+            
+            let data = img!.jpeg(.lowest)
+            let request = cloudinary.createUploader().upload(data: data!, uploadPreset: "ml_default")
+            request.response { [weak self] (result, err) in
+                guard let self = self else { return }
+                if err == nil {
+                    if let url = result?.url {
+                        PostControllerAPI.addNewPostUsingPOST(postRequestDTO: PostRequestDTO(createdDateTime: nil , department: CurrentUser.shared.sector ?? "" , mediaUrl: url, postDescription: self.postDescriptionTxtView.text, postType: self.postType.rawValue, tags: self.tagList, userId: CurrentUser.shared.userId ?? "")) { (response, error) in
+                            if error == nil {
+                                AlertController.shared.showBasicAlert(viewCont: self, title: "Success", message: "New post shared!", buttonTitle: "Ok")
+                                self.postType = .normalPost
+                                self.closeButton.isHidden = true
+                                self.imgParentViewHeightConstraint.constant = 0.0
+                                UIView.animate(withDuration: 0.3){
+                                    self.view.layoutIfNeeded()
+                                }
+                                self.postDescriptionTxtView.text = ""
+                                
+                            } else {
+                                
+                                AlertController.shared.showBasicAlert(viewCont: self, title: "Error \(error)", message: "Check your connection!", buttonTitle: "Ok")
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            PostControllerAPI.addNewPostUsingPOST(postRequestDTO: PostRequestDTO(createdDateTime: nil , department: CurrentUser.shared.sector ?? "" , mediaUrl: nil, postDescription: self.postDescriptionTxtView.text, postType: self.postType.rawValue, tags: self.tagList, userId: CurrentUser.shared.userId ?? "")) { (response, error) in
+                if error == nil {
+                    AlertController.shared.showBasicAlert(viewCont: self, title: "Success", message: "New post shared!", buttonTitle: "Ok")
+                    self.postType = .normalPost
+                    self.closeButton.isHidden = true
+                    self.imgParentViewHeightConstraint.constant = 0.0
+                    UIView.animate(withDuration: 0.3){
+                        self.view.layoutIfNeeded()
+                    }
+                    self.postDescriptionTxtView.text = ""
+                } else {
+                    
+                    AlertController.shared.showBasicAlert(viewCont: self, title: "Error \(error)", message: "Check your connection!", buttonTitle: "Ok")
+                }
             }
         }
     }

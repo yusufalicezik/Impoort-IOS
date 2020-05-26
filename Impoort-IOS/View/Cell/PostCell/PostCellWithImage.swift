@@ -27,6 +27,7 @@ class PostCellWithImage: UITableViewCell {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var postImageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var postContainerView: UIView!
+    @IBOutlet weak var postTitleLabel: UILabel!
     @IBOutlet weak var sectorTxtField: UILabel!
     @IBOutlet weak var nameSurnameTxtFied: UILabel!
     @IBOutlet weak var postDescription: UILabel!
@@ -36,9 +37,9 @@ class PostCellWithImage: UITableViewCell {
             if PostType(rawValue: post?.postType ?? 0) == PostType.withPhotoPost {
                 postImage.sd_setImage(with: URL(string: (post?.mediaUrl!)!), completed: nil)
             }
-            profileImage.sd_setImage(with: URL(string: (post?.user?.profileImgUrl!)!)!, completed: nil)
-            sectorTxtField.text = post?.user?.department!
-            dateLabel.text = post?.createdDateTime!
+            profileImage.sd_setImage(with: URL(string: (post?.user?.profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png")!)!, completed: nil)
+            sectorTxtField.text = post?.user?.department ?? ""
+            dateLabel.text = post?.createdDateTime ?? ""
             
             tagsLabel.isHidden = true
             if let tags = post?.tags {
@@ -50,6 +51,16 @@ class PostCellWithImage: UITableViewCell {
                     }
                 }
             }
+            
+            if let postDesc = post?.postDescription {
+                let titleArray = postDesc.split(separator: " ")
+                if titleArray.count >= 2 {
+                    postTitleLabel.text = "\(titleArray[0]) \(titleArray[1])"
+                } else if titleArray.count != 0 {
+                    postTitleLabel.text = "\(titleArray[0])"
+                }
+            }
+            
             
             likeButton.setTitle("\(post?.likeCount! ?? 0) likes", for: .normal)
         }

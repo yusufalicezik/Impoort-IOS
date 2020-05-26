@@ -78,5 +78,21 @@ open class UserAuthControllerAPI {
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
+    
+    
+    open class func loginUserSelf(mail: String, password: String, completion: @escaping  ((_ data: DataResponse<Any>)->())) {
+        
+        let h: HTTPHeaders = ["Content-Type": "application/json",
+        "Accept": "application/json"]
+        Alamofire.request(URL(string: "http://ec2-18-156-84-119.eu-central-1.compute.amazonaws.com/auth/login")!, method: .post, parameters: ["email": mail, "password": password],encoding: JSONEncoding.default, headers: h ).responseJSON { (response) in
+            completion(response)
+        }
+        
+    }
 
 }
+
+/*
+ email": "string",
+ "password": "string"
+ */

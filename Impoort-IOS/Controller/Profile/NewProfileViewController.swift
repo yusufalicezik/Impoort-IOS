@@ -40,7 +40,7 @@ class NewProfileViewController: BaseViewController {
     
     
     var profileTopLeftAction:(()->())!
-    var profileID = 0
+    var profileID: String = ""
     var isClosed = false
     var firstLoadAppear = false
     
@@ -59,7 +59,7 @@ class NewProfileViewController: BaseViewController {
     
     
     ], firstName: "Yusuf Ali", fullName: "Yusuf Ali Cezik", gender: "Erkek", lastName: "Cezik", links: ["github": "/yusufalicezik", "facebook": "/yusufalicezik", "linkedin": "/klecon"], phoneNumber: "123123", profileImgUrl: "https://www.klasiksanatlar.com/img/sayfalar/b/1_1534620012_Ekran-Resmi-2018-08-18-22.25.18.png", userId: "23", userType: .developer, watcherCount: 123, watchingCount: 22, watchingPostCount: 2)
-    private var userId: String = ""
+    private var userId: String = CurrentUser.shared.userId ?? ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +69,8 @@ class NewProfileViewController: BaseViewController {
     
     
     func setup(){
-        if self.profileID == 0{ // me
+        //self.profileID == userId
+        if true {  // me
             self.topLeftIcon.setImage(UIImage(named: "settingsicon"), for: .normal)
             self.profileTopLeftAction = {[weak self] in
                 self?.goToSettingsVC()
@@ -180,7 +181,6 @@ class NewProfileViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         clearHeader()
         fetchProfileDetails()
-        updateUI() //kaldırılacak
     }
     
     override func viewWillAppear(_ animated: Bool) {

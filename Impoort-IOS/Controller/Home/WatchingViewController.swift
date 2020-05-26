@@ -13,7 +13,6 @@ class WatchingViewController: BaseViewController {
     var postView:PostsView?
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadPosts()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

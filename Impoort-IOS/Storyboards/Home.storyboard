@@ -1001,7 +1001,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PyM-0A-x2N">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="370"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-person" translatesAutoresizingMaskIntoConstraints="NO" id="0J4-kP-s0g">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-person" translatesAutoresizingMaskIntoConstraints="NO" id="0J4-kP-s0g">
                                                         <rect key="frame" x="107.66666666666669" y="60" width="160" height="160"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="160" id="Exe-YU-QU6"/>

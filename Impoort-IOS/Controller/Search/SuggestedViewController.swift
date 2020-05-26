@@ -24,14 +24,17 @@ class SuggestedViewController: BaseViewController {
     var isFirstTime = true
     var isSearchResultOpened = false
     
-    var userList: [UserResponseDTO] = [UserResponseDTO(active: true, activeGuide: "asd", birthDate: "123123", city: "İstanbul", confirmed: true, department: "iOS Geliştirici", _description: "iOS Developer at Appcent", email: "yusuf.cezik@appcent.mobi", employeeCount: 2, employees: nil, experiences:[
-        
-        Experience(companyId: "asd", companyName: "Appcent", department: "iOS Developer", experienceId: 2, stillWork: true, workerId: "dd"),
-         Experience(companyId: "ased", companyName: "Nuevo Softwarehouse", department: "iOS Intern", experienceId: 2, stillWork: false, workerId: "dd"),
-         Experience(companyId: "adsd", companyName: "Mercedes-Benz", department: "IT Intern", experienceId: 2, stillWork: false, workerId: "dd")
-    
-    
-    ], firstName: "Yusuf Ali", fullName: "Yusuf Ali Cezik", gender: "Erkek", lastName: "Cezik", links: ["github": "/yusufalicezik", "facebook": "/yusufalicezik", "linkedin": "/klecon"], phoneNumber: "123123", profileImgUrl: "https://www.klasiksanatlar.com/img/sayfalar/b/1_1534620012_Ekran-Resmi-2018-08-18-22.25.18.png", userId: "23", userType: .developer, watcherCount: 123, watchingCount: 22, watchingPostCount: 2)]
+    /*
+     UserResponseDTO(active: true, activeGuide: "asd", birthDate: "123123", city: "İstanbul", confirmed: true, department: "iOS Geliştirici", _description: "iOS Developer at Appcent", email: "yusuf.cezik@appcent.mobi", employeeCount: 2, employees: nil, experiences:[
+         
+         Experience(companyId: "asd", companyName: "Appcent", department: "iOS Developer", experienceId: 2, stillWork: true, workerId: "dd"),
+          Experience(companyId: "ased", companyName: "Nuevo Softwarehouse", department: "iOS Intern", experienceId: 2, stillWork: false, workerId: "dd"),
+          Experience(companyId: "adsd", companyName: "Mercedes-Benz", department: "IT Intern", experienceId: 2, stillWork: false, workerId: "dd")
+     
+     
+     ], firstName: "Yusuf Ali", fullName: "Yusuf Ali Cezik", gender: "Erkek", lastName: "Cezik", links: ["github": "/yusufalicezik", "facebook": "/yusufalicezik", "linkedin": "/klecon"], phoneNumber: "123123", profileImgUrl: "https://www.klasiksanatlar.com/img/sayfalar/b/1_1534620012_Ekran-Resmi-2018-08-18-22.25.18.png", userId: "23", userType: .developer, watcherCount: 123, watchingCount: 22, watchingPostCount: 2)
+     */
+    var userList: [UserResponseDTO] = []
     
     var searchResultView:SearchView?
     override func viewDidLoad() {

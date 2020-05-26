@@ -1,0 +1,6 @@
+framework module PagingTableView {
+  umbrella header "PagingTableView-umbrella.h"
+
+  export *
+  module * { export * }
+}

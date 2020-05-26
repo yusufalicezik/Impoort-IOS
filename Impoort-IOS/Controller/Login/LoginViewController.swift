@@ -9,6 +9,7 @@
 import UIKit
 import Cloudinary
 import Alamofire
+import SwiftyJSON
 
 class LoginViewController: BaseViewController {
 
@@ -69,26 +70,40 @@ class LoginViewController: BaseViewController {
     
     @IBAction func loginButtonClicked(_ sender: Any) {
         if !eMailTxtField.text!.isEmpty && !passwordTxtField.text!.isEmpty {
-            UserAuthControllerAPI.loginUsingPOST(userAuthRequestDto: UserAuthRequestDto(email: eMailTxtField.text!, password: passwordTxtField.text!)) { (responseJson, error) in
-                if error == nil {
-                    
-                    print(responseJson) //JWT ALINIP KAYDEDİLECEK
-                    UserDefaults.standard.set(true, forKey: "userLoggedIn")
-                    let token: String = ""
-                    UserDefaults.standard.set(token, forKey: "AuthJWT")
-                    //setCurrentUserInfo()
-                    self.goToHome()
-                } else {
+            UserAuthControllerAPI.loginUserSelf(mail: eMailTxtField.text!, password: passwordTxtField.text!) { (data) in
+                print(data)
+                let m = JSON(data.result.value!)
+                if m["statusCodeValue"] == 401 {
                     AlertController.shared.showBasicAlert(viewCont: self, title: "Error", message: "E mail or password wrong. Please check your information", buttonTitle: "Ok")
+                } else {
+                    UserDefaults.standard.set(true, forKey: "userLoggedIn")
+                    let token: String = m["token"].stringValue
+                    UserDefaults.standard.set(token, forKey: "AuthJWT")
+                    self.setCurrentUserInfo(json: m)
+                    print(m["token"])
+                    self.goToHome()
                 }
             }
-        } else {
-            self.goToHome()
-            AlertController.shared.showBasicAlert(viewCont: self, title: "Error", message: "E mail or password wrong. Please check your information", buttonTitle: "Ok")
         }
     }
     
-    private func setCurrentUserInfo() {
+    private func setCurrentUserInfo(json: JSON ) {
+        CurrentUser.shared.birthDate = json["user"]["birthDate"].stringValue
+        CurrentUser.shared.city = json["user"]["city"].stringValue
+        CurrentUser.shared.description = json["user"]["description"].stringValue
+        CurrentUser.shared.email = json["user"]["email"].stringValue
+        CurrentUser.shared.employeeCount = json["user"]["employeeCount"].intValue
+       // CurrentUser.shared.experiences = json["experiences"].array
+        CurrentUser.shared.firstName = json["user"]["firstName"].stringValue
+        CurrentUser.shared.gender = json["user"]["gender"].stringValue
+        CurrentUser.shared.lastName = json["user"]["lastName"].stringValue
+        //CurrentUser.shared.links = json["email"].stringValue
+        CurrentUser.shared.password = passwordTxtField.text!
+        CurrentUser.shared.phoneNumber = json["user"]["phoneNumber"].stringValue
+        CurrentUser.shared.sector = json["user"]["department"].stringValue
+        CurrentUser.shared.userId = json["user"]["userId"].stringValue
+        CurrentUser.shared.profileImgUrl = json["user"]["profileImgUrl"].stringValue
+        CurrentUser.shared.userType = json["user"]["userType"].intValue
     }
     
 }

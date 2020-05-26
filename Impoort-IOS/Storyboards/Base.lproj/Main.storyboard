@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xw2-sH-tlx">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xw2-sH-tlx">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -89,7 +87,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="qGm-A2-dCo"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -99,9 +96,8 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="xYD-FG-Jef"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -221,7 +217,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="X7l-Qr-k4k"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -231,7 +226,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="Zd1-8C-Q6K"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -241,7 +235,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="3pv-TH-K21"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                             </textField>
@@ -251,7 +244,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="0f2-Pb-R58"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
@@ -261,7 +253,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="1c1-xs-3sI"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
@@ -468,7 +459,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="jMh-rJ-z7e"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                                             </textField>
@@ -478,7 +468,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="jk1-54-1az"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" textContentType="address-level2"/>
                                             </textField>
@@ -488,7 +477,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="Bfj-cV-eaZ"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" textContentType="address-level2"/>
                                             </textField>
@@ -498,7 +486,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="gEe-5k-ptB"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" textContentType="address-level2"/>
                                             </textField>
@@ -623,12 +610,12 @@
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="cell" rowHeight="82" id="NEc-ZM-FRf" customClass="SectorCell" customModule="Impoort_IOS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="315" height="82"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NEc-ZM-FRf" id="lLO-3s-piG">
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NEc-ZM-FRf" id="lLO-3s-piG">
                                                     <rect key="frame" x="0.0" y="0.0" width="315" height="82"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Investor" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEg-XL-o6G">
-                                                            <rect key="frame" x="0.0" y="3" width="315" height="52"/>
+                                                            <rect key="frame" x="0.0" y="3" width="315" height="76"/>
                                                             <color key="backgroundColor" red="0.396078431372549" green="0.72549019607843135" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="52" id="LI8-7v-BKB"/>
@@ -662,7 +649,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="HxP-km-hCt"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" textContentType="address-level2"/>
                                             </textField>

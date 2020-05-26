@@ -21,11 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         IQKeyboardManager.shared.enableAutoToolbar = false
         
-        if UserDefaults.standard.bool(forKey: "userLoggedIn") {
-            window = UIWindow(frame: UIScreen.main.bounds)
-            window?.rootViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TabVC") as! TabBarViewController
-            window?.makeKeyAndVisible()
-        }
+//        if UserDefaults.standard.bool(forKey: "userLoggedIn") {
+//            window = UIWindow(frame: UIScreen.main.bounds)
+//            window?.rootViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "TabVC") as! TabBarViewController
+//            window?.makeKeyAndVisible()
+//        }
 
 
         return true

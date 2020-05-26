@@ -203,6 +203,7 @@
                 <outlet property="postDescription" destination="u5j-Ld-i57" id="2f9-Y0-OUp"/>
                 <outlet property="postImage" destination="0T4-gf-pOa" id="DKW-D2-192"/>
                 <outlet property="postImageHeightConstraint" destination="4G6-Af-vGP" id="22d-nv-wNz"/>
+                <outlet property="postTitleLabel" destination="0Ol-yW-PNh" id="UcB-qS-n0z"/>
                 <outlet property="profileImage" destination="T2c-Gy-IFg" id="BWq-Z2-ezf"/>
                 <outlet property="readMoreButton" destination="zYp-pg-Dz0" id="LF5-JC-amr"/>
                 <outlet property="replyButton" destination="Ctu-JP-vLi" id="Su2-Fa-rbY"/>

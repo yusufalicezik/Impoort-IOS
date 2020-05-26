@@ -9,6 +9,7 @@
 import UIKit
 import Zoomy
 import Cloudinary
+import Alamofire
 
 class BiggerPictureEditViewController: BaseViewController {
 
@@ -104,50 +105,20 @@ extension BiggerPictureEditViewController: UINavigationControllerDelegate, UIIma
         let request = cloudinary.createUploader().upload(data: data!, uploadPreset: "ml_default")
         request.response { [weak self] (result, err) in
             if err == nil {
-                self?.loading.isHidden = true
-                self?.profileImg.image = image
                 if let url = result?.url {
                     
-                    var type: UserUpdateDto.UserType!
+                    let params: Parameters = ["userId": CurrentUser.shared.userId ?? "",
+                                              "url": url]
+                
                     
-                    switch CurrentUser.shared.userType {
-                    case 0:
-                        type = .developer
-                    case 1:
-                        type = .startup
-                    case 2:
-                        type = .investor
-                    default:
-                        type = .normalUser
+                    let h: HTTPHeaders = ["Content-Type": "application/json",
+                                          "Accept": "application/json", "Authorization": UserDefaults.standard.string(forKey: "AuthJWT")!]
+                    print(CurrentUser.shared.userId ?? "")
+                    Alamofire.request(URL(string: "http://ec2-18-156-84-119.eu-central-1.compute.amazonaws.com/api/v1/user/updateProfileImg")!, method: .post, parameters: params, encoding: URLEncoding.queryString, headers: h ).responseJSON { (response) in
+                        print(response)
+                        self?.loading.isHidden = true
+                        self?.profileImg.image = image
                     }
-                    
-                    
-                    UserControllerAPI.updateUserUsingPOST(user: UserUpdateDto(
-                        birthDate: CurrentUser.shared.birthDate ?? "",
-                        city: CurrentUser.shared.city ?? "",
-                        department: CurrentUser.shared.sector ?? "",
-                        _description: CurrentUser.shared.description ?? "",
-                        email: CurrentUser.shared.email ?? "",
-                        employeeCount: 0,
-                        employees: nil,
-                        experiences: CurrentUser.shared.experiences ?? nil,
-                        firstName: CurrentUser.shared.firstName ?? "",
-                        gender: CurrentUser.shared.gender ?? "",
-                        lastName: CurrentUser.shared.lastName ?? "",
-                        links: CurrentUser.shared.links ?? nil,
-                        password: CurrentUser.shared.password ?? "",
-                        phoneNumber: CurrentUser.shared.phoneNumber ?? "",
-                        profileImgUrl: url,
-                        userId: CurrentUser.shared.userId ?? "",
-                        userType: type)) { (resp, err) in
-                        if err == nil {
-                            print("success: profile")
-                        }
-                    }
-                    
-                    
-                    
-               
                 }
                 print("res: \(result?.url)")
             }

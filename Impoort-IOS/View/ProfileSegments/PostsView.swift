@@ -16,7 +16,7 @@ class PostsView: UIView {
 
     @IBOutlet weak var tableView: UITableView!
     weak var parentVC:UIViewController? //weak for memory leaks/retain cycle
-    var senderProfileType:SenderProfileTyle?
+    var senderProfileType:SenderProfileTyle! = .posts
     //let refreshControl = UIRefreshControl()
     var isLoading = false
     var firstTime = true
@@ -27,11 +27,18 @@ class PostsView: UIView {
     var currentIndex = 0
     var isPagingMaking = false
     
-    private var dataList: [PostResponseDTO] = [PostResponseDTO(commentCount: 2, commentList: nil, createdDateTime: "Cumartesi, 12:20", department: "Yazılım", isLiked: false, isWatched: false, likeCount: 12, likeList: nil, mediaUrl: "https://www.klasiksanatlar.com/img/sayfalar/b/1_1534620012_Ekran-Resmi-2018-08-18-22.25.18.png", postDescription: "Deneme post açıklaması..", postId: 1, postType: 1, tags: ["deneme", "bir", "iki"], user: UserResponseDTO(active: true, activeGuide: "asd", birthDate: "11", city: "", confirmed: true, department: "Yazilim", _description: "deneme", email: nil, employeeCount: nil, employees: nil, experiences: nil, firstName: "Yusuf Ali", fullName: "Yusuf Ali Cezik", gender: "erkek", lastName: "Cezik", links: nil, phoneNumber: nil, profileImgUrl: "https://mobile.tgrthaber.com.tr/images/ckfiles/images/1(801).jpg", userId: "22", userType: .developer, watcherCount: 0, watchingCount: 0, watchingPostCount: 2))]
-    private var pageNumber: Int = 1
-    private var userId: String = ""
+    /*
+     PostResponseDTO(commentCount: 2, commentList: nil, createdDateTime: "Cumartesi, 12:20", department: "Yazılım", isLiked: false, isWatched: false, likeCount: 12, likeList: nil, mediaUrl: "https://www.klasiksanatlar.com/img/sayfalar/b/1_1534620012_Ekran-Resmi-2018-08-18-22.25.18.png", postDescription: "Deneme post açıklaması..", postId: 1, postType: 1, tags: ["deneme", "bir", "iki"], user: UserResponseDTO(active: true, activeGuide: "asd", birthDate: "11", city: "", confirmed: true, department: "Yazilim", _description: "deneme", email: nil, employeeCount: nil, employees: nil, experiences: nil, firstName: "Yusuf Ali", fullName: "Yusuf Ali Cezik", gender: "erkek", lastName: "Cezik", links: nil, phoneNumber: nil, profileImgUrl: "https://mobile.tgrthaber.com.tr/images/ckfiles/images/1(801).jpg", userId: "22", userType: .developer, watcherCount: 0, watchingCount: 0, watchingPostCount: 2))
+     */
+    private var dataList: [PostResponseDTO] = []
+    private var pageNumber: Int = 0
+    private var userId: String = CurrentUser.shared.userId ?? ""
     
-    private var watcherDataList: [Watcher] = [Watcher(beingWatch: true, _id: 1, user: User(active: true, activeGuide: "asd", birthDate: nil, city: nil, confirmed: nil, department: nil, _description: nil, email: nil, employeeCount: nil, firstName: "Deneme", fullName: "Deeme user", gender: nil, lastName: "user", links: nil, password: "asdasdasd", phoneNumber: "123123", profileImgUrl: "https://mobile.tgrthaber.com.tr/images/ckfiles/images/1(801).jpg", userId: "3", userType: .normalUser, watchPosts: nil, watcherCount: nil, watchingCount: 2, watchingPostCount: 3), watchMapId: UUID(uuidString: "dasdasdasd"), watchingUser: nil)]
+    
+    /*
+     Watcher(beingWatch: true, _id: 1, user: User(active: true, activeGuide: "asd", birthDate: nil, city: nil, confirmed: nil, department: nil, _description: nil, email: nil, employeeCount: nil, firstName: "Deneme", fullName: "Deeme user", gender: nil, lastName: "user", links: nil, password: "asdasdasd", phoneNumber: "123123", profileImgUrl: "https://mobile.tgrthaber.com.tr/images/ckfiles/images/1(801).jpg", userId: "3", userType: .normalUser, watchPosts: nil, watcherCount: nil, watchingCount: 2, watchingPostCount: 3), watchMapId: UUID(uuidString: "dasdasdasd"), watchingUser: nil)
+     */
+    private var watcherDataList: [Watcher] = []
     private var watchingDataList: [Watching] = []
 
     
@@ -50,28 +57,50 @@ class PostsView: UIView {
         }
     }
     func load(){
-        if senderProfileType! == .posts{
+        if senderProfileType == .posts{
             tableView.allowsSelection = false
-            fetchPostData()
-        }
-        if let parentVC = parentVC as? ProfileViewController{
-            parentVC.containerView.addSubview(self)
-            self.frame = parentVC.containerView.frame
-            self.translatesAutoresizingMaskIntoConstraints = false
-            self.topAnchor.constraint(equalTo: parentVC.containerView.topAnchor, constant: 0.0).isActive = true
-            self.bottomAnchor.constraint(equalTo: parentVC.containerView.bottomAnchor, constant: 0.0).isActive = true
-            self.leftAnchor.constraint(equalTo: parentVC.containerView.leftAnchor, constant: 0.0).isActive = true
-            self.rightAnchor.constraint(equalTo: parentVC.containerView.rightAnchor, constant: 0.0).isActive = true
-            fetchWatchingData()
-        }else if let parentVC = parentVC as? WatchingViewController{
-            parentVC.containerView.addSubview(self)
-            self.frame = parentVC.containerView.frame
-            self.translatesAutoresizingMaskIntoConstraints = false
-            self.topAnchor.constraint(equalTo: parentVC.containerView.topAnchor, constant: 0.0).isActive = true
-            self.bottomAnchor.constraint(equalTo: parentVC.containerView.bottomAnchor, constant: 0.0).isActive = true
-            self.leftAnchor.constraint(equalTo: parentVC.containerView.leftAnchor, constant: 0.0).isActive = true
-            self.rightAnchor.constraint(equalTo: parentVC.containerView.rightAnchor, constant: 0.0).isActive = true
-            fetchWatcherData()
+            if let parentVC = parentVC as? ProfileViewController{
+                parentVC.containerView.addSubview(self)
+                self.frame = parentVC.containerView.frame
+                self.translatesAutoresizingMaskIntoConstraints = false
+                self.topAnchor.constraint(equalTo: parentVC.containerView.topAnchor, constant: 0.0).isActive = true
+                self.bottomAnchor.constraint(equalTo: parentVC.containerView.bottomAnchor, constant: 0.0).isActive = true
+                self.leftAnchor.constraint(equalTo: parentVC.containerView.leftAnchor, constant: 0.0).isActive = true
+                self.rightAnchor.constraint(equalTo: parentVC.containerView.rightAnchor, constant: 0.0).isActive = true
+                fetchPostData()
+            } else if let parentVC = parentVC as? WatchingViewController {
+                parentVC.containerView.addSubview(self)
+                self.frame = parentVC.containerView.frame
+                self.translatesAutoresizingMaskIntoConstraints = false
+                self.topAnchor.constraint(equalTo: parentVC.containerView.topAnchor, constant: 0.0).isActive = true
+                self.bottomAnchor.constraint(equalTo: parentVC.containerView.bottomAnchor, constant: 0.0).isActive = true
+                self.leftAnchor.constraint(equalTo: parentVC.containerView.leftAnchor, constant: 0.0).isActive = true
+                self.rightAnchor.constraint(equalTo: parentVC.containerView.rightAnchor, constant: 0.0).isActive = true
+                fetchPostData()
+            }
+        } else if senderProfileType == .watching {
+             if let parentVC = parentVC as? ProfileViewController{
+                parentVC.containerView.addSubview(self)
+                self.frame = parentVC.containerView.frame
+                self.translatesAutoresizingMaskIntoConstraints = false
+                self.topAnchor.constraint(equalTo: parentVC.containerView.topAnchor, constant: 0.0).isActive = true
+                self.bottomAnchor.constraint(equalTo: parentVC.containerView.bottomAnchor, constant: 0.0).isActive = true
+                self.leftAnchor.constraint(equalTo: parentVC.containerView.leftAnchor, constant: 0.0).isActive = true
+                self.rightAnchor.constraint(equalTo: parentVC.containerView.rightAnchor, constant: 0.0).isActive = true
+                fetchWatchingData()
+            }
+        }else {
+            if let parentVC = parentVC as? ProfileViewController{
+                parentVC.containerView.addSubview(self)
+                self.frame = parentVC.containerView.frame
+                self.translatesAutoresizingMaskIntoConstraints = false
+                self.topAnchor.constraint(equalTo: parentVC.containerView.topAnchor, constant: 0.0).isActive = true
+                self.bottomAnchor.constraint(equalTo: parentVC.containerView.bottomAnchor, constant: 0.0).isActive = true
+                self.leftAnchor.constraint(equalTo: parentVC.containerView.leftAnchor, constant: 0.0).isActive = true
+                self.rightAnchor.constraint(equalTo: parentVC.containerView.rightAnchor, constant: 0.0).isActive = true
+                fetchWatcherData()
+
+            }
         }
     }
     
@@ -82,10 +111,13 @@ class PostsView: UIView {
             if error == nil {
                 guard let posts = postList?.content else { return }
                 self.dataList = posts
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.setNeedsDisplay()
+                }
                 self.pageNumber+=1
-                self.tableView.reloadData()
             } else {
-                print("HOME fetching posts error: \(error?.localizedDescription ?? "error")")
+                print("watchng post fetching posts error: \(error?.localizedDescription ?? "error")")
             }
         }
     }
@@ -117,6 +149,7 @@ class PostsView: UIView {
 }
 extension PostsView:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(self.dataList.count)
         switch senderProfileType! {
         case .posts:
              return self.dataList.count
@@ -151,7 +184,7 @@ extension PostsView:UITableViewDelegate, UITableViewDataSource{
             }
             
             
-            if (indexPath.row == self.dataList.count-1)  && !firstTime && !isLoading{
+            if (indexPath.row == self.dataList.count-1)  && !firstTime && !isLoading && self.dataList.count > 15{
                 print("yüklenecek")
                 self.loadingMorePostsActivityView.isHidden = false
                 self.isLoading = true
@@ -174,6 +207,7 @@ extension PostsView:UITableViewDelegate, UITableViewDataSource{
         default:
             cell = Bundle.main.loadNibNamed("WatcherCell", owner: self, options: nil)?.first as! WatcherCell
         }
+        print("printtt")
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
