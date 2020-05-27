@@ -62,7 +62,7 @@ class PostDetailViewController: BaseViewController {
     }
     @IBAction func commentButtonClicked(_ sender: Any) {
         guard let mPost = self.post else { return }
-        self.goToCommentViewController(id: mPost)
+        self.goToCommentViewController(post: mPost)
     }
     @IBAction func watchButtonClicked(_ sender: Any) {
     }

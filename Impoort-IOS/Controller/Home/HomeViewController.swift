@@ -318,8 +318,8 @@ extension HomeViewController:UITabBarControllerDelegate{
     }
 }
 extension HomeViewController:PostCellDelegate {
-    func didCommentClicked(postId: Int) {
-        self.goToPostDetailVC(id: postId)
+    func didCommentClicked(post: PostResponseDTO) {
+        self.goToPostDetailVC(post: post)
     }
     
     func didClickedDislikeButton(postId: Int, indexPath: Int) {

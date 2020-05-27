@@ -17,7 +17,7 @@ protocol PostCellDelegate{
     func didClickedWatchButton(postId: Int)
     func didClickedlikeDisLikeButton(postId: Int, indexPath: Int)
     func didClickedDislikeButton(postId: Int, indexPath: Int)
-    func didCommentClicked(postId: Int)
+    func didCommentClicked(post: PostResponseDTO)
 }
 
 class PostCellWithImage: UITableViewCell {
@@ -150,8 +150,8 @@ class PostCellWithImage: UITableViewCell {
         }
     }
     @IBAction func commentButtonClicked(_ sender: Any) {
-        guard let postid = post?.postId else { return }
-        perDelegate?.didCommentClicked(postId: postid)
+        guard let _ = post?.postId else { return }
+        perDelegate?.didCommentClicked(post: post!)
     }
     
 }

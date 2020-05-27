@@ -32,6 +32,19 @@ class CommentViewController: BaseViewController {
         fetchComment()
         // Do any additional setup after loading the view.
     }
+    @IBAction func sendCommentClicked(_ sender: Any) {
+        guard let post = self.post, let id = post.postId else { return }
+        if !sendCommentTxtField.text!.isEmpty && sendCommentTxtField.text! != "" {
+            PostControllerAPI.addNewCommentUsingPOST(commentRequestDTO: CommentRequestDTO(commentText: sendCommentTxtField.text!, user: CurrentUser.shared.userId ?? ""), postId: id) { [weak self] (respo, err) in
+                guard let self = self else { return }
+                if err == nil {
+                    AlertController.shared.showBasicAlert(viewCont: self, title: "Success", message: "New Comment Added", buttonTitle: "Ok")
+                    self.sendCommentTxtField.text = ""
+                    self.fetchComment()
+                }
+            }
+        }
+    }
     
     private func fetchComment() {
         guard let post = self.post, let id = post.postId else { return }
