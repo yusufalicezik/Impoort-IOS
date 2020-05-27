@@ -16,6 +16,7 @@ protocol PostCellDelegate{
     func didClickedProfilePic(id: String) //id gönderilecek
     func didClickedWatchButton(postId: Int)
     func didClickedlikeDisLikeButton(postId: Int, indexPath: Int)
+    func didClickedDislikeButton(postId: Int, indexPath: Int)
 }
 
 class PostCellWithImage: UITableViewCell {
@@ -133,12 +134,16 @@ class PostCellWithImage: UITableViewCell {
     }
     @IBAction func watchButtonClicked(_ sender: Any) {
         guard let postid = post?.postId else { return }
-        perDelegate?.didClickedWatchButton(postId: postid)
+        if post?.isWatched ?? false {
+            
+        }else {
+            perDelegate?.didClickedWatchButton(postId: postid)
+        }
     }
     @IBAction func linkeButtonClicked(_ sender: Any) {
         guard let postid = post?.postId, let ind = indexPath else { return }
         if post?.isLiked ?? false {
-            
+            perDelegate?.didClickedDislikeButton(postId: postid, indexPath: ind)
         }else {
             perDelegate?.didClickedlikeDisLikeButton(postId: postid, indexPath: ind)
         }

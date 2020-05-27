@@ -66,6 +66,9 @@ class HomeViewController: BaseViewController {
                     self.dataList = posts
                     
                 }
+               
+                //sort posts
+                self.dataList = self.dataList.sorted{ $0.createdDateTime! < $1.createdDateTime! }
                 self.tableView.reloadData()
             } else {
                 print("HOME fetching posts error: \(error)")
@@ -165,6 +168,9 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
                     img = UIImage(named: "greenlike")
                 }
                 cell.likeButton.setImage(img, for: .normal)
+                
+               
+                
                 if (cell.postDescription.calculateMaxLines()) > 7{
                     cell.readMoreButton.isHidden = false
                 }
@@ -185,11 +191,11 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
                 }
                 cell.likeButton.setImage(imgLike, for: .normal)
                 
-                var imgWatch = UIImage(named: "watch")
-                if dataList[indexPath.row-1].isWatched ?? false {
-                    imgWatch = UIImage(named: "greenwatch")
-                }
-                cell.watchButton.setImage(imgWatch, for: .normal)
+//                var imgWatch = UIImage(named: "watch")
+//                if dataList[indexPath.row-1].isWatched ?? false {
+//                    imgWatch = UIImage(named: "greenwatch")
+//                }
+//                cell.watchButton.setImage(imgWatch, for: .normal)
                 
                 cell.post = dataList[indexPath.row-1]
             case .none:
@@ -311,13 +317,29 @@ extension HomeViewController:UITabBarControllerDelegate{
         }
     }
 }
-extension HomeViewController:PostCellDelegate{
+extension HomeViewController:PostCellDelegate {
+    func didClickedDislikeButton(postId: Int, indexPath: Int) {
+        PostControllerAPI.deleteLikeUsingDELETE(likeRequestDTO: LikeRequestDTO(user: CurrentUser.shared.userId ?? ""), postId: postId) { [weak self] (respo, error) in
+            guard let self = self else { return }
+          //  if error == nil {
+                //if let cell = self.tableView.cellForRow(at: IndexPath(row: indexPath, section: 0)) as? PostCellWithImage {
+                    //if let _ = cell.post?.likeCount {
+                        if self.dataList[indexPath].isLiked! {
+                            self.dataList[indexPath].isLiked = false
+                            self.dataList[indexPath].likeCount! -= 1
+                            self.tableView.reloadData()
+                        //}
+                 //   }
+                }
+         //   }
+        }
+    }
     func didClickedlikeDisLikeButton(postId: Int, indexPath: Int) {
         PostControllerAPI.addNewLikeUsingPOST(likeRequestDTO: LikeRequestDTO(user: CurrentUser.shared.userId ?? ""), postId: postId) { [weak self] (response, error) in
             guard let self = self else { return }
-            if error == nil {
+           // if error == nil {
                 if let cell = self.tableView.cellForRow(at: IndexPath(row: indexPath, section: 0)) as? PostCellWithImage {
-                    if let count = cell.post?.likeCount {
+                    if let _ = cell.post?.likeCount {
                         if !self.dataList[indexPath].isLiked! {
                             self.dataList[indexPath].isLiked = true
                             self.dataList[indexPath].likeCount! += 1
@@ -325,7 +347,7 @@ extension HomeViewController:PostCellDelegate{
                         }
                     }
                 }
-            }
+           // }
         }
     }
     
