@@ -15,7 +15,7 @@ protocol PostCellDelegate{
     func didSelectReadMore(_ id:Int)
     func didClickedProfilePic(id: String) //id gönderilecek
     func didClickedWatchButton(postId: Int)
-    func didClickedlikeDisLikeButton(postId: Int)
+    func didClickedlikeDisLikeButton(postId: Int, indexPath: Int)
 }
 
 class PostCellWithImage: UITableViewCell {
@@ -34,6 +34,9 @@ class PostCellWithImage: UITableViewCell {
     @IBOutlet weak var nameSurnameTxtFied: UILabel!
     @IBOutlet weak var postDescription: UILabel!
     @IBOutlet weak var postImage: UIImageView!
+    
+    var indexPath: Int?
+    
     var post: PostResponseDTO? {
         didSet {
             if PostType(rawValue: post?.postType ?? 0) == PostType.withPhotoPost {
@@ -73,11 +76,13 @@ class PostCellWithImage: UITableViewCell {
     var parentVC:UIViewController?
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var replyButton: UIButton!
+    @IBOutlet weak var watchButton: UIButton!
     var  perDelegate:PostCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     func configCell(){
+        likeButton.isEnabled = true
         self.postContainerView.layer.cornerRadius = 6
 //        self.postContainerView.layer.shadowRadius = 6
         self.profileImage.layer.cornerRadius = self.profileImage.frame.width / 2
@@ -131,8 +136,12 @@ class PostCellWithImage: UITableViewCell {
         perDelegate?.didClickedWatchButton(postId: postid)
     }
     @IBAction func linkeButtonClicked(_ sender: Any) {
-        guard let postid = post?.postId else { return }
-        perDelegate?.didClickedlikeDisLikeButton(postId: postid)
+        guard let postid = post?.postId, let ind = indexPath else { return }
+        if post?.isLiked ?? false {
+            
+        }else {
+            perDelegate?.didClickedlikeDisLikeButton(postId: postid, indexPath: ind)
+        }
     }
     @IBAction func commentButtonClicked(_ sender: Any) {
         

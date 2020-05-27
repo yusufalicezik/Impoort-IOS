@@ -333,7 +333,7 @@ extension PostsView : UIScrollViewDelegate{
 //    }
 }
 extension PostsView:PostCellDelegate{
-    func didClickedlikeDisLikeButton(postId: Int) {}
+    func didClickedlikeDisLikeButton(postId: Int, indexPath: Int) {}
     
     func didClickedWatchButton(postId: Int) {}
     

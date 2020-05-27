@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "iconlikeyes.png",
+      "filename" : "icons8-facebook-like-18.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "iconlikeyes-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "iconlikeyes-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

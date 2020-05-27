@@ -218,6 +218,7 @@
                 <outlet property="replyButton" destination="Ctu-JP-vLi" id="Su2-Fa-rbY"/>
                 <outlet property="sectorTxtField" destination="c1M-To-K4r" id="cp8-gN-G8A"/>
                 <outlet property="tagsLabel" destination="wBc-Lx-U32" id="CiK-Dz-KWa"/>
+                <outlet property="watchButton" destination="ZdB-lm-2hV" id="9uv-NX-yfB"/>
             </connections>
             <point key="canvasLocation" x="124.6376811594203" y="161.38392857142856"/>
         </tableViewCell>

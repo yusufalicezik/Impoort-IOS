@@ -68,7 +68,7 @@ class HomeViewController: BaseViewController {
                 }
                 self.tableView.reloadData()
             } else {
-                print("HOME fetching posts error: \(error?.localizedDescription ?? "error")")
+                print("HOME fetching posts error: \(error)")
             }
         }
     }
@@ -126,6 +126,12 @@ class HomeViewController: BaseViewController {
         self.present(shareVc!, animated: true, completion: nil)
     }
     
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.refreshControl.endRefreshing()
+    }
+    
 }
 extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -150,10 +156,15 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
                 addZoombehavior(for: cell.postImage, settings: .instaZoomSettings)
                 cell.perDelegate = self
                 cell.configCell()
+                cell.indexPath = indexPath.row-1
                 cell.post = dataList[indexPath.row-1]
                 cell.postDescription.text = dataList[indexPath.row-1].postDescription ?? ""
                 cell.postDescription.numberOfLines = 7
-                
+                var img = UIImage(named: "newlikeicon")
+                if dataList[indexPath.row-1].isLiked ?? false {
+                    img = UIImage(named: "greenlike")
+                }
+                cell.likeButton.setImage(img, for: .normal)
                 if (cell.postDescription.calculateMaxLines()) > 7{
                     cell.readMoreButton.isHidden = false
                 }
@@ -165,6 +176,21 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
                 cell.postDescription.text = dataList[indexPath.row-1].postDescription ?? ""
                 cell.perDelegate = self
                 cell.configCell()
+                cell.indexPath = indexPath.row-1
+                
+                var imgLike = UIImage(named: "newlikeicon")
+                print("INDEX:: \(indexPath.row) and: \(dataList[indexPath.row-1].postDescription)")
+                if dataList[indexPath.row-1].isLiked ?? false {
+                    imgLike = UIImage(named: "greenlike")
+                }
+                cell.likeButton.setImage(imgLike, for: .normal)
+                
+                var imgWatch = UIImage(named: "watch")
+                if dataList[indexPath.row-1].isWatched ?? false {
+                    imgWatch = UIImage(named: "greenwatch")
+                }
+                cell.watchButton.setImage(imgWatch, for: .normal)
+                
                 cell.post = dataList[indexPath.row-1]
             case .none:
                 return UITableViewCell()
@@ -286,8 +312,21 @@ extension HomeViewController:UITabBarControllerDelegate{
     }
 }
 extension HomeViewController:PostCellDelegate{
-    func didClickedlikeDisLikeButton(postId: Int) {
-        <#code#>
+    func didClickedlikeDisLikeButton(postId: Int, indexPath: Int) {
+        PostControllerAPI.addNewLikeUsingPOST(likeRequestDTO: LikeRequestDTO(user: CurrentUser.shared.userId ?? ""), postId: postId) { [weak self] (response, error) in
+            guard let self = self else { return }
+            if error == nil {
+                if let cell = self.tableView.cellForRow(at: IndexPath(row: indexPath, section: 0)) as? PostCellWithImage {
+                    if let count = cell.post?.likeCount {
+                        if !self.dataList[indexPath].isLiked! {
+                            self.dataList[indexPath].isLiked = true
+                            self.dataList[indexPath].likeCount! += 1
+                            self.tableView.reloadData()
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func didClickedWatchButton(postId: Int) {
