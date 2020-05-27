@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PostDetailViewController: BaseViewController {
 
@@ -16,6 +17,7 @@ class PostDetailViewController: BaseViewController {
     @IBOutlet weak var postDescriptionLabel: UILabel!
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var postImageHeightConstraint: NSLayoutConstraint!
+    var post: PostResponseDTO?
     //var post = Post()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,23 @@ class PostDetailViewController: BaseViewController {
     }
     func setup(){
         self.addSwipeDismiss(vc: self)
+        if let mPost = self.post {
+            if mPost.postType! == 1 { //with image post
+                guard let url = URL(string: post?.mediaUrl ?? "") else { return }
+                self.postImage.sd_setImage(with: url , completed: nil)
+            } else {
+                postImageHeightConstraint.constant = 0
+                self.view.layoutIfNeeded()
+                self.postImage.isHidden = true
+            }
+            
+            if let profileUrl = URL(string: post?.user?.profileImgUrl ?? "") {
+                postProfileImg.sd_setImage(with: profileUrl, completed: nil)
+            }
+            postOwnerSectorLabel.text = post?.user?.department ?? ""
+            postOwnerNameSurnameLabel.text = (post?.user?.firstName ?? "") + (post?.user?.lastName ?? "")
+            postDescriptionLabel.text = post?.postDescription ?? ""
+        }
     }
     @IBAction func backButtonClicked(_ sender: Any) {
         self.goToBack()
@@ -42,7 +61,8 @@ class PostDetailViewController: BaseViewController {
     @IBAction func likeButtonClicked(_ sender: Any) {
     }
     @IBAction func commentButtonClicked(_ sender: Any) {
-        self.goToCommentViewController()
+        guard let mPost = self.post else { return }
+        self.goToCommentViewController(id: mPost)
     }
     @IBAction func watchButtonClicked(_ sender: Any) {
     }

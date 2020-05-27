@@ -120,18 +120,20 @@ class BaseViewController: UIViewController {
         
         self.goToBack()
     }
-    func goToPostDetailVC(){
+    func goToPostDetailVC(post: PostResponseDTO){
         let storyboard = UIStoryboard(name: "Tools", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PostDetailVC") as? PostDetailViewController
+        vc?.post = post
         if let navBar = self.navigationController{
             navBar.pushViewController(vc!, animated: true)
         }else{
             self.present(vc!, animated: true, completion: nil)
         }
     }
-    func goToCommentViewController(){
+    func goToCommentViewController(post: PostResponseDTO){
         let storyboard = UIStoryboard(name: "Tools", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "CommentVC") as? CommentViewController
+        vc?.post = post
         self.present(vc!, animated: true, completion: nil)
     }
     

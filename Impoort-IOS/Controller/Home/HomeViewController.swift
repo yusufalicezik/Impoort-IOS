@@ -318,6 +318,10 @@ extension HomeViewController:UITabBarControllerDelegate{
     }
 }
 extension HomeViewController:PostCellDelegate {
+    func didCommentClicked(postId: Int) {
+        self.goToPostDetailVC(id: postId)
+    }
+    
     func didClickedDislikeButton(postId: Int, indexPath: Int) {
         PostControllerAPI.deleteLikeUsingDELETE(likeRequestDTO: LikeRequestDTO(user: CurrentUser.shared.userId ?? ""), postId: postId) { [weak self] (respo, error) in
             guard let self = self else { return }
@@ -365,7 +369,7 @@ extension HomeViewController:PostCellDelegate {
     
     func didSelectPost(_ id: Int) {
         print("tiklandi.. \(id)")
-        self.goToPostDetailVC() //parametre olarak gelen post gönderilecek, şimdilik id geliyor, modellerden sonra eklenecek
+        //self.goToPostDetailVC(id: ) //parametre olarak gelen post gönderilecek, şimdilik id geliyor, modellerden sonra eklenecek
     }
     
     func didSelectReadMore(_ id: Int) {

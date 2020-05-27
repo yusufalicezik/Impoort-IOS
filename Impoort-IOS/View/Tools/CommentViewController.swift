@@ -15,8 +15,10 @@ struct Comment2Model {
 }
 
 class CommentViewController: BaseViewController {
-    var commentOwnerPost = Comment2Model(commentOwnerName: "Yusuf Ali Cezik", commentText: "Deneme post Açıklaması Deneme post Açıklaması Deneme post Açıklaması Deneme post Açıklaması Deneme post Açıklaması Deneme post Açıklaması Deneme post Açıklaması")
-    var commentDataList: [Comment2Model] = []
+   
+    var commentDataList: [CommentResponseDTO] = []
+    
+    var post: PostResponseDTO?
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sendCommentTxtField: UITextField!
@@ -27,11 +29,22 @@ class CommentViewController: BaseViewController {
         super.viewDidLoad()
         self.clearHeader()
         setup()
+        fetchComment()
         // Do any additional setup after loading the view.
     }
     
+    private func fetchComment() {
+        guard let post = self.post, let id = post.postId else { return }
+        PostControllerAPI.getPostCommentUsingGET(postId: id) { [weak self] (response, errro) in
+            guard let self = self else { return }
+            guard let list = response else { return }
+            self.commentDataList = list
+            self.tableView.reloadData()
+        }
+    }
+    
     func setup(){
-        self.commentDataList.insert(commentOwnerPost, at: 0)
+       // self.commentDataList.insert(commentOwnerPost, at: 0)
        IQKeyboardManager.shared.enable = false
         TxtFieldConfig.shared.givePadding(to: self.sendCommentTxtField)
         self.tableView.delegate = self
@@ -89,19 +102,20 @@ extension CommentViewController {
 }
 extension CommentViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return commentDataList.count
+        return commentDataList.count+1 //owner +1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ownerCell", for: indexPath) as? CommentPostOwnerCell else {return UITableViewCell()}
-            cell.profileNameLabel.text = self.commentDataList[indexPath.row].commentOwnerName
-            cell.profilePostDescription.text = self.commentDataList[indexPath.row].commentText
+            cell.profileNameLabel.text = (post?.user?.firstName ?? "") + (post?.user?.lastName ?? "")
+            cell.profilePostDescription.text = post?.postDescription ?? ""
             return cell
         }else{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as? CommentCell else {return UITableViewCell()}
-            cell.profileNameLabel.text = self.commentDataList[indexPath.row].commentOwnerName
-            cell.profilePostComment.text = self.commentDataList[indexPath.row].commentText
+            cell.profileNameLabel.text = (self.commentDataList[indexPath.row-1].user?.firstName ?? "") +
+                (self.commentDataList[indexPath.row-1].user?.lastName ?? "")
+            cell.profilePostComment.text = self.commentDataList[indexPath.row-1].commentText ?? ""
             return cell
         }
     }
