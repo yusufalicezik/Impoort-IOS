@@ -338,15 +338,15 @@ extension HomeViewController:PostCellDelegate {
         PostControllerAPI.addNewLikeUsingPOST(likeRequestDTO: LikeRequestDTO(user: CurrentUser.shared.userId ?? ""), postId: postId) { [weak self] (response, error) in
             guard let self = self else { return }
            // if error == nil {
-                if let cell = self.tableView.cellForRow(at: IndexPath(row: indexPath, section: 0)) as? PostCellWithImage {
-                    if let _ = cell.post?.likeCount {
+                //if let cell = self.tableView.cellForRow(at: IndexPath(row: indexPath, section: 0)) as? PostCellWithImage {
+                   // if let _ = cell.post?.likeCount {
                         if !self.dataList[indexPath].isLiked! {
                             self.dataList[indexPath].isLiked = true
                             self.dataList[indexPath].likeCount! += 1
                             self.tableView.reloadData()
                         }
-                    }
-                }
+                 //   }
+               // }
            // }
         }
     }

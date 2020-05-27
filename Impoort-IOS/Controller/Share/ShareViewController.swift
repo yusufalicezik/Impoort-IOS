@@ -169,6 +169,7 @@ class ShareViewController: BaseViewController,UITextViewDelegate{
                                 self.postType = .normalPost
                                 self.closeButton.isHidden = true
                                 self.imgParentViewHeightConstraint.constant = 0.0
+                                self.tagList.removeAll()
                                 UIView.animate(withDuration: 0.3){
                                     self.view.layoutIfNeeded()
                                 }
