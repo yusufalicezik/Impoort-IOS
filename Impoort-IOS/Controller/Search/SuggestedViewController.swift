@@ -187,6 +187,7 @@ extension SuggestedViewController:UITextFieldDelegate{
         UIView.transition(with: self.view, duration: 0.25, options: [.transitionCrossDissolve], animations: {
             self.view.addSubview(self.searchResultView!)
         }, completion: nil)
+        self.searchResultView?.parentVC = self
         self.searchResultView?.translatesAutoresizingMaskIntoConstraints = false
         self.searchResultView?.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0.0).isActive = true
         self.searchResultView?.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0.0).isActive = true

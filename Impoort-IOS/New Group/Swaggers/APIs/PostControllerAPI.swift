@@ -331,6 +331,8 @@ open class PostControllerAPI {
      */
     open class func listPostsUsingGET(userId: String, pageNumber: Int? = nil, pageSize: Int? = nil, profilePost: Bool? = nil, completion: @escaping ((_ data: PostPageList?,_ error: Error?) -> Void)) {
         listPostsUsingGETWithRequestBuilder(userId: userId, pageNumber: pageNumber, pageSize: pageSize, profilePost: profilePost).execute { (response, error) -> Void in
+            print("body: \(response)")
+            print("body: \(response?.body)")
             completion(response?.body, error)
         }
     }

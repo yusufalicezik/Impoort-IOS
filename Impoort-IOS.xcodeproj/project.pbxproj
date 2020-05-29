@@ -135,6 +135,8 @@
 		48CEF2072359392400FCC5BD /* QuickShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48CEF2052359392400FCC5BD /* QuickShareCell.xib */; };
 		48D95FAA235E82AC0053ECA7 /* SuggestedCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D95FA9235E82AC0053ECA7 /* SuggestedCollectionCell.swift */; };
 		48F22E57236A351600F045F7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F22E56236A351600F045F7 /* CustomTextField.swift */; };
+		48FE85642480F622000BFB76 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FE85632480F622000BFB76 /* SearchService.swift */; };
+		48FE85682480F641000BFB76 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FE85672480F641000BFB76 /* PostService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -270,6 +272,8 @@
 		48CEF2052359392400FCC5BD /* QuickShareCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickShareCell.xib; sourceTree = "<group>"; };
 		48D95FA9235E82AC0053ECA7 /* SuggestedCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedCollectionCell.swift; sourceTree = "<group>"; };
 		48F22E56236A351600F045F7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		48FE85632480F622000BFB76 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		48FE85672480F641000BFB76 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		A01CE8E370EFB0DD6B74D031 /* Pods-Impoort-IOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impoort-IOS.debug.xcconfig"; path = "Target Support Files/Pods-Impoort-IOS/Pods-Impoort-IOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -311,6 +315,7 @@
 		4814645B24701F6300FA4B93 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				48FE85622480F607000BFB76 /* Utils */,
 				48212E0A247021FB00FE35DA /* Swaggers */,
 			);
 			name = API;
@@ -713,6 +718,15 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		48FE85622480F607000BFB76 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				48FE85632480F622000BFB76 /* SearchService.swift */,
+				48FE85672480F641000BFB76 /* PostService.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		8524AD7055730F85EDAAFF6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -906,11 +920,13 @@
 				48355B8F2372393000B5C17A /* SplashViewController.swift in Sources */,
 				48491701234A71DC0093091D /* HomeViewController.swift in Sources */,
 				48F22E57236A351600F045F7 /* CustomTextField.swift in Sources */,
+				48FE85682480F641000BFB76 /* PostService.swift in Sources */,
 				48212E67247021FC00FE35DA /* UserAuthRequestDto.swift in Sources */,
 				485AD842234AD313008E8E52 /* ChatRightCell.swift in Sources */,
 				4890BD3D2355142E0083AEAF /* ShareViewController.swift in Sources */,
 				48212E42247021FB00FE35DA /* JSONValue.swift in Sources */,
 				48CEF2062359392400FCC5BD /* QuickShareCell.swift in Sources */,
+				48FE85642480F622000BFB76 /* SearchService.swift in Sources */,
 				48212E52247021FB00FE35DA /* Experience.swift in Sources */,
 				48212E58247021FC00FE35DA /* UserResponseDTO.swift in Sources */,
 				48A830FF2357DDBC00451E38 /* BiggerPictureEditViewController.swift in Sources */,

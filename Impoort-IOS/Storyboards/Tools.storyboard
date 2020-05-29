@@ -107,10 +107,10 @@
                                 <rect key="frame" x="0.0" y="94" width="414" height="768"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lb9-6z-uhp">
-                                        <rect key="frame" x="0.0" y="25" width="414" height="726.5"/>
+                                        <rect key="frame" x="0.0" y="25" width="414" height="741.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="J6M-a6-Mjh">
-                                                <rect key="frame" x="20" y="10" width="374" height="706.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="J6M-a6-Mjh">
+                                                <rect key="frame" x="20" y="10" width="374" height="721.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DXb-kT-95s">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -142,31 +142,27 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLL-cA-aG9">
-                                                        <rect key="frame" x="0.0" y="50" width="374" height="434.5"/>
+                                                        <rect key="frame" x="0.0" y="55" width="374" height="434.5"/>
                                                         <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.Lorem ipsum dolor sit amet, consectetur adipiscing elit, </string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" red="0.49803921569999998" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ex-img" translatesAutoresizingMaskIntoConstraints="NO" id="5tM-ab-UfQ">
-                                                        <rect key="frame" x="0.0" y="484.5" width="374" height="200"/>
+                                                        <rect key="frame" x="0.0" y="494.5" width="374" height="200"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="200" id="usK-kh-Rwn"/>
                                                         </constraints>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FcC-i6-dhR">
-                                                        <rect key="frame" x="0.0" y="684.5" width="374" height="22"/>
+                                                        <rect key="frame" x="0.0" y="699.5" width="374" height="22"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3q-we-pmQ">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBL-zw-GJP">
                                                                 <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="22" id="BHw-NA-hdW"/>
-                                                                    <constraint firstAttribute="height" constant="22" id="HHg-gS-gl6"/>
+                                                                    <constraint firstAttribute="width" constant="22" id="esx-Lk-DKk"/>
+                                                                    <constraint firstAttribute="height" constant="22" id="mpu-M3-VtD"/>
                                                                 </constraints>
-                                                                <state key="normal" image="likeicon"/>
-                                                                <connections>
-                                                                    <action selector="likeButtonClicked:" destination="Zzi-AO-jel" eventType="touchUpInside" id="urA-dr-t4K"/>
-                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOx-gf-l9K">
                                                                 <rect key="frame" x="176" y="0.0" width="22" height="22"/>
@@ -179,16 +175,12 @@
                                                                     <action selector="commentButtonClicked:" destination="Zzi-AO-jel" eventType="touchUpInside" id="ZHS-5n-5So"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBL-zw-GJP">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyt-La-fEr">
                                                                 <rect key="frame" x="352" y="0.0" width="22" height="22"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="22" id="esx-Lk-DKk"/>
-                                                                    <constraint firstAttribute="height" constant="22" id="mpu-M3-VtD"/>
+                                                                    <constraint firstAttribute="width" constant="22" id="Oc8-gQ-ach"/>
+                                                                    <constraint firstAttribute="height" constant="22" id="ZVK-mS-98p"/>
                                                                 </constraints>
-                                                                <state key="normal" image="watch"/>
-                                                                <connections>
-                                                                    <action selector="watchButtonClicked:" destination="Zzi-AO-jel" eventType="touchUpInside" id="4Xm-CG-n4A"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -696,12 +688,10 @@
         <image name="commenticon" width="25" height="22"/>
         <image name="ex-img" width="1280" height="600"/>
         <image name="img" width="960" height="670"/>
-        <image name="likeicon" width="19" height="20"/>
         <image name="logo" width="289" height="95"/>
         <image name="profilepp" width="749" height="749"/>
         <image name="sendbutton" width="72" height="72"/>
         <image name="stonks" width="680" height="510"/>
-        <image name="watch" width="23" height="17"/>
         <image name="watchgreen" width="46" height="34"/>
     </resources>
 </document>

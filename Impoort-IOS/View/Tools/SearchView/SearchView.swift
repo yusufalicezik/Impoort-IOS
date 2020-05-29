@@ -23,16 +23,19 @@ class SearchView: UIView {
     @IBOutlet weak var filterView: UIView!
     var searchVisible = true
     var prevOffset:CGFloat = 0.0
+    weak var parentVC: SuggestedViewController?
     
-    var searchUserList: [UserResponseDTO] = [UserResponseDTO(active: true, activeGuide: "asd", birthDate: "123123", city: "İstanbul", confirmed: true, department: "iOS Geliştirici", _description: "iOS Developer at Appcent", email: "yusuf.cezik@appcent.mobi", employeeCount: 2, employees: nil, experiences:[
-        
-        Experience(companyId: "asd", companyName: "Appcent", department: "iOS Developer", experienceId: 2, stillWork: true, workerId: "dd"),
-         Experience(companyId: "ased", companyName: "Nuevo Softwarehouse", department: "iOS Intern", experienceId: 2, stillWork: false, workerId: "dd"),
-         Experience(companyId: "adsd", companyName: "Mercedes-Benz", department: "IT Intern", experienceId: 2, stillWork: false, workerId: "dd")
-    
-    
-    ], firstName: "Yusuf Ali", fullName: "Yusuf Ali Cezik", gender: "Erkek", lastName: "Cezik", links: ["github": "/yusufalicezik", "facebook": "/yusufalicezik", "linkedin": "/klecon"], phoneNumber: "123123", profileImgUrl: "https://www.klasiksanatlar.com/img/sayfalar/b/1_1534620012_Ekran-Resmi-2018-08-18-22.25.18.png", userId: "23", userType: .developer, watcherCount: 123, watchingCount: 22, watchingPostCount: 2)]
-    
+    var searchUserList: [UserResponseDTO] = []
+    /*
+     UserResponseDTO(active: true, activeGuide: "asd", birthDate: "123123", city: "İstanbul", confirmed: true, department: "iOS Geliştirici", _description: "iOS Developer at Appcent", email: "yusuf.cezik@appcent.mobi", employeeCount: 2, employees: nil, experiences:[
+         
+         Experience(companyId: "asd", companyName: "Appcent", department: "iOS Developer", experienceId: 2, stillWork: true, workerId: "dd"),
+          Experience(companyId: "ased", companyName: "Nuevo Softwarehouse", department: "iOS Intern", experienceId: 2, stillWork: false, workerId: "dd"),
+          Experience(companyId: "adsd", companyName: "Mercedes-Benz", department: "IT Intern", experienceId: 2, stillWork: false, workerId: "dd")
+     
+     
+     ], firstName: "Yusuf Ali", fullName: "Yusuf Ali Cezik", gender: "Erkek", lastName: "Cezik", links: ["github": "/yusufalicezik", "facebook": "/yusufalicezik", "linkedin": "/klecon"], phoneNumber: "123123", profileImgUrl: "https://www.klasiksanatlar.com/img/sayfalar/b/1_1534620012_Ekran-Resmi-2018-08-18-22.25.18.png", userId: "23", userType: .developer, watcherCount: 123, watchingCount: 22, watchingPostCount: 2)
+     */
     override func awakeFromNib() {
         super.awakeFromNib()
         let nib = UINib(nibName: "FilterNewCollectionViewCell", bundle: nil)
@@ -50,21 +53,18 @@ class SearchView: UIView {
 
     func fetchData(text: String) {
         lastText = text
-        var userTypes: [SearchRequest.UserTypes] = []
 
+        var userTypes: [String] = []
         for i in filteredIndex {
             if i <= 2 {
-                userTypes.append(SearchRequest.UserTypes(rawValue: filterItems[i].filterName.uppercased())!)
+                userTypes.append(filterItems[i].filterName.lowercased())
             }
         }
+
         
-        SearchControllerAPI.searchUserUsingGET(searchRequest: SearchRequest(fullName: text, userTypes: userTypes)) { [weak self] (responseDtoList, error) in
-            if error == nil {
-                if let response = responseDtoList {
-                    self?.searchUserList = response
-                    self?.tableView.reloadData()
-                }
-            }
+        SearchService.shared.searchRequest(text: text, types: userTypes) { [weak self] (responseList) in
+                self?.searchUserList = responseList
+                self?.tableView.reloadData()
         }
     }
 }
@@ -109,21 +109,17 @@ extension SearchView : UICollectionViewDelegate, UICollectionViewDataSource, UIC
         }
         print("Filterelenecekler : \(self.filteredIndex)")
         filterItems[indexPath.row].isSelected = !filterItems[indexPath.row].isSelected
-        var userTypes: [SearchRequest.UserTypes] = []
-
+        var userTypes: [String] = []
+        
         for i in filteredIndex {
             if i <= 2 {
-                userTypes.append(SearchRequest.UserTypes(rawValue: filterItems[i].filterName.uppercased())!)
+                userTypes.append(filterItems[i].filterName.lowercased())
             }
         }
         
-        SearchControllerAPI.searchUserUsingGET(searchRequest: SearchRequest(fullName: lastText, userTypes: userTypes)) { [weak self] (responseDtoList, error) in
-            if error == nil {
-                if let response = responseDtoList {
-                    self?.searchUserList = response
-                    self?.tableView.reloadData()
-                }
-            }
+        SearchService.shared.searchRequest(text: lastText, types: userTypes) { [weak self] (responseList) in
+            self?.searchUserList = responseList
+            self?.tableView.reloadData()
         }
     }
     
@@ -147,6 +143,11 @@ extension SearchView : UITableViewDelegate, UITableViewDataSource{
         return cell
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        guard let vc = parentVC, let id = searchUserList[indexPath.row].userId  else { return }
+        vc.goToProfile(id)
+    }
     
 }
 extension SearchView:UIScrollViewDelegate {
