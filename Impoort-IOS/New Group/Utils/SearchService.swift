@@ -36,8 +36,10 @@ class SearchService {
         "Accept": "application/json", "Authorization": UserDefaults.standard.string(forKey: "AuthJWT")!]
                 
         Alamofire.request(URL(string: "http://ec2-18-156-84-119.eu-central-1.compute.amazonaws.com/api/v1/search/ios")!, method: .get, parameters: params ,headers: h).responseJSON { (data) in
+            print(data)
             if data.result.isSuccess {
                 let json = JSON(data.result.value!)
+                print(json)
                 var response: [UserResponseDTO] = []
                 for i in 0..<json.arrayValue.count {
                     

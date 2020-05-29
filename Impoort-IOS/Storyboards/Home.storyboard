@@ -1056,6 +1056,9 @@
                                                                             <constraint firstAttribute="width" constant="23" id="sGy-JF-R1D"/>
                                                                         </constraints>
                                                                         <state key="normal" image="messagwwhite"/>
+                                                                        <connections>
+                                                                            <action selector="watchClicked:" destination="GVy-Wt-apd" eventType="touchUpInside" id="hhI-fB-wnB"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aqk-i1-rv5">
                                                                         <rect key="frame" x="30" y="1" width="25" height="20"/>
@@ -1064,6 +1067,9 @@
                                                                             <constraint firstAttribute="width" constant="25" id="ymG-0M-5wG"/>
                                                                         </constraints>
                                                                         <state key="normal" image="watchwhite"/>
+                                                                        <connections>
+                                                                            <action selector="messagesClicked:" destination="GVy-Wt-apd" eventType="touchUpInside" id="R3M-12-FaE"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>
@@ -1080,7 +1086,7 @@
                                                             <action selector="didMoreClicked:" destination="GVy-Wt-apd" eventType="touchUpInside" id="piK-qZ-kMi"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHl-RP-NCS">
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHl-RP-NCS">
                                                         <rect key="frame" x="10" y="333" width="22" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="C8l-7G-sjn"/>
@@ -1347,12 +1353,14 @@
                         <outlet property="headerView" destination="tD9-T4-giU" id="76k-wl-dMd"/>
                         <outlet property="linksStackView" destination="6bA-nR-U89" id="aae-aW-2TU"/>
                         <outlet property="locationLabel" destination="I0R-BA-ibK" id="x3S-7z-b0K"/>
+                        <outlet property="messagesButton" destination="Aqk-i1-rv5" id="nJY-4G-U57"/>
                         <outlet property="nameSurnameLabel" destination="ZAJ-r1-K6E" id="UPg-0x-ftN"/>
                         <outlet property="parentStackView" destination="PwN-Sf-4pa" id="fJm-V5-wqu"/>
                         <outlet property="profileImage" destination="0J4-kP-s0g" id="c0E-3j-rEZ"/>
                         <outlet property="scrollView" destination="PLE-NV-G2j" id="LNt-3d-PsL"/>
                         <outlet property="topContainerView" destination="PyM-0A-x2N" id="1rc-8G-Lhb"/>
                         <outlet property="topLeftIcon" destination="FRY-6U-8la" id="AEG-rT-L6O"/>
+                        <outlet property="watchButton" destination="0fB-Sp-wPv" id="296-it-VJX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FpJ-rZ-Nzx" userLabel="First Responder" sceneMemberID="firstResponder"/>

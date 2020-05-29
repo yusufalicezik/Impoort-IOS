@@ -62,9 +62,16 @@ class SearchView: UIView {
         }
 
         
-        SearchService.shared.searchRequest(text: text, types: userTypes) { [weak self] (responseList) in
-                self?.searchUserList = responseList
+//        SearchService.shared.searchRequest(text: text, types: userTypes) { [weak self] (responseList) in
+//                self?.searchUserList = responseList
+//                self?.tableView.reloadData()
+//        }
+        
+        SearchControllerAPI.searchUserUsingGET(searchRequest: SearchRequest(fullName: lastText, userTypes: [.developer, .normalUser])) { [weak self] (respo, err) in
+            if let resp = respo {
+                self?.searchUserList = resp
                 self?.tableView.reloadData()
+            }
         }
     }
 }
@@ -117,9 +124,13 @@ extension SearchView : UICollectionViewDelegate, UICollectionViewDataSource, UIC
             }
         }
         
-        SearchService.shared.searchRequest(text: lastText, types: userTypes) { [weak self] (responseList) in
-            self?.searchUserList = responseList
-            self?.tableView.reloadData()
+  
+        
+        SearchControllerAPI.searchUserUsingGET(searchRequest: SearchRequest(fullName: lastText, userTypes: [.developer, .investor, .startup])) { [weak self] (respo, err) in
+            if let resp = respo {
+                self?.searchUserList = resp
+                self?.tableView.reloadData()
+            }
         }
     }
     

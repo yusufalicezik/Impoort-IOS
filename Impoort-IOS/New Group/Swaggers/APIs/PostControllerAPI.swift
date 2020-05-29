@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 
 
@@ -335,6 +336,39 @@ open class PostControllerAPI {
             print("body: \(response?.body)")
             completion(response?.body, error)
         }
+    }
+    
+    public typealias completion = ((_ postList: [PostResponseDTO])->Void)
+    public class func listPostsService(userId: String, pageNumber: Int? = nil, pageSize: Int? = nil, profilePost: Bool? = nil, completion: completion) {
+        let params = [
+            "pageNumber": pageNumber ?? 0,
+            "pageSize": pageSize ?? 20,
+            "profilePost": profilePost ?? false,
+            "userId": userId
+        ] as [String : Any]
+        
+        let h: HTTPHeaders = ["Content-Type": "application/json",
+                              "Accept": "application/json", "Authorization": UserDefaults.standard.string(forKey: "AuthJWT")!]
+        
+//        Alamofire.request(URL(string: "http://ec2-18-156-84-119.eu-central-1.compute.amazonaws.com/api/v1/post")!, method: .get, parameters: params ,headers: h).responseJSON { (data) in
+//            if data.result.isSuccess {
+//                let json = JSON(data.result.value!)
+//                var response: [PostResponseDTO] = []
+//                for i in 0..<json["content"].arrayValue.count {
+//                    
+//                    var profUrl = ""
+//                    if let url = json[i]["profileImgUrl"].string {
+//                        profUrl = url
+//                    }
+//                    
+//                    let user = UserResponseDTO(active: false, activeGuide: "", birthDate: "", city: "", confirmed: false, department: json[i]["department"].stringValue , _description: "", email: "", employeeCount: 0, employees: nil, experiences: nil, firstName: json[i]["firstName"].stringValue, fullName: json[i]["fullName"].stringValue, gender: "", lastName: json[i]["lastName"].stringValue, links: nil, phoneNumber: nil, profileImgUrl: profUrl, userId: json[i]["userId"].stringValue, userType: nil, watcherCount: 0, watchingCount: 0, watchingPostCount: 0)
+//                    
+//                    response.append(user)
+//                    
+//                }
+//                completion(response)
+//            }
+//        }
     }
 
 

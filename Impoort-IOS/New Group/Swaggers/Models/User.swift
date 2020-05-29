@@ -11,11 +11,11 @@ import Foundation
 
 public struct User: Codable {
 
-    public enum UserType: String, Codable { 
-        case investor = "INVESTOR"
-        case startup = "STARTUP"
-        case developer = "DEVELOPER"
-        case normalUser = "NORMAL_USER"
+    public enum UserType: Int, Codable {
+        case investor = 0
+        case startup = 1
+        case developer = 2
+        case normalUser = 3
     }
     public var active: Bool?
     public var activeGuide: String?

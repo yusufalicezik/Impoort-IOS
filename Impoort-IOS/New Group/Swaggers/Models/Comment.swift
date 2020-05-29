@@ -11,13 +11,12 @@ import Foundation
 
 public struct Comment: Codable {
 
-    public var commentDate: Timestamp?
+
     public var commentId: Int?
     public var commentText: String?
     public var user: User?
 
-    public init(commentDate: Timestamp?, commentId: Int?, commentText: String?, user: User?) {
-        self.commentDate = commentDate
+    public init(commentId: Int?, commentText: String?, user: User?) {
         self.commentId = commentId
         self.commentText = commentText
         self.user = user

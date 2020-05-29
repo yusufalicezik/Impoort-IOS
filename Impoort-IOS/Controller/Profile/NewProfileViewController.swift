@@ -14,6 +14,8 @@ import SDWebImage
 class NewProfileViewController: BaseViewController {
     
     
+    @IBOutlet weak var messagesButton: UIButton!
+    @IBOutlet weak var watchButton: UIButton!
     @IBOutlet weak var headerProfileImage: UIImageView!
     @IBOutlet weak var headerProfileImageWidthConst: NSLayoutConstraint!
     @IBOutlet weak var headerProfileImageHeightConst: NSLayoutConstraint!
@@ -71,11 +73,14 @@ class NewProfileViewController: BaseViewController {
     func setup(){
         if self.profileID == CurrentUser.shared.userId ?? "" {  // me
             self.topLeftIcon.setImage(UIImage(named: "settingsicon"), for: .normal)
+            self.messagesButton.isHidden = true
+            self.watchButton.isHidden = true
             self.profileTopLeftAction = {[weak self] in
                 self?.goToSettingsVC()
             }
         }else{
             self.topLeftIcon.setImage(UIImage(named: "close"), for: .normal)
+            self.watchButton.addTarget(self, action: #selector(handleWatchButton), for: .touchUpInside)
             self.profileTopLeftAction = {[weak self] in
                 self?.goToBack()
             }
@@ -101,6 +106,8 @@ class NewProfileViewController: BaseViewController {
         self.profileImage.addGestureRecognizer(biggerImageRecognizer)
         scrollView.delaysContentTouches = false
         scrollView.delegate = self
+        
+        
     }
     
     private func fetchProfileDetails() {
@@ -165,41 +172,43 @@ class NewProfileViewController: BaseViewController {
     }
     
     private func setCurrentUser() {
-        if let bDate = profileDetails?.birthDate {
-            CurrentUser.shared.birthDate = bDate
-        }
-        if let city = profileDetails?.city {
-            CurrentUser.shared.city = city
-        }
-        if let desc = profileDetails?._description {
-            CurrentUser.shared.description = desc
-        }
-        if let department = profileDetails?.department {
-            CurrentUser.shared.sector = department
-        }
-        if let email = profileDetails?.email {
-            CurrentUser.shared.email = email
-        }
-        if let firstName = profileDetails?.firstName {
-            CurrentUser.shared.firstName = firstName
-        }
-        if let gender = profileDetails?.gender {
-            CurrentUser.shared.gender = gender
-        }
-        if let lastname = profileDetails?.lastName {
-            CurrentUser.shared.lastName = lastname
-        }
-        if let phoneNumber = profileDetails?.phoneNumber {
-            CurrentUser.shared.phoneNumber = phoneNumber
-        }
-        if let photo = profileDetails?.profileImgUrl {
-            CurrentUser.shared.profileImgUrl = photo
-        }
-        if let exps = profileDetails?.experiences {
-            CurrentUser.shared.experiences = exps
-        }
-        if let links = profileDetails?.links {
-            CurrentUser.shared.links = links
+        if self.profileID == CurrentUser.shared.userId ?? "" {  // me
+            if let bDate = profileDetails?.birthDate {
+                CurrentUser.shared.birthDate = bDate
+            }
+            if let city = profileDetails?.city {
+                CurrentUser.shared.city = city
+            }
+            if let desc = profileDetails?._description {
+                CurrentUser.shared.description = desc
+            }
+            if let department = profileDetails?.department {
+                CurrentUser.shared.sector = department
+            }
+            if let email = profileDetails?.email {
+                CurrentUser.shared.email = email
+            }
+            if let firstName = profileDetails?.firstName {
+                CurrentUser.shared.firstName = firstName
+            }
+            if let gender = profileDetails?.gender {
+                CurrentUser.shared.gender = gender
+            }
+            if let lastname = profileDetails?.lastName {
+                CurrentUser.shared.lastName = lastname
+            }
+            if let phoneNumber = profileDetails?.phoneNumber {
+                CurrentUser.shared.phoneNumber = phoneNumber
+            }
+            if let photo = profileDetails?.profileImgUrl {
+                CurrentUser.shared.profileImgUrl = photo
+            }
+            if let exps = profileDetails?.experiences {
+                CurrentUser.shared.experiences = exps
+            }
+            if let links = profileDetails?.links {
+                CurrentUser.shared.links = links
+            }
         }
     }
     
@@ -249,6 +258,14 @@ class NewProfileViewController: BaseViewController {
         }
     }
     
+    @objc func handleWatchButton() {
+        WatchControllerAPI.watchUserUsingPOST(watcherId: CurrentUser.shared.userId ?? "", watchingId: profileID) { (watch, error) in
+            if error == nil {
+                AlertController.shared.showBasicAlert(viewCont: self, title: "Success", message: "You are watching \(self.profileDetails?.fullName ?? "") now!", buttonTitle: "Ok")
+            }
+        }
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         self.clearHeader()
     }
@@ -263,6 +280,9 @@ class NewProfileViewController: BaseViewController {
     @IBAction func messagesClicked(_ sender: Any) {
         self.goToMessagesGeneral()
     }
+    @IBAction func watchClicked(_ sender: Any) {
+    }
+    
     
     deinit{
         print("new de init")

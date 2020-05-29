@@ -100,7 +100,6 @@ class PostsView: UIView {
                 self.leftAnchor.constraint(equalTo: parentVC.containerView.leftAnchor, constant: 0.0).isActive = true
                 self.rightAnchor.constraint(equalTo: parentVC.containerView.rightAnchor, constant: 0.0).isActive = true
                 fetchWatcherData()
-
             }
         }
     }
@@ -138,19 +137,19 @@ class PostsView: UIView {
     }
     
     private func fetchWatchingData() {
-        WatchControllerAPI.getWatchingUsingGET(myId: userId, userId: userId) { [weak self] (list, error) in
+        WatchControllerAPI.getWatchingUsingGET(myId: userId, userId: userId, pageNumber: 0, pageSize: 20, completion: { [weak self] (list, error) in
             if error == nil {
                 guard let watchingList = list?.content else { return }
                 self?.watchingDataList = watchingList
                 self?.tableView.reloadData()
             } else {
-                print("Error Fetching Watcthing data : \(error?.localizedDescription ?? "error")")
+                print("Error Fetching Watcthing data : \(error)")
             }
-        }
+        })
     }
     
     private func fetchWatcherData() {
-        WatchControllerAPI.getWatcherUsingGET(myId: userId, userId: userId) { [weak self] (list, error) in
+        WatchControllerAPI.getWatcherUsingGET(myId: userId, userId: userId, pageNumber: 0, pageSize: 20) { [weak self] (list, error) in
             if error == nil {
                 guard let watcherList = list?.content else { return }
                 self?.watcherDataList = watcherList
@@ -160,7 +159,6 @@ class PostsView: UIView {
             }
         }
     }
-    
 }
 extension PostsView:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -194,7 +192,7 @@ extension PostsView:UITableViewDelegate, UITableViewDataSource{
                 cell.postImageHeightConstraint.constant = 0.0
             }
             
-            if (cell.postDescription.calculateMaxLines()) > 7{
+            if (cell.postDescription.calculateMaxLines()) > 7 {
                 cell.readMoreButton.isHidden = false
             }
             
@@ -207,7 +205,22 @@ extension PostsView:UITableViewDelegate, UITableViewDataSource{
             }
             
             //cell. config işlemleri posta göre
-        case .watcher:
+        case .watching:
+            cell = Bundle.main.loadNibNamed("WatcherCell", owner: self, options: nil)?.first as! WatcherCell
+            if let mCell = cell as? WatcherCell{
+                mCell.profileSectorLabel.text = watchingDataList[indexPath.row].user?.department ?? ""
+                mCell.profileNAmeSurnameLabel.text = (watchingDataList[indexPath.row].user?.firstName ?? "") + (watchingDataList[indexPath.row].user?.lastName ?? "")
+                
+                let isWatching = watchingDataList[indexPath.row].beingWatch ?? true ? "Watching" : "Watch"
+                mCell.watchingWatcherButton.setTitle(isWatching, for: .normal)
+                mCell.watchingWatcherButton.backgroundColor = watchingDataList[indexPath.row].beingWatch ?? true ? #colorLiteral(red: 0.3960784314, green: 0.7254901961, blue: 0.6470588235, alpha: 1) : #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
+                
+                
+                if let url = URL(string: watchingDataList[indexPath.row].user?.profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png") {
+                    mCell.profileImg?.sd_setImage(with: url, completed: nil)
+                }
+            }
+        default:
             cell = Bundle.main.loadNibNamed("WatcherCell", owner: self, options: nil)?.first as! WatcherCell
             if let mCell = cell as? WatcherCell{
                 mCell.profileSectorLabel.text = watcherDataList[indexPath.row].user?.department ?? ""
@@ -216,14 +229,10 @@ extension PostsView:UITableViewDelegate, UITableViewDataSource{
                 let isWatching = watcherDataList[indexPath.row].beingWatch ?? true ? "Watching" : "Watch"
                 mCell.watchingWatcherButton.setTitle(isWatching, for: .normal)
                 mCell.watchingWatcherButton.backgroundColor = watcherDataList[indexPath.row].beingWatch ?? true ? #colorLiteral(red: 0.3960784314, green: 0.7254901961, blue: 0.6470588235, alpha: 1) : #colorLiteral(red: 0.05490196078, green: 0.1607843137, blue: 0.2274509804, alpha: 1)
-                
-                
                 if let url = URL(string: watcherDataList[indexPath.row].user?.profileImgUrl ?? "https://pngimage.net/wp-content/uploads/2019/05/empty-profile-picture-png-2.png") {
                     mCell.profileImg?.sd_setImage(with: url, completed: nil)
                 }
             }
-        default:
-            cell = Bundle.main.loadNibNamed("WatcherCell", owner: self, options: nil)?.first as! WatcherCell
         }
         print("printtt")
         return cell
