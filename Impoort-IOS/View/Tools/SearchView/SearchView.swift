@@ -67,7 +67,7 @@ class SearchView: UIView {
 //                self?.tableView.reloadData()
 //        }
         
-        SearchControllerAPI.searchUserUsingGET(searchRequest: SearchRequest(fullName: lastText, userTypes: [.developer, .normalUser])) { [weak self] (respo, err) in
+        SearchControllerAPI.searchUserUsingGET(searchRequest: SearchRequest(fullName: lastText, userTypes: [.developer, .normalUser, .investor, .startup])) { [weak self] (respo, err) in
             if let resp = respo {
                 self?.searchUserList = resp
                 self?.tableView.reloadData()
@@ -116,17 +116,16 @@ extension SearchView : UICollectionViewDelegate, UICollectionViewDataSource, UIC
         }
         print("Filterelenecekler : \(self.filteredIndex)")
         filterItems[indexPath.row].isSelected = !filterItems[indexPath.row].isSelected
-        var userTypes: [String] = []
+        var userTypes: [SearchRequest.UserTypes] = []
         
         for i in filteredIndex {
             if i <= 2 {
-                userTypes.append(filterItems[i].filterName.lowercased())
+                userTypes.append(SearchRequest.UserTypes(rawValue: filterItems[i].filterName.uppercased())!)
             }
         }
         
-  
         
-        SearchControllerAPI.searchUserUsingGET(searchRequest: SearchRequest(fullName: lastText, userTypes: [.developer, .investor, .startup])) { [weak self] (respo, err) in
+        SearchControllerAPI.searchUserUsingGET(searchRequest: SearchRequest(fullName: lastText, userTypes: userTypes)) { [weak self] (respo, err) in
             if let resp = respo {
                 self?.searchUserList = resp
                 self?.tableView.reloadData()

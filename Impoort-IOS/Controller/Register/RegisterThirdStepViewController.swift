@@ -60,7 +60,7 @@ class RegisterThirdStepViewController: BaseViewController {
             
             UserAuthControllerAPI.addNewUserUsingPOST(userRequestDTO: userReq) { (responseDto, error) in
                 if error == nil {
-                    AlertController.shared.showBasicAlert(viewCont: self, title: "Success", message: "Please verify your account with e mail that we sent", buttonTitle: "Ok") {
+                    AlertController.shared.showBasicAlert(viewCont: self, title: "Success", message: "Your account created successfully. You can Log in now!", buttonTitle: "Ok") {
                             self.goToLogin()
                     }
                 } else {

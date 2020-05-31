@@ -90,9 +90,10 @@ class BaseViewController: UIViewController {
         
     }
     
-    func goToChatVC(){ //id de gönderilecek. mesajlasılan kisinin.
+    func goToChatVC(userDetails: UserResponseDTO?){ //id de gönderilecek. mesajlasılan kisinin.
         let storyboard = UIStoryboard(name: "External", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ChatVC") as? ChatViewController
+        vc!.userDetails = userDetails
         if let navBar = self.navigationController{
             navBar.pushViewController(vc!, animated: true)
         }else{

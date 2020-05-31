@@ -1068,7 +1068,7 @@
                                                                         </constraints>
                                                                         <state key="normal" image="watchwhite"/>
                                                                         <connections>
-                                                                            <action selector="messagesClicked:" destination="GVy-Wt-apd" eventType="touchUpInside" id="R3M-12-FaE"/>
+                                                                            <action selector="chatButonClicked:" destination="GVy-Wt-apd" eventType="touchUpInside" id="Hca-IY-mBc"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>

@@ -81,6 +81,7 @@ class NewProfileViewController: BaseViewController {
         }else{
             self.topLeftIcon.setImage(UIImage(named: "close"), for: .normal)
             self.watchButton.addTarget(self, action: #selector(handleWatchButton), for: .touchUpInside)
+            self.messagesButton.addTarget(self, action: #selector(handleChatButton), for: .touchUpInside)
             self.profileTopLeftAction = {[weak self] in
                 self?.goToBack()
             }
@@ -169,6 +170,9 @@ class NewProfileViewController: BaseViewController {
             self.getLinks()
         }
         
+    }
+    @IBAction func chatButonClicked(_ sender: Any) {
+        self.goToChatVC(userDetails: profileDetails)
     }
     
     private func setCurrentUser() {
@@ -264,6 +268,10 @@ class NewProfileViewController: BaseViewController {
                 AlertController.shared.showBasicAlert(viewCont: self, title: "Success", message: "You are watching \(self.profileDetails?.fullName ?? "") now!", buttonTitle: "Ok")
             }
         }
+    }
+    
+    @objc func handleChatButton() {
+        self.goToChatVC(userDetails: profileDetails)
     }
     
     override func viewDidDisappear(_ animated: Bool) {

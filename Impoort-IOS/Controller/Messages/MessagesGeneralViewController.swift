@@ -81,7 +81,7 @@ extension MessagesGeneralViewController:UITableViewDataSource,UITableViewDelegat
         return cell!
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.goToChatVC() // id gönderilecek. indexpath.row.id
+        //self.goToChatVC() // id gönderilecek. indexpath.row.id
         self.tableView.deselectRow(at: indexPath, animated: false)
     }
     override func viewDidAppear(_ animated: Bool) {

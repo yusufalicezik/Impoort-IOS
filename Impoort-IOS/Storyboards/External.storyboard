@@ -398,6 +398,7 @@
                         <viewLayoutGuide key="safeArea" id="GLF-wv-BOr"/>
                     </view>
                     <connections>
+                        <outlet property="departmentLabel" destination="fxn-IL-arh" id="DuP-Nq-cdT"/>
                         <outlet property="inputViewBottomConstraint" destination="Y7n-KM-eKa" id="twy-Ef-RCK"/>
                         <outlet property="profileImage" destination="qel-YR-Xh7" id="B9T-Ld-M6s"/>
                         <outlet property="profileNameSurnameLabel" destination="3as-HO-DGl" id="bH3-91-Zks"/>
